@@ -25,6 +25,10 @@ extension ItemDescPresenter: ItemDescModuleInput {
 }
 
 extension ItemDescPresenter: ItemDescViewOutput {
+    func viewDidLoad() {
+        view?.updateForSections([ItemDescSectionModel(ItemDescModel(name: "На гребне волны", pictures: ["favicon"], amount: 0, rent: 0, description: "На гребне волны", specifications: []))])
+    }
+    
 }
 
 extension ItemDescPresenter: ItemDescInteractorOutput {

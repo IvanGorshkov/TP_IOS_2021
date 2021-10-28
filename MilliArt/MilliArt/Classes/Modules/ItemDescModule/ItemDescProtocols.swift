@@ -16,9 +16,11 @@ protocol ItemDescModuleOutput: AnyObject {
 }
 
 protocol ItemDescViewInput: AnyObject {
+    func updateForSections(_ sections: [ItemDescSectionModel])
 }
 
 protocol ItemDescViewOutput: AnyObject {
+    func viewDidLoad()
 }
 
 protocol ItemDescInteractorInput: AnyObject {
@@ -28,4 +30,17 @@ protocol ItemDescInteractorOutput: AnyObject {
 }
 
 protocol ItemDescRouterInput: AnyObject {
+}
+
+protocol CellIdentifiable {
+    var cellIdentifier: String { get }
+    var cellHeight: Float { get }
+}
+
+protocol SectionRowsRepresentable {
+    var rows: [CellIdentifiable] { get set }
+}
+
+protocol ModelRepresentable {
+    var model: CellIdentifiable? { get set }
 }

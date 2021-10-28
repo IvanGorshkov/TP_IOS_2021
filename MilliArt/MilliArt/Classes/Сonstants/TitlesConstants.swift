@@ -18,4 +18,5 @@ class TitlesConstants {
     static let SearchNavTitle = SearchBarTitle
     static let CartNavTitle = CartBarTitle
     static let BackNavTitle = "Назад"
+    static let PaintingNavTitle = "Информация о картине"
 }
