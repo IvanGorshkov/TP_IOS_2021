@@ -16,8 +16,8 @@ extension TabBarRouter: TabBarRouterInput {
     func getViews() -> [UIViewController] {
         views = [
             MainContainer.assemble(with: MainContext()).viewController,
-            MainContainer.assemble(with: MainContext()).viewController,
-            MainContainer.assemble(with: MainContext()).viewController
+            SearchContainer.assemble(with: SearchContext()).viewController,
+            CartContainer.assemble(with: CartContext()).viewController
         ]
         return views
     }

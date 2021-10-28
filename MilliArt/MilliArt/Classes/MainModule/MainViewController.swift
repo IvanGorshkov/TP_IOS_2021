@@ -24,16 +24,12 @@ final class MainViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-	}
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-       //self.navigationController?.navigationBar.topItem?.title = "ads"
-        setNavigationPicture()
+        setUp()
     }
     
     private func setUp() {
         setNavigationPicture()
-        self.view.backgroundColor = UIColor(red: CGFloat.random(in: 0..<1), green: CGFloat.random(in: 0..<1), blue: CGFloat.random(in: 0..<1), alpha: 1)
+        self.view.backgroundColor = ColorConstants.MainBackGroundColor
     }
     
     private func setNavigationPicture() {

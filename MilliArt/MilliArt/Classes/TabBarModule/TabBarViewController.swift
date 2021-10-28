@@ -31,7 +31,6 @@ final class TabBarViewController: UITabBarController {
         self.tabBar.tintColor = ColorConstants.MainPurpleColor
         self.tabBar.unselectedItemTintColor = ColorConstants.LightGrey
         self.tabBar.barTintColor = ColorConstants.TabBarColor
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
