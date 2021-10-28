@@ -32,7 +32,6 @@ final class SearchViewController: UIViewController {
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
         addNavigationButton()
     }
-
     
     private func addNavigationButton() {
         let button = UIBarButtonItem(image: .init(named: "filter"), style: .plain, target: self, action: #selector(filterButtonAction))

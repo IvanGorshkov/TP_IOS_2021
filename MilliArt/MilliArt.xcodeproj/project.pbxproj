@@ -107,11 +107,7 @@
 				70C419E727248FC1006214FA /* AppDelegate.swift */,
 				70C419E927248FC1006214FA /* SceneDelegate.swift */,
 				706E69F2272AD3390006BA3B /* Сonstants */,
-				706E6A11272B09170006BA3B /* FilterModule */,
-				706E6A04272AED270006BA3B /* CartModule */,
-				706E69E2272AC2FE0006BA3B /* MainModule */,
-				706E6A03272AEB430006BA3B /* SearchModule */,
-				706E69D5272AB5D60006BA3B /* TabBarModule */,
+				706E6A1E272B180B0006BA3B /* Modules */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -196,6 +192,18 @@
 				706E6A17272B09370006BA3B /* FilterContainer.swift */,
 			);
 			path = FilterModule;
+			sourceTree = "<group>";
+		};
+		706E6A1E272B180B0006BA3B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A11272B09170006BA3B /* FilterModule */,
+				706E6A04272AED270006BA3B /* CartModule */,
+				706E69E2272AC2FE0006BA3B /* MainModule */,
+				706E6A03272AEB430006BA3B /* SearchModule */,
+				706E69D5272AB5D60006BA3B /* TabBarModule */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		70C419DB27248FC0006214FA = {
