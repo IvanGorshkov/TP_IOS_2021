@@ -1,5 +1,5 @@
 //
-//  CartViewController.swift
+//  ItemDescViewController.swift
 //  MilliArt
 //
 //  Created by Ivan Gorshkov on 28.10.2021.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-final class CartViewController: UIViewController {
-	private let output: CartViewOutput
+final class ItemDescViewController: UIViewController {
+	private let output: ItemDescViewOutput
 
-    init(output: CartViewOutput) {
+    init(output: ItemDescViewOutput) {
         self.output = output
 
         super.init(nibName: nil, bundle: nil)
@@ -24,14 +24,19 @@ final class CartViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUp()
     }
     
+    
     private func setUp() {
-        self.navigationController?.navigationBar.topItem?.title = TitlesConstants.CartNavTitle
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
+        self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
     }
 }
 
-extension CartViewController: CartViewInput {
+extension ItemDescViewController: ItemDescViewInput {
 }

@@ -31,6 +31,7 @@ final class TabBarViewController: UITabBarController {
         self.tabBar.tintColor = ColorConstants.MainPurpleColor
         self.tabBar.unselectedItemTintColor = ColorConstants.LightGrey
         self.tabBar.barTintColor = ColorConstants.TabBarColor
+        self.tabBar.backgroundColor = ColorConstants.TabBarColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +57,14 @@ extension TabBarViewController: TabBarViewInput {
         }
         self.viewControllers = views.map {
             let nv = UINavigationController(rootViewController: $0)
-            nv.navigationBar.tintColor = UIColor.white
-            nv.navigationBar.barTintColor = ColorConstants.TabBarColor
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = ColorConstants.TabBarColor
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+
+            nv.navigationBar.tintColor = ColorConstants.MainPurpleColor
+            nv.navigationBar.standardAppearance = appearance
+            nv.navigationBar.compactAppearance = appearance
+            nv.navigationBar.scrollEdgeAppearance = appearance
             return nv
         }
     }
