@@ -29,7 +29,14 @@ final class MainViewController: UIViewController {
     
     private func setUp() {
         setNavigationPicture()
+        addNavigationButton()
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
+    }
+    
+    private func addNavigationButton() {
+        let button = UIBarButtonItem(image: .init(named: "fav"), style: .plain, target: self, action: #selector(favoriteButtonAction))
+        button.tintColor = ColorConstants.MainPurpleColor
+        navigationItem.leftBarButtonItem = button
     }
     
     private func setNavigationPicture() {
@@ -40,6 +47,11 @@ final class MainViewController: UIViewController {
         imageView.image = image
 
         navigationItem.titleView = imageView
+    }
+    
+    @objc
+    func favoriteButtonAction() {
+        
     }
 }
 

@@ -25,6 +25,10 @@ extension SearchPresenter: SearchModuleInput {
 }
 
 extension SearchPresenter: SearchViewOutput {
+    func goToFilter() {
+        self.router.goToFilterVC(from: view)
+    }
+    
 }
 
 extension SearchPresenter: SearchInteractorOutput {

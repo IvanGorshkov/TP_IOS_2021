@@ -19,6 +19,7 @@ protocol SearchViewInput: AnyObject {
 }
 
 protocol SearchViewOutput: AnyObject {
+    func goToFilter()
 }
 
 protocol SearchInteractorInput: AnyObject {
@@ -28,4 +29,5 @@ protocol SearchInteractorOutput: AnyObject {
 }
 
 protocol SearchRouterInput: AnyObject {
+    func goToFilterVC(from vc: SearchViewInput?)
 }

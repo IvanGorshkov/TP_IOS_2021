@@ -30,8 +30,20 @@ final class SearchViewController: UIViewController {
     private func setUp() {
         self.navigationController?.navigationBar.topItem?.title = "Поиск"
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
+        addNavigationButton()
+    }
+
+    
+    private func addNavigationButton() {
+        let button = UIBarButtonItem(image: .init(named: "filter"), style: .plain, target: self, action: #selector(filterButtonAction))
+        button.tintColor = ColorConstants.MainPurpleColor
+        navigationItem.leftBarButtonItem = button
     }
     
+    @objc
+    func filterButtonAction () {
+        output.goToFilter()
+    }
 }
 
 extension SearchViewController: SearchViewInput {
