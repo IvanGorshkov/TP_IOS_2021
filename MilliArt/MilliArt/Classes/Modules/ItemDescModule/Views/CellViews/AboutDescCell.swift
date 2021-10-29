@@ -34,7 +34,7 @@ class AboutDescCell: BaseCell {
         descriptionLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.thin)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.lineBreakMode = .byWordWrapping
-        
+        descriptionLabel.textColor = ColorConstants.BlackColor
         descriptionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: super.leadingAnchor, constant: 20).isActive = true

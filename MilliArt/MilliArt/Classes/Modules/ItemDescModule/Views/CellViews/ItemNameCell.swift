@@ -25,6 +25,7 @@ class ItemNameCell: BaseCell {
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
         self.addSubview(nameLabel)
         nameLabel.numberOfLines = 0
+        nameLabel.textColor = ColorConstants.BlackColor
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.heavy)
         nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true

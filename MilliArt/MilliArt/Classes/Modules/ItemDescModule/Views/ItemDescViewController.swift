@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 final class ItemDescViewController: UIViewController {
 	private let output: ItemDescViewOutput
-    private var tableView: UITableView!
+    private var tableView =  UITableView()
     var sections = [SectionRowsRepresentable]()
     
     init(output: ItemDescViewOutput) {
@@ -42,7 +43,6 @@ final class ItemDescViewController: UIViewController {
     }
     
     private func setUpTableView() {
-        tableView = UITableView()
         tableView.backgroundColor = .clear
         self.view.addSubview(tableView)
         tableView.dataSource = self
@@ -71,6 +71,8 @@ final class ItemDescViewController: UIViewController {
 extension ItemDescViewController: ItemDescViewInput {
     func updateForSections(_ sections: [SectionRowsRepresentable]) {
         self.sections = sections
+        self.sections[0].delegate = self
+        
         self.tableView.reloadData()
     }
 }
@@ -97,5 +99,12 @@ extension ItemDescViewController: UITableViewDataSource {
 extension ItemDescViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(sections[indexPath.section].rows[indexPath.row].cellHeight)
+    }
+}
+
+extension ItemDescViewController: ItemDescCellViewOutput {
+    func openFullScreen(silder: ImageSlideshow) {
+        silder.presentFullScreenController(from: self)
+        
     }
 }

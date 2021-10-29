@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ImageSlideshow
 
 protocol ItemDescModuleInput {
 	var moduleOutput: ItemDescModuleOutput? { get }
@@ -17,6 +18,10 @@ protocol ItemDescModuleOutput: AnyObject {
 
 protocol ItemDescViewInput: AnyObject {
     func updateForSections(_ sections: [SectionRowsRepresentable])
+}
+
+protocol ItemDescCellViewOutput: AnyObject {
+    func openFullScreen(silder: ImageSlideshow)
 }
 
 protocol ItemDescViewOutput: AnyObject {
@@ -39,6 +44,7 @@ protocol CellIdentifiable {
 
 protocol SectionRowsRepresentable {
     var rows: [CellIdentifiable] { get set }
+    var delegate: ItemDescCellViewOutput? { get set }
 }
 
 protocol ModelRepresentable {

@@ -6,17 +6,20 @@
 //
 
 import Foundation
+import ImageSlideshow
 
 class SliderCellModel: BaseCellModel {
+    typealias ActionHandler = (ImageSlideshow) -> ()
+    var action: ActionHandler?
+    
     override var cellIdentifier: String {
         return ItemSliderCell.cellIdentifier 
     }
     
     var pics: [String]
     
-    init(_ model: ItemDescModel) {
+    init(_ model: ItemDescModel, action: ActionHandler? = nil) {
         self.pics = model.pictures
-        super.init()
-    //    self.height = 200
+        self.action = action
     }
 }

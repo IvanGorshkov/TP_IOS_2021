@@ -33,7 +33,7 @@ class ButtonsDescCell: BaseCell {
         btn.layer.borderColor = ColorConstants.MainPurpleColor.cgColor
         btn.layer.cornerRadius = btn.frame.size.height / 2
         btn.clipsToBounds = true
-        btn.setTitleColor( .black, for: .normal)
+        btn.setTitleColor(ColorConstants.BlackColor, for: .normal)
         btn.setTitleColor( .white, for: .highlighted)
     }
 

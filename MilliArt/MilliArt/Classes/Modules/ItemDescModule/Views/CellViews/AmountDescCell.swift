@@ -34,6 +34,9 @@ class AmountDescCell: BaseCell {
         amountLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.heavy)
         monthCountLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.heavy)
         rentLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.heavy)
+        amountLabel.textColor = ColorConstants.BlackColor
+        monthCountLabel.textColor = ColorConstants.BlackColor
+        rentLabel.textColor = ColorConstants.BlackColor
         
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         amountLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
