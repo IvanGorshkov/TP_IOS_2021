@@ -8,12 +8,13 @@
 
 import UIKit
 import ImageSlideshow
+import NVActivityIndicatorView
 
 final class ItemDescViewController: UIViewController {
 	private let output: ItemDescViewOutput
     internal var tableView =  UITableView()
     private var section: SectionRowsRepresentable?
-    
+    private var activityIndicatorView: NVActivityIndicatorView!
     init(output: ItemDescViewOutput) {
         self.output = output
 
@@ -28,6 +29,8 @@ final class ItemDescViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         setUp()
+        self.view.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
         output.viewDidLoad()
     }
     
@@ -40,6 +43,17 @@ final class ItemDescViewController: UIViewController {
     private func setUp() {
         setUpBase()
         setUpTableView()
+        setUpIndicator()
+    }
+    
+    private func setUpIndicator() {
+        var frameCenter = view.center
+        frameCenter.x -= 25
+        frameCenter.y -= 25
+        activityIndicatorView = NVActivityIndicatorView(
+            frame: CGRect(origin: frameCenter, size: CGSize(width: 50, height: 50)),
+            type: .ballScale,
+            color: ColorConstants.MainPurpleColor)
     }
     
     private func setUpBase() {
@@ -74,9 +88,9 @@ final class ItemDescViewController: UIViewController {
 
 extension ItemDescViewController: ItemDescViewInput {
     func updateForSections(_ sections: SectionRowsRepresentable) {
+        activityIndicatorView.stopAnimating()
         self.section = sections
         self.section?.delegate = self
-        
         self.tableView.reloadData()
     }
 }

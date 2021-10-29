@@ -56,3 +56,11 @@ protocol SectionRowsRepresentable {
 protocol ModelRepresentable {
     var model: CellIdentifiable? { get set }
 }
+
+protocol ServiceManagerDescModelInput: AnyObject {
+    func loadItemById(with id: Int)
+}
+
+protocol ServiceManagerDescModelOutput: AnyObject {
+    func itemDidLoad(itemDesc: ItemDescModel)
+}

@@ -25,8 +25,8 @@ final class MainViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         setUp()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.output.itemSelected()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.output.itemSelected()
         }
     }
     

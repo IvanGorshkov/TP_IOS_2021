@@ -14,6 +14,9 @@
 		703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A89272C6FA5000329F7 /* ButtonsDesc+Constraints.swift */; };
 		703A4A8D272C7024000329F7 /* AboutDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A8C272C7023000329F7 /* AboutDesc+Constraints.swift */; };
 		703A4A90272C7049000329F7 /* SpecificationsDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A8F272C7049000329F7 /* SpecificationsDesc+Constraints.swift */; };
+		703A4A93272C8947000329F7 /* ServiceManagerDescModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A92272C8947000329F7 /* ServiceManagerDescModel.swift */; };
+		703A4A9A272C973E000329F7 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 703A4A99272C973E000329F7 /* NVActivityIndicatorView */; };
+		703A4A9C272C973E000329F7 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 703A4A9B272C973E000329F7 /* NVActivityIndicatorViewExtended */; };
 		706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */; };
 		706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */; };
 		706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */; };
@@ -91,6 +94,7 @@
 		703A4A89272C6FA5000329F7 /* ButtonsDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ButtonsDesc+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A8C272C7023000329F7 /* AboutDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutDesc+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A8F272C7049000329F7 /* SpecificationsDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpecificationsDesc+Constraints.swift"; sourceTree = "<group>"; };
+		703A4A92272C8947000329F7 /* ServiceManagerDescModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerDescModel.swift; sourceTree = "<group>"; };
 		706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				706E6A5A272C1AA70006BA3B /* ImageSlideshow/Alamofire in Frameworks */,
+				703A4A9A272C973E000329F7 /* NVActivityIndicatorView in Frameworks */,
 				706E6A5E272C1AA70006BA3B /* ImageSlideshow/SDWebImage in Frameworks */,
+				703A4A9C272C973E000329F7 /* NVActivityIndicatorViewExtended in Frameworks */,
 				706E6A5C272C1AA70006BA3B /* ImageSlideshow/Kingfisher in Frameworks */,
 				706E6A58272C1AA70006BA3B /* ImageSlideshow in Frameworks */,
 			);
@@ -234,6 +240,14 @@
 				703A4A8F272C7049000329F7 /* SpecificationsDesc+Constraints.swift */,
 			);
 			path = SpecificationsDesc;
+			sourceTree = "<group>";
+		};
+		703A4A91272C8908000329F7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				703A4A92272C8947000329F7 /* ServiceManagerDescModel.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
@@ -347,6 +361,7 @@
 		706E6A1F272B258B0006BA3B /* ItemDescModule */ = {
 			isa = PBXGroup;
 			children = (
+				703A4A91272C8908000329F7 /* Services */,
 				706E6A31272B501B0006BA3B /* Model */,
 				706E6A2E272B3F440006BA3B /* Entity */,
 				706E6A34272B50D50006BA3B /* Views */,
@@ -480,6 +495,8 @@
 				706E6A59272C1AA70006BA3B /* ImageSlideshow/Alamofire */,
 				706E6A5B272C1AA70006BA3B /* ImageSlideshow/Kingfisher */,
 				706E6A5D272C1AA70006BA3B /* ImageSlideshow/SDWebImage */,
+				703A4A99272C973E000329F7 /* NVActivityIndicatorView */,
+				703A4A9B272C973E000329F7 /* NVActivityIndicatorViewExtended */,
 			);
 			productName = MilliArt;
 			productReference = 70C419E427248FC1006214FA /* MilliArt.app */;
@@ -511,6 +528,7 @@
 			mainGroup = 70C419DB27248FC0006214FA;
 			packageReferences = (
 				706E6A56272C1AA70006BA3B /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
+				703A4A98272C973E000329F7 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 			);
 			productRefGroup = 70C419E527248FC1006214FA /* Products */;
 			projectDirPath = "";
@@ -603,6 +621,7 @@
 				706E6A02272AEB380006BA3B /* SearchContainer.swift in Sources */,
 				706E69FE272AEB380006BA3B /* SearchRouter.swift in Sources */,
 				706E6A29272B25AF0006BA3B /* ItemDescProtocols.swift in Sources */,
+				703A4A93272C8947000329F7 /* ServiceManagerDescModel.swift in Sources */,
 				706E6A47272BE64C0006BA3B /* AmountDescCellModel.swift in Sources */,
 				706E69DF272AB5EE0006BA3B /* TabBarProtocols.swift in Sources */,
 				706E6A10272AED5D0006BA3B /* CartContainer.swift in Sources */,
@@ -833,6 +852,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		703A4A98272C973E000329F7 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.1;
+			};
+		};
 		706E6A56272C1AA70006BA3B /* XCRemoteSwiftPackageReference "ImageSlideshow" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zvonicek/ImageSlideshow";
@@ -844,6 +871,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		703A4A99272C973E000329F7 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 703A4A98272C973E000329F7 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		703A4A9B272C973E000329F7 /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 703A4A98272C973E000329F7 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
 		706E6A57272C1AA70006BA3B /* ImageSlideshow */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 706E6A56272C1AA70006BA3B /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
