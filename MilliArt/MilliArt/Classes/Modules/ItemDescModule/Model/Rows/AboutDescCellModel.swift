@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AboutDescCellModel: BaseCellModel {
+final class AboutDescCellModel: BaseCellModel {
     override var cellIdentifier: String {
         return AboutDescCell.cellIdentifier
     }

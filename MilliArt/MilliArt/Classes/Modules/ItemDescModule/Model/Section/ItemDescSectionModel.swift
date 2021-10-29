@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ItemDescSectionModel: SectionRowsRepresentable {
+final class ItemDescSectionModel: SectionRowsRepresentable {
     var rows: [CellIdentifiable]
     
     weak var delegate: ItemDescCellViewOutput?

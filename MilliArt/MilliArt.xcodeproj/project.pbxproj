@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */; };
+		703A4A81272C6F37000329F7 /* ItemName+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A80272C6F37000329F7 /* ItemName+Constraints.swift */; };
+		703A4A84272C6F6A000329F7 /* ItemSlider+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */; };
+		703A4A87272C6F88000329F7 /* AmountDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A86272C6F88000329F7 /* AmountDesc+Constraints.swift */; };
+		703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A89272C6FA5000329F7 /* ButtonsDesc+Constraints.swift */; };
+		703A4A8D272C7024000329F7 /* AboutDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A8C272C7023000329F7 /* AboutDesc+Constraints.swift */; };
+		703A4A90272C7049000329F7 /* SpecificationsDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A8F272C7049000329F7 /* SpecificationsDesc+Constraints.swift */; };
 		706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */; };
 		706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */; };
 		706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */; };
@@ -67,6 +74,7 @@
 		706E6A5C272C1AA70006BA3B /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 706E6A5B272C1AA70006BA3B /* ImageSlideshow/Kingfisher */; };
 		706E6A5E272C1AA70006BA3B /* ImageSlideshow/SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 706E6A5D272C1AA70006BA3B /* ImageSlideshow/SDWebImage */; };
 		706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */; };
+		706E6A64272C3D960006BA3B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A63272C3D960006BA3B /* String+Extension.swift */; };
 		70C419E827248FC1006214FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E727248FC1006214FA /* AppDelegate.swift */; };
 		70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E927248FC1006214FA /* SceneDelegate.swift */; };
 		70C419EC27248FC1006214FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419EB27248FC1006214FA /* ViewController.swift */; };
@@ -76,6 +84,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemDescView+Constraints.swift"; sourceTree = "<group>"; };
+		703A4A80272C6F37000329F7 /* ItemName+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemName+Constraints.swift"; sourceTree = "<group>"; };
+		703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemSlider+Constraints.swift"; sourceTree = "<group>"; };
+		703A4A86272C6F88000329F7 /* AmountDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AmountDesc+Constraints.swift"; sourceTree = "<group>"; };
+		703A4A89272C6FA5000329F7 /* ButtonsDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ButtonsDesc+Constraints.swift"; sourceTree = "<group>"; };
+		703A4A8C272C7023000329F7 /* AboutDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutDesc+Constraints.swift"; sourceTree = "<group>"; };
+		703A4A8F272C7049000329F7 /* SpecificationsDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpecificationsDesc+Constraints.swift"; sourceTree = "<group>"; };
 		706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +147,7 @@
 		706E6A52272BFA400006BA3B /* SpecificationsDescCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificationsDescCellModel.swift; sourceTree = "<group>"; };
 		706E6A54272BFA9D0006BA3B /* SpecificationsDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificationsDescCell.swift; sourceTree = "<group>"; };
 		706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		706E6A63272C3D960006BA3B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		70C419E427248FC1006214FA /* MilliArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilliArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C419E727248FC1006214FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70C419E927248FC1006214FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +173,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		703A4A7C272C6C99000329F7 /* ItemDescView */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A22272B25AF0006BA3B /* ItemDescViewController.swift */,
+				703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */,
+			);
+			path = ItemDescView;
+			sourceTree = "<group>";
+		};
+		703A4A7F272C6F06000329F7 /* ItemName */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A3A272B522D0006BA3B /* ItemNameCell.swift */,
+				703A4A80272C6F37000329F7 /* ItemName+Constraints.swift */,
+			);
+			path = ItemName;
+			sourceTree = "<group>";
+		};
+		703A4A82272C6F42000329F7 /* ItemSlider */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A44272B5C580006BA3B /* ItemSliderCell.swift */,
+				703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */,
+			);
+			path = ItemSlider;
+			sourceTree = "<group>";
+		};
+		703A4A85272C6F7B000329F7 /* AmountDesc */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A48272BE7800006BA3B /* AmountDescCell.swift */,
+				703A4A86272C6F88000329F7 /* AmountDesc+Constraints.swift */,
+			);
+			path = AmountDesc;
+			sourceTree = "<group>";
+		};
+		703A4A88272C6F9D000329F7 /* ButtonsDesc */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A4C272BEC7E0006BA3B /* ButtonsDescCell.swift */,
+				703A4A89272C6FA5000329F7 /* ButtonsDesc+Constraints.swift */,
+			);
+			path = ButtonsDesc;
+			sourceTree = "<group>";
+		};
+		703A4A8B272C701A000329F7 /* AboutDesc */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A50272BF6320006BA3B /* AboutDescCell.swift */,
+				703A4A8C272C7023000329F7 /* AboutDesc+Constraints.swift */,
+			);
+			path = AboutDesc;
+			sourceTree = "<group>";
+		};
+		703A4A8E272C703E000329F7 /* SpecificationsDesc */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A54272BFA9D0006BA3B /* SpecificationsDescCell.swift */,
+				703A4A8F272C7049000329F7 /* SpecificationsDesc+Constraints.swift */,
+			);
+			path = SpecificationsDesc;
+			sourceTree = "<group>";
+		};
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,7 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				706E6A35272B50EE0006BA3B /* CellViews */,
-				706E6A22272B25AF0006BA3B /* ItemDescViewController.swift */,
+				703A4A7C272C6C99000329F7 /* ItemDescView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,12 +389,12 @@
 			isa = PBXGroup;
 			children = (
 				706E6A36272B513B0006BA3B /* BaseCell.swift */,
-				706E6A3A272B522D0006BA3B /* ItemNameCell.swift */,
-				706E6A44272B5C580006BA3B /* ItemSliderCell.swift */,
-				706E6A48272BE7800006BA3B /* AmountDescCell.swift */,
-				706E6A4C272BEC7E0006BA3B /* ButtonsDescCell.swift */,
-				706E6A50272BF6320006BA3B /* AboutDescCell.swift */,
-				706E6A54272BFA9D0006BA3B /* SpecificationsDescCell.swift */,
+				703A4A7F272C6F06000329F7 /* ItemName */,
+				703A4A82272C6F42000329F7 /* ItemSlider */,
+				703A4A85272C6F7B000329F7 /* AmountDesc */,
+				703A4A88272C6F9D000329F7 /* ButtonsDesc */,
+				703A4A8B272C701A000329F7 /* AboutDesc */,
+				703A4A8E272C703E000329F7 /* SpecificationsDesc */,
 			);
 			path = CellViews;
 			sourceTree = "<group>";
@@ -346,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */,
+				706E6A63272C3D960006BA3B /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -475,6 +555,7 @@
 				706E6A0D272AED5D0006BA3B /* CartViewController.swift in Sources */,
 				706E69EC272AC3130006BA3B /* MainProtocols.swift in Sources */,
 				706E6A37272B513B0006BA3B /* BaseCell.swift in Sources */,
+				703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */,
 				706E6A51272BF6320006BA3B /* AboutDescCell.swift in Sources */,
 				706E6A1D272B09370006BA3B /* FilterContainer.swift in Sources */,
 				706E69EB272AC3130006BA3B /* MainViewController.swift in Sources */,
@@ -483,13 +564,16 @@
 				706E6A2B272B25AF0006BA3B /* ItemDescContainer.swift in Sources */,
 				706E6A0E272AED5D0006BA3B /* CartProtocols.swift in Sources */,
 				706E6A0B272AED5D0006BA3B /* CartPresenter.swift in Sources */,
+				703A4A8D272C7024000329F7 /* AboutDesc+Constraints.swift in Sources */,
 				706E6A26272B25AF0006BA3B /* ItemDescPresenter.swift in Sources */,
 				706E69ED272AC3130006BA3B /* MainInteractor.swift in Sources */,
 				706E6A0C272AED5D0006BA3B /* CartRouter.swift in Sources */,
 				706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */,
+				706E6A64272C3D960006BA3B /* String+Extension.swift in Sources */,
 				706E6A00272AEB380006BA3B /* SearchProtocols.swift in Sources */,
 				706E6A19272B09370006BA3B /* FilterRouter.swift in Sources */,
 				70C419E827248FC1006214FA /* AppDelegate.swift in Sources */,
+				703A4A84272C6F6A000329F7 /* ItemSlider+Constraints.swift in Sources */,
 				706E6A2A272B25AF0006BA3B /* ItemDescInteractor.swift in Sources */,
 				706E69FF272AEB380006BA3B /* SearchViewController.swift in Sources */,
 				70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */,
@@ -497,9 +581,11 @@
 				706E6A3B272B522D0006BA3B /* ItemNameCell.swift in Sources */,
 				706E6A3D272B53C40006BA3B /* ItemDescNameCellModel.swift in Sources */,
 				706E6A18272B09370006BA3B /* FilterPresenter.swift in Sources */,
+				703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */,
 				706E6A4D272BEC7E0006BA3B /* ButtonsDescCell.swift in Sources */,
 				706E6A1C272B09370006BA3B /* FilterInteractor.swift in Sources */,
 				706E69E1272AB5EE0006BA3B /* TabBarContainer.swift in Sources */,
+				703A4A87272C6F88000329F7 /* AmountDesc+Constraints.swift in Sources */,
 				706E6A53272BFA400006BA3B /* SpecificationsDescCellModel.swift in Sources */,
 				706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */,
 				706E6A1B272B09370006BA3B /* FilterProtocols.swift in Sources */,
@@ -507,8 +593,10 @@
 				706E69F1272ACF250006BA3B /* TabBarItemModel.swift in Sources */,
 				706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */,
 				706E6A01272AEB380006BA3B /* SearchInteractor.swift in Sources */,
+				703A4A90272C7049000329F7 /* SpecificationsDesc+Constraints.swift in Sources */,
 				706E6A49272BE7800006BA3B /* AmountDescCell.swift in Sources */,
 				706E6A1A272B09370006BA3B /* FilterViewController.swift in Sources */,
+				703A4A81272C6F37000329F7 /* ItemName+Constraints.swift in Sources */,
 				706E6A4B272BEC030006BA3B /* ButtonsDescModelCell.swift in Sources */,
 				706E69EA272AC3130006BA3B /* MainRouter.swift in Sources */,
 				706E6A3F272B53FF0006BA3B /* BaseCellModel.swift in Sources */,

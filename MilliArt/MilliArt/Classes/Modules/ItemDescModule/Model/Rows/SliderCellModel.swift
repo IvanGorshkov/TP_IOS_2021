@@ -8,7 +8,7 @@
 import Foundation
 import ImageSlideshow
 
-class SliderCellModel: BaseCellModel {
+final class SliderCellModel: BaseCellModel {
     typealias ActionHandler = (ImageSlideshow) -> ()
     var action: ActionHandler?
     

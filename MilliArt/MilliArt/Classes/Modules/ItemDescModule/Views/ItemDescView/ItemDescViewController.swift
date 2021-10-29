@@ -11,8 +11,8 @@ import ImageSlideshow
 
 final class ItemDescViewController: UIViewController {
 	private let output: ItemDescViewOutput
-    private var tableView =  UITableView()
-    var sections = [SectionRowsRepresentable]()
+    internal var tableView =  UITableView()
+    private var section: SectionRowsRepresentable?
     
     init(output: ItemDescViewOutput) {
         self.output = output
@@ -27,51 +27,55 @@ final class ItemDescViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        setUp()
+        output.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setUp()
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        addConstraintTableView()
     }
     
     
     private func setUp() {
-        self.view.backgroundColor = ColorConstants.MainBackGroundColor
-        self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
-        self.title = TitlesConstants.PaintingNavTitle
+        setUpBase()
         setUpTableView()
     }
     
+    private func setUpBase() {
+        self.view.backgroundColor = ColorConstants.MainBackGroundColor
+        self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
+        self.title = TitlesConstants.PaintingNavTitle
+    }
+    
     private func setUpTableView() {
-        tableView.backgroundColor = .clear
-        self.view.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
+        setUpTableViewBase()
+        registerCells()
+    }
+    
+    private func setUpTableViewBase() {
+            self.view.addSubview(tableView)
+            tableView.backgroundColor = .clear
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.allowsSelection = false
+            tableView.tableHeaderView = UIView()
+    }
+    
+    private func registerCells() {
         tableView.register(ItemNameCell.self, forCellReuseIdentifier: ItemNameCell.cellIdentifier)
         tableView.register(ItemSliderCell.self, forCellReuseIdentifier: ItemSliderCell.cellIdentifier)
         tableView.register(AmountDescCell.self, forCellReuseIdentifier: AmountDescCell.cellIdentifier)
         tableView.register(ButtonsDescCell.self, forCellReuseIdentifier: ButtonsDescCell.cellIdentifier)
         tableView.register(AboutDescCell.self, forCellReuseIdentifier: AboutDescCell.cellIdentifier)
         tableView.register(SpecificationsDescCell.self, forCellReuseIdentifier: SpecificationsDescCell.cellIdentifier)
-        tableView.allowsSelection = false
-        tableView.tableHeaderView = UIView()
-        addConstraintTableView()
-        output.viewDidLoad()
-    }
-    
-    private func addConstraintTableView() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        tableView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        tableView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor).isActive = true
     }
 }
 
 extension ItemDescViewController: ItemDescViewInput {
-    func updateForSections(_ sections: [SectionRowsRepresentable]) {
-        self.sections = sections
-        self.sections[0].delegate = self
+    func updateForSections(_ sections: SectionRowsRepresentable) {
+        self.section = sections
+        self.section?.delegate = self
         
         self.tableView.reloadData()
     }
@@ -79,17 +83,14 @@ extension ItemDescViewController: ItemDescViewInput {
 
 extension ItemDescViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].rows.count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        guard let section = self.section else { return 0 }
+        return section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = sections[indexPath.section].rows[indexPath.row]
+        guard let section = self.section else { return UITableViewCell() }
+        let model = section.rows[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier, for: indexPath) as! BaseCell
-        cell.loadSubViews()
         cell.model = model
         
         return cell
@@ -98,7 +99,8 @@ extension ItemDescViewController: UITableViewDataSource {
 
 extension ItemDescViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(sections[indexPath.section].rows[indexPath.row].cellHeight)
+        guard let section = self.section else { return -1 }
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
 }
 
@@ -121,6 +123,5 @@ extension ItemDescViewController: ItemDescCellViewOutput {
     
     func openFullScreen(silder: ImageSlideshow) {
         silder.presentFullScreenController(from: self)
-        
     }
 }

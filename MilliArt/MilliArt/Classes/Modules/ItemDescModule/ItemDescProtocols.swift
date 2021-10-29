@@ -17,7 +17,7 @@ protocol ItemDescModuleOutput: AnyObject {
 }
 
 protocol ItemDescViewInput: AnyObject {
-    func updateForSections(_ sections: [SectionRowsRepresentable])
+    func updateForSections(_ sections: SectionRowsRepresentable)
 }
 
 protocol ItemDescCellViewOutput: AnyObject {
@@ -33,9 +33,11 @@ protocol ItemDescViewOutput: AnyObject {
 }
 
 protocol ItemDescInteractorInput: AnyObject {
+    func loadItemById(with id: Int)
 }
 
 protocol ItemDescInteractorOutput: AnyObject {
+    func itemDidLoad(itemDesc: ItemDescModel)
 }
 
 protocol ItemDescRouterInput: AnyObject {

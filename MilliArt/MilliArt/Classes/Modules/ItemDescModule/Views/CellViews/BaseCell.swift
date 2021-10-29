@@ -13,10 +13,10 @@ import UIKit
 class BaseCell: UITableViewCell, ModelRepresentable {
     var model: CellIdentifiable? {
         didSet {
+            loadSubViews()
             updateViews()
         }
     }
-    
     
     func updateViews() { fatalError("Abstract class, dont use") }
     
