@@ -17,6 +17,6 @@ class SliderCellModel: BaseCellModel {
     init(_ model: ItemDescModel) {
         self.pics = model.pictures
         super.init()
-        self.height = 200
+    //    self.height = 200
     }
 }
