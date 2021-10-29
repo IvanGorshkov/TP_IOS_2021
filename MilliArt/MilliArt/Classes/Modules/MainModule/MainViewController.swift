@@ -25,6 +25,9 @@ final class MainViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         setUp()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.output.itemSelected()
+        }
     }
     
     private func setUp() {
@@ -36,7 +39,7 @@ final class MainViewController: UIViewController {
     private func addNavigationButton() {
         let button = UIBarButtonItem(image: .init(named: "fav"), style: .plain, target: self, action: #selector(favoriteButtonAction))
         button.tintColor = ColorConstants.MainPurpleColor
-        navigationItem.leftBarButtonItem = button
+        navigationItem.rightBarButtonItem = button
     }
     
     private func setNavigationPicture() {

@@ -25,6 +25,10 @@ extension MainPresenter: MainModuleInput {
 }
 
 extension MainPresenter: MainViewOutput {
+    func itemSelected() {
+        router.itemSelected(with: view)
+    }
+    
 }
 
 extension MainPresenter: MainInteractorOutput {

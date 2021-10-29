@@ -28,7 +28,7 @@ final class SearchViewController: UIViewController {
 	}
     
     private func setUp() {
-        self.navigationController?.navigationBar.topItem?.title = "Поиск"
+        self.navigationController?.navigationBar.topItem?.title = TitlesConstants.SearchNavTitle
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
         addNavigationButton()
     }

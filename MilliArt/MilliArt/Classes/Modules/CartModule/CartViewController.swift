@@ -28,7 +28,7 @@ final class CartViewController: UIViewController {
     }
     
     private func setUp() {
-        self.navigationController?.navigationBar.topItem?.title = "Корзина"
+        self.navigationController?.navigationBar.topItem?.title = TitlesConstants.CartNavTitle
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
     }
 }

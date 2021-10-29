@@ -15,9 +15,9 @@ final class TabBarInteractor {
 extension TabBarInteractor: TabBarInteractorInput {
     func getTabBarItemsInfo() {
         output?.receiveTabBarItemsInfo(with: [
-            TabBarItemModel(image: "TabMilliart", title: "Главная", selectedImage: "TabMilliart"),
-            TabBarItemModel(image: "magnifyingglass", title: "Поиск", selectedImage: "magnifyingglass"),
-            TabBarItemModel(image: "TabCart", title: "Корзина", selectedImage: "TabCart")
+            TabBarItemModel(image: "TabMilliart", title: TitlesConstants.MainBarTitle, selectedImage: "TabMilliart"),
+            TabBarItemModel(image: "magnifyingglass", title: TitlesConstants.SearchBarTitle, selectedImage: "magnifyingglass"),
+            TabBarItemModel(image: "TabCart", title: TitlesConstants.CartBarTitle, selectedImage: "TabCart")
             ]
         )
     }
