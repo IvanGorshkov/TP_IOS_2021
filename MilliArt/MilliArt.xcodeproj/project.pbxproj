@@ -66,6 +66,7 @@
 		706E6A5A272C1AA70006BA3B /* ImageSlideshow/Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 706E6A59272C1AA70006BA3B /* ImageSlideshow/Alamofire */; };
 		706E6A5C272C1AA70006BA3B /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 706E6A5B272C1AA70006BA3B /* ImageSlideshow/Kingfisher */; };
 		706E6A5E272C1AA70006BA3B /* ImageSlideshow/SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 706E6A5D272C1AA70006BA3B /* ImageSlideshow/SDWebImage */; };
+		706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */; };
 		70C419E827248FC1006214FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E727248FC1006214FA /* AppDelegate.swift */; };
 		70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E927248FC1006214FA /* SceneDelegate.swift */; };
 		70C419EC27248FC1006214FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419EB27248FC1006214FA /* ViewController.swift */; };
@@ -130,6 +131,7 @@
 		706E6A50272BF6320006BA3B /* AboutDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDescCell.swift; sourceTree = "<group>"; };
 		706E6A52272BFA400006BA3B /* SpecificationsDescCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificationsDescCellModel.swift; sourceTree = "<group>"; };
 		706E6A54272BFA9D0006BA3B /* SpecificationsDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificationsDescCell.swift; sourceTree = "<group>"; };
+		706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		70C419E427248FC1006214FA /* MilliArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilliArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C419E727248FC1006214FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70C419E927248FC1006214FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				706E6A60272C3B630006BA3B /* Extension */,
 				70C419E727248FC1006214FA /* AppDelegate.swift */,
 				70C419E927248FC1006214FA /* SceneDelegate.swift */,
 				706E69F2272AD3390006BA3B /* Сonstants */,
@@ -339,6 +342,14 @@
 			path = Section;
 			sourceTree = "<group>";
 		};
+		706E6A60272C3B630006BA3B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		70C419DB27248FC0006214FA = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +486,7 @@
 				706E6A26272B25AF0006BA3B /* ItemDescPresenter.swift in Sources */,
 				706E69ED272AC3130006BA3B /* MainInteractor.swift in Sources */,
 				706E6A0C272AED5D0006BA3B /* CartRouter.swift in Sources */,
+				706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */,
 				706E6A00272AEB380006BA3B /* SearchProtocols.swift in Sources */,
 				706E6A19272B09370006BA3B /* FilterRouter.swift in Sources */,
 				70C419E827248FC1006214FA /* AppDelegate.swift in Sources */,

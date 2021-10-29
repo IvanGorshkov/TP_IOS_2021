@@ -16,15 +16,51 @@ class ButtonsDescCell: BaseCell {
     static let cellIdentifier = "ButtonsDescCellModel"
     
     override func updateViews() {
-        guard let _ = model as? ButtonsDescModelCell else {
-            return
-        }
-        
-        
         arButton.setImage(UIImage(named: "ar"), for: .normal)
         favButton.setImage(UIImage(named: "fav"), for: .normal)
         buyButton.setTitle(TitlesConstants.BuyTitle, for: .normal)
         rentButton.setTitle(TitlesConstants.RentTitle, for: .normal)
+        
+        arButton.addTarget(self, action: #selector(clickAR), for: .touchUpInside)
+        favButton.addTarget(self, action: #selector(clickFav), for: .touchUpInside)
+        buyButton.addTarget(self, action: #selector(clickBuy), for: .touchUpInside)
+        rentButton.addTarget(self, action: #selector(clickRent), for: .touchUpInside)
+    }
+    
+    @objc
+    func clickAR() {
+        guard let model = model as? ButtonsDescModelCell else {
+            return
+        }
+        
+        model.actionAR?()
+    }
+    
+    @objc
+    func clickFav() {
+        guard let model = model as? ButtonsDescModelCell else {
+            return
+        }
+        
+        model.actionFav?()
+    }
+    
+    @objc
+    func clickBuy() {
+        guard let model = model as? ButtonsDescModelCell else {
+            return
+        }
+        
+        model.actionBuy?()
+    }
+    
+    @objc
+    func clickRent() {
+        guard let model = model as? ButtonsDescModelCell else {
+            return
+        }
+        
+        model.actionRent?()
     }
     
     func setUpButton(btn: UIButton) {
@@ -35,6 +71,8 @@ class ButtonsDescCell: BaseCell {
         btn.clipsToBounds = true
         btn.setTitleColor(ColorConstants.BlackColor, for: .normal)
         btn.setTitleColor( .white, for: .highlighted)
+        btn.setBackgroundColor(color: ColorConstants.MainPurpleColor, forState: .highlighted)
+        btn.setBackgroundColor(color: .clear, forState: .normal)
     }
 
     override func layoutSubviews() {
@@ -74,3 +112,4 @@ class ButtonsDescCell: BaseCell {
         rentButton.leadingAnchor.constraint(equalTo: buyButton.trailingAnchor, constant: 10).isActive = true
      }
 }
+

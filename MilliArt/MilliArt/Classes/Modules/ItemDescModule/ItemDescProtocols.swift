@@ -22,6 +22,10 @@ protocol ItemDescViewInput: AnyObject {
 
 protocol ItemDescCellViewOutput: AnyObject {
     func openFullScreen(silder: ImageSlideshow)
+    func clickBuy()
+    func clickRent()
+    func clickFav()
+    func clickAR()
 }
 
 protocol ItemDescViewOutput: AnyObject {

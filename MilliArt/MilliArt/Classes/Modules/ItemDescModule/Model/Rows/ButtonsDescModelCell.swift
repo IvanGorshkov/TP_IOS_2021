@@ -12,7 +12,18 @@ class ButtonsDescModelCell: BaseCellModel {
         return ButtonsDescCell.cellIdentifier
     }
     
-    init(_ model: ItemDescModel) {
+    typealias ActionHandler = () -> ()
+    
+    var actionAR: ActionHandler?
+    var actionBuy: ActionHandler?
+    var actionRent: ActionHandler?
+    var actionFav: ActionHandler?
+    
+    init(_ model: ItemDescModel, actionAR: ActionHandler?, actionBuy: ActionHandler?, actionRent: ActionHandler?, actionFav: ActionHandler?) {
         super.init()
+        self.actionAR = actionAR
+        self.actionRent = actionRent
+        self.actionFav = actionFav
+        self.actionBuy = actionBuy
     }
 }

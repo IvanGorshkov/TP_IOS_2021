@@ -103,6 +103,22 @@ extension ItemDescViewController: UITableViewDelegate {
 }
 
 extension ItemDescViewController: ItemDescCellViewOutput {
+    func clickBuy() {
+        print("clickBuy")
+    }
+    
+    func clickRent() {
+        print("clickRent")
+    }
+    
+    func clickFav() {
+        print("clickFav")
+    }
+    
+    func clickAR() {
+        print("clickAR")
+    }
+    
     func openFullScreen(silder: ImageSlideshow) {
         silder.presentFullScreenController(from: self)
         

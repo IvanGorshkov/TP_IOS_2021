@@ -19,7 +19,11 @@ class ItemDescSectionModel: SectionRowsRepresentable {
             self?.delegate?.openFullScreen(silder: imageSlideshow)
         }))
         rows.append(AmountDescCellModel(itemDesc))
-        rows.append(ButtonsDescModelCell(itemDesc))
+        rows.append(ButtonsDescModelCell(itemDesc,
+            actionAR: { [weak self] in self?.delegate?.clickAR() },
+            actionBuy: { [weak self] in self?.delegate?.clickBuy() },
+            actionRent: { [weak self] in self?.delegate?.clickRent() },
+            actionFav: { [weak self] in  self?.delegate?.clickFav() }))
         rows.append(AboutDescCellModel(itemDesc))
         itemDesc.specifications.forEach { [weak self] in
             self?.rows.append(SpecificationsDescCellModel($0))
