@@ -18,7 +18,8 @@ class ItemSliderCell: BaseCell {
             return
         }
         slider.image = UIImage(named: model.pics.first ?? "")
-        slider.contentMode = .scaleToFill
+        slider.contentMode = .scaleAspectFill
+        slider.backgroundColor = .blue
     }
     
 
@@ -31,6 +32,9 @@ class ItemSliderCell: BaseCell {
         slider.topAnchor.constraint(equalTo: super.topAnchor).isActive = true
         slider.centerXAnchor.constraint(equalTo: super.centerXAnchor).isActive = true
         slider.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        slider.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        slider.leadingAnchor.constraint(equalTo: super.leadingAnchor, constant: 20).isActive = true
+        slider.trailingAnchor.constraint(equalTo: super.trailingAnchor, constant: -20).isActive = true
+        slider.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
+
     }
 }
