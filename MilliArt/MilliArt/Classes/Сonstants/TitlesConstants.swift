@@ -19,4 +19,12 @@ class TitlesConstants {
     static let CartNavTitle = CartBarTitle
     static let BackNavTitle = "Назад"
     static let PaintingNavTitle = "Информация о картине"
+    
+    
+    // MARK: ItemDescCelll
+    static let BuyTitle = "Купить"
+    static let RentTitle = "Арендовать"
+    
+    // MARK: AboutDescCelll
+    static let AboutTitle = "Описание"
 }

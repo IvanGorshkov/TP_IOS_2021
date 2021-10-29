@@ -11,7 +11,7 @@ import UIKit
 final class ItemDescViewController: UIViewController {
 	private let output: ItemDescViewOutput
     private var tableView: UITableView!
-    var sections = [ItemDescSectionModel]()
+    var sections = [SectionRowsRepresentable]()
     
     init(output: ItemDescViewOutput) {
         self.output = output
@@ -43,12 +43,18 @@ final class ItemDescViewController: UIViewController {
     
     private func setUpTableView() {
         tableView = UITableView()
-        tableView.backgroundColor = ColorConstants.MainPurpleColor
+        tableView.backgroundColor = .clear
         self.view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ItemNameCell.self, forCellReuseIdentifier: ItemNameCell.cellIdentifier)
         tableView.register(ItemSliderCell.self, forCellReuseIdentifier: ItemSliderCell.cellIdentifier)
+        tableView.register(AmountDescCell.self, forCellReuseIdentifier: AmountDescCell.cellIdentifier)
+        tableView.register(ButtonsDescCell.self, forCellReuseIdentifier: ButtonsDescCell.cellIdentifier)
+        tableView.register(AboutDescCell.self, forCellReuseIdentifier: AboutDescCell.cellIdentifier)
+        tableView.register(SpecificationsDescCell.self, forCellReuseIdentifier: SpecificationsDescCell.cellIdentifier)
+        tableView.allowsSelection = false
+        tableView.tableHeaderView = UIView()
         addConstraintTableView()
         output.viewDidLoad()
     }
@@ -57,19 +63,16 @@ final class ItemDescViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
         tableView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor).isActive = true
     }
 }
 
 extension ItemDescViewController: ItemDescViewInput {
-    func updateForSections(_ sections: [ItemDescSectionModel]) {
+    func updateForSections(_ sections: [SectionRowsRepresentable]) {
         self.sections = sections
-
         self.tableView.reloadData()
     }
-    
-
 }
 
 extension ItemDescViewController: UITableViewDataSource {

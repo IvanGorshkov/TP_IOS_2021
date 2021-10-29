@@ -26,7 +26,14 @@ extension ItemDescPresenter: ItemDescModuleInput {
 
 extension ItemDescPresenter: ItemDescViewOutput {
     func viewDidLoad() {
-        view?.updateForSections([ItemDescSectionModel(ItemDescModel(name: "На гребне волны", pictures: ["favicon"], amount: 0, rent: 0, description: "На гребне волны", specifications: []))])
+        view?.updateForSections([ItemDescSectionModel(ItemDescModel(name: "На гребне волны", pictures: ["favicon"], amount: 34000, rent: 1200, description: "На гребне волны, На гребне волны, На гребне волны, На гребне волны. На гребне волны, На гребне волны, На гребне волны, На гребне волны\nНа гребне волны, На гребне волны", specifications: [
+            Specifications(title: "Автор", specification: "Анастасия Колесниченко"),
+            Specifications(title: "Размер", specification: "51 x 34 см"),
+            Specifications(title: "Категория", specification: "Фотография"),
+            Specifications(title: "Гамма", specification: "Оранжевый"),
+            Specifications(title: "Тематика", specification: "Натюрморт"),
+            Specifications(title: "Формат", specification: "Вертикальный"),
+        ]))])
     }
     
 }

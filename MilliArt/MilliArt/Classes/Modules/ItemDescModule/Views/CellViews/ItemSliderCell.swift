@@ -8,7 +8,7 @@
 import UIKit
 
 class ItemSliderCell: BaseCell {
-    var slider: UIImageView!
+    var slider = UIImageView()
 
     static let cellIdentifier = "ItemDescSliderCellModel"
     
@@ -23,7 +23,8 @@ class ItemSliderCell: BaseCell {
     
 
     override func loadSubViews() {
-        slider = UIImageView()
+        backgroundColor = .clear
+        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
         self.addSubview(slider)
         slider.translatesAutoresizingMaskIntoConstraints = false
         

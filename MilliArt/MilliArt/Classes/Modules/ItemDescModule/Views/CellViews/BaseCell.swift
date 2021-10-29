@@ -18,7 +18,7 @@ class BaseCell: UITableViewCell, ModelRepresentable {
     }
     
     
-    func updateViews() { }
+    func updateViews() { fatalError("Abstract class, dont use") }
     
-    func loadSubViews() { }
+    func loadSubViews() { fatalError("Abstract class, dont use") }
 }

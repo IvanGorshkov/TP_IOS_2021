@@ -8,10 +8,9 @@
 import UIKit
 
 class ItemNameCell: BaseCell {
-    var nameLabel: UILabel!
+    var nameLabel = UILabel()
 
     static let cellIdentifier = "ItemDescNameCellModel"
-    
     
     override func updateViews() {
         guard let model = model as? ItemDescNameCellModel else {
@@ -22,14 +21,16 @@ class ItemNameCell: BaseCell {
     
     
     override func loadSubViews() {
-        nameLabel = UILabel()
+        backgroundColor = .clear
+        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
         self.addSubview(nameLabel)
         nameLabel.numberOfLines = 0
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        nameLabel.topAnchor.constraint(equalTo: super.topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: super.leadingAnchor, constant: 20).isActive = true
-        nameLabel.heightAnchor.constraint(equalTo: super.heightAnchor).isActive = true
+        nameLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.heavy)
+        nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         
     }
 }

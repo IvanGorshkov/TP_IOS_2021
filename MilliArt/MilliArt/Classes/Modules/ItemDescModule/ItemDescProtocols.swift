@@ -16,7 +16,7 @@ protocol ItemDescModuleOutput: AnyObject {
 }
 
 protocol ItemDescViewInput: AnyObject {
-    func updateForSections(_ sections: [ItemDescSectionModel])
+    func updateForSections(_ sections: [SectionRowsRepresentable])
 }
 
 protocol ItemDescViewOutput: AnyObject {
