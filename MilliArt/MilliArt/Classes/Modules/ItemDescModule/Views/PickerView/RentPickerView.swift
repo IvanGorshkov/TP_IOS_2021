@@ -9,8 +9,8 @@ import UIKit
 
 class RentPickerView: UIView {
     
-    let picker = UIPickerView(frame: .zero)
-    let button = UIButton(frame: .zero)
+    internal let picker = UIPickerView(frame: .zero)
+    internal let button = UIButton(frame: .zero)
     
     let buttonName: String = "Готово"
     
@@ -70,15 +70,6 @@ class RentPickerView: UIView {
     
     override func updateConstraints() {
         super.updateConstraints()
-        self.button.translatesAutoresizingMaskIntoConstraints = false
-        self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-        self.button.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
-        self.button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        self.picker.translatesAutoresizingMaskIntoConstraints = false
-        self.picker.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        self.picker.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.picker.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.picker.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        addConstraintRentPickerView()
     }
 }

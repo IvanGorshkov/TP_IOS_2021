@@ -18,6 +18,7 @@
 		703A4A9A272C973E000329F7 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 703A4A99272C973E000329F7 /* NVActivityIndicatorView */; };
 		703A4A9C272C973E000329F7 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 703A4A9B272C973E000329F7 /* NVActivityIndicatorViewExtended */; };
 		703A4A9F272CA587000329F7 /* RentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A9E272CA587000329F7 /* RentPickerView.swift */; };
+		703A4AA1272DB96E000329F7 /* RentPickerView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA0272DB96E000329F7 /* RentPickerView+Constraints.swift */; };
 		706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */; };
 		706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */; };
 		706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */; };
@@ -97,6 +98,7 @@
 		703A4A8F272C7049000329F7 /* SpecificationsDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpecificationsDesc+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A92272C8947000329F7 /* ServiceManagerDescModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerDescModel.swift; sourceTree = "<group>"; };
 		703A4A9E272CA587000329F7 /* RentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentPickerView.swift; sourceTree = "<group>"; };
+		703A4AA0272DB96E000329F7 /* RentPickerView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RentPickerView+Constraints.swift"; sourceTree = "<group>"; };
 		706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				703A4A9E272CA587000329F7 /* RentPickerView.swift */,
+				703A4AA0272DB96E000329F7 /* RentPickerView+Constraints.swift */,
 			);
 			path = PickerView;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				706E69EA272AC3130006BA3B /* MainRouter.swift in Sources */,
 				706E6A3F272B53FF0006BA3B /* BaseCellModel.swift in Sources */,
 				706E6A02272AEB380006BA3B /* SearchContainer.swift in Sources */,
+				703A4AA1272DB96E000329F7 /* RentPickerView+Constraints.swift in Sources */,
 				706E69FE272AEB380006BA3B /* SearchRouter.swift in Sources */,
 				706E6A29272B25AF0006BA3B /* ItemDescProtocols.swift in Sources */,
 				703A4A93272C8947000329F7 /* ServiceManagerDescModel.swift in Sources */,
