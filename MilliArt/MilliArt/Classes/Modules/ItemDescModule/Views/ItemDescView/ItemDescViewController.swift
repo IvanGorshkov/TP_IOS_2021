@@ -169,7 +169,7 @@ extension ItemDescViewController: ItemDescCellViewOutput {
     }
     
     func clickAR() {
-        print("clickAR")
+        self.output.goToAR()
     }
     
     func openFullScreen(silder: ImageSlideshow) {

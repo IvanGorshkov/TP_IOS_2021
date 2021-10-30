@@ -12,4 +12,11 @@ final class ItemDescRouter {
 }
 
 extension ItemDescRouter: ItemDescRouterInput {
+    func goToAR(from vc: ItemDescViewInput?, arModel: PaintingARModel?) {
+        guard let view = vc as? UIViewController, let arModel = arModel else { return }
+        
+        let itemDesc = ARContainer.assemble(with: ARContext(arModel: arModel))
+        view.navigationController?.pushViewController(itemDesc.viewController, animated: true)
+    }
+    
 }

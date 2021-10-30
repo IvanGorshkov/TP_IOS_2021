@@ -18,6 +18,20 @@ final class ItemDescInteractor {
 }
 
 extension ItemDescInteractor: ItemDescInteractorInput {
+    func loadFirstPhoto() {
+        let sizes = itemDescModel?.specifications.filter({ specification in
+            return specification.title == "Размер"
+        }).first?.specification
+        
+        guard let sizeArray = sizes?.split(separator: "x").map({ str in
+            return Int(str.filter { ("0"..."9").contains($0) })
+        }) else { return }
+        
+        output?.firstPhotoDidLoad(arModel:
+                                    PaintingARModel(pic: itemDescModel?.pictures.first, width: sizeArray[0] ?? 0, height: sizeArray[1] ?? 0)
+        )
+    }
+    
     func changeMonthCount(value: Int) {
         itemDescModel?.countRent = value
         guard let itemDescModel =  itemDescModel else { return }
