@@ -2,7 +2,7 @@
 //  ItemDescViewController.swift
 //  MilliArt
 //
-//  Created by Ivan Gorshkov on 28.10.2021.
+//  Created by Ivan Gorshkov on 28.10.1021.
 //  
 //
 
@@ -13,6 +13,8 @@ import NVActivityIndicatorView
 final class ItemDescViewController: UIViewController {
 	private let output: ItemDescViewOutput
     internal var tableView =  UITableView()
+    internal var pickerView =  RentPickerView()
+    
     private var section: SectionRowsRepresentable?
     private var activityIndicatorView: NVActivityIndicatorView!
     init(output: ItemDescViewOutput) {
@@ -37,6 +39,7 @@ final class ItemDescViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addConstraintTableView()
+        addConstraintPickerView()
     }
     
     
@@ -44,6 +47,15 @@ final class ItemDescViewController: UIViewController {
         setUpBase()
         setUpTableView()
         setUpIndicator()
+        setUpPickerView()
+    }
+    
+    private func setUpPickerView() {
+        self.view.addSubview(pickerView)
+        self.pickerView.picker.dataSource = self
+        self.pickerView.picker.delegate = self
+        self.pickerView.button.addTarget(self, action: #selector(doneClick), for: .touchUpInside)
+        self.pickerView.alpha = 0
     }
     
     private func setUpIndicator() {
@@ -76,6 +88,14 @@ final class ItemDescViewController: UIViewController {
             tableView.tableHeaderView = UIView()
     }
     
+    @objc
+    func doneClick() {
+        UIView.animate(withDuration: 0.1) {
+            self.pickerView.alpha = 0
+        }
+     }
+    
+    
     private func registerCells() {
         tableView.register(ItemNameCell.self, forCellReuseIdentifier: ItemNameCell.cellIdentifier)
         tableView.register(ItemSliderCell.self, forCellReuseIdentifier: ItemSliderCell.cellIdentifier)
@@ -87,6 +107,16 @@ final class ItemDescViewController: UIViewController {
 }
 
 extension ItemDescViewController: ItemDescViewInput {
+    func updateRentPrice(_ sections: SectionRowsRepresentable) {
+        guard let amount = self.section?.rows[2] as? AmountDescCellModel,
+        let amount2 = sections.rows[2] as? AmountDescCellModel else { return }
+        
+        amount.countRent = amount2.countRent
+        let indexPathRow:Int = 2
+        let indexPosition = IndexPath(row: indexPathRow, section: 0)
+        tableView.reloadRows(at: [indexPosition], with: .none)
+    }
+    
     func updateForSections(_ sections: SectionRowsRepresentable) {
         activityIndicatorView.stopAnimating()
         self.section = sections
@@ -119,6 +149,13 @@ extension ItemDescViewController: UITableViewDelegate {
 }
 
 extension ItemDescViewController: ItemDescCellViewOutput {
+    func openPicker() {
+        UIView.animate(withDuration: 0.1) {
+            self.pickerView.alpha = 1
+        }
+
+    }
+    
     func clickBuy() {
         print("clickBuy")
     }
@@ -137,5 +174,23 @@ extension ItemDescViewController: ItemDescCellViewOutput {
     
     func openFullScreen(silder: ImageSlideshow) {
         silder.presentFullScreenController(from: self)
+    }
+}
+
+extension ItemDescViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 12
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(row + 1)"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        output.changeMonthCount(value: row + 1)
     }
 }

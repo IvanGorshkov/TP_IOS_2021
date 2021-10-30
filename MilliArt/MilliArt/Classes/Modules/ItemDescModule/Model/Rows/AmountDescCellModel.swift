@@ -14,9 +14,16 @@ final class AmountDescCellModel: BaseCellModel {
     
     var amount: Int
     var rentPreMonth: Int
+    var countRent: Int
     
-    init(_ model: ItemDescModel) {
+    typealias ActionHandler = () -> ()
+    
+    var action: ActionHandler?
+    
+    init(_ model: ItemDescModel, action: ActionHandler?) {
         self.amount = model.amount
         self.rentPreMonth = model.rent
+        self.action = action
+        self.countRent = model.countRent
     }
 }

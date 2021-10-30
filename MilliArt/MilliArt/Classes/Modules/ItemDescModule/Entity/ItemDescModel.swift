@@ -14,6 +14,7 @@ struct ItemDescModel {
     let rent: Int
     let description: String
     let specifications: [Specifications]
+    var countRent: Int
 }
 
 struct Specifications {

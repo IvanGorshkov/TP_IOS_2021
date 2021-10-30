@@ -18,6 +18,7 @@ protocol ItemDescModuleOutput: AnyObject {
 
 protocol ItemDescViewInput: AnyObject {
     func updateForSections(_ sections: SectionRowsRepresentable)
+    func updateRentPrice(_ sections: SectionRowsRepresentable)
 }
 
 protocol ItemDescCellViewOutput: AnyObject {
@@ -26,18 +27,22 @@ protocol ItemDescCellViewOutput: AnyObject {
     func clickRent()
     func clickFav()
     func clickAR()
+    func openPicker()
 }
 
 protocol ItemDescViewOutput: AnyObject {
     func viewDidLoad()
+    func changeMonthCount(value: Int)
 }
 
 protocol ItemDescInteractorInput: AnyObject {
     func loadItemById(with id: Int)
+    func changeMonthCount(value: Int)
 }
 
 protocol ItemDescInteractorOutput: AnyObject {
     func itemDidLoad(itemDesc: ItemDescModel)
+    func updateRentPrice(itemDesc: ItemDescModel)
 }
 
 protocol ItemDescRouterInput: AnyObject {

@@ -14,7 +14,6 @@ final class ItemDescPresenter {
 
 	private let router: ItemDescRouterInput
 	private let interactor: ItemDescInteractorInput
-    private var itemDescModel: ItemDescModel?
     
     init(router: ItemDescRouterInput, interactor: ItemDescInteractorInput) {
         self.router = router
@@ -26,6 +25,10 @@ extension ItemDescPresenter: ItemDescModuleInput {
 }
 
 extension ItemDescPresenter: ItemDescViewOutput {
+    func changeMonthCount(value: Int) {
+        interactor.changeMonthCount(value: value)
+    }
+    
     func viewDidLoad() {
         interactor.loadItemById(with: 1)
     }
@@ -33,9 +36,11 @@ extension ItemDescPresenter: ItemDescViewOutput {
 }
 
 extension ItemDescPresenter: ItemDescInteractorOutput {
+    func updateRentPrice(itemDesc: ItemDescModel) {
+        view?.updateRentPrice(ItemDescSectionModel(itemDesc))
+    }
+    
     func itemDidLoad(itemDesc: ItemDescModel) {
-        self.itemDescModel = itemDesc
-        guard let itemDescModel =  self.itemDescModel else { return }
-        view?.updateForSections(ItemDescSectionModel(itemDescModel))
+        view?.updateForSections(ItemDescSectionModel(itemDesc))
     }
 }
