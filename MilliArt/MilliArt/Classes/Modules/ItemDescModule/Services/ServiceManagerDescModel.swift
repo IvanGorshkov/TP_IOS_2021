@@ -25,7 +25,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
                     Specifications(title: "Гамма", specification: "Оранжевый"),
                     Specifications(title: "Тематика", specification: "Натюрморт"),
                     Specifications(title: "Формат", specification: "Вертикальный")
-                    ]
+                ], countRent: 1
                     )
                 )
         }

@@ -20,13 +20,15 @@ final class AmountDescCell: BaseCell {
         }
         
         amountLabel.text = "Цена: \(model.amount) ₽"
-        monthCountLabel.setAttributedTitle("Аренда на 1 месяц".underLined, for: .normal)
-        rentLabel.text = "Цена: \(model.rentPreMonth) ₽"
+        monthCountLabel.setAttributedTitle("Аренда на \(model.countRent) месяц".underLined, for: .normal)
+        rentLabel.text = "Цена: \(model.rentPreMonth * model.countRent) ₽"
     }
     
     @objc
     func clickPicker() {
-
+        guard let model = model as? AmountDescCellModel else { return }
+        
+        model.action?()
     }
     
     override func loadSubViews() {

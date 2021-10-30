@@ -18,7 +18,7 @@ final class ItemDescSectionModel: SectionRowsRepresentable {
         rows.append(SliderCellModel(itemDesc, action: { [weak self] imageSlideshow in
             self?.delegate?.openFullScreen(silder: imageSlideshow)
         }))
-        rows.append(AmountDescCellModel(itemDesc))
+        rows.append(AmountDescCellModel(itemDesc, action: { [weak self] in self?.delegate?.openPicker() }))
         rows.append(ButtonsDescModelCell(itemDesc,
             actionAR: { [weak self] in self?.delegate?.clickAR() },
             actionBuy: { [weak self] in self?.delegate?.clickBuy() },
