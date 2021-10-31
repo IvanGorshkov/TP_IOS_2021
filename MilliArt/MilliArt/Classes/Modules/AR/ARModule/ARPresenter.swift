@@ -27,7 +27,7 @@ extension ARPresenter: ARModuleInput {
 
 extension ARPresenter: ARViewOutput {
     func viewDidLoad() {
-        print(arModel)
+        view?.loadModel(arModel: arModel)
     }
     
 }

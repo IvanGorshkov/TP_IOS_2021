@@ -26,6 +26,7 @@
 		703A4AAE272DF61A000329F7 /* ARInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA8272DF61A000329F7 /* ARInteractor.swift */; };
 		703A4AAF272DF61A000329F7 /* ARContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA9272DF61A000329F7 /* ARContainer.swift */; };
 		703A4AB1272DFE8C000329F7 /* PaintingARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AB0272DFE8C000329F7 /* PaintingARModel.swift */; };
+		703A4AB3272EA962000329F7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 703A4AB2272EA961000329F7 /* art.scnassets */; };
 		706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */; };
 		706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */; };
 		706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */; };
@@ -113,6 +114,7 @@
 		703A4AA8272DF61A000329F7 /* ARInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARInteractor.swift; sourceTree = "<group>"; };
 		703A4AA9272DF61A000329F7 /* ARContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainer.swift; sourceTree = "<group>"; };
 		703A4AB0272DFE8C000329F7 /* PaintingARModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingARModel.swift; sourceTree = "<group>"; };
+		703A4AB2272EA961000329F7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 				706E69D4272AB5CC0006BA3B /* Classes */,
 				70C419EB27248FC1006214FA /* ViewController.swift */,
 				70C419ED27248FC1006214FA /* Main.storyboard */,
+				703A4AB2272EA961000329F7 /* art.scnassets */,
 				70C419F027248FC2006214FA /* Assets.xcassets */,
 				70C419F227248FC2006214FA /* LaunchScreen.storyboard */,
 				70C419F527248FC2006214FA /* Info.plist */,
@@ -596,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C419F427248FC2006214FA /* LaunchScreen.storyboard in Resources */,
+				703A4AB3272EA962000329F7 /* art.scnassets in Resources */,
 				70C419F127248FC2006214FA /* Assets.xcassets in Resources */,
 				70C419EF27248FC1006214FA /* Main.storyboard in Resources */,
 			);
@@ -837,6 +841,7 @@
 				DEVELOPMENT_TEAM = 58T4L2QKV7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -868,6 +873,7 @@
 				DEVELOPMENT_TEAM = 58T4L2QKV7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

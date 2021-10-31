@@ -17,6 +17,8 @@ protocol ARModuleOutput: AnyObject {
 }
 
 protocol ARViewInput: AnyObject {
+    
+    func loadModel(arModel: PaintingARModel?)
 }
 
 protocol ARViewOutput: AnyObject {
