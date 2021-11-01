@@ -24,7 +24,7 @@ extension ItemDescInteractor: ItemDescInteractorInput {
         }).first?.specification
         
         guard let sizeArray = sizes?.split(separator: "x").map({ str in
-            return Int(str.filter { ("0"..."9").contains($0) })
+            return Float(str.filter { ("0"..."9").contains($0) })
         }) else { return }
         
         output?.firstPhotoDidLoad(arModel:

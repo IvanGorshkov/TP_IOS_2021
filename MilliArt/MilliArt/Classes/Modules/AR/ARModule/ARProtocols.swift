@@ -23,6 +23,7 @@ protocol ARViewInput: AnyObject {
 
 protocol ARViewOutput: AnyObject {
     func viewDidLoad()
+    func openEditFrame()
 }
 
 protocol ARInteractorInput: AnyObject {
@@ -32,4 +33,5 @@ protocol ARInteractorOutput: AnyObject {
 }
 
 protocol ARRouterInput: AnyObject {
+    func goToAR(from vc: ARViewInput?, arModel: PaintingARModel?, presenter: AREditModuleOutput)
 }

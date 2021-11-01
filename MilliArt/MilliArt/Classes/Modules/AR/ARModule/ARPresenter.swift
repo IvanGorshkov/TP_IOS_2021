@@ -25,7 +25,18 @@ final class ARPresenter {
 extension ARPresenter: ARModuleInput {
 }
 
+extension ARPresenter: AREditModuleOutput {
+    func returnModel(model: PaintingARModel) {
+        self.arModel = model
+        view?.loadModel(arModel: arModel)
+    }
+}
+
 extension ARPresenter: ARViewOutput {
+    func openEditFrame() {
+        router.goToAR(from: view, arModel: arModel, presenter: self)
+    }
+    
     func viewDidLoad() {
         view?.loadModel(arModel: arModel)
     }
