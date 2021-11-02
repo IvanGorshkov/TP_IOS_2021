@@ -23,25 +23,25 @@ final class ButtonsDescCell: BaseCell {
     }
     
     @objc
-    func clickAR() {
+    private func clickAR() {
         guard let model = model as? ButtonsDescModelCell else { return }
         model.actionAR?()
     }
     
     @objc
-    func clickFav() {
+    private func clickFav() {
         guard let model = model as? ButtonsDescModelCell else { return }
         model.actionFav?()
     }
     
     @objc
-    func clickBuy() {
+    private func clickBuy() {
         guard let model = model as? ButtonsDescModelCell else { return  }
         model.actionBuy?()
     }
     
     @objc
-    func clickRent() {
+    private func clickRent() {
         guard let model = model as? ButtonsDescModelCell else { return }
         model.actionRent?()
     }

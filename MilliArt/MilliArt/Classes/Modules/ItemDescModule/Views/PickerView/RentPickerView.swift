@@ -12,7 +12,7 @@ class RentPickerView: UIView {
     internal let picker = UIPickerView(frame: .zero)
     internal let button = UIButton(frame: .zero)
     
-    let buttonName: String = "Готово"
+    let buttonName: String = TitlesConstants.Done
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,12 +24,12 @@ class RentPickerView: UIView {
         didLoad()
     }
     
-    func didLoad() {
+    private func didLoad() {
         
         self.addSubview(picker)
         self.addSubview(button)
         
-        picker.backgroundColor = .tertiarySystemBackground
+        picker.backgroundColor = ColorConstants.BlackColor.withAlphaComponent(0.5)
         picker.frame = .zero
         
         button.setTitle(buttonName, for: .normal)

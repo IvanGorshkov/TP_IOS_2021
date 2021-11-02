@@ -89,7 +89,7 @@ final class ItemDescViewController: UIViewController {
     }
     
     @objc
-    func doneClick() {
+    private func doneClick() {
         UIView.animate(withDuration: 0.1) {
             self.pickerView.alpha = 0
         }
@@ -169,7 +169,7 @@ extension ItemDescViewController: ItemDescCellViewOutput {
     }
     
     func clickAR() {
-        print("clickAR")
+        self.output.goToAR()
     }
     
     func openFullScreen(silder: ImageSlideshow) {

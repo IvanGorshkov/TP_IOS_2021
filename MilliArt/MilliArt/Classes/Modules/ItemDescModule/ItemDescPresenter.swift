@@ -25,6 +25,10 @@ extension ItemDescPresenter: ItemDescModuleInput {
 }
 
 extension ItemDescPresenter: ItemDescViewOutput {
+    func goToAR() {
+        interactor.loadFirstPhoto()
+    }
+    
     func changeMonthCount(value: Int) {
         interactor.changeMonthCount(value: value)
     }
@@ -36,6 +40,10 @@ extension ItemDescPresenter: ItemDescViewOutput {
 }
 
 extension ItemDescPresenter: ItemDescInteractorOutput {
+    func firstPhotoDidLoad(arModel: PaintingARModel) {
+        router.goToAR(from: view, arModel: arModel)
+    }
+    
     func updateRentPrice(itemDesc: ItemDescModel) {
         view?.updateRentPrice(ItemDescSectionModel(itemDesc))
     }

@@ -25,7 +25,7 @@ final class AmountDescCell: BaseCell {
     }
     
     @objc
-    func clickPicker() {
+    private func clickPicker() {
         guard let model = model as? AmountDescCellModel else { return }
         
         model.action?()

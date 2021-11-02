@@ -19,6 +19,28 @@
 		703A4A9C272C973E000329F7 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 703A4A9B272C973E000329F7 /* NVActivityIndicatorViewExtended */; };
 		703A4A9F272CA587000329F7 /* RentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A9E272CA587000329F7 /* RentPickerView.swift */; };
 		703A4AA1272DB96E000329F7 /* RentPickerView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA0272DB96E000329F7 /* RentPickerView+Constraints.swift */; };
+		703A4AAA272DF61A000329F7 /* ARPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA4272DF61A000329F7 /* ARPresenter.swift */; };
+		703A4AAB272DF61A000329F7 /* ARRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA5272DF61A000329F7 /* ARRouter.swift */; };
+		703A4AAC272DF61A000329F7 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA6272DF61A000329F7 /* ARViewController.swift */; };
+		703A4AAD272DF61A000329F7 /* ARProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA7272DF61A000329F7 /* ARProtocols.swift */; };
+		703A4AAE272DF61A000329F7 /* ARInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA8272DF61A000329F7 /* ARInteractor.swift */; };
+		703A4AAF272DF61A000329F7 /* ARContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AA9272DF61A000329F7 /* ARContainer.swift */; };
+		703A4AB1272DFE8C000329F7 /* PaintingARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AB0272DFE8C000329F7 /* PaintingARModel.swift */; };
+		703A4AB3272EA962000329F7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 703A4AB2272EA961000329F7 /* art.scnassets */; };
+		703A4ABB2730156C000329F7 /* AREditPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AB52730156C000329F7 /* AREditPresenter.swift */; };
+		703A4ABC2730156C000329F7 /* AREditRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AB62730156C000329F7 /* AREditRouter.swift */; };
+		703A4ABD2730156C000329F7 /* AREditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AB72730156C000329F7 /* AREditViewController.swift */; };
+		703A4ABE2730156C000329F7 /* AREditProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AB82730156C000329F7 /* AREditProtocols.swift */; };
+		703A4ABF2730156C000329F7 /* AREditInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AB92730156C000329F7 /* AREditInteractor.swift */; };
+		703A4AC02730156C000329F7 /* AREditContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4ABA2730156C000329F7 /* AREditContainer.swift */; };
+		703A4AC327303A5F000329F7 /* AR+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AC227303A5F000329F7 /* AR+Constraints.swift */; };
+		703A4AC5273049B4000329F7 /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AC4273049B4000329F7 /* ARViewModel.swift */; };
+		703A4AC9273079EF000329F7 /* FrameCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AC8273079EF000329F7 /* FrameCollectionCell.swift */; };
+		703A4ACB27307A0B000329F7 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4ACA27307A0B000329F7 /* BaseCollectionCell.swift */; };
+		703A4ACE27307C59000329F7 /* FrameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4ACD27307C59000329F7 /* FrameViewModel.swift */; };
+		703A4AD02730A1A5000329F7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4ACF2730A1A5000329F7 /* UIImageView+Extension.swift */; };
+		703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AD12731DF13000329F7 /* AREdit+Constraints.swift */; };
+		703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AD52731FC8F000329F7 /* FrameCell+Constraints.swift */; };
 		706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */; };
 		706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */; };
 		706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */; };
@@ -99,6 +121,28 @@
 		703A4A92272C8947000329F7 /* ServiceManagerDescModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerDescModel.swift; sourceTree = "<group>"; };
 		703A4A9E272CA587000329F7 /* RentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentPickerView.swift; sourceTree = "<group>"; };
 		703A4AA0272DB96E000329F7 /* RentPickerView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RentPickerView+Constraints.swift"; sourceTree = "<group>"; };
+		703A4AA4272DF61A000329F7 /* ARPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPresenter.swift; sourceTree = "<group>"; };
+		703A4AA5272DF61A000329F7 /* ARRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRouter.swift; sourceTree = "<group>"; };
+		703A4AA6272DF61A000329F7 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		703A4AA7272DF61A000329F7 /* ARProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARProtocols.swift; sourceTree = "<group>"; };
+		703A4AA8272DF61A000329F7 /* ARInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARInteractor.swift; sourceTree = "<group>"; };
+		703A4AA9272DF61A000329F7 /* ARContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainer.swift; sourceTree = "<group>"; };
+		703A4AB0272DFE8C000329F7 /* PaintingARModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingARModel.swift; sourceTree = "<group>"; };
+		703A4AB2272EA961000329F7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		703A4AB52730156C000329F7 /* AREditPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREditPresenter.swift; sourceTree = "<group>"; };
+		703A4AB62730156C000329F7 /* AREditRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREditRouter.swift; sourceTree = "<group>"; };
+		703A4AB72730156C000329F7 /* AREditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREditViewController.swift; sourceTree = "<group>"; };
+		703A4AB82730156C000329F7 /* AREditProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREditProtocols.swift; sourceTree = "<group>"; };
+		703A4AB92730156C000329F7 /* AREditInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREditInteractor.swift; sourceTree = "<group>"; };
+		703A4ABA2730156C000329F7 /* AREditContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREditContainer.swift; sourceTree = "<group>"; };
+		703A4AC227303A5F000329F7 /* AR+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AR+Constraints.swift"; sourceTree = "<group>"; };
+		703A4AC4273049B4000329F7 /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
+		703A4AC8273079EF000329F7 /* FrameCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCollectionCell.swift; sourceTree = "<group>"; };
+		703A4ACA27307A0B000329F7 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
+		703A4ACD27307C59000329F7 /* FrameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameViewModel.swift; sourceTree = "<group>"; };
+		703A4ACF2730A1A5000329F7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		703A4AD12731DF13000329F7 /* AREdit+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AREdit+Constraints.swift"; sourceTree = "<group>"; };
+		703A4AD52731FC8F000329F7 /* FrameCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FrameCell+Constraints.swift"; sourceTree = "<group>"; };
 		706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +307,96 @@
 			path = PickerView;
 			sourceTree = "<group>";
 		};
+		703A4AA2272DF58F000329F7 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AB42730119A000329F7 /* AREditModule */,
+				703A4AA3272DF59C000329F7 /* ARModule */,
+				703A4AC6273049BA000329F7 /* Model */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		703A4AA3272DF59C000329F7 /* ARModule */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AA4272DF61A000329F7 /* ARPresenter.swift */,
+				703A4AA5272DF61A000329F7 /* ARRouter.swift */,
+				703A4AC127303A48000329F7 /* Views */,
+				703A4AA7272DF61A000329F7 /* ARProtocols.swift */,
+				703A4AA8272DF61A000329F7 /* ARInteractor.swift */,
+				703A4AA9272DF61A000329F7 /* ARContainer.swift */,
+			);
+			path = ARModule;
+			sourceTree = "<group>";
+		};
+		703A4AB42730119A000329F7 /* AREditModule */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AB52730156C000329F7 /* AREditPresenter.swift */,
+				703A4AB62730156C000329F7 /* AREditRouter.swift */,
+				703A4AC7273079B5000329F7 /* Views */,
+				703A4AB82730156C000329F7 /* AREditProtocols.swift */,
+				703A4AB92730156C000329F7 /* AREditInteractor.swift */,
+				703A4ABA2730156C000329F7 /* AREditContainer.swift */,
+			);
+			path = AREditModule;
+			sourceTree = "<group>";
+		};
+		703A4AC127303A48000329F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AA6272DF61A000329F7 /* ARViewController.swift */,
+				703A4AC227303A5F000329F7 /* AR+Constraints.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		703A4AC6273049BA000329F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AC4273049B4000329F7 /* ARViewModel.swift */,
+				703A4ACD27307C59000329F7 /* FrameViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		703A4AC7273079B5000329F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				703A4ACC27307A81000329F7 /* CollectionCell */,
+				703A4AD32731DF44000329F7 /* AREdit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		703A4ACC27307A81000329F7 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				703A4ACA27307A0B000329F7 /* BaseCollectionCell.swift */,
+				703A4AD42731FC86000329F7 /* Frame */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		703A4AD32731DF44000329F7 /* AREdit */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AB72730156C000329F7 /* AREditViewController.swift */,
+				703A4AD12731DF13000329F7 /* AREdit+Constraints.swift */,
+			);
+			path = AREdit;
+			sourceTree = "<group>";
+		};
+		703A4AD42731FC86000329F7 /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AC8273079EF000329F7 /* FrameCollectionCell.swift */,
+				703A4AD52731FC8F000329F7 /* FrameCell+Constraints.swift */,
+			);
+			path = Frame;
+			sourceTree = "<group>";
+		};
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +495,7 @@
 		706E6A1E272B180B0006BA3B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				703A4AA2272DF58F000329F7 /* AR */,
 				706E6A1F272B258B0006BA3B /* ItemDescModule */,
 				706E6A11272B09170006BA3B /* FilterModule */,
 				706E6A04272AED270006BA3B /* CartModule */,
@@ -391,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				706E6A2F272B3F680006BA3B /* ItemDescModel.swift */,
+				703A4AB0272DFE8C000329F7 /* PaintingARModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -455,6 +591,7 @@
 			children = (
 				706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */,
 				706E6A63272C3D960006BA3B /* String+Extension.swift */,
+				703A4ACF2730A1A5000329F7 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -481,6 +618,7 @@
 				706E69D4272AB5CC0006BA3B /* Classes */,
 				70C419EB27248FC1006214FA /* ViewController.swift */,
 				70C419ED27248FC1006214FA /* Main.storyboard */,
+				703A4AB2272EA961000329F7 /* art.scnassets */,
 				70C419F027248FC2006214FA /* Assets.xcassets */,
 				70C419F227248FC2006214FA /* LaunchScreen.storyboard */,
 				70C419F527248FC2006214FA /* Info.plist */,
@@ -559,6 +697,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C419F427248FC2006214FA /* LaunchScreen.storyboard in Resources */,
+				703A4AB3272EA962000329F7 /* art.scnassets in Resources */,
 				70C419F127248FC2006214FA /* Assets.xcassets in Resources */,
 				70C419EF27248FC1006214FA /* Main.storyboard in Resources */,
 			);
@@ -577,45 +716,65 @@
 				706E69EE272AC3130006BA3B /* MainContainer.swift in Sources */,
 				706E6A30272B3F680006BA3B /* ItemDescModel.swift in Sources */,
 				706E6A27272B25AF0006BA3B /* ItemDescRouter.swift in Sources */,
+				703A4ACE27307C59000329F7 /* FrameViewModel.swift in Sources */,
+				703A4AAF272DF61A000329F7 /* ARContainer.swift in Sources */,
+				703A4AAE272DF61A000329F7 /* ARInteractor.swift in Sources */,
 				706E6A33272B50540006BA3B /* ItemDescSectionModel.swift in Sources */,
 				706E6A2D272B2F260006BA3B /* TitlesConstants.swift in Sources */,
+				703A4AB1272DFE8C000329F7 /* PaintingARModel.swift in Sources */,
 				706E69FD272AEB380006BA3B /* SearchPresenter.swift in Sources */,
 				706E6A43272B5A750006BA3B /* SliderCellModel.swift in Sources */,
+				703A4ACB27307A0B000329F7 /* BaseCollectionCell.swift in Sources */,
 				706E69F4272AD3670006BA3B /* ColorConstants.swift in Sources */,
 				706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */,
 				70C419EC27248FC1006214FA /* ViewController.swift in Sources */,
 				706E6A0D272AED5D0006BA3B /* CartViewController.swift in Sources */,
 				706E69EC272AC3130006BA3B /* MainProtocols.swift in Sources */,
+				703A4ABE2730156C000329F7 /* AREditProtocols.swift in Sources */,
 				706E6A37272B513B0006BA3B /* BaseCell.swift in Sources */,
 				703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */,
 				706E6A51272BF6320006BA3B /* AboutDescCell.swift in Sources */,
 				706E6A1D272B09370006BA3B /* FilterContainer.swift in Sources */,
 				706E69EB272AC3130006BA3B /* MainViewController.swift in Sources */,
+				703A4AC327303A5F000329F7 /* AR+Constraints.swift in Sources */,
 				706E6A45272B5C580006BA3B /* ItemSliderCell.swift in Sources */,
 				706E6A55272BFA9D0006BA3B /* SpecificationsDescCell.swift in Sources */,
 				706E6A2B272B25AF0006BA3B /* ItemDescContainer.swift in Sources */,
+				703A4ABC2730156C000329F7 /* AREditRouter.swift in Sources */,
 				706E6A0E272AED5D0006BA3B /* CartProtocols.swift in Sources */,
+				703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */,
 				706E6A0B272AED5D0006BA3B /* CartPresenter.swift in Sources */,
+				703A4ABD2730156C000329F7 /* AREditViewController.swift in Sources */,
 				703A4A8D272C7024000329F7 /* AboutDesc+Constraints.swift in Sources */,
 				706E6A26272B25AF0006BA3B /* ItemDescPresenter.swift in Sources */,
 				706E69ED272AC3130006BA3B /* MainInteractor.swift in Sources */,
+				703A4ABB2730156C000329F7 /* AREditPresenter.swift in Sources */,
 				706E6A0C272AED5D0006BA3B /* CartRouter.swift in Sources */,
 				706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */,
+				703A4AAD272DF61A000329F7 /* ARProtocols.swift in Sources */,
 				706E6A64272C3D960006BA3B /* String+Extension.swift in Sources */,
+				703A4ABF2730156C000329F7 /* AREditInteractor.swift in Sources */,
 				706E6A00272AEB380006BA3B /* SearchProtocols.swift in Sources */,
 				706E6A19272B09370006BA3B /* FilterRouter.swift in Sources */,
 				703A4A9F272CA587000329F7 /* RentPickerView.swift in Sources */,
 				70C419E827248FC1006214FA /* AppDelegate.swift in Sources */,
 				703A4A84272C6F6A000329F7 /* ItemSlider+Constraints.swift in Sources */,
 				706E6A2A272B25AF0006BA3B /* ItemDescInteractor.swift in Sources */,
+				703A4AAB272DF61A000329F7 /* ARRouter.swift in Sources */,
+				703A4AC02730156C000329F7 /* AREditContainer.swift in Sources */,
 				706E69FF272AEB380006BA3B /* SearchViewController.swift in Sources */,
+				703A4AC5273049B4000329F7 /* ARViewModel.swift in Sources */,
 				70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */,
 				706E69E9272AC3130006BA3B /* MainPresenter.swift in Sources */,
 				706E6A3B272B522D0006BA3B /* ItemNameCell.swift in Sources */,
 				706E6A3D272B53C40006BA3B /* ItemDescNameCellModel.swift in Sources */,
+				703A4AC9273079EF000329F7 /* FrameCollectionCell.swift in Sources */,
 				706E6A18272B09370006BA3B /* FilterPresenter.swift in Sources */,
 				703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */,
 				706E6A4D272BEC7E0006BA3B /* ButtonsDescCell.swift in Sources */,
+				703A4AD02730A1A5000329F7 /* UIImageView+Extension.swift in Sources */,
+				703A4AAC272DF61A000329F7 /* ARViewController.swift in Sources */,
+				703A4AAA272DF61A000329F7 /* ARPresenter.swift in Sources */,
 				706E6A1C272B09370006BA3B /* FilterInteractor.swift in Sources */,
 				706E69E1272AB5EE0006BA3B /* TabBarContainer.swift in Sources */,
 				703A4A87272C6F88000329F7 /* AmountDesc+Constraints.swift in Sources */,
@@ -639,6 +798,7 @@
 				706E6A29272B25AF0006BA3B /* ItemDescProtocols.swift in Sources */,
 				703A4A93272C8947000329F7 /* ServiceManagerDescModel.swift in Sources */,
 				706E6A47272BE64C0006BA3B /* AmountDescCellModel.swift in Sources */,
+				703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */,
 				706E69DF272AB5EE0006BA3B /* TabBarProtocols.swift in Sources */,
 				706E6A10272AED5D0006BA3B /* CartContainer.swift in Sources */,
 			);
@@ -793,6 +953,7 @@
 				DEVELOPMENT_TEAM = 58T4L2QKV7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -824,6 +985,7 @@
 				DEVELOPMENT_TEAM = 58T4L2QKV7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
