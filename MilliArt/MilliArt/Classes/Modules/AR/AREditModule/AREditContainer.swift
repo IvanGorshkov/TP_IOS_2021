@@ -21,7 +21,7 @@ final class AREditContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-        presenter.arModel = context.arViewModel
+        presenter.arModel = context.arViewModel.copy()
 
 		interactor.output = presenter
 

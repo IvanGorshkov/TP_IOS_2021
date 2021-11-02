@@ -13,14 +13,21 @@ final class AREditInteractor {
 }
 
 extension AREditInteractor: AREditInteractorInput {
-    func getFramesModel() {
+    func changeSelected(model: [FrameViewModel], index: Int) {
+        for i in (0..<model.count) {
+            model[i].isSelected = index == i
+        }
+        output?.reciveUpdatedFrames(with: model)
+    }
+    
+    func getFramesModel(with model: ARViewModel) {
         output?.reciveFrames(with: [
-            FrameViewModel(colorFrame: "", isSelected: true),
-            FrameViewModel(colorFrame: "Black", isSelected: false),
-            FrameViewModel(colorFrame: "White", isSelected: false),
-            FrameViewModel(colorFrame: "Silver", isSelected: false),
-            FrameViewModel(colorFrame: "Light Wood", isSelected: false),
-            FrameViewModel(colorFrame: "Dark Wood", isSelected: false)
+            FrameViewModel(colorFrame: "", isSelected: model.ARmaterial == ""),
+            FrameViewModel(colorFrame: "Black", isSelected: model.ARmaterial == "Black"),
+            FrameViewModel(colorFrame: "White", isSelected: model.ARmaterial == "White"),
+            FrameViewModel(colorFrame: "Silver", isSelected: model.ARmaterial == "Silver"),
+            FrameViewModel(colorFrame: "Light Wood", isSelected: model.ARmaterial == "Light Wood"),
+            FrameViewModel(colorFrame: "Dark Wood", isSelected: model.ARmaterial == "Dark Wood")
         ])
     }
     
