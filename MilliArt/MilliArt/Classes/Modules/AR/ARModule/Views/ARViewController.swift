@@ -135,7 +135,11 @@ final class ARViewController: UIViewController {
     private func handleLongPressGesture(recognizer: UILongPressGestureRecognizer) {
         let touchLocation = recognizer.location(in: recognizer.view)
         let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
-        if let tappedNode = hitTestResults.first?.node {
+        if var tappedNode = hitTestResults.first?.node {
+            if tappedNode.childNodes.count == 0 {
+                tappedNode = tappedNode.parent!
+            }
+            
             AudioServicesPlaySystemSound(1520)
             tappedNode.removeFromParentNode()
         }
@@ -149,7 +153,12 @@ final class ARViewController: UIViewController {
         guard let result = results.first else {return}
 
         let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
-        if let tappedNode = hitTestResults.first?.node {
+
+        if var tappedNode = hitTestResults.first?.node {
+            if tappedNode.childNodes.count == 0 {
+                tappedNode = tappedNode.parent!
+            }
+            
             if recognizer.state == .began {
                 touchDifference = SCNVector3Make(
                     result.worldTransform.columns.3.x - tappedNode.position.x,
@@ -167,7 +176,6 @@ final class ARViewController: UIViewController {
     private func hangPicture(atLocation hitResult: ARHitTestResult) {
         guard let hitResultAnchor = hitResult.anchor else {return}
         let pictureNode = createPicture()
-        
         let frameDepth:CGFloat = 0.03
         let frameNode = createFrame(depth: CGFloat(frameDepth))
         
@@ -189,7 +197,7 @@ final class ARViewController: UIViewController {
             y: 0,
             z: Float(frameDepth/2)+0.001)
         
-        sceneView.scene.rootNode.addChildNode(frameNode.flattenedClone())
+        sceneView.scene.rootNode.addChildNode(frameNode)
     }
     
     private func createFrame(depth frameDepth: CGFloat) -> SCNNode {
@@ -205,6 +213,14 @@ final class ARViewController: UIViewController {
         frameBox.materials.last?.normal.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Normal.jpg")
         frameBox.materials.last?.roughness.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Roughness.jpg")
     }
+    
+    private func setNewFrameConfig(frameBox: SCNGeometry, arModel: ARViewModel) {
+        guard let frameBox = frameBox as? SCNBox else { return }
+        frameBox.chamferRadius = arModel.ARborderRounded
+        frameBox.width = arModel.ARborderThickness.w
+        frameBox.height = arModel.ARborderThickness.h
+    }
+    
     
     private func createPicture() -> SCNNode {
         guard let arModel = self.arModel else { return SCNNode() }
@@ -262,6 +278,7 @@ extension ARViewController: ARViewInput {
             if node.name == "frame" {
                 guard let geometry = node.geometry else { return }
                 setFrameMaterial(frameBox: geometry, arModel: arModel)
+                setNewFrameConfig(frameBox: geometry, arModel: arModel)
             }
         }
     }
