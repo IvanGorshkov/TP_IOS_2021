@@ -12,7 +12,7 @@ final class ARPresenter {
 	weak var view: ARViewInput?
     weak var moduleOutput: ARModuleOutput?
 
-    var arModel: PaintingARModel?
+    var arViewModel: ARViewModel?
 	private let router: ARRouterInput
 	private let interactor: ARInteractorInput
 
@@ -26,19 +26,19 @@ extension ARPresenter: ARModuleInput {
 }
 
 extension ARPresenter: AREditModuleOutput {
-    func returnModel(model: PaintingARModel) {
-        self.arModel = model
-        view?.loadModel(arModel: arModel)
+    func returnModel(model: ARViewModel) {
+        self.arViewModel = model
+        view?.loadModel(arModel: arViewModel)
     }
 }
 
 extension ARPresenter: ARViewOutput {
     func openEditFrame() {
-        router.goToAR(from: view, arModel: arModel, presenter: self)
+        router.goToAR(from: view, arModel: arViewModel, presenter: self)
     }
     
     func viewDidLoad() {
-        view?.loadModel(arModel: arModel)
+        view?.loadModel(arModel: arViewModel)
     }
     
 }

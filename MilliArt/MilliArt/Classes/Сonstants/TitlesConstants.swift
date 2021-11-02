@@ -7,7 +7,12 @@
 
 import Foundation
 
-class TitlesConstants {
+final class TitlesConstants {
+    
+    
+    // MARK: Base
+    static let Done = "Готово"
+    static let Apply = "Применить"
     
     // MARK: TabBar
     static let MainBarTitle = "Главная"
@@ -27,4 +32,9 @@ class TitlesConstants {
     
     // MARK: AboutDescCelll
     static let AboutTitle = "Описание"
+    
+    // MARK: AR
+    static let SearchingWall = "Поиск стены"
+    static let WallFouned = "Стена найдена"
+    
 }

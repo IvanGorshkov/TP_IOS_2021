@@ -28,7 +28,7 @@ extension ItemDescInteractor: ItemDescInteractorInput {
         }) else { return }
         
         output?.firstPhotoDidLoad(arModel:
-                                    PaintingARModel(pic: itemDescModel?.pictures.first, width: sizeArray[0] ?? 0, height: sizeArray[1] ?? 0)
+                                    PaintingARModel(pic: itemDescModel?.pictures.first, width: sizeArray[1] ?? 0, height: sizeArray[0] ?? 0)
         )
     }
     

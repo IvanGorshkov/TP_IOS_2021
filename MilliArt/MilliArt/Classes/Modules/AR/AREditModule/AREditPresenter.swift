@@ -6,13 +6,14 @@
 //  
 //
 
-import Foundation
+import UIKit
 
 final class AREditPresenter {
 	weak var view: AREditViewInput?
     weak var moduleOutput: AREditModuleOutput?
 
-    var arModel: PaintingARModel?
+    var arModel: ARViewModel?
+    var modelArray:  [FrameViewModel] = []
 	private let router: AREditRouterInput
 	private let interactor: AREditInteractorInput
 
@@ -26,16 +27,36 @@ extension AREditPresenter: AREditModuleInput {
 }
 
 extension AREditPresenter: AREditViewOutput {
+    func setWAndRFrame(width: Float, raadius: Float) {
+        arModel?.ARborderThickness = (CGFloat(width), CGFloat(width))
+        arModel?.ARborderRounded = CGFloat(raadius)
+    }
+    
+    func frameDidSelect(index: Int) {
+        arModel?.ARmaterial = self.modelArray[index].colorFrame
+        if self.modelArray[index].colorFrame == "" {
+            arModel?.ARborderThickness = (0,0)
+        } else {
+            arModel?.ARborderThickness = (4.5, 4.5)
+            
+        }
+    }
+    
     func viewDidDisappear() {
         guard let arModel = arModel else { return }
         moduleOutput?.returnModel(model: arModel)
     }
     
     func viewDidLoad() {
-        arModel?.material = "Gold"
+        interactor.getFramesModel()
     }
     
 }
 
 extension AREditPresenter: AREditInteractorOutput {
+    func reciveFrames(with model: [FrameViewModel]) {
+        self.modelArray = model
+        view?.loadARModel(model: arModel, frameArray: model)
+    }
+    
 }

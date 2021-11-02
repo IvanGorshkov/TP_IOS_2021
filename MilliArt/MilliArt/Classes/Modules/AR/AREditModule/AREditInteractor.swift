@@ -13,4 +13,15 @@ final class AREditInteractor {
 }
 
 extension AREditInteractor: AREditInteractorInput {
+    func getFramesModel() {
+        output?.reciveFrames(with: [
+            FrameViewModel(colorFrame: "", isSelected: true),
+            FrameViewModel(colorFrame: "Black", isSelected: false),
+            FrameViewModel(colorFrame: "White", isSelected: false),
+            FrameViewModel(colorFrame: "Silver", isSelected: false),
+            FrameViewModel(colorFrame: "Light Wood", isSelected: false),
+            FrameViewModel(colorFrame: "Dark Wood", isSelected: false)
+        ])
+    }
+    
 }

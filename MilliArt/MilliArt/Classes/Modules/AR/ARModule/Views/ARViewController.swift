@@ -17,8 +17,9 @@ final class ARViewController: UIViewController {
     internal var scanningLabel = UILabel()
     internal var foundLabel = UILabel()
     internal var magicButton = UIButton()
-    private var arModel: PaintingARModel?
+    private var arModel: ARViewModel?
     private var touchDifference = SCNVector3()
+    private let configuration = ARWorldTrackingConfiguration()
     
     init(output: ARViewOutput) {
         self.output = output
@@ -33,11 +34,9 @@ final class ARViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        self.output.viewDidLoad()
-        [sceneView, scanningLabel, foundLabel, magicButton].forEach ({ [weak self] in self?.view.addSubview($0)
-        })
-        
         setUp()
+        animateFlash(label: scanningLabel)
+        self.output.viewDidLoad()
 	}
     
     override func viewWillLayoutSubviews() {
@@ -47,58 +46,73 @@ final class ARViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .vertical
-        
         sceneView.session.run(configuration)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scanningLabel.layer.cornerRadius = scanningLabel.frame.height / 2
-        foundLabel.layer.cornerRadius = scanningLabel.frame.height / 2
+        [scanningLabel, foundLabel].forEach ({ [weak self] in self?.setCornerRadius(view: $0) })
+    }
+    
+    private func setCornerRadius(view: UIView) {
+        view.layer.cornerRadius = view.frame.height / 2
+        view.layer.cornerRadius = view.frame.height / 2
     }
     
     private func setUp() {
-        scanningLabel.layer.masksToBounds = true
-        scanningLabel.backgroundColor = .gray.withAlphaComponent(0.4)
-        scanningLabel.alpha = 0
-        scanningLabel.text = "Поиск стены"
-        animateFlash(label: scanningLabel)
-        foundLabel.layer.masksToBounds = true
-        foundLabel.text = "Стена найдена"
-        foundLabel.isHidden = true
-        foundLabel.backgroundColor = .gray.withAlphaComponent(0.4)
-        foundLabel.textAlignment = .center
-        scanningLabel.textAlignment = .center
-        
-        sceneView.delegate = self
-        sceneView.autoenablesDefaultLighting = true
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        
-        self.magicButton.setImage(UIImage(named: "magic"), for: .normal)
-        self.magicButton.addTarget(self, action: #selector(openEditFrame), for: .touchUpInside)
+        [sceneView, scanningLabel, foundLabel, magicButton].forEach ({ [weak self] in self?.view.addSubview($0)
+        })
+        setUpLabel(label: scanningLabel, text: TitlesConstants.SearchingWall)
+        setUpLabel(label: foundLabel, text: TitlesConstants.WallFouned)
+        setUpButton()
+        setUpSceneView()
         registerGestureRecognizers()
     }
+    
+    private func setUpLabel(label: UILabel, text: String, isHidden: Bool = true) {
+        label.layer.masksToBounds = true
+        label.backgroundColor = .gray.withAlphaComponent(0.4)
+        label.text = text
+        label.alpha = isHidden ? 0 : 1
+        label.textAlignment = .center
+    }
+    
+    private func setUpButton() {
+        self.magicButton.setImage(UIImage(named: "magic"), for: .normal)
+        self.magicButton.addTarget(self, action: #selector(openEditFrame), for: .touchUpInside)
+    }
+    
+    private func setUpSceneView() {
+        sceneView.delegate = self
+        sceneView.autoenablesDefaultLighting = true
+        configuration.planeDetection = .vertical
+    }
+    
     @objc
-    func openEditFrame() {
+    private func openEditFrame() {
         output.openEditFrame()
         sceneView.session.pause()
     }
         
-    func animateFlash(label: UILabel) {
-        UIView.animate(withDuration: 0.8, delay: 0, options: [.repeat, .autoreverse], animations: {
-            label.alpha = CGFloat(1)
+    private func animateFlash(label: UILabel) {
+        UIView.animate(withDuration: 0.8,
+                       delay: 0,
+                       options: [.repeat, .autoreverse],
+                       animations: {
+            label.alpha = 1
         }, completion: nil)
     }
     
-    func animatefadeOut(label: UILabel) {
-        UIView.animate(withDuration: 1, delay: 0.6, options: [], animations: {
-            label.alpha = CGFloat(0)
+    private func animatefadeOut(label: UILabel) {
+        UIView.animate(withDuration: 1,
+                       delay: 0.6,
+                       options: [],
+                       animations: {
+            label.alpha = 0
         }, completion: nil)
     }
     
-    func registerGestureRecognizers() {
+    private func registerGestureRecognizers() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         
@@ -110,22 +124,53 @@ final class ARViewController: UIViewController {
     }
     
     @objc
-    func handleTapGesture(recognizer: UITapGestureRecognizer) {
+    private func handleTapGesture(recognizer: UITapGestureRecognizer) {
         let touchPosition = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(touchPosition, types: .existingPlaneUsingExtent)
-        guard let hitTest = hitTestResults.first else {
-            return
-        }
+        guard let hitTest = hitTestResults.first else { return }
         hangPicture(atLocation: hitTest)
     }
     
-    func hangPicture(atLocation hitResult: ARHitTestResult) {
+    @objc
+    private func handleLongPressGesture(recognizer: UILongPressGestureRecognizer) {
+        let touchLocation = recognizer.location(in: recognizer.view)
+        let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
+        if let tappedNode = hitTestResults.first?.node {
+            AudioServicesPlaySystemSound(1520)
+            tappedNode.removeFromParentNode()
+        }
+    }
+    
+    @objc
+    private func handlePanGesture(recognizer: UIPanGestureRecognizer) {
+        let touchLocation = recognizer.location(in: recognizer.view)
+        guard let query = sceneView.raycastQuery(from: touchLocation, allowing: .existingPlaneInfinite, alignment: .vertical) else {return}
+        let results = sceneView.session.raycast(query)
+        guard let result = results.first else {return}
+
+        let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
+        if let tappedNode = hitTestResults.first?.node {
+            if recognizer.state == .began {
+                touchDifference = SCNVector3Make(
+                    result.worldTransform.columns.3.x - tappedNode.position.x,
+                    result.worldTransform.columns.3.y - tappedNode.position.y,
+                    tappedNode.position.z)
+            }
+            let newPosition = SCNVector3Make(
+                result.worldTransform.columns.3.x - touchDifference.x,
+                result.worldTransform.columns.3.y - touchDifference.y,
+                tappedNode.position.z)
+            tappedNode.position = newPosition
+        }
+    }
+    
+    private func hangPicture(atLocation hitResult: ARHitTestResult) {
+        guard let hitResultAnchor = hitResult.anchor else {return}
         let pictureNode = createPicture()
         
         let frameDepth:CGFloat = 0.03
         let frameNode = createFrame(depth: CGFloat(frameDepth))
         
-        guard let hitResultAnchor = hitResult.anchor else {return}
         frameNode.transform = SCNMatrix4(hitResultAnchor.transform)
         frameNode.name = "frame"
         frameNode.eulerAngles = SCNVector3(frameNode.eulerAngles.x + (-Float.pi / 2), frameNode.eulerAngles.y, frameNode.eulerAngles.z)
@@ -147,63 +192,32 @@ final class ARViewController: UIViewController {
         sceneView.scene.rootNode.addChildNode(frameNode.flattenedClone())
     }
     
-    func createFrame(depth frameDepth: CGFloat) -> SCNNode {
+    private func createFrame(depth frameDepth: CGFloat) -> SCNNode {
         guard let arModel = self.arModel else { return SCNNode() }
-        let frameBox = SCNBox(width: CGFloat(arModel.width / 100), height: CGFloat(arModel.height / 100), length: frameDepth, chamferRadius: 0.001)
-        frameBox.firstMaterial?.diffuse.contents = UIImage(named: "art.scnassets/\(arModel.material)Color.jpg")
-        frameBox.firstMaterial?.normal.contents = UIImage(named: "art.scnassets/\(arModel.material)Normal.jpg")
-        frameBox.firstMaterial?.roughness.contents = UIImage(named: "art.scnassets/\(arModel.material)Roughness.jpg")
-        //if frame.material == "Gold" || frame.material == "Silver" {
-            frameBox.firstMaterial?.lightingModel = .physicallyBased
-            frameBox.firstMaterial?.metalness.contents = UIColor(white: 0.7, alpha: 1.0)
-            frameBox.firstMaterial?.shininess = 100
-      //  }
+        let frameBox = SCNBox(width: arModel.ARborderThickness.w, height: arModel.ARborderThickness.h, length: frameDepth, chamferRadius: arModel.ARborderRounded)
+        setFrameMaterial(frameBox: frameBox, arModel: arModel)
+        configureMaterialLight(plane: frameBox, lightingModel: .physicallyBased, contents: UIColor(white: 0.7, alpha: 1.0))
         return SCNNode(geometry: frameBox)
     }
     
-    func createPicture() -> SCNNode {
-        let pictureHeight:CGFloat = CGFloat(arModel!.height - 10)
-        let pictureWidth:CGFloat =  CGFloat(arModel!.width - 10)
-        let picture = SCNPlane(width: CGFloat(pictureWidth / 100), height: CGFloat(pictureHeight / 100))
-        picture.firstMaterial?.diffuse.contents = UIImage(named: (arModel?.pic)!)
-        picture.firstMaterial?.lightingModel = .blinn
-        picture.firstMaterial?.specular.contents = UIColor(white: 0.6, alpha: 1.0)
-        picture.firstMaterial?.shininess = 100
+    private func setFrameMaterial(frameBox: SCNGeometry, arModel: ARViewModel) {
+        frameBox.materials.last?.diffuse.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Color.jpg")
+        frameBox.materials.last?.normal.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Normal.jpg")
+        frameBox.materials.last?.roughness.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Roughness.jpg")
+    }
+    
+    private func createPicture() -> SCNNode {
+        guard let arModel = self.arModel else { return SCNNode() }
+        let picture = SCNPlane(width: arModel.ARwidth, height: arModel.ARheight)
+        picture.firstMaterial?.diffuse.contents = UIImage(named: arModel.ARpic)
+        configureMaterialLight(plane: picture, lightingModel: .blinn, contents: UIColor(white: 0.2, alpha: 1.0))
         return SCNNode(geometry: picture)
     }
     
-    
-    @objc
-    func handleLongPressGesture(recognizer: UILongPressGestureRecognizer) {
-        let touchLocation = recognizer.location(in: recognizer.view)
-        
-        let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
-        if let tappedNode = hitTestResults.first?.node {
-            AudioServicesPlaySystemSound(1520)
-            tappedNode.removeFromParentNode()
-        }
-    }
-    
-    @objc
-    func handlePanGesture(recognizer: UIPanGestureRecognizer) {
-        let touchLocation = recognizer.location(in: recognizer.view)
-        
-        guard let query = sceneView.raycastQuery(from: touchLocation, allowing: .existingPlaneInfinite, alignment: .vertical) else {return}
-        let results = sceneView.session.raycast(query)
-        guard let result = results.first else {return}
-
-        let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
-        if let tappedNode = hitTestResults.first?.node {
-            if recognizer.state == .began {
-                touchDifference = SCNVector3Make(result.worldTransform.columns.3.x - tappedNode.position.x,
-                                                 result.worldTransform.columns.3.y - tappedNode.position.y,
-                                                 tappedNode.position.z)
-            }
-            let newPosition = SCNVector3Make(result.worldTransform.columns.3.x - touchDifference.x,
-                                             result.worldTransform.columns.3.y - touchDifference.y,
-                                             tappedNode.position.z)
-            tappedNode.position = newPosition
-        }
+    private func configureMaterialLight(plane: SCNGeometry, lightingModel: SCNMaterial.LightingModel, contents: Any, shininess: CGFloat = 100) {
+        plane.firstMaterial?.lightingModel = lightingModel
+        plane.firstMaterial?.specular.contents = contents
+        plane.firstMaterial?.shininess = shininess
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -227,7 +241,7 @@ extension ARViewController: ARSCNViewDelegate {
         node.addChildNode(planeNode)
     }
 
-    func createPlane(withPlaneAnchor planeAnchor: ARPlaneAnchor) -> SCNNode {
+    private func createPlane(withPlaneAnchor planeAnchor: ARPlaneAnchor) -> SCNNode {
         let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
         let planeNode = SCNNode()
         planeNode.isHidden = true
@@ -239,18 +253,15 @@ extension ARViewController: ARSCNViewDelegate {
 }
 
 extension ARViewController: ARViewInput {
-    func loadModel(arModel: PaintingARModel?) {
+    func loadModel(arModel: ARViewModel?) {
         self.arModel = arModel
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .vertical
-        
         sceneView.session.run(configuration)
+        
         guard let arModel = self.arModel else { return }
         sceneView.scene.rootNode.childNodes.forEach { node in
             if node.name == "frame" {
-                node.geometry?.materials.last?.diffuse.contents = UIImage(named: "art.scnassets/\(arModel.material)Color.jpg")
-                node.geometry?.materials.last?.normal.contents = UIImage(named: "art.scnassets/\(arModel.material)Normal.jpg")
-                node.geometry?.materials.last?.roughness.contents = UIImage(named: "art.scnassets/\(arModel.material)Roughness.jpg")
+                guard let geometry = node.geometry else { return }
+                setFrameMaterial(frameBox: geometry, arModel: arModel)
             }
         }
     }

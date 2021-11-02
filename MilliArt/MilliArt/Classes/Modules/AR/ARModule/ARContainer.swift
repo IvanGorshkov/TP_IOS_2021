@@ -21,7 +21,7 @@ final class ARContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-        presenter.arModel = context.arModel
+        presenter.arViewModel = ARViewModel(model: context.arModel)
 		interactor.output = presenter
 
         return ARContainer(view: viewController, input: presenter, router: router)

@@ -19,13 +19,13 @@ final class ItemSliderCell: BaseCell {
     }
 
     @objc
-    func didTap() {
+    private func didTap() {
         guard let model = model as? SliderCellModel else { return }
         model.action?(slider)
     }
 
     @objc
-    func swipeHandler(_ sender: UISwipeGestureRecognizer) {
+    private func swipeHandler(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
          case .left:
             slider.nextPage(animated: true)

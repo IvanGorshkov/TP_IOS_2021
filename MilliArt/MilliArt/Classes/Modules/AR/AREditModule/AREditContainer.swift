@@ -21,7 +21,7 @@ final class AREditContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-        presenter.arModel = context.arModel
+        presenter.arModel = context.arViewModel
 
 		interactor.output = presenter
 
@@ -37,5 +37,5 @@ final class AREditContainer {
 
 struct AREditContext {
 	weak var moduleOutput: AREditModuleOutput?
-    var arModel: PaintingARModel
+    var arViewModel: ARViewModel
 }

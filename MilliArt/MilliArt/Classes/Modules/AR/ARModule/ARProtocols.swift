@@ -10,7 +10,7 @@ import Foundation
 
 protocol ARModuleInput {
 	var moduleOutput: ARModuleOutput? { get }
-    var arModel: PaintingARModel? { get set }
+    var arViewModel: ARViewModel? { get set }
 }
 
 protocol ARModuleOutput: AnyObject {
@@ -18,7 +18,7 @@ protocol ARModuleOutput: AnyObject {
 
 protocol ARViewInput: AnyObject {
     
-    func loadModel(arModel: PaintingARModel?)
+    func loadModel(arModel: ARViewModel?)
 }
 
 protocol ARViewOutput: AnyObject {
@@ -33,5 +33,5 @@ protocol ARInteractorOutput: AnyObject {
 }
 
 protocol ARRouterInput: AnyObject {
-    func goToAR(from vc: ARViewInput?, arModel: PaintingARModel?, presenter: AREditModuleOutput)
+    func goToAR(from vc: ARViewInput?, arModel: ARViewModel?, presenter: AREditModuleOutput)
 }
