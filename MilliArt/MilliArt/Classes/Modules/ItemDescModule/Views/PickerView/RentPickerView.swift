@@ -29,7 +29,7 @@ class RentPickerView: UIView {
         self.addSubview(picker)
         self.addSubview(button)
         
-        picker.backgroundColor = .tertiarySystemBackground
+        picker.backgroundColor = ColorConstants.BlackColor.withAlphaComponent(0.5)
         picker.frame = .zero
         
         button.setTitle(buttonName, for: .normal)

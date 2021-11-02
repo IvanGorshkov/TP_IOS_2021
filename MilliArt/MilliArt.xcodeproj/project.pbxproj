@@ -39,6 +39,8 @@
 		703A4ACB27307A0B000329F7 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4ACA27307A0B000329F7 /* BaseCollectionCell.swift */; };
 		703A4ACE27307C59000329F7 /* FrameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4ACD27307C59000329F7 /* FrameViewModel.swift */; };
 		703A4AD02730A1A5000329F7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4ACF2730A1A5000329F7 /* UIImageView+Extension.swift */; };
+		703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AD12731DF13000329F7 /* AREdit+Constraints.swift */; };
+		703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AD52731FC8F000329F7 /* FrameCell+Constraints.swift */; };
 		706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */; };
 		706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */; };
 		706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */; };
@@ -139,6 +141,8 @@
 		703A4ACA27307A0B000329F7 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
 		703A4ACD27307C59000329F7 /* FrameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameViewModel.swift; sourceTree = "<group>"; };
 		703A4ACF2730A1A5000329F7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		703A4AD12731DF13000329F7 /* AREdit+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AREdit+Constraints.swift"; sourceTree = "<group>"; };
+		703A4AD52731FC8F000329F7 /* FrameCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FrameCell+Constraints.swift"; sourceTree = "<group>"; };
 		706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		706E69D8272AB5EE0006BA3B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -361,7 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				703A4ACC27307A81000329F7 /* CollectionCell */,
-				703A4AB72730156C000329F7 /* AREditViewController.swift */,
+				703A4AD32731DF44000329F7 /* AREdit */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -370,9 +374,27 @@
 			isa = PBXGroup;
 			children = (
 				703A4ACA27307A0B000329F7 /* BaseCollectionCell.swift */,
-				703A4AC8273079EF000329F7 /* FrameCollectionCell.swift */,
+				703A4AD42731FC86000329F7 /* Frame */,
 			);
 			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		703A4AD32731DF44000329F7 /* AREdit */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AB72730156C000329F7 /* AREditViewController.swift */,
+				703A4AD12731DF13000329F7 /* AREdit+Constraints.swift */,
+			);
+			path = AREdit;
+			sourceTree = "<group>";
+		};
+		703A4AD42731FC86000329F7 /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				703A4AC8273079EF000329F7 /* FrameCollectionCell.swift */,
+				703A4AD52731FC8F000329F7 /* FrameCell+Constraints.swift */,
+			);
+			path = Frame;
 			sourceTree = "<group>";
 		};
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
@@ -720,6 +742,7 @@
 				706E6A2B272B25AF0006BA3B /* ItemDescContainer.swift in Sources */,
 				703A4ABC2730156C000329F7 /* AREditRouter.swift in Sources */,
 				706E6A0E272AED5D0006BA3B /* CartProtocols.swift in Sources */,
+				703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */,
 				706E6A0B272AED5D0006BA3B /* CartPresenter.swift in Sources */,
 				703A4ABD2730156C000329F7 /* AREditViewController.swift in Sources */,
 				703A4A8D272C7024000329F7 /* AboutDesc+Constraints.swift in Sources */,
@@ -775,6 +798,7 @@
 				706E6A29272B25AF0006BA3B /* ItemDescProtocols.swift in Sources */,
 				703A4A93272C8947000329F7 /* ServiceManagerDescModel.swift in Sources */,
 				706E6A47272BE64C0006BA3B /* AmountDescCellModel.swift in Sources */,
+				703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */,
 				706E69DF272AB5EE0006BA3B /* TabBarProtocols.swift in Sources */,
 				706E6A10272AED5D0006BA3B /* CartContainer.swift in Sources */,
 			);

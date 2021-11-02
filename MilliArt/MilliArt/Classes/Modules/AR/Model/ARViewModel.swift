@@ -55,6 +55,16 @@ final class ARViewModel {
         }
     }
     
+    var ARmaterialColor: String {
+        get {
+            return "art.scnassets/\(model.material)Color.jpg"
+        }
+    }
+    
+    func copy() -> ARViewModel {
+        return .init(model: self.model)
+    }
+    
     init(model: PaintingARModel) {
         self.model = model
     }

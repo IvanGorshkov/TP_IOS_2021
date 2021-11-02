@@ -24,6 +24,7 @@ final class TitlesConstants {
     static let CartNavTitle = CartBarTitle
     static let BackNavTitle = "Назад"
     static let PaintingNavTitle = "Информация о картине"
+    static let AR = "Дополненная реальность"
     
     
     // MARK: ItemDescCelll
@@ -36,5 +37,11 @@ final class TitlesConstants {
     // MARK: AR
     static let SearchingWall = "Поиск стены"
     static let WallFouned = "Стена найдена"
+    
+    // MARK: AREdit
+    static let frameLabel = "Рамы"
+    static let frameWidth = "Толщина"
+    static let frameRadius = "Закругленность"
+    static let noTitle = "Нет"
     
 }

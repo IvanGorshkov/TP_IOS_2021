@@ -8,6 +8,13 @@
 import Foundation
 
 final class FrameViewModel: FrameCellProtocol {
+    var imageName: String {
+        return self.image
+    }
+    
+    var assertImage: String {
+        return "art.scnassets/\(self.image)Color.jpg"
+    }
     var isSelected: Bool
     
     var cellIdentifier: String {
@@ -15,9 +22,11 @@ final class FrameViewModel: FrameCellProtocol {
     }
     
     var cellHeight: Float = -1.0
-    var colorFrame: String
+    
+    private var image: String
+    
     init(colorFrame: String, isSelected: Bool) {
-        self.colorFrame = colorFrame
+        self.image = colorFrame
         self.isSelected = isSelected
     }
 }

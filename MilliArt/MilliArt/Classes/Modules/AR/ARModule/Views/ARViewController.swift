@@ -62,11 +62,16 @@ final class ARViewController: UIViewController {
     private func setUp() {
         [sceneView, scanningLabel, foundLabel, magicButton].forEach ({ [weak self] in self?.view.addSubview($0)
         })
+        setUpBase()
         setUpLabel(label: scanningLabel, text: TitlesConstants.SearchingWall)
         setUpLabel(label: foundLabel, text: TitlesConstants.WallFouned)
         setUpButton()
         setUpSceneView()
         registerGestureRecognizers()
+    }
+    private func setUpBase() {
+        self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
+        self.title = TitlesConstants.AR
     }
     
     private func setUpLabel(label: UILabel, text: String, isHidden: Bool = true) {
@@ -269,9 +274,11 @@ extension ARViewController: ARSCNViewDelegate {
 }
 
 extension ARViewController: ARViewInput {
+    func runSession() {
+        sceneView.session.run(configuration)
+    }
     func loadModel(arModel: ARViewModel?) {
         self.arModel = arModel
-        sceneView.session.run(configuration)
         
         guard let arModel = self.arModel else { return }
         sceneView.scene.rootNode.childNodes.forEach { node in

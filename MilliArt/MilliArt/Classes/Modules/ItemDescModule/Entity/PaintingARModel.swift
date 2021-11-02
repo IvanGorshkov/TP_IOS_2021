@@ -11,7 +11,7 @@ struct PaintingARModel {
     let pic: String?
     let width: Float
     let height: Float
-    var borderThickness: Float = 4.5
-    var borderRounded: Float = 1
+    var borderThickness: Float = 2
+    var borderRounded: Float = 0
     var material = "Black"
 }

@@ -17,7 +17,7 @@ protocol ARModuleOutput: AnyObject {
 }
 
 protocol ARViewInput: AnyObject {
-    
+    func runSession()
     func loadModel(arModel: ARViewModel?)
 }
 

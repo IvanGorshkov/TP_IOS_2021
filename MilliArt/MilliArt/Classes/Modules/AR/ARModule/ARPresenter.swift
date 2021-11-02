@@ -26,8 +26,13 @@ extension ARPresenter: ARModuleInput {
 }
 
 extension ARPresenter: AREditModuleOutput {
+    func dontSave() {
+        view?.runSession()
+    }
+    
     func returnModel(model: ARViewModel) {
         self.arViewModel = model
+        view?.runSession()
         view?.loadModel(arModel: arViewModel)
     }
 }
