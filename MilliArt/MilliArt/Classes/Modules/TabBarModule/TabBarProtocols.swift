@@ -17,11 +17,12 @@ protocol TabBarModuleOutput: AnyObject {
 }
 
 protocol TabBarViewInput: AnyObject {
-    func receiveViews(with views: [UIViewController], tabBar: [TabBarItemModel])
+    func receiveViews(with views: [UIViewController])
 }
 
 protocol TabBarViewOutput: AnyObject {
     func getViews()
+    func getModel(at index: Int) -> TabBarItemModel
 }
 
 protocol TabBarInteractorInput: AnyObject {

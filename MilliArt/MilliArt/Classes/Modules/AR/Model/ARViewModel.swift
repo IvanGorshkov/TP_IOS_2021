@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ARViewModel {
+final class ARViewModel: ARViewModelDescription {
     private var model: PaintingARModel
     
     var ARpic: String {
@@ -61,8 +61,8 @@ final class ARViewModel {
         }
     }
     
-    func copy() -> ARViewModel {
-        return .init(model: self.model)
+    func copy() -> ARViewModelDescription {
+        return ARViewModel.init(model: self.model)
     }
     
     init(model: PaintingARModel) {

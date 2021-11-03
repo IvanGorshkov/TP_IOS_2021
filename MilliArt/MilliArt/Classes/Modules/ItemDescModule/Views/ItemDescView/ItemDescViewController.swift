@@ -14,9 +14,8 @@ final class ItemDescViewController: UIViewController {
 	private let output: ItemDescViewOutput
     internal var tableView =  UITableView()
     internal var pickerView =  RentPickerView()
-    
-    private var section: SectionRowsRepresentable?
     private var activityIndicatorView: NVActivityIndicatorView!
+    
     init(output: ItemDescViewOutput) {
         self.output = output
 
@@ -48,6 +47,11 @@ final class ItemDescViewController: UIViewController {
         setUpTableView()
         setUpIndicator()
         setUpPickerView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpBase()
     }
     
     private func setUpPickerView() {
@@ -107,35 +111,26 @@ final class ItemDescViewController: UIViewController {
 }
 
 extension ItemDescViewController: ItemDescViewInput {
-    func updateRentPrice(_ sections: SectionRowsRepresentable) {
-        guard let amount = self.section?.rows[2] as? AmountDescCellModel,
-        let amount2 = sections.rows[2] as? AmountDescCellModel else { return }
-        
-        amount.countRent = amount2.countRent
-        let indexPathRow:Int = 2
-        let indexPosition = IndexPath(row: indexPathRow, section: 0)
+    func updateRentPrice() {
+        let indexPosition = IndexPath(row: 2, section: 0)
         tableView.reloadRows(at: [indexPosition], with: .none)
     }
     
-    func updateForSections(_ sections: SectionRowsRepresentable) {
+    func updateForSections() {
         activityIndicatorView.stopAnimating()
-        self.section = sections
-        self.section?.delegate = self
+        output.sectionDelegate = self
         self.tableView.reloadData()
     }
 }
 
 extension ItemDescViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = self.section else { return 0 }
-        return section.rows.count
+        return output.getCountCells()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = self.section else { return UITableViewCell() }
-        let model = section.rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier, for: indexPath) as! BaseCell
-        cell.model = model
+        let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath) as! BaseCell
+        cell.model = output.getCell(at: indexPath.row)
         
         return cell
     }
@@ -143,8 +138,7 @@ extension ItemDescViewController: UITableViewDataSource {
 
 extension ItemDescViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let section = self.section else { return -1 }
-        return CGFloat(section.rows[indexPath.row].cellHeight)
+        return CGFloat(output.getCellHeight(at: indexPath.row))
     }
 }
 
@@ -172,8 +166,8 @@ extension ItemDescViewController: ItemDescCellViewOutput {
         self.output.goToAR()
     }
     
-    func openFullScreen(silder: ImageSlideshow) {
-        silder.presentFullScreenController(from: self)
+    func openFullScreen(silder: UIView) {
+        output.openFullScreen(slider: silder)
     }
 }
 
