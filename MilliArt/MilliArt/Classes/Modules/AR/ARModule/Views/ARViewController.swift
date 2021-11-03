@@ -17,7 +17,6 @@ final class ARViewController: UIViewController {
     internal var scanningLabel = UILabel()
     internal var foundLabel = UILabel()
     internal var magicButton = UIButton()
-    //private var arModel: ARViewModel?
     private var touchDifference = SCNVector3()
     private let configuration = ARWorldTrackingConfiguration()
     
