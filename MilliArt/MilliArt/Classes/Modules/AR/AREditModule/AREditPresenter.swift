@@ -12,7 +12,7 @@ final class AREditPresenter {
 	weak var view: AREditViewInput?
     weak var moduleOutput: AREditModuleOutput?
 
-    var arModel: ARViewModel?
+    var arModel: ARViewModelDescription?
     var modelArray:  [FrameViewModel] = []
 	private let router: AREditRouterInput
 	private let interactor: AREditInteractorInput

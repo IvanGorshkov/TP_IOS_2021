@@ -17,7 +17,7 @@ final class ARViewController: UIViewController {
     internal var scanningLabel = UILabel()
     internal var foundLabel = UILabel()
     internal var magicButton = UIButton()
-    private var arModel: ARViewModel?
+    //private var arModel: ARViewModel?
     private var touchDifference = SCNVector3()
     private let configuration = ARWorldTrackingConfiguration()
     
@@ -206,21 +206,22 @@ final class ARViewController: UIViewController {
     }
     
     private func createFrame(depth frameDepth: CGFloat) -> SCNNode {
-        guard let arModel = self.arModel else { return SCNNode() }
+        guard let arModel = self.output.getARViewModel() else { return SCNNode() }
         let frameBox = SCNBox(width: arModel.ARborderThickness.w, height: arModel.ARborderThickness.h, length: frameDepth, chamferRadius: arModel.ARborderRounded)
-        setFrameMaterial(frameBox: frameBox, arModel: arModel)
+        setFrameMaterial(frameBox: frameBox)
         configureMaterialLight(plane: frameBox, lightingModel: .physicallyBased, contents: UIColor(white: 0.7, alpha: 1.0))
         return SCNNode(geometry: frameBox)
     }
     
-    private func setFrameMaterial(frameBox: SCNGeometry, arModel: ARViewModel) {
+    private func setFrameMaterial(frameBox: SCNGeometry) {
+            guard let arModel = self.output.getARViewModel() else { return  }
         frameBox.materials.last?.diffuse.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Color.jpg")
         frameBox.materials.last?.normal.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Normal.jpg")
         frameBox.materials.last?.roughness.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Roughness.jpg")
     }
     
-    private func setNewFrameConfig(frameBox: SCNGeometry, arModel: ARViewModel) {
-        guard let frameBox = frameBox as? SCNBox else { return }
+    private func setNewFrameConfig(frameBox: SCNGeometry) {
+        guard let frameBox = frameBox as? SCNBox, let arModel = self.output.getARViewModel() else { return }
         frameBox.chamferRadius = arModel.ARborderRounded
         frameBox.width = arModel.ARborderThickness.w
         frameBox.height = arModel.ARborderThickness.h
@@ -228,7 +229,7 @@ final class ARViewController: UIViewController {
     
     
     private func createPicture() -> SCNNode {
-        guard let arModel = self.arModel else { return SCNNode() }
+        guard let arModel = self.output.getARViewModel() else { return SCNNode() }
         let picture = SCNPlane(width: arModel.ARwidth, height: arModel.ARheight)
         picture.firstMaterial?.diffuse.contents = UIImage(named: arModel.ARpic)
         configureMaterialLight(plane: picture, lightingModel: .blinn, contents: UIColor(white: 0.2, alpha: 1.0))
@@ -274,18 +275,16 @@ extension ARViewController: ARSCNViewDelegate {
 }
 
 extension ARViewController: ARViewInput {
+    
     func runSession() {
         sceneView.session.run(configuration)
     }
-    func loadModel(arModel: ARViewModel?) {
-        self.arModel = arModel
-        
-        guard let arModel = self.arModel else { return }
+    func loadModel(arModel: ARViewModelDescription?) {
         sceneView.scene.rootNode.childNodes.forEach { node in
             if node.name == "frame" {
                 guard let geometry = node.geometry else { return }
-                setFrameMaterial(frameBox: geometry, arModel: arModel)
-                setNewFrameConfig(frameBox: geometry, arModel: arModel)
+                setFrameMaterial(frameBox: geometry)
+                setNewFrameConfig(frameBox: geometry)
             }
         }
     }

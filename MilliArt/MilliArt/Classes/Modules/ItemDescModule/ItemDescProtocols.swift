@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import ImageSlideshow
+import UIKit
 
 protocol ItemDescModuleInput {
 	var moduleOutput: ItemDescModuleOutput? { get }
@@ -19,7 +19,7 @@ protocol ItemDescModuleOutput: AnyObject {
 
 
 protocol ItemDescCellViewOutput: AnyObject {
-    func openFullScreen(silder: ImageSlideshow)
+    func openFullScreen(silder: UIView)
     func clickBuy()
     func clickRent()
     func clickFav()
@@ -28,14 +28,20 @@ protocol ItemDescCellViewOutput: AnyObject {
 }
 
 protocol ItemDescViewInput: AnyObject {
-    func updateForSections(_ sections: SectionRowsRepresentable)
-    func updateRentPrice(_ sections: SectionRowsRepresentable)
+    func updateForSections()
+    func updateRentPrice()
 }
 
 protocol ItemDescViewOutput: AnyObject {
     func viewDidLoad()
     func changeMonthCount(value: Int)
     func goToAR()
+    func getCellHeight(at index: Int) -> Float
+    func getCell(at index: Int) -> CellIdentifiable?
+    func getCellIdentifier(at index: Int) -> String
+    func getCountCells() -> Int
+    var  sectionDelegate: ItemDescCellViewOutput? { get set }
+    func openFullScreen(slider: UIView?)
 }
 
 protocol ItemDescInteractorInput: AnyObject {
@@ -52,6 +58,7 @@ protocol ItemDescInteractorOutput: AnyObject {
 
 protocol ItemDescRouterInput: AnyObject {
     func goToAR(from vc: ItemDescViewInput?, arModel: PaintingARModel?)
+    func openFullScreen(from vc: ItemDescViewInput?, silder: UIView?)
 }
 
 protocol CellIdentifiable {

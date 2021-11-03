@@ -12,7 +12,7 @@ final class ARRouter {
 }
 
 extension ARRouter: ARRouterInput {
-    func goToAR(from vc: ARViewInput?, arModel: ARViewModel?, presenter: AREditModuleOutput) {
+    func goToAR(from vc: ARViewInput?, arModel: ARViewModelDescription?, presenter: AREditModuleOutput) {
         guard let view = vc as? UIViewController, let arModel = arModel else { return }
         let context = AREditContext(moduleOutput: presenter, arViewModel: arModel)
         

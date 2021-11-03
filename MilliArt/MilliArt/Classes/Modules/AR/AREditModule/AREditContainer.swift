@@ -37,5 +37,5 @@ final class AREditContainer {
 
 struct AREditContext {
 	weak var moduleOutput: AREditModuleOutput?
-    var arViewModel: ARViewModel
+    var arViewModel: ARViewModelDescription
 }

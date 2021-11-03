@@ -10,11 +10,11 @@ import Foundation
 
 protocol AREditModuleInput {
 	var moduleOutput: AREditModuleOutput? { get }
-    var arModel: ARViewModel? { get set }
+    var arModel: ARViewModelDescription? { get set }
 }
 
 protocol AREditModuleOutput: AnyObject {
-    func returnModel(model: ARViewModel)
+    func returnModel(model: ARViewModelDescription)
     func dontSave()
 }
 
@@ -39,7 +39,7 @@ protocol AREditViewOutput: AnyObject {
 }
 
 protocol AREditInteractorInput: AnyObject {
-    func getFramesModel(with model: ARViewModel)
+    func getFramesModel(with model: ARViewModelDescription)
     func changeSelected(model: [FrameViewModel], index: Int)
 }
 

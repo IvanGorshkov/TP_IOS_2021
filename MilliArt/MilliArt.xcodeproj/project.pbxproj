@@ -320,9 +320,9 @@
 		703A4AA3272DF59C000329F7 /* ARModule */ = {
 			isa = PBXGroup;
 			children = (
+				703A4AC127303A48000329F7 /* Views */,
 				703A4AA4272DF61A000329F7 /* ARPresenter.swift */,
 				703A4AA5272DF61A000329F7 /* ARRouter.swift */,
-				703A4AC127303A48000329F7 /* Views */,
 				703A4AA7272DF61A000329F7 /* ARProtocols.swift */,
 				703A4AA8272DF61A000329F7 /* ARInteractor.swift */,
 				703A4AA9272DF61A000329F7 /* ARContainer.swift */,

@@ -6,11 +6,11 @@
 //  
 //
 
-import Foundation
+import UIKit
 
 protocol ARModuleInput {
 	var moduleOutput: ARModuleOutput? { get }
-    var arViewModel: ARViewModel? { get set }
+    var arViewModel: ARViewModelDescription? { get set }
 }
 
 protocol ARModuleOutput: AnyObject {
@@ -18,12 +18,13 @@ protocol ARModuleOutput: AnyObject {
 
 protocol ARViewInput: AnyObject {
     func runSession()
-    func loadModel(arModel: ARViewModel?)
+    func loadModel(arModel: ARViewModelDescription?)
 }
 
 protocol ARViewOutput: AnyObject {
     func viewDidLoad()
     func openEditFrame()
+    func getARViewModel() -> ARViewModelDescription?
 }
 
 protocol ARInteractorInput: AnyObject {
@@ -33,5 +34,16 @@ protocol ARInteractorOutput: AnyObject {
 }
 
 protocol ARRouterInput: AnyObject {
-    func goToAR(from vc: ARViewInput?, arModel: ARViewModel?, presenter: AREditModuleOutput)
+    func goToAR(from vc: ARViewInput?, arModel: ARViewModelDescription?, presenter: AREditModuleOutput)
+}
+
+protocol ARViewModelDescription: AnyObject {
+    var ARpic: String { get }
+    var ARwidth: CGFloat { get }
+    var ARheight: CGFloat { get }
+    var ARborderThickness: (h: CGFloat, w: CGFloat) { get set }
+    var ARborderRounded: CGFloat { get set }
+    var ARmaterial: String { get set }
+    var ARmaterialColor: String { get }
+    func copy() -> ARViewModelDescription
 }

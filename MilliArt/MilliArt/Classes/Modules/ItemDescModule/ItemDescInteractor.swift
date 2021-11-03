@@ -23,7 +23,7 @@ extension ItemDescInteractor: ItemDescInteractorInput {
             return specification.title == "Размер"
         }).first?.specification
         
-        guard let sizeArray = sizes?.split(separator: "x").map({ str in
+        guard let sizeArray = sizes?.components(separatedBy: CharacterSet(charactersIn: "xх×")).map({ str in
             return Float(str.filter { ("0"..."9").contains($0) })
         }) else { return }
         
