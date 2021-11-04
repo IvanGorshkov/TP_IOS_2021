@@ -54,12 +54,14 @@ final class MainViewController: UIViewController {
     }
     
     private func setUpTableViewBase() {
-            self.view.addSubview(tableView)
-            tableView.backgroundColor = .clear
-            tableView.dataSource = self
-            tableView.delegate = self
-            tableView.allowsSelection = false
-            tableView.tableHeaderView = UIView()
+        self.view.addSubview(tableView)
+        tableView.backgroundColor = .clear
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.allowsSelection = false
+        tableView.tableHeaderView = UIView()
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     
@@ -102,7 +104,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath) as! BaseCell
         cell.model = output.getCell(at: indexPath.row)
-        
+        cell.layoutSubviews()
         return cell
     }
 }

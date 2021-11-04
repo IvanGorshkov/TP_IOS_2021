@@ -6,19 +6,27 @@
 //
 
 import UIKit
+import AVFoundation
 
 
 final class VerticalCollectionViewCell: BaseCell, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    var array: [PainingMini] = []
 
     lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        let layout = MosaicViewLayout()
+        layout.delegate = self
+        layout.numberOfColumns = 2
+        layout.cellPadding = 10
+            
+       
+     //   collectionView.setCollectionViewLayout(layout, animated: true)
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 10, right: 5)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(VerticalCollectionCell.self, forCellWithReuseIdentifier: VerticalCollectionCell.cellIdentifier)
         collectionView.backgroundColor = .clear
         collectionView.isScrollEnabled = false
         return collectionView
@@ -37,54 +45,70 @@ final class VerticalCollectionViewCell: BaseCell, UICollectionViewDelegateFlowLa
         collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-
+        
         
     }
     override func loadSubViews() {
-        contentView.layoutIfNeeded()
     }
     override func updateViews() {
-        
-    }
-    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        collectionView.frame = CGRect(x: 8.0, y: 8.0, width: targetSize.width, height: targetSize.height)
-        return collectionView.collectionViewLayout.collectionViewContentSize
+        guard let model = model as? VCollectionViewModel else { return }
+        array = model.array
     }
     
+    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+        collectionView.frame = CGRect(x: 8.0, y: 8.0, width: targetSize.width, height: targetSize.height)
+        
+        let layout = MosaicViewLayout()
+        layout.delegate = self
+        layout.numberOfColumns = 2
+        layout.cellPadding = 10
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.reloadData()
+       // print(collectionView.collectionViewLayout.collectionViewContentSize)
+        return collectionView.collectionViewLayout.collectionViewContentSize
+    }
+
+    
  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-   return 100
+     return array.count
  }
 
  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-   let cell : UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+     guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VerticalCollectionCell.cellIdentifier, for: indexPath) as? VerticalCollectionCell else { return UICollectionViewCell() }
 
-   if indexPath.row % 3 == 0 {
-     cell.backgroundColor = .red
-   } else if indexPath.row % 3 == 1 {
-     cell.backgroundColor = .blue
-   } else {
-     cell.backgroundColor = .green
-   }
-   cell.layer.cornerRadius = 10
-   cell.contentView.setNeedsLayout()
+     cell.configure(model: array[indexPath.row])
    return cell;
  }
 
- func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-     return CGSize.init(width: 100 * Int.random(in: 1...3), height: 200)
- }
 }
 
-class DynamicCollectionView: UICollectionView {
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if bounds.size != intrinsicContentSize {
-            invalidateIntrinsicContentSize()
-        }
+// MARK: MosaicLayoutDelegate
+extension VerticalCollectionViewCell: MosaicLayoutDelegate {
+    func updateHeightCollectionView() {
     }
-
-    override var intrinsicContentSize: CGSize {
-            return self.contentSize
+    
+    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+          let item = array[indexPath.item]
+        let image = UIImage(named: item.pic)
+          let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+          let rect = AVMakeRect(aspectRatio: image!.size, insideRect: boundingRect)
+        
+        return rect.height
     }
+    
+    func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+        
+        let character = array[indexPath.item]
+        let descriptionHeight = heightForText(character.name, width: width-24)
+        let height = 4 + 17 + 4 + descriptionHeight + 12
+        return height
+      }
+      
+      func heightForText(_ text: String, width: CGFloat) -> CGFloat {
+        let font = UIFont.systemFont(ofSize: 10)
+          let rect = NSString(string: text).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return ceil(rect.height)
 }
 
+}

@@ -107,6 +107,8 @@
 		7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA482733F44F001805AC /* HCollectionViewModel.swift */; };
 		7099CA4C2733FC50001805AC /* VerticalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA4B2733FC50001805AC /* VerticalCollectionViewCell.swift */; };
 		7099CA4E2733FCF7001805AC /* VCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */; };
+		7099CA5127340CE1001805AC /* MosaicViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA5027340CE1001805AC /* MosaicViewLayout.swift */; };
+		7099CA532734257B001805AC /* VerticalCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA522734257B001805AC /* VerticalCollectionCell.swift */; };
 		709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */; };
 		709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E572733E2390018ED10 /* HeaderCellView.swift */; };
 		709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */; };
@@ -213,6 +215,8 @@
 		7099CA482733F44F001805AC /* HCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewModel.swift; sourceTree = "<group>"; };
 		7099CA4B2733FC50001805AC /* VerticalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCollectionViewCell.swift; sourceTree = "<group>"; };
 		7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCollectionViewModel.swift; sourceTree = "<group>"; };
+		7099CA5027340CE1001805AC /* MosaicViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicViewLayout.swift; sourceTree = "<group>"; };
+		7099CA522734257B001805AC /* VerticalCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VerticalCollectionCell.swift; path = VCeollectionCell/VerticalCollectionCell.swift; sourceTree = "<group>"; };
 		709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionViewModel.swift; sourceTree = "<group>"; };
 		709F6E572733E2390018ED10 /* HeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellView.swift; sourceTree = "<group>"; };
 		709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderCell+Constraints.swift"; sourceTree = "<group>"; };
@@ -679,9 +683,19 @@
 		7099CA4A2733FC2D001805AC /* VerticalCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				7099CA4F27340CD6001805AC /* Layout */,
 				7099CA4B2733FC50001805AC /* VerticalCollectionViewCell.swift */,
+				7099CA522734257B001805AC /* VerticalCollectionCell.swift */,
 			);
 			path = VerticalCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		7099CA4F27340CD6001805AC /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA5027340CE1001805AC /* MosaicViewLayout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		70C419DB27248FC0006214FA = {
@@ -800,6 +814,7 @@
 			files = (
 				706E6A28272B25AF0006BA3B /* ItemDescViewController.swift in Sources */,
 				706E69E0272AB5EE0006BA3B /* TabBarInteractor.swift in Sources */,
+				7099CA5127340CE1001805AC /* MosaicViewLayout.swift in Sources */,
 				706E6A4F272BF5E10006BA3B /* AboutDescCellModel.swift in Sources */,
 				706E69EE272AC3130006BA3B /* MainContainer.swift in Sources */,
 				706E6A30272B3F680006BA3B /* ItemDescModel.swift in Sources */,
@@ -874,6 +889,7 @@
 				7099CA472733F325001805AC /* HorizontalCollectionViewCell.swift in Sources */,
 				703A4A87272C6F88000329F7 /* AmountDesc+Constraints.swift in Sources */,
 				706E6A53272BFA400006BA3B /* SpecificationsDescCellModel.swift in Sources */,
+				7099CA532734257B001805AC /* VerticalCollectionCell.swift in Sources */,
 				706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */,
 				706E6A1B272B09370006BA3B /* FilterProtocols.swift in Sources */,
 				706E6A0F272AED5D0006BA3B /* CartInteractor.swift in Sources */,
