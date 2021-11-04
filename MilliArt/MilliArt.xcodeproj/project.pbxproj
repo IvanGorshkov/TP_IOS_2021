@@ -102,6 +102,14 @@
 		706E6A5E272C1AA70006BA3B /* ImageSlideshow/SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 706E6A5D272C1AA70006BA3B /* ImageSlideshow/SDWebImage */; };
 		706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */; };
 		706E6A64272C3D960006BA3B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A63272C3D960006BA3B /* String+Extension.swift */; };
+		7099CA442733E609001805AC /* HeaderCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA432733E609001805AC /* HeaderCellModel.swift */; };
+		7099CA472733F325001805AC /* HorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA462733F325001805AC /* HorizontalCollectionViewCell.swift */; };
+		7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA482733F44F001805AC /* HCollectionViewModel.swift */; };
+		7099CA4C2733FC50001805AC /* VerticalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA4B2733FC50001805AC /* VerticalCollectionViewCell.swift */; };
+		7099CA4E2733FCF7001805AC /* VCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */; };
+		709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */; };
+		709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E572733E2390018ED10 /* HeaderCellView.swift */; };
+		709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */; };
 		70C419E827248FC1006214FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E727248FC1006214FA /* AppDelegate.swift */; };
 		70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E927248FC1006214FA /* SceneDelegate.swift */; };
 		70C419EC27248FC1006214FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419EB27248FC1006214FA /* ViewController.swift */; };
@@ -200,6 +208,14 @@
 		706E6A54272BFA9D0006BA3B /* SpecificationsDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificationsDescCell.swift; sourceTree = "<group>"; };
 		706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		706E6A63272C3D960006BA3B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7099CA432733E609001805AC /* HeaderCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellModel.swift; sourceTree = "<group>"; };
+		7099CA462733F325001805AC /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
+		7099CA482733F44F001805AC /* HCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewModel.swift; sourceTree = "<group>"; };
+		7099CA4B2733FC50001805AC /* VerticalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCollectionViewCell.swift; sourceTree = "<group>"; };
+		7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCollectionViewModel.swift; sourceTree = "<group>"; };
+		709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionViewModel.swift; sourceTree = "<group>"; };
+		709F6E572733E2390018ED10 /* HeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellView.swift; sourceTree = "<group>"; };
+		709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderCell+Constraints.swift"; sourceTree = "<group>"; };
 		70C419E427248FC1006214FA /* MilliArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilliArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C419E727248FC1006214FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70C419E927248FC1006214FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -397,6 +413,61 @@
 			path = Frame;
 			sourceTree = "<group>";
 		};
+		703A4AD92733D9B9000329F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				703A4ADC2733DA43000329F7 /* Rows */,
+				703A4ADA2733D9F4000329F7 /* Section */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		703A4ADA2733D9F4000329F7 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		703A4ADC2733DA43000329F7 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA432733E609001805AC /* HeaderCellModel.swift */,
+				7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */,
+				7099CA482733F44F001805AC /* HCollectionViewModel.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		703A4ADE2733DC29000329F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				706E69E5272AC3130006BA3B /* MainViewController.swift */,
+				703A4ADF2733DC34000329F7 /* CellViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		703A4ADF2733DC34000329F7 /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA4A2733FC2D001805AC /* VerticalCollectionViewCell */,
+				7099CA452733F30B001805AC /* HorizontalCollectionViewCell */,
+				703A4AE02733DC52000329F7 /* Header */,
+			);
+			path = CellViews;
+			sourceTree = "<group>";
+		};
+		703A4AE02733DC52000329F7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				709F6E572733E2390018ED10 /* HeaderCellView.swift */,
+				709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,9 +497,10 @@
 		706E69E2272AC2FE0006BA3B /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				703A4AD92733D9B9000329F7 /* Model */,
+				703A4ADE2733DC29000329F7 /* Views */,
 				706E69E3272AC3130006BA3B /* MainPresenter.swift */,
 				706E69E4272AC3130006BA3B /* MainRouter.swift */,
-				706E69E5272AC3130006BA3B /* MainViewController.swift */,
 				706E69E6272AC3130006BA3B /* MainProtocols.swift */,
 				706E69E7272AC3130006BA3B /* MainInteractor.swift */,
 				706E69E8272AC3130006BA3B /* MainContainer.swift */,
@@ -596,6 +668,22 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		7099CA452733F30B001805AC /* HorizontalCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA462733F325001805AC /* HorizontalCollectionViewCell.swift */,
+			);
+			path = HorizontalCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		7099CA4A2733FC2D001805AC /* VerticalCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA4B2733FC50001805AC /* VerticalCollectionViewCell.swift */,
+			);
+			path = VerticalCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		70C419DB27248FC0006214FA = {
 			isa = PBXGroup;
 			children = (
@@ -733,8 +821,11 @@
 				703A4ABE2730156C000329F7 /* AREditProtocols.swift in Sources */,
 				706E6A37272B513B0006BA3B /* BaseCell.swift in Sources */,
 				703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */,
+				7099CA4E2733FCF7001805AC /* VCollectionViewModel.swift in Sources */,
 				706E6A51272BF6320006BA3B /* AboutDescCell.swift in Sources */,
 				706E6A1D272B09370006BA3B /* FilterContainer.swift in Sources */,
+				709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */,
+				7099CA4C2733FC50001805AC /* VerticalCollectionViewCell.swift in Sources */,
 				706E69EB272AC3130006BA3B /* MainViewController.swift in Sources */,
 				703A4AC327303A5F000329F7 /* AR+Constraints.swift in Sources */,
 				706E6A45272B5C580006BA3B /* ItemSliderCell.swift in Sources */,
@@ -743,6 +834,8 @@
 				703A4ABC2730156C000329F7 /* AREditRouter.swift in Sources */,
 				706E6A0E272AED5D0006BA3B /* CartProtocols.swift in Sources */,
 				703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */,
+				7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */,
+				7099CA442733E609001805AC /* HeaderCellModel.swift in Sources */,
 				706E6A0B272AED5D0006BA3B /* CartPresenter.swift in Sources */,
 				703A4ABD2730156C000329F7 /* AREditViewController.swift in Sources */,
 				703A4A8D272C7024000329F7 /* AboutDesc+Constraints.swift in Sources */,
@@ -767,6 +860,7 @@
 				70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */,
 				706E69E9272AC3130006BA3B /* MainPresenter.swift in Sources */,
 				706E6A3B272B522D0006BA3B /* ItemNameCell.swift in Sources */,
+				709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */,
 				706E6A3D272B53C40006BA3B /* ItemDescNameCellModel.swift in Sources */,
 				703A4AC9273079EF000329F7 /* FrameCollectionCell.swift in Sources */,
 				706E6A18272B09370006BA3B /* FilterPresenter.swift in Sources */,
@@ -777,6 +871,7 @@
 				703A4AAA272DF61A000329F7 /* ARPresenter.swift in Sources */,
 				706E6A1C272B09370006BA3B /* FilterInteractor.swift in Sources */,
 				706E69E1272AB5EE0006BA3B /* TabBarContainer.swift in Sources */,
+				7099CA472733F325001805AC /* HorizontalCollectionViewCell.swift in Sources */,
 				703A4A87272C6F88000329F7 /* AmountDesc+Constraints.swift in Sources */,
 				706E6A53272BFA400006BA3B /* SpecificationsDescCellModel.swift in Sources */,
 				706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */,
@@ -801,6 +896,7 @@
 				703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */,
 				706E69DF272AB5EE0006BA3B /* TabBarProtocols.swift in Sources */,
 				706E6A10272AED5D0006BA3B /* CartContainer.swift in Sources */,
+				709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

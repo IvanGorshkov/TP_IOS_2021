@@ -20,6 +20,11 @@ protocol MainViewInput: AnyObject {
 
 protocol MainViewOutput: AnyObject {
     func itemSelected()
+    func getCellHeight(at index: Int) -> Float
+    func getCell(at index: Int) -> CellIdentifiable?
+    func getCellIdentifier(at index: Int) -> String
+    func getCountCells() -> Int
+    var  sectionDelegate: ItemDescCellViewOutput? { get set }
 }
 
 protocol MainInteractorInput: AnyObject {

@@ -13,6 +13,8 @@ final class TitlesConstants {
     // MARK: Base
     static let Done = "Готово"
     static let Apply = "Применить"
+    static let noTitle = "Нет"
+    static let all = "Все"
     
     // MARK: TabBar
     static let MainBarTitle = "Главная"
@@ -42,6 +44,5 @@ final class TitlesConstants {
     static let frameLabel = "Рамы"
     static let frameWidth = "Толщина"
     static let frameRadius = "Закругленность"
-    static let noTitle = "Нет"
     
 }
