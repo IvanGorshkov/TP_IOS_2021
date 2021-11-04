@@ -29,13 +29,24 @@ final class HeaderCellView: BaseCell {
     
     override func loadSubViews() {
         setUp()
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        [titleLabel, allButton].forEach { [weak self] in
+            self?.contentView.addSubview($0)
+        }
         addConstraintsHeader()
+}
+
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setUp() {
         setUpBase()
         setUpLabel()
-        contentView.addSubview(allButton)
         allButton.addTarget(self, action:  #selector(clickAll), for: .touchUpInside)
         allButton.setTitleColor(ColorConstants.BlackColor, for: .normal)
     }
@@ -50,7 +61,6 @@ final class HeaderCellView: BaseCell {
     }
     
     private func setUpLabel() {
-        contentView.addSubview(titleLabel)
         titleLabel.numberOfLines = 0
         titleLabel.textColor = ColorConstants.BlackColor
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.heavy)

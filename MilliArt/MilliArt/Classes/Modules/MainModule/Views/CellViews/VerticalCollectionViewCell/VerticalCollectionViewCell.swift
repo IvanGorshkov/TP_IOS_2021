@@ -17,13 +17,9 @@ final class VerticalCollectionViewCell: BaseCell, UICollectionViewDelegateFlowLa
         layout.delegate = self
         layout.numberOfColumns = 2
         layout.cellPadding = 10
-            
-       
-     //   collectionView.setCollectionViewLayout(layout, animated: true)
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.collectionViewLayout.invalidateLayout()
-        collectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 10, right: 5)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 10, right: 5)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(VerticalCollectionCell.self, forCellWithReuseIdentifier: VerticalCollectionCell.cellIdentifier)
@@ -65,7 +61,6 @@ final class VerticalCollectionViewCell: BaseCell, UICollectionViewDelegateFlowLa
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.collectionViewLayout.invalidateLayout()
         collectionView.reloadData()
-       // print(collectionView.collectionViewLayout.collectionViewContentSize)
         return collectionView.collectionViewLayout.collectionViewContentSize
     }
 
@@ -85,9 +80,7 @@ final class VerticalCollectionViewCell: BaseCell, UICollectionViewDelegateFlowLa
 
 // MARK: MosaicLayoutDelegate
 extension VerticalCollectionViewCell: MosaicLayoutDelegate {
-    func updateHeightCollectionView() {
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
           let item = array[indexPath.item]
         let image = UIImage(named: item.pic)
@@ -101,13 +94,13 @@ extension VerticalCollectionViewCell: MosaicLayoutDelegate {
         
         let character = array[indexPath.item]
         let descriptionHeight = heightForText(character.name, width: width-24)
-        let height = 4 + 17 + 4 + descriptionHeight + 12
+        let height = 4 + 17 + 4 + descriptionHeight
         return height
       }
       
       func heightForText(_ text: String, width: CGFloat) -> CGFloat {
-        let font = UIFont.systemFont(ofSize: 10)
-          let rect = NSString(string: text).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        let font = UIFont.systemFont(ofSize: 16)
+        let rect = NSString(string: text).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(rect.height)
 }
 

@@ -8,6 +8,7 @@
 import UIKit
 
 final class HorizontalCollectionViewCell: BaseCell, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    var array: [HorizontalModel] = []
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -17,10 +18,9 @@ final class HorizontalCollectionViewCell: BaseCell, UICollectionViewDelegateFlow
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(HorizontalCollectionView.self, forCellWithReuseIdentifier: HorizontalCollectionView.cellIdentifier)
         collectionView.backgroundColor = .clear
         
-//        collectionView.isScrollEnabled = true
         return collectionView
     }()
 
@@ -29,7 +29,7 @@ final class HorizontalCollectionViewCell: BaseCell, UICollectionViewDelegateFlow
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.addSubview(collectionView)
-        
+        collectionView.showsHorizontalScrollIndicator = false
         backgroundColor = .clear
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,36 +37,29 @@ final class HorizontalCollectionViewCell: BaseCell, UICollectionViewDelegateFlow
         collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        collectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+
+        collectionView.heightAnchor.constraint(equalToConstant: 220).isActive = true
         
     }
+    
     override func loadSubViews() {
-        layoutIfNeeded()
         
     }
     override func updateViews() {
-        
+        guard let model = model as? HCollectionViewModel else { return }
+        array = model.array
+        collectionView.reloadData()
     }
+
  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-   return 100
+     return array.count
  }
 
  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-   let cell : UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-
-   if indexPath.row % 3 == 0 {
-     cell.backgroundColor = .red
-   } else if indexPath.row % 3 == 1 {
-     cell.backgroundColor = .blue
-   } else {
-     cell.backgroundColor = .green
-   }
-   cell.layer.cornerRadius = 10
-
+     guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionView.cellIdentifier, for: indexPath) as? HorizontalCollectionView else { return UICollectionViewCell() }
+     
+     cell.configure(model: array[indexPath.row])
    return cell;
  }
 
- func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-     return CGSize.init(width: 100 * Int.random(in: 1...3), height: 200)
- }
 }

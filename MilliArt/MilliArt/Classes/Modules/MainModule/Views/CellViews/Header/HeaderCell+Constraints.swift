@@ -18,8 +18,8 @@ extension HeaderCellView {
         
         allButton.translatesAutoresizingMaskIntoConstraints = false
         allButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        allButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-        allButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        allButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        allButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         allButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
 }

@@ -62,6 +62,7 @@ final class MainViewController: UIViewController {
         tableView.tableHeaderView = UIView()
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
     }
     
     

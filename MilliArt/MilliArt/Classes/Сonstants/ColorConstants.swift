@@ -17,4 +17,6 @@ final class ColorConstants {
     static let DarkMainBackGroundColor = UIColor(red: 219/255, green: 215/255, blue: 203/255, alpha: 1.0)
     
     static let BlackColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+    
+    static let TextColor = UIColor(red: 131/255, green: 117/255, blue: 117/255, alpha: 1.0)
 }

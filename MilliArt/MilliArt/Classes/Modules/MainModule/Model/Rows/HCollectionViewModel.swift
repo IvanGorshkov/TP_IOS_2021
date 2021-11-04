@@ -14,10 +14,11 @@ final class HCollectionViewModel: BaseCellModel {
     override var cellIdentifier: String {
         return HorizontalCollectionViewCell.cellIdentifier
     }
-    override var cellHeight: Float {
-        return 200
-    }
-    init(action: ActionHandler? = nil) {
+    
+    let array: [HorizontalModel]
+    
+    init(array: [HorizontalModel], action: ActionHandler? = nil) {
         self.action = action
+        self.array = array
     }
 }

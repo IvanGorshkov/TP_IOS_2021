@@ -15,6 +15,8 @@ struct PainingMini {
 }
 
 
+
+
 final class VCollectionViewModel: BaseCellModel {
     typealias ActionHandler = () -> ()
     var action: ActionHandler?
@@ -27,18 +29,18 @@ final class VCollectionViewModel: BaseCellModel {
     init(action: ActionHandler? = nil) {
         self.action = action
         array = [
-            PainingMini(pic: "korzev", name: "Следы войны", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "pic1", name: "На гребне волны", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "pic2", name: "Белые утесы", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "pic3", name: "Гончии", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "Pushkin", name: "Портрет Пушкина", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "sidorov", name: "Зимняя дорога. Версты", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "sidorov", name: "Зимняя дорога. Версты", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "Pushkin", name: "Портрет Пушкина", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "pic3", name: "Гончии", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "pic2", name: "Белые утесы", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "pic1", name: "На гребне волны", size: "200 x 100", price: "120394 р"),
-            PainingMini(pic: "korzev", name: "Следы войны", size: "200 x 100", price: "120394 р"),
+            PainingMini(pic: "korzev", name: "Следы войны", size: "20 x 100", price: "120394 ₽"),
+            PainingMini(pic: "pic1", name: "На гребне волны", size: "200 x 100", price: "120394 ₽"),
+            PainingMini(pic: "pic2", name: "Белые утесы", size: "200 x 10", price: "120394 ₽"),
+            PainingMini(pic: "pic3", name: "Гончии", size: "200 x 100", price: "120394 ₽"),
+            PainingMini(pic: "Pushkin", name: "Портрет Пушкина", size: "20 x 100", price: "120394 ₽"),
+            PainingMini(pic: "sidorov", name: "Зимня дорога Версты", size: "20 x 100", price: "120394 ₽"),
+            PainingMini(pic: "sidorov", name: "Зимняя дорога. Версты  дорога Версты", size: "200 x 100", price: "120394 ₽"),
+            PainingMini(pic: "Pushkin", name: "Портрет Пушкина", size: "200 x 100", price: "120394 ₽"),
+            PainingMini(pic: "pic3", name: "Гончии", size: "200 x 100", price: "120394 ₽"),
+            PainingMini(pic: "pic2", name: "Белые утесы", size: "200 x 100", price: "120394 ₽"),
+            PainingMini(pic: "pic1", name: "На гребне волны", size: "200 x 100", price: "120394 ₽"),
+            PainingMini(pic: "korzev", name: "Следы войны", size: "200 x 100", price: "120394 ₽"),
         ]
     }
 }

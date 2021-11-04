@@ -32,7 +32,6 @@ protocol MosaicLayoutDelegate {
   
   func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
     
-    func updateHeightCollectionView()
 }
 
 class MosaicLayoutAttributes: UICollectionViewLayoutAttributes {
@@ -72,10 +71,7 @@ class MosaicViewLayout: UICollectionViewLayout {
   }
   
   override var collectionViewContentSize : CGSize {
-      print("collectionViewContentSize ", contentHeight)
-      if contentHeight == 0 {
-          prepare()
-      }
+      if contentHeight == 0 { prepare() }
     return CGSize(width: width, height: contentHeight)
   }
   
@@ -113,7 +109,6 @@ class MosaicViewLayout: UICollectionViewLayout {
         yOffsets[column] = yOffsets[column] + height
         column = column >= (numberOfColumns - 1) ? 0 : column + 1
       }
-    delegate.updateHeightCollectionView()
     }
       collectionView?.frame.size.height = contentHeight
       collectionView?.contentSize.height = contentHeight
