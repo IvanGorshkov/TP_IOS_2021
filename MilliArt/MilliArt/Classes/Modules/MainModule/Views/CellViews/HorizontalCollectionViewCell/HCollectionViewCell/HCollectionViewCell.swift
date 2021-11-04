@@ -7,11 +7,11 @@
 
 import UIKit
 
-class HCollectionViewCell: UICollectionViewCell {
+final class HCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "HorizontalCollectionView"
     
     internal var imageView = UIImageView()
-    internal var nameLabel = TopAlignedLabel()
+    internal var nameLabel = MUILabel()
     internal var myWidthAnchor: NSLayoutConstraint!
     
     override init(frame: CGRect) {
@@ -39,6 +39,7 @@ class HCollectionViewCell: UICollectionViewCell {
         nameLabel.textColor = ColorConstants.TextColor
         nameLabel.font = UIFont.systemFont(ofSize:  16, weight: UIFont.Weight.light)
         nameLabel.numberOfLines = 0
+        nameLabel.top = true
     }
     
     required init?(coder: NSCoder) {

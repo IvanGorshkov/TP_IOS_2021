@@ -59,7 +59,7 @@ final class MainViewController: UIViewController {
     private func registerCells() {
         tableView.register(HeaderCellView.self, forCellReuseIdentifier: HeaderCellView.cellIdentifier)
         tableView.register(HCollectionViewTableViewCell.self, forCellReuseIdentifier: HCollectionViewTableViewCell.cellIdentifier)
-        tableView.register(VerticalCollectionViewCell.self, forCellReuseIdentifier: VerticalCollectionViewCell.cellIdentifier)
+        tableView.register(VCollectionViewTableViewCell.self, forCellReuseIdentifier: VCollectionViewTableViewCell.cellIdentifier)
     }
     
     private func addNavigationButton() {

@@ -12,7 +12,7 @@ final class VCollectionViewModel: BaseCellModel {
     var action: ActionHandler?
     
     override var cellIdentifier: String {
-        return VerticalCollectionViewCell.cellIdentifier
+        return VCollectionViewTableViewCell.cellIdentifier
     }
     let array: [VerticalPaintsModel]
     
