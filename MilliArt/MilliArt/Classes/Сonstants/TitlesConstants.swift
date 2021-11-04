@@ -45,4 +45,10 @@ final class TitlesConstants {
     static let frameWidth = "Толщина"
     static let frameRadius = "Закругленность"
     
+    // MARK: Main
+    static let CompilationTitle = "Подборки"
+    static let authorsTitle =  "Авторы"
+    static let newTitle = "Новое"
+   
+   
 }

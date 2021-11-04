@@ -10,7 +10,7 @@ import AVFoundation
 
 
 final class VerticalCollectionViewCell: BaseCell, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    var array: [PainingMini] = []
+    var array: [VerticalPaintsModel] = []
 
     lazy var collectionView: UICollectionView = {
         let layout = MosaicViewLayout()

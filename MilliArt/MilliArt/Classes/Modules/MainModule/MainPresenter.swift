@@ -19,7 +19,6 @@ final class MainPresenter {
     init(router: MainRouterInput, interactor: MainInteractorInput) {
         self.router = router
         self.interactor = interactor
-        mainSectionViewModel = MainSectionViewModel()
     }
 }
 
@@ -27,6 +26,10 @@ extension MainPresenter: MainModuleInput {
 }
 
 extension MainPresenter: MainViewOutput {
+    func viewDidLoad() {
+        interactor.loadData()
+    }
+    
     func getCellHeight(at index: Int) -> Float {
         guard let mainSectionViewModel = mainSectionViewModel else { return -1 }
         return mainSectionViewModel.rows[index].cellHeight
@@ -60,8 +63,11 @@ extension MainPresenter: MainViewOutput {
     func itemSelected() {
         router.itemSelected(with: view)
     }
-    
 }
 
 extension MainPresenter: MainInteractorOutput {
+    func receiveData(newPaints: [VerticalPaintsModel], compilations: [CompilationModel], authors: [AuthorModel]) {
+        mainSectionViewModel = MainSectionViewModel(newPaints: newPaints, compilations: compilations, authors: authors)
+    }
+    
 }

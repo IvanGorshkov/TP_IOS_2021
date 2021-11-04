@@ -26,19 +26,12 @@ final class MainViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         setUp()
+        output.viewDidLoad()
     }
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         addConstraintTableView()
-    }
-    
-    
-    internal func addConstraintTableView() {
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        self.tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        self.tableView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        self.tableView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor).isActive = true
     }
     
     private func setUp() {
@@ -60,15 +53,12 @@ final class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.allowsSelection = false
         tableView.tableHeaderView = UIView()
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
     }
     
-    
     private func registerCells() {
         tableView.register(HeaderCellView.self, forCellReuseIdentifier: HeaderCellView.cellIdentifier)
-        tableView.register(HorizontalCollectionViewCell.self, forCellReuseIdentifier: HorizontalCollectionViewCell.cellIdentifier)
+        tableView.register(HCollectionViewTableViewCell.self, forCellReuseIdentifier: HCollectionViewTableViewCell.cellIdentifier)
         tableView.register(VerticalCollectionViewCell.self, forCellReuseIdentifier: VerticalCollectionViewCell.cellIdentifier)
     }
     
@@ -81,15 +71,13 @@ final class MainViewController: UIViewController {
     private func setNavigationPicture() {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
         imageView.contentMode = .scaleAspectFit
-
         let image = UIImage(named: "favicon")
         imageView.image = image
-
         navigationItem.titleView = imageView
     }
     
     @objc
-    func favoriteButtonAction() {
+    private func favoriteButtonAction() {
         
     }
 }
@@ -105,7 +93,6 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath) as! BaseCell
         cell.model = output.getCell(at: indexPath.row)
-        cell.layoutSubviews()
         return cell
     }
 }

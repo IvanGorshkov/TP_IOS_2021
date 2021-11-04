@@ -12,12 +12,12 @@ final class HCollectionViewModel: BaseCellModel {
     var action: ActionHandler?
     
     override var cellIdentifier: String {
-        return HorizontalCollectionViewCell.cellIdentifier
+        return HCollectionViewTableViewCell.cellIdentifier
     }
     
-    let array: [HorizontalModel]
+    let array: [HorizontalViewModel]
     
-    init(array: [HorizontalModel], action: ActionHandler? = nil) {
+    init(array: [HorizontalViewModel], action: ActionHandler? = nil) {
         self.action = action
         self.array = array
     }

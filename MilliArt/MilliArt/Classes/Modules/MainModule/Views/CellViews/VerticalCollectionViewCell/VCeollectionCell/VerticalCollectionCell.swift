@@ -17,7 +17,7 @@ class VerticalCollectionCell: UICollectionViewCell {
     var nameLabel = TopAlignedLabel()
     var sizeLabel = TopAlignedLabel()
     
-    func configure(model: PainingMini) {
+    func configure(model: VerticalPaintsModel) {
         [imageView, priceLabel, nameLabel, sizeLabel].forEach { view in
             self.contentView.addSubview(view)
         }

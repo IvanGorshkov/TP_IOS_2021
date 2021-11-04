@@ -14,9 +14,7 @@ final class HeaderCellView: BaseCell {
     static let cellIdentifier = "HeaderCellModel"
     
     override func updateViews() {
-        guard let model = model as? HeaderCellModel else {
-            return
-        }
+        guard let model = model as? HeaderCellViewModel else { return }
         titleLabel.text = model.title
         
         if model.action == nil {
@@ -37,7 +35,7 @@ final class HeaderCellView: BaseCell {
             self?.contentView.addSubview($0)
         }
         addConstraintsHeader()
-}
+    }
 
     
     required init?(coder: NSCoder) {
@@ -47,12 +45,16 @@ final class HeaderCellView: BaseCell {
     private func setUp() {
         setUpBase()
         setUpLabel()
-        allButton.addTarget(self, action:  #selector(clickAll), for: .touchUpInside)
-        allButton.setTitleColor(ColorConstants.BlackColor, for: .normal)
+        setUpButton()
     }
     
     @objc
     private func clickAll() {
+    }
+    
+    private func setUpButton() {
+        allButton.addTarget(self, action:  #selector(clickAll), for: .touchUpInside)
+        allButton.setTitleColor(ColorConstants.BlackColor, for: .normal)
     }
     
     private func setUpBase() {
