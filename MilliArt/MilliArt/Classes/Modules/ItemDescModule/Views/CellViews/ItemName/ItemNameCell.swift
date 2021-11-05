@@ -19,11 +19,17 @@ final class ItemNameCell: BaseCell {
         nameLabel.text = model.name
     }
     
-    
-    override func loadSubViews() {
-        setUp()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        [nameLabel].forEach( {contentView.addSubview($0)} )
         addConstraintsName()
+        setUp()
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     private func setUp() {
         setUpBase()
@@ -36,7 +42,6 @@ final class ItemNameCell: BaseCell {
     }
     
     private func setUpLabel() {
-        contentView.addSubview(nameLabel)
         nameLabel.numberOfLines = 0
         nameLabel.textColor = ColorConstants.BlackColor
         nameLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.heavy)

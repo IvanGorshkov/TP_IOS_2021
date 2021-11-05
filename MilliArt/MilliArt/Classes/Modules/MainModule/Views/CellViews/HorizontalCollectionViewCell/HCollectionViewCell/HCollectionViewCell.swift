@@ -23,6 +23,10 @@ final class HCollectionViewCell: UICollectionViewCell {
         setUp()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setUp() {
         setUpImageView()
         setUpTitle()
@@ -42,9 +46,6 @@ final class HCollectionViewCell: UICollectionViewCell {
         nameLabel.top = true
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     func configure(model: HorizontalViewModel) {
         guard let image = UIImage(named: model.pic) else { return }

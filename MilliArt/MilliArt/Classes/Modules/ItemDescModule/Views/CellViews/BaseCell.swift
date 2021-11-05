@@ -13,7 +13,6 @@ import UIKit
 class BaseCell: UITableViewCell, ModelRepresentable {
     var model: CellIdentifiable? {
         didSet {
-            loadSubViews()
             updateViews()
         }
     }
@@ -27,6 +26,4 @@ class BaseCell: UITableViewCell, ModelRepresentable {
     }
     
     func updateViews() { fatalError("Abstract class, dont use") }
-    
-    func loadSubViews() { fatalError("Abstract class, dont use") }
 }

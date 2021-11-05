@@ -21,15 +21,25 @@ final class SpecificationsDescCell: BaseCell {
         specification.text = model.specification
     }
     
-    
-    override func loadSubViews() {
-        setUp()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        [titleLabel, specification].forEach( {
+            contentView.addSubview($0)
+        })
         addConstraintsSpecifications()
-     }
+        setUp()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private func setUp() {
         setUpBase()
-        setUpLabels()
+        [titleLabel, specification].forEach( {
+            $0.numberOfLines = 0
+            $0.textColor = ColorConstants.BlackColor
+        })
     }
     
     private func setUpBase() {
@@ -37,11 +47,4 @@ final class SpecificationsDescCell: BaseCell {
         separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
-    private func setUpLabels() {
-        [titleLabel, specification].forEach( {
-            contentView.addSubview($0)
-            $0.numberOfLines = 0
-            $0.textColor = ColorConstants.BlackColor
-        })
-    }
 }

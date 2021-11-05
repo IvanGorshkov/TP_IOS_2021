@@ -25,9 +25,6 @@ final class HeaderCellView: BaseCell {
     }
     
     
-    override func loadSubViews() {
-        setUp()
-    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,6 +32,7 @@ final class HeaderCellView: BaseCell {
             self?.contentView.addSubview($0)
         }
         addConstraintsHeader()
+        setUp()
     }
 
     

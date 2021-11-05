@@ -42,9 +42,6 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
         collectionView.register(VCollectionViewCell.self, forCellWithReuseIdentifier: VCollectionViewCell.cellIdentifier)
     }
     
-    
-    override func loadSubViews() { }
-    
     override func updateViews() {
         guard let model = model as? VCollectionViewModel else { return }
         array = model.array

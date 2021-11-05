@@ -78,7 +78,7 @@ final class MainViewController: UIViewController {
     
     @objc
     private func favoriteButtonAction() {
-        
+        output.itemSelected()
     }
 }
 

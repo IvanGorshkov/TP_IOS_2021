@@ -42,8 +42,6 @@ final class HCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadSubViews() {}
-    
     override func updateViews() {
         guard let model = model as? HCollectionViewModel else { return }
         array = model.array
