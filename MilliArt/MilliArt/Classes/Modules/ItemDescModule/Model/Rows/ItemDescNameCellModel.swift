@@ -11,9 +11,9 @@ final class ItemDescNameCellModel: BaseCellModel {
     override var cellIdentifier: String {
         return ItemNameCell.cellIdentifier
     }
-    
+
     var name: String
-    
+
     init(_ model: ItemDescModel) {
         self.name = model.name
     }

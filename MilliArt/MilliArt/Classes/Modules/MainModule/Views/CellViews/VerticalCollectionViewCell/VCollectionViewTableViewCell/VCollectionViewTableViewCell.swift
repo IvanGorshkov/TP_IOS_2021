@@ -11,14 +11,14 @@ import AVFoundation
 final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     private var array: [VerticalPaintsModel] = []
     private var isReloaded = false
-    
+
     internal lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         return collectionView
     }()
-    
+
     static let cellIdentifier = "VCollectionViewModel"
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         [collectionView].forEach { [weak self] in
@@ -27,11 +27,11 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
         addConstraintsCollectionView()
         setUp()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setUp() {
         backgroundColor = .clear
         collectionView.delegate = self
@@ -41,12 +41,12 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 10, right: 5)
         collectionView.register(VCollectionViewCell.self, forCellWithReuseIdentifier: VCollectionViewCell.cellIdentifier)
     }
-    
+
     override func updateViews() {
         guard let model = model as? VCollectionViewModel else { return }
         array = model.array
     }
-    
+
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
         collectionView.frame = CGRect(x: 8.0, y: 8.0, width: targetSize.width, height: targetSize.height)
         reloadLayout()
@@ -62,26 +62,26 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
             isReloaded = true
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return array.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VCollectionViewCell.cellIdentifier, for: indexPath)
                 as? VCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-        
+
         cell.configure(model: array[indexPath.row])
         return cell
     }
-    
+
 }
 
 // MARK: MosaicLayoutDelegate
 extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
-    
+
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = array[indexPath.item]
         guard let image = UIImage(named: item.pic) else { return 0 }
@@ -89,15 +89,15 @@ extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
         let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
         return rect.height
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
-        
+
         let character = array[indexPath.item]
         let descriptionHeight = heightForText(character.name, width: width-24)
         let height = 4 + 17 + 4 + descriptionHeight
         return height
     }
-    
+
     func heightForText(_ text: String, width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: 16)
         let rect = NSString(string: text).boundingRect(

@@ -9,11 +9,11 @@ import Foundation
 
 class BaseCellModel: CellIdentifiable {
     var height: Float = -1.0
-    
+
     var cellIdentifier: String {
         return ""
     }
-    
+
     var cellHeight: Float {
         return height
     }

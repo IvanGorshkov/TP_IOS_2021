@@ -16,7 +16,7 @@ extension FrameCollectionCell {
         noLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
         noLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
         noLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
+
         frameView.translatesAutoresizingMaskIntoConstraints = false
         frameMask.translatesAutoresizingMaskIntoConstraints = false
         frameView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true

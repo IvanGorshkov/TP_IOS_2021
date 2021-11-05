@@ -11,7 +11,7 @@ final class AboutDescCellModel: BaseCellModel {
     override var cellIdentifier: String {
         return AboutDescCell.cellIdentifier
     }
-    
+
     let text: String
     init(_ model: ItemDescModel) {
         text = model.description

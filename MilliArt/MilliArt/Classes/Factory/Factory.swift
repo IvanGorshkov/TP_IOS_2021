@@ -16,7 +16,7 @@ class CompilationsCreator: Creator {
     func factoryRouter() -> AllRouterInput {
         return AllCompilationsRouter()
     }
-    
+
     func factoryInteractor() -> AllInteractorInput {
         return AllCompilationsInteractor()
     }
@@ -26,7 +26,7 @@ class AuthorsCreator: Creator {
     func factoryRouter() -> AllRouterInput {
         return AllAuthorsRouter()
     }
-    
+
     func factoryInteractor() -> AllInteractorInput {
         return AllAuthorsInteractor()
     }

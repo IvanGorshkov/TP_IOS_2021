@@ -14,7 +14,7 @@ extension HeaderCellView {
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        
+
         allButton.translatesAutoresizingMaskIntoConstraints = false
         allButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         allButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true

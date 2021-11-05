@@ -16,7 +16,7 @@ final class TabBarPresenter {
 	private let router: TabBarRouterInput
 	private let interactor: TabBarInteractorInput
     private var tabBars: [TabBarItemModel] = []
-    
+
     init(router: TabBarRouterInput, interactor: TabBarInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -30,7 +30,7 @@ extension TabBarPresenter: TabBarViewOutput {
     func getModel(at index: Int) -> TabBarItemModel {
         return self.tabBars[index]
     }
-    
+
     func getViews() {
         interactor.getTabBarItemsInfo()
     }

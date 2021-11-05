@@ -14,7 +14,7 @@ extension HCollectionViewCell {
         self.imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
         self.imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
         self.imageView.heightAnchor.constraint(equalToConstant: 170).isActive = true
-        
+
         self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.nameLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 5).isActive = true
         self.nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
@@ -22,14 +22,14 @@ extension HCollectionViewCell {
         self.nameLabel.heightAnchor.constraint(equalToConstant: 300).isActive = true
         self.nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
-    
+
     internal func updateWidth(with image: UIImage) {
         let nHeight = CGFloat(170)
         let oWidth = image.size.width
         let oHeight = image.size.height
-        
+
         let nWidth = (oWidth / oHeight) * nHeight
-        
+
         if myWidthAnchor == nil {
             myWidthAnchor = self.imageView.widthAnchor.constraint(equalToConstant: nWidth)
             myWidthAnchor.isActive = true

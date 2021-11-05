@@ -15,7 +15,7 @@ final class MainInteractor {
         CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
         CompilationModel(compilationPicture: "pic3", compilationname: "Гончии")
     ]
-    
+
     let arr2 = [
         AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
         AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),

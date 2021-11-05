@@ -16,7 +16,7 @@ extension AllAuthorsInteractor: AllInteractorInput {
     func getTitle() -> String {
         return TitlesConstants.authorsTitle
     }
-    
+
     func loadData() {
         let arr2 = [
             AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
@@ -44,11 +44,11 @@ extension AllAuthorsInteractor: AllInteractorInput {
             AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
             AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов")
         ]
-        
+
         output?.receiveData(data: arr2.map({ model in
             return HorizontalViewModel(pic: model.authorPicture, name: model.authorName)
             }
         ))
     }
-    
+
 }

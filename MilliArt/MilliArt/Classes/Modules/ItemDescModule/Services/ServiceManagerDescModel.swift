@@ -12,7 +12,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
     init(interactor: ServiceManagerDescModelOutput?) {
         output = interactor
     }
-    
+
     func loadItemById(with id: Int) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.output?.itemDidLoad(itemDesc: ItemDescModel(

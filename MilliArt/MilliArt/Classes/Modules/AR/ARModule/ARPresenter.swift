@@ -29,7 +29,7 @@ extension ARPresenter: AREditModuleOutput {
     func dontSave() {
         view?.runSession()
     }
-    
+
     func returnModel(model: ARViewModelDescription) {
         self.arViewModel = model
         view?.runSession()
@@ -42,15 +42,15 @@ extension ARPresenter: ARViewOutput {
         guard let arViewModel = arViewModel else { return nil }
         return arViewModel
     }
-    
+
     func openEditFrame() {
         router.goToAR(from: view, arModel: arViewModel, presenter: self)
     }
-    
+
     func viewDidLoad() {
         view?.loadModel(arModel: arViewModel)
     }
-    
+
 }
 
 extension ARPresenter: ARInteractorOutput {

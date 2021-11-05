@@ -9,9 +9,9 @@ import Foundation
 
 final class ItemDescSectionModel: SectionRowsRepresentable {
     var rows: [CellIdentifiable]
-    
+
     weak var delegate: ItemDescCellViewOutput?
-    
+
     init(_ itemDesc: ItemDescModel) {
         rows = [CellIdentifiable]()
         rows.append(ItemDescNameCellModel(itemDesc))

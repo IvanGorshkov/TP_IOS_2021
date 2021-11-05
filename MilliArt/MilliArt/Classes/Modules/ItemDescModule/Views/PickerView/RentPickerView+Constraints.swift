@@ -13,7 +13,7 @@ extension RentPickerView {
         self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         self.button.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
         self.button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
+
         self.picker.translatesAutoresizingMaskIntoConstraints = false
         self.picker.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         self.picker.topAnchor.constraint(equalTo: self.topAnchor).isActive = true

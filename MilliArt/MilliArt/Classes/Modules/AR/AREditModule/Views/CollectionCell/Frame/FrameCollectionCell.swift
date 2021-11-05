@@ -20,7 +20,7 @@ class FrameCollectionCell: BaseCollectionCell {
         addConstraintsCell()
         setUp()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -35,7 +35,7 @@ class FrameCollectionCell: BaseCollectionCell {
         noLabel.textColor = ColorConstants.BlackColor
         layoutIfNeeded()
     }
-    
+
     override func updateViews() {
         guard let model = model as? FrameViewModel else {
             return
@@ -45,7 +45,7 @@ class FrameCollectionCell: BaseCollectionCell {
         } else {
             contentView.layer.borderColor = UIColor.gray.cgColor
         }
-        
+
         if let image = UIImage(named: model.assertImage) {
             noLabel.isHidden = true
             frameMask.isHidden = false

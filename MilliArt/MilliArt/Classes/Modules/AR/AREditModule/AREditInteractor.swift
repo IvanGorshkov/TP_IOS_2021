@@ -19,7 +19,7 @@ extension AREditInteractor: AREditInteractorInput {
         }
         output?.reciveUpdatedFrames(with: model)
     }
-    
+
     func getFramesModel(with model: ARViewModelDescription) {
         output?.reciveFrames(with: [
             FrameViewModel(colorFrame: "", isSelected: model.ARmaterial.isEmpty),
@@ -31,5 +31,5 @@ extension AREditInteractor: AREditInteractorInput {
             FrameViewModel(colorFrame: "Dark Wood", isSelected: model.ARmaterial == "Dark Wood")
         ])
     }
-    
+
 }
