@@ -7,19 +7,15 @@
 
 import Foundation
 
-
-
-
 final class MainSectionViewModel: SectionRowsRepresentable {
     var rows: [CellIdentifiable]
-    
-    var delegate: ItemDescCellViewOutput?
+    var actions: TableViewCellOutput?
     
     init(newPaints: [VerticalPaintsModel], compilations: [CompilationModel], authors: [AuthorModel]) {
        
         rows = [CellIdentifiable]()
         rows.append(HeaderCellViewModel(title: TitlesConstants.CompilationTitle, action: {
-            print("OK")
+            self.actions?.clickAllCompilation()
         }))
         rows.append(
             HCollectionViewModel(array: compilations.map(
@@ -30,7 +26,7 @@ final class MainSectionViewModel: SectionRowsRepresentable {
         )
         
         rows.append(HeaderCellViewModel(title: TitlesConstants.authorsTitle, action: {
-            print("OK")
+            self.actions?.clickAllCompilation()
         }))
         
         rows.append(

@@ -48,6 +48,8 @@ final class HeaderCellView: BaseCell {
     
     @objc
     private func clickAll() {
+        guard let model = model as? HeaderCellViewModel else { return }
+        model.action?()
     }
     
     private func setUpButton() {

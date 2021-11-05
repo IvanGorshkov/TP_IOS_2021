@@ -50,13 +50,13 @@ extension MainPresenter: MainViewOutput {
         return mainSectionViewModel.rows.count
     }
     
-    var sectionDelegate: ItemDescCellViewOutput? {
+    var sectionDelegate: TableViewCellOutput? {
         get {
             guard let mainSectionViewModel = mainSectionViewModel else { return nil }
-            return mainSectionViewModel.delegate
+            return mainSectionViewModel.actions
         }
         set {
-            mainSectionViewModel?.delegate = newValue
+            mainSectionViewModel?.actions = newValue
         }
     }
     
