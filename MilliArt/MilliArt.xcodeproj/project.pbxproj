@@ -102,6 +102,27 @@
 		706E6A5E272C1AA70006BA3B /* ImageSlideshow/SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 706E6A5D272C1AA70006BA3B /* ImageSlideshow/SDWebImage */; };
 		706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */; };
 		706E6A64272C3D960006BA3B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A63272C3D960006BA3B /* String+Extension.swift */; };
+		7099CA442733E609001805AC /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA432733E609001805AC /* HeaderCellViewModel.swift */; };
+		7099CA472733F325001805AC /* HCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */; };
+		7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA482733F44F001805AC /* HCollectionViewModel.swift */; };
+		7099CA4C2733FC50001805AC /* VCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA4B2733FC50001805AC /* VCollectionViewTableViewCell.swift */; };
+		7099CA4E2733FCF7001805AC /* VCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */; };
+		7099CA5127340CE1001805AC /* MosaicViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA5027340CE1001805AC /* MosaicViewLayout.swift */; };
+		7099CA532734257B001805AC /* VCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA522734257B001805AC /* VCollectionViewCell.swift */; };
+		7099CA55273463B9001805AC /* HCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA54273463B9001805AC /* HCollectionViewCell.swift */; };
+		7099CA58273487ED001805AC /* HorizontalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA57273487ED001805AC /* HorizontalModel.swift */; };
+		7099CA5A27348846001805AC /* VerticalPaintsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA5927348846001805AC /* VerticalPaintsModel.swift */; };
+		7099CA5C273488E3001805AC /* CompilationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA5B273488E3001805AC /* CompilationModel.swift */; };
+		7099CA5E273488F9001805AC /* AuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA5D273488F9001805AC /* AuthorModel.swift */; };
+		7099CA6127348FA9001805AC /* MainView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA6027348FA9001805AC /* MainView+Constraints.swift */; };
+		7099CA64273492B9001805AC /* HCollectionVTVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA63273492B9001805AC /* HCollectionVTVC+Constraints.swift */; };
+		7099CA67273495B2001805AC /* HCollectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA66273495B2001805AC /* HCollectionViewCell+Constraints.swift */; };
+		7099CA6A27349AC2001805AC /* VCollectionVTVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA6927349AC2001805AC /* VCollectionVTVC+Constraints.swift */; };
+		7099CA6D27349F31001805AC /* VCollectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA6C27349F31001805AC /* VCollectionViewCell+Constraints.swift */; };
+		7099CA702734A404001805AC /* MUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA6F2734A404001805AC /* MUILabel.swift */; };
+		709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */; };
+		709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E572733E2390018ED10 /* HeaderCellView.swift */; };
+		709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */; };
 		70C419E827248FC1006214FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E727248FC1006214FA /* AppDelegate.swift */; };
 		70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E927248FC1006214FA /* SceneDelegate.swift */; };
 		70C419EC27248FC1006214FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419EB27248FC1006214FA /* ViewController.swift */; };
@@ -200,6 +221,27 @@
 		706E6A54272BFA9D0006BA3B /* SpecificationsDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificationsDescCell.swift; sourceTree = "<group>"; };
 		706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		706E6A63272C3D960006BA3B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7099CA432733E609001805AC /* HeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellViewModel.swift; sourceTree = "<group>"; };
+		7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		7099CA482733F44F001805AC /* HCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewModel.swift; sourceTree = "<group>"; };
+		7099CA4B2733FC50001805AC /* VCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCollectionViewModel.swift; sourceTree = "<group>"; };
+		7099CA5027340CE1001805AC /* MosaicViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicViewLayout.swift; sourceTree = "<group>"; };
+		7099CA522734257B001805AC /* VCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCollectionViewCell.swift; sourceTree = "<group>"; };
+		7099CA54273463B9001805AC /* HCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewCell.swift; sourceTree = "<group>"; };
+		7099CA57273487ED001805AC /* HorizontalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalModel.swift; sourceTree = "<group>"; };
+		7099CA5927348846001805AC /* VerticalPaintsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalPaintsModel.swift; sourceTree = "<group>"; };
+		7099CA5B273488E3001805AC /* CompilationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationModel.swift; sourceTree = "<group>"; };
+		7099CA5D273488F9001805AC /* AuthorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorModel.swift; sourceTree = "<group>"; };
+		7099CA6027348FA9001805AC /* MainView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+Constraints.swift"; sourceTree = "<group>"; };
+		7099CA63273492B9001805AC /* HCollectionVTVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HCollectionVTVC+Constraints.swift"; sourceTree = "<group>"; };
+		7099CA66273495B2001805AC /* HCollectionViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HCollectionViewCell+Constraints.swift"; sourceTree = "<group>"; };
+		7099CA6927349AC2001805AC /* VCollectionVTVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VCollectionVTVC+Constraints.swift"; sourceTree = "<group>"; };
+		7099CA6C27349F31001805AC /* VCollectionViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VCollectionViewCell+Constraints.swift"; sourceTree = "<group>"; };
+		7099CA6F2734A404001805AC /* MUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUILabel.swift; sourceTree = "<group>"; };
+		709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionViewModel.swift; sourceTree = "<group>"; };
+		709F6E572733E2390018ED10 /* HeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellView.swift; sourceTree = "<group>"; };
+		709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderCell+Constraints.swift"; sourceTree = "<group>"; };
 		70C419E427248FC1006214FA /* MilliArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilliArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C419E727248FC1006214FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70C419E927248FC1006214FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -397,12 +439,68 @@
 			path = Frame;
 			sourceTree = "<group>";
 		};
+		703A4AD92733D9B9000329F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				703A4ADC2733DA43000329F7 /* Rows */,
+				703A4ADA2733D9F4000329F7 /* Section */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		703A4ADA2733D9F4000329F7 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		703A4ADC2733DA43000329F7 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA432733E609001805AC /* HeaderCellViewModel.swift */,
+				7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */,
+				7099CA482733F44F001805AC /* HCollectionViewModel.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		703A4ADE2733DC29000329F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA5F27348F95001805AC /* MainView */,
+				703A4ADF2733DC34000329F7 /* CellViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		703A4ADF2733DC34000329F7 /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA4A2733FC2D001805AC /* VerticalCollectionViewCell */,
+				7099CA452733F30B001805AC /* HorizontalCollectionViewCell */,
+				703A4AE02733DC52000329F7 /* Header */,
+			);
+			path = CellViews;
+			sourceTree = "<group>";
+		};
+		703A4AE02733DC52000329F7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				709F6E572733E2390018ED10 /* HeaderCellView.swift */,
+				709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				706E6A60272C3B630006BA3B /* Extension */,
 				70C419E727248FC1006214FA /* AppDelegate.swift */,
 				70C419E927248FC1006214FA /* SceneDelegate.swift */,
+				7099CA6E2734A3F2001805AC /* Custom */,
+				706E6A60272C3B630006BA3B /* Extension */,
 				706E69F2272AD3390006BA3B /* Сonstants */,
 				706E6A1E272B180B0006BA3B /* Modules */,
 			);
@@ -426,9 +524,11 @@
 		706E69E2272AC2FE0006BA3B /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				7099CA56273487D2001805AC /* Entity */,
+				703A4AD92733D9B9000329F7 /* ViewModel */,
+				703A4ADE2733DC29000329F7 /* Views */,
 				706E69E3272AC3130006BA3B /* MainPresenter.swift */,
 				706E69E4272AC3130006BA3B /* MainRouter.swift */,
-				706E69E5272AC3130006BA3B /* MainViewController.swift */,
 				706E69E6272AC3130006BA3B /* MainProtocols.swift */,
 				706E69E7272AC3130006BA3B /* MainInteractor.swift */,
 				706E69E8272AC3130006BA3B /* MainContainer.swift */,
@@ -596,6 +696,97 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		7099CA452733F30B001805AC /* HorizontalCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA62273492A4001805AC /* HCollectionViewTableViewCell */,
+				7099CA65273495A1001805AC /* HCollectionViewCell */,
+			);
+			path = HorizontalCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		7099CA4A2733FC2D001805AC /* VerticalCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA4F27340CD6001805AC /* Layout */,
+				7099CA6827349ABC001805AC /* VCollectionViewTableViewCell */,
+				7099CA6B27349F25001805AC /* VCollectionCell */,
+			);
+			path = VerticalCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		7099CA4F27340CD6001805AC /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA5027340CE1001805AC /* MosaicViewLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		7099CA56273487D2001805AC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA57273487ED001805AC /* HorizontalModel.swift */,
+				7099CA5927348846001805AC /* VerticalPaintsModel.swift */,
+				7099CA5B273488E3001805AC /* CompilationModel.swift */,
+				7099CA5D273488F9001805AC /* AuthorModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		7099CA5F27348F95001805AC /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				706E69E5272AC3130006BA3B /* MainViewController.swift */,
+				7099CA6027348FA9001805AC /* MainView+Constraints.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		7099CA62273492A4001805AC /* HCollectionViewTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */,
+				7099CA63273492B9001805AC /* HCollectionVTVC+Constraints.swift */,
+			);
+			path = HCollectionViewTableViewCell;
+			sourceTree = "<group>";
+		};
+		7099CA65273495A1001805AC /* HCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA54273463B9001805AC /* HCollectionViewCell.swift */,
+				7099CA66273495B2001805AC /* HCollectionViewCell+Constraints.swift */,
+			);
+			path = HCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		7099CA6827349ABC001805AC /* VCollectionViewTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA4B2733FC50001805AC /* VCollectionViewTableViewCell.swift */,
+				7099CA6927349AC2001805AC /* VCollectionVTVC+Constraints.swift */,
+			);
+			path = VCollectionViewTableViewCell;
+			sourceTree = "<group>";
+		};
+		7099CA6B27349F25001805AC /* VCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA522734257B001805AC /* VCollectionViewCell.swift */,
+				7099CA6C27349F31001805AC /* VCollectionViewCell+Constraints.swift */,
+			);
+			path = VCollectionCell;
+			sourceTree = "<group>";
+		};
+		7099CA6E2734A3F2001805AC /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA6F2734A404001805AC /* MUILabel.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		70C419DB27248FC0006214FA = {
 			isa = PBXGroup;
 			children = (
@@ -711,12 +902,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				706E6A28272B25AF0006BA3B /* ItemDescViewController.swift in Sources */,
+				7099CA67273495B2001805AC /* HCollectionViewCell+Constraints.swift in Sources */,
 				706E69E0272AB5EE0006BA3B /* TabBarInteractor.swift in Sources */,
+				7099CA5127340CE1001805AC /* MosaicViewLayout.swift in Sources */,
 				706E6A4F272BF5E10006BA3B /* AboutDescCellModel.swift in Sources */,
+				7099CA5E273488F9001805AC /* AuthorModel.swift in Sources */,
 				706E69EE272AC3130006BA3B /* MainContainer.swift in Sources */,
 				706E6A30272B3F680006BA3B /* ItemDescModel.swift in Sources */,
 				706E6A27272B25AF0006BA3B /* ItemDescRouter.swift in Sources */,
 				703A4ACE27307C59000329F7 /* FrameViewModel.swift in Sources */,
+				7099CA6D27349F31001805AC /* VCollectionViewCell+Constraints.swift in Sources */,
+				7099CA6A27349AC2001805AC /* VCollectionVTVC+Constraints.swift in Sources */,
 				703A4AAF272DF61A000329F7 /* ARContainer.swift in Sources */,
 				703A4AAE272DF61A000329F7 /* ARInteractor.swift in Sources */,
 				706E6A33272B50540006BA3B /* ItemDescSectionModel.swift in Sources */,
@@ -726,6 +922,7 @@
 				706E6A43272B5A750006BA3B /* SliderCellModel.swift in Sources */,
 				703A4ACB27307A0B000329F7 /* BaseCollectionCell.swift in Sources */,
 				706E69F4272AD3670006BA3B /* ColorConstants.swift in Sources */,
+				7099CA55273463B9001805AC /* HCollectionViewCell.swift in Sources */,
 				706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */,
 				70C419EC27248FC1006214FA /* ViewController.swift in Sources */,
 				706E6A0D272AED5D0006BA3B /* CartViewController.swift in Sources */,
@@ -733,21 +930,29 @@
 				703A4ABE2730156C000329F7 /* AREditProtocols.swift in Sources */,
 				706E6A37272B513B0006BA3B /* BaseCell.swift in Sources */,
 				703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */,
+				7099CA4E2733FCF7001805AC /* VCollectionViewModel.swift in Sources */,
 				706E6A51272BF6320006BA3B /* AboutDescCell.swift in Sources */,
 				706E6A1D272B09370006BA3B /* FilterContainer.swift in Sources */,
+				709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */,
+				7099CA4C2733FC50001805AC /* VCollectionViewTableViewCell.swift in Sources */,
 				706E69EB272AC3130006BA3B /* MainViewController.swift in Sources */,
 				703A4AC327303A5F000329F7 /* AR+Constraints.swift in Sources */,
+				7099CA702734A404001805AC /* MUILabel.swift in Sources */,
 				706E6A45272B5C580006BA3B /* ItemSliderCell.swift in Sources */,
 				706E6A55272BFA9D0006BA3B /* SpecificationsDescCell.swift in Sources */,
 				706E6A2B272B25AF0006BA3B /* ItemDescContainer.swift in Sources */,
 				703A4ABC2730156C000329F7 /* AREditRouter.swift in Sources */,
 				706E6A0E272AED5D0006BA3B /* CartProtocols.swift in Sources */,
 				703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */,
+				7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */,
+				7099CA442733E609001805AC /* HeaderCellViewModel.swift in Sources */,
 				706E6A0B272AED5D0006BA3B /* CartPresenter.swift in Sources */,
 				703A4ABD2730156C000329F7 /* AREditViewController.swift in Sources */,
 				703A4A8D272C7024000329F7 /* AboutDesc+Constraints.swift in Sources */,
 				706E6A26272B25AF0006BA3B /* ItemDescPresenter.swift in Sources */,
 				706E69ED272AC3130006BA3B /* MainInteractor.swift in Sources */,
+				7099CA6127348FA9001805AC /* MainView+Constraints.swift in Sources */,
+				7099CA64273492B9001805AC /* HCollectionVTVC+Constraints.swift in Sources */,
 				703A4ABB2730156C000329F7 /* AREditPresenter.swift in Sources */,
 				706E6A0C272AED5D0006BA3B /* CartRouter.swift in Sources */,
 				706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */,
@@ -767,6 +972,7 @@
 				70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */,
 				706E69E9272AC3130006BA3B /* MainPresenter.swift in Sources */,
 				706E6A3B272B522D0006BA3B /* ItemNameCell.swift in Sources */,
+				709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */,
 				706E6A3D272B53C40006BA3B /* ItemDescNameCellModel.swift in Sources */,
 				703A4AC9273079EF000329F7 /* FrameCollectionCell.swift in Sources */,
 				706E6A18272B09370006BA3B /* FilterPresenter.swift in Sources */,
@@ -775,10 +981,14 @@
 				703A4AD02730A1A5000329F7 /* UIImageView+Extension.swift in Sources */,
 				703A4AAC272DF61A000329F7 /* ARViewController.swift in Sources */,
 				703A4AAA272DF61A000329F7 /* ARPresenter.swift in Sources */,
+				7099CA5C273488E3001805AC /* CompilationModel.swift in Sources */,
 				706E6A1C272B09370006BA3B /* FilterInteractor.swift in Sources */,
+				7099CA58273487ED001805AC /* HorizontalModel.swift in Sources */,
 				706E69E1272AB5EE0006BA3B /* TabBarContainer.swift in Sources */,
+				7099CA472733F325001805AC /* HCollectionViewTableViewCell.swift in Sources */,
 				703A4A87272C6F88000329F7 /* AmountDesc+Constraints.swift in Sources */,
 				706E6A53272BFA400006BA3B /* SpecificationsDescCellModel.swift in Sources */,
+				7099CA532734257B001805AC /* VCollectionViewCell.swift in Sources */,
 				706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */,
 				706E6A1B272B09370006BA3B /* FilterProtocols.swift in Sources */,
 				706E6A0F272AED5D0006BA3B /* CartInteractor.swift in Sources */,
@@ -793,6 +1003,7 @@
 				706E69EA272AC3130006BA3B /* MainRouter.swift in Sources */,
 				706E6A3F272B53FF0006BA3B /* BaseCellModel.swift in Sources */,
 				706E6A02272AEB380006BA3B /* SearchContainer.swift in Sources */,
+				7099CA5A27348846001805AC /* VerticalPaintsModel.swift in Sources */,
 				703A4AA1272DB96E000329F7 /* RentPickerView+Constraints.swift in Sources */,
 				706E69FE272AEB380006BA3B /* SearchRouter.swift in Sources */,
 				706E6A29272B25AF0006BA3B /* ItemDescProtocols.swift in Sources */,
@@ -801,6 +1012,7 @@
 				703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */,
 				706E69DF272AB5EE0006BA3B /* TabBarProtocols.swift in Sources */,
 				706E6A10272AED5D0006BA3B /* CartContainer.swift in Sources */,
+				709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

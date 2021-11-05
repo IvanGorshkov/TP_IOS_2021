@@ -63,10 +63,18 @@ final class ButtonsDescCell: BaseCell {
         setUpCornerRadius(btn: rentButton)
     }
     
-    override func loadSubViews() {
-        setUp()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        [arButton, buyButton, rentButton, favButton].forEach( { contentView.addSubview($0)} )
+        
         addConstraints()
-     }
+        setUp()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     private func setUp() {
         setUpBase()
@@ -79,7 +87,6 @@ final class ButtonsDescCell: BaseCell {
     }
     
     private func setUpUIElements() {
-        [arButton, buyButton, rentButton, favButton].forEach( { contentView.addSubview($0)} )
         [(arButton, #selector(clickAR)),
          (favButton, #selector(clickFav)),
          (buyButton, #selector(clickBuy)),

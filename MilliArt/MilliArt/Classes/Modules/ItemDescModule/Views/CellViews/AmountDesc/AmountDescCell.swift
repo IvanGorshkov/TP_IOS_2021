@@ -27,13 +27,19 @@ final class AmountDescCell: BaseCell {
     @objc
     private func clickPicker() {
         guard let model = model as? AmountDescCellModel else { return }
-        
         model.action?()
     }
     
-    override func loadSubViews() {
-        setUp()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        [amountLabel, monthCountLabel, rentLabel].forEach( {contentView.addSubview($0)} )
+        
         addConstraints()
+        setUp()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setUp() {
@@ -47,7 +53,6 @@ final class AmountDescCell: BaseCell {
     }
     
     private func setUpUIElements() {
-        [amountLabel, monthCountLabel, rentLabel].forEach( {contentView.addSubview($0)} )
         setUpFonts()
         setUpColor()
         setUptextAlignment()

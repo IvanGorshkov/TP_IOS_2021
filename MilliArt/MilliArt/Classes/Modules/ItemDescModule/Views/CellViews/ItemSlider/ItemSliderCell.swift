@@ -13,6 +13,17 @@ final class ItemSliderCell: BaseCell {
     internal var slider = ImageSlideshow()
     static let cellIdentifier = "ItemDescSliderCellModel"
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        [slider].forEach( {contentView.addSubview($0)} )
+        addConstraintsSlider()
+        setUp()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func updateViews() {
         guard let model = model as? SliderCellModel else { return }
         slider.setImageInputs(model.pics.map {ImageSource(image: UIImage(named: $0)!)} )
@@ -36,10 +47,6 @@ final class ItemSliderCell: BaseCell {
          }
     }
     
-    override func loadSubViews() {
-        setUp()
-        addConstraintsSlider()
-    }
     
     private func setUp() {
         setUpBase()
@@ -52,7 +59,6 @@ final class ItemSliderCell: BaseCell {
     }
     
     private func setUpSlider() {
-        contentView.addSubview(slider)
         slider.layer.cornerRadius = 10
         slider.slideshowInterval = 0.0
         slider.circular = true

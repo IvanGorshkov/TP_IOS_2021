@@ -12,13 +12,20 @@ class FrameCollectionCell: BaseCollectionCell {
     internal var noLabel = UILabel()
     internal var frameMask = UIView()
     internal var frameView = UIImageView()
-    
-    override func layoutSubviews() {
-        addConstraintsCell()
-    }
-    override func loadSubViews() {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         [noLabel, frameView, frameMask].forEach ({ [weak self] in self?.contentView.addSubview($0)
         })
+        addConstraintsCell()
+        setUp()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setUp() {
         frameMask.backgroundColor = ColorConstants.MainBackGroundColor
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = UIColor.gray.cgColor
@@ -27,7 +34,6 @@ class FrameCollectionCell: BaseCollectionCell {
         noLabel.textAlignment = .center
         noLabel.textColor = ColorConstants.BlackColor
         layoutIfNeeded()
-        
     }
     
     override func updateViews() {
@@ -39,7 +45,6 @@ class FrameCollectionCell: BaseCollectionCell {
         } else {
             contentView.layer.borderColor = UIColor.gray.cgColor
         }
-        
         
         if let image = UIImage(named: model.assertImage) {
             noLabel.isHidden = true
