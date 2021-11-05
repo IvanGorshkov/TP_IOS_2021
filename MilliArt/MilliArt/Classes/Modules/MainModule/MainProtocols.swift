@@ -35,6 +35,8 @@ protocol MainViewOutput: AnyObject {
     func getCellIdentifier(at index: Int) -> String
     func getCountCells() -> Int
     var  sectionDelegate: TableViewCellOutput? { get set }
+    func goToAllCompilation()
+    func goToAllAuthor()
 }
 
 protocol MainInteractorInput: AnyObject {
@@ -47,4 +49,6 @@ protocol MainInteractorOutput: AnyObject {
 
 protocol MainRouterInput: AnyObject {
     func itemSelected(with view: MainViewInput?)
+    func goToAllCompilation(with view: MainViewInput?)
+    func goToAllAuthor(with view: MainViewInput?)
 }

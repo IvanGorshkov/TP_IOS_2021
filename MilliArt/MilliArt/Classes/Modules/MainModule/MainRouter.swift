@@ -12,6 +12,18 @@ final class MainRouter {
 }
 
 extension MainRouter: MainRouterInput {
+    func goToAllAuthor(with view: MainViewInput?) {
+        guard let view = view as? UIViewController else { return }
+        let container = AllContainer.assemble(with: AllContext(creator: AuthorsCreator()))
+        view.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+
+    func goToAllCompilation(with view: MainViewInput?) {
+        guard let view = view as? UIViewController else { return }
+        let container = AllContainer.assemble(with: AllContext(creator: CompilationsCreator()))
+        view.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+
     func itemSelected(with view: MainViewInput?) {
         guard let view = view as? UIViewController else { return }
         let itemDesc = ItemDescContainer.assemble(with: ItemDescContext())

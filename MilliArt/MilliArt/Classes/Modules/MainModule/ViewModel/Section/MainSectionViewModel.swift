@@ -26,7 +26,7 @@ final class MainSectionViewModel: SectionRowsRepresentable {
         )
         
         rows.append(HeaderCellViewModel(title: TitlesConstants.authorsTitle, action: {
-            self.actions?.clickAllCompilation()
+            self.actions?.clickAllAuthor()
         }))
         
         rows.append(
