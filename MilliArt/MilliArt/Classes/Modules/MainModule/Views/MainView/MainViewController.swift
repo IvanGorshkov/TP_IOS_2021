@@ -88,11 +88,11 @@ extension MainViewController: MainViewInput {
 
 extension MainViewController: TableViewCellOutput {
     func clickAllCompilation() {
-        print("clickAllCompilation")
+        output.goToAllCompilation()
     }
     
     func clickAllAuthor() {
-        print("clickAllAuthor")
+        output.goToAllAuthor()
     }
     
 }

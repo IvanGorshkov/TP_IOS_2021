@@ -92,9 +92,9 @@ final class MosaicViewLayout: UICollectionViewLayout {
                 column = column >= (numberOfColumns - 1) ? 0 : column + 1
             }
         }
-        collectionView?.frame.size.height = contentHeight
-        collectionView?.contentSize.height = contentHeight
-        collectionView?.reloadData()
+       // collectionView?.frame.size.height = contentHeight
+       // collectionView?.contentSize.height = contentHeight
+       // collectionView?.reloadData()
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

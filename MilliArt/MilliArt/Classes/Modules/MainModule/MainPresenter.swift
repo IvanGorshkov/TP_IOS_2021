@@ -26,6 +26,14 @@ extension MainPresenter: MainModuleInput {
 }
 
 extension MainPresenter: MainViewOutput {
+    func goToAllAuthor() {
+        router.goToAllAuthor(with: view)
+    }
+    
+    func goToAllCompilation() {
+        router.goToAllCompilation(with: view)
+    }
+    
     func viewDidLoad() {
         interactor.loadData()
     }
