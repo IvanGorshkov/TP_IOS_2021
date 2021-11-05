@@ -26,6 +26,7 @@ extension AREditInteractor: AREditInteractorInput {
             FrameViewModel(colorFrame: "Black", isSelected: model.ARmaterial == "Black"),
             FrameViewModel(colorFrame: "White", isSelected: model.ARmaterial == "White"),
             FrameViewModel(colorFrame: "Silver", isSelected: model.ARmaterial == "Silver"),
+            FrameViewModel(colorFrame: "Gold", isSelected: model.ARmaterial == "Gold"),
             FrameViewModel(colorFrame: "Light Wood", isSelected: model.ARmaterial == "Light Wood"),
             FrameViewModel(colorFrame: "Dark Wood", isSelected: model.ARmaterial == "Dark Wood")
         ])
