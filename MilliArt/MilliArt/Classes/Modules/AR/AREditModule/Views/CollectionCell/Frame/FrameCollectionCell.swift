@@ -15,7 +15,7 @@ class FrameCollectionCell: BaseCollectionCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        [noLabel, frameView, frameMask].forEach ({ [weak self] in self?.contentView.addSubview($0)
+        [noLabel, frameView, frameMask].forEach({ [weak self] in self?.contentView.addSubview($0)
         })
         addConstraintsCell()
         setUp()

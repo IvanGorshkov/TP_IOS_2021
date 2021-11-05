@@ -33,7 +33,7 @@ final class MainInteractor {
         VerticalPaintsModel(pic: "pic3", name: "Гончии", size: "200 x 100", price: "120394 ₽"),
         VerticalPaintsModel(pic: "pic2", name: "Белые утесы", size: "200 x 100", price: "120394 ₽"),
         VerticalPaintsModel(pic: "pic1", name: "На гребне волны", size: "200 x 100", price: "120394 ₽"),
-        VerticalPaintsModel(pic: "korzev", name: "Следы войны", size: "200 x 100", price: "120394 ₽"),
+        VerticalPaintsModel(pic: "korzev", name: "Следы войны", size: "200 x 100", price: "120394 ₽")
     ]
 }
 

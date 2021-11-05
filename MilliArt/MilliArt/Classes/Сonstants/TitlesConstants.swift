@@ -9,7 +9,6 @@ import Foundation
 
 final class TitlesConstants {
     
-    
     // MARK: Base
     static let Done = "Готово"
     static let Apply = "Применить"
@@ -27,8 +26,7 @@ final class TitlesConstants {
     static let BackNavTitle = "Назад"
     static let PaintingNavTitle = "Информация о картине"
     static let AR = "Дополненная реальность"
-    
-    
+
     // MARK: ItemDescCelll
     static let BuyTitle = "Купить"
     static let RentTitle = "Арендовать"
@@ -49,6 +47,5 @@ final class TitlesConstants {
     static let CompilationTitle = "Подборки"
     static let authorsTitle =  "Авторы"
     static let newTitle = "Новое"
-   
    
 }

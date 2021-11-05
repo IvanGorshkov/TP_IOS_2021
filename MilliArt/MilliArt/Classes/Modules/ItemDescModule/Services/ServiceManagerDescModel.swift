@@ -17,7 +17,12 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.output?.itemDidLoad(itemDesc: ItemDescModel(
                 name: "На гребне волны", pictures: ["sidorov", "pic1", "pic1"],
-                amount: 34000, rent: 1200, description: "На гребне волны, На гребне волны, На гребне волны, На гребне волны. На гребне волны, На гребне волны, На гребне волны, На гребне волны\nНа гребне волны, На гребне волны",
+                amount: 34000, rent: 1200, description:
+                    """
+                На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
+                На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
+                На гребне волны, На гребне волны
+                """,
                 specifications: [
                     Specifications(title: "Автор", specification: "Анастасия Колесниченко"),
                     Specifications(title: "Размер", specification: "80 x 155 см"),

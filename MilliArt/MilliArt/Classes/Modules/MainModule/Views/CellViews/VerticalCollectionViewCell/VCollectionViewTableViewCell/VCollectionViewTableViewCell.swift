@@ -68,10 +68,13 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VCollectionViewCell.cellIdentifier, for: indexPath) as? VCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VCollectionViewCell.cellIdentifier, for: indexPath)
+                as? VCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
         
         cell.configure(model: array[indexPath.row])
-        return cell;
+        return cell
     }
     
 }
@@ -81,9 +84,9 @@ extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
     
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = array[indexPath.item]
-        let image = UIImage(named: item.pic)
+        guard let image = UIImage(named: item.pic) else { return 0 }
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: image!.size, insideRect: boundingRect)
+        let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
         return rect.height
     }
     
@@ -97,7 +100,11 @@ extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
     
     func heightForText(_ text: String, width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: 16)
-        let rect = NSString(string: text).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        let rect = NSString(string: text).boundingRect(
+            with: CGSize(width: width, height: CGFloat(MAXFLOAT)),
+            options: .usesLineFragmentOrigin,
+            attributes: [NSAttributedString.Key.font: font],
+            context: nil)
         return ceil(rect.height)
     }
 }

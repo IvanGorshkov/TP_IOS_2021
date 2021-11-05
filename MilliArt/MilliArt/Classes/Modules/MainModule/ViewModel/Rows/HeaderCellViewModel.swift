@@ -8,7 +8,7 @@
 import Foundation
 
 final class HeaderCellViewModel: BaseCellModel {
-    typealias ActionHandler = () -> ()
+    typealias ActionHandler = () -> Void
     var action: ActionHandler?
     
     override var cellIdentifier: String {

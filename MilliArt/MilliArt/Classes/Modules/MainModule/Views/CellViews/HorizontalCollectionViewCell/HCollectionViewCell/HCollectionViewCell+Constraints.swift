@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension HCollectionViewCell {
     internal func addConstraints() {
         self.imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,18 +24,17 @@ extension HCollectionViewCell {
     }
     
     internal func updateWidth(with image: UIImage) {
-        let nh:CGFloat = 170
-        let ow:CGFloat = image.size.width
-        let oh:CGFloat = image.size.height
+        let nHeight = CGFloat(170)
+        let oWidth = image.size.width
+        let oHeight = image.size.height
         
-        let nw = (ow / oh) * nh
+        let nWidth = (oWidth / oHeight) * nHeight
         
         if myWidthAnchor == nil {
-            myWidthAnchor = self.imageView.widthAnchor.constraint(equalToConstant: nw)
+            myWidthAnchor = self.imageView.widthAnchor.constraint(equalToConstant: nWidth)
             myWidthAnchor.isActive = true
         } else {
-            myWidthAnchor.constant = nw
+            myWidthAnchor.constant = nWidth
         }
     }
 }
-

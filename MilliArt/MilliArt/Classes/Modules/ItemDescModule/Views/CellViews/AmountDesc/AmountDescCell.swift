@@ -32,7 +32,9 @@ final class AmountDescCell: BaseCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [amountLabel, monthCountLabel, rentLabel].forEach( {contentView.addSubview($0)} )
+        [amountLabel, monthCountLabel, rentLabel].forEach({
+            contentView.addSubview($0)
+        })
         
         addConstraints()
         setUp()

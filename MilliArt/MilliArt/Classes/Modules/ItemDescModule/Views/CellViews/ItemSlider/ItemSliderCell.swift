@@ -15,7 +15,9 @@ final class ItemSliderCell: BaseCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [slider].forEach( {contentView.addSubview($0)} )
+        [slider].forEach({
+            contentView.addSubview($0)
+        })
         addConstraintsSlider()
         setUp()
     }
@@ -26,7 +28,12 @@ final class ItemSliderCell: BaseCell {
     
     override func updateViews() {
         guard let model = model as? SliderCellModel else { return }
-        slider.setImageInputs(model.pics.map {ImageSource(image: UIImage(named: $0)!)} )
+        slider.setImageInputs(model.pics.map {
+            guard let image = UIImage(named: $0) else {
+                return ImageSource(image: UIImage.remove)
+            }
+            return ImageSource(image: image)
+        })
     }
 
     @objc
@@ -38,15 +45,14 @@ final class ItemSliderCell: BaseCell {
     @objc
     private func swipeHandler(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
-         case .left:
-            slider.nextPage(animated: true)
-         case .right:
-            slider.previousPage(animated: true)
-         default:
-             break
+        case .left:
+                slider.nextPage(animated: true)
+        case .right:
+                slider.previousPage(animated: true)
+        default:
+                break
          }
     }
-    
     
     private func setUp() {
         setUpBase()

@@ -41,11 +41,10 @@ final class HCollectionViewCell: UICollectionViewCell {
     
     private func setUpTitle() {
         nameLabel.textColor = ColorConstants.TextColor
-        nameLabel.font = UIFont.systemFont(ofSize:  16, weight: UIFont.Weight.light)
+        nameLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.light)
         nameLabel.numberOfLines = 0
         nameLabel.top = true
     }
-    
     
     func configure(model: CellIdentifiable?) {
         

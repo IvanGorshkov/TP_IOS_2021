@@ -41,7 +41,6 @@ final class ItemDescViewController: UIViewController {
         addConstraintPickerView()
     }
     
-    
     private func setUp() {
         setUpBase()
         setUpTableView()
@@ -99,7 +98,6 @@ final class ItemDescViewController: UIViewController {
         }
      }
     
-    
     private func registerCells() {
         tableView.register(ItemNameCell.self, forCellReuseIdentifier: ItemNameCell.cellIdentifier)
         tableView.register(ItemSliderCell.self, forCellReuseIdentifier: ItemSliderCell.cellIdentifier)
@@ -129,7 +127,11 @@ extension ItemDescViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath) as! BaseCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: output.getCellIdentifier(at: indexPath.row),
+            for: indexPath) as? BaseCell else {
+                return UITableViewCell()
+            }
         cell.model = output.getCell(at: indexPath.row)
         
         return cell

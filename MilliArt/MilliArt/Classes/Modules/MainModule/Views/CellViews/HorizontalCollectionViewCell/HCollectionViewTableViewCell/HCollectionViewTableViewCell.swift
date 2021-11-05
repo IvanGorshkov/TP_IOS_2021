@@ -53,7 +53,10 @@ final class HCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
      }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HCollectionViewCell.cellIdentifier, for: indexPath) as? HCollectionViewCell else { return UICollectionViewCell() }
+         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HCollectionViewCell.cellIdentifier, for: indexPath)
+                    as? HCollectionViewCell else {
+                        return UICollectionViewCell()
+                    }
          
          cell.configure(model: array[indexPath.row])
        return cell

@@ -42,7 +42,7 @@ extension AllAuthorsInteractor: AllInteractorInput {
             AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
             AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
             AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
+            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов")
         ]
         
         output?.receiveData(data: arr2.map({ model in

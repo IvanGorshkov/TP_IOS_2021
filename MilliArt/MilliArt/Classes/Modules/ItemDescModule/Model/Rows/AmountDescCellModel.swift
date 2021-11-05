@@ -16,7 +16,7 @@ final class AmountDescCellModel: BaseCellModel {
     var rentPreMonth: Int
     var countRent: Int
     
-    typealias ActionHandler = () -> ()
+    typealias ActionHandler = () -> Void
     
     var action: ActionHandler?
     

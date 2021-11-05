@@ -9,7 +9,7 @@ import Foundation
 import ImageSlideshow
 
 final class SliderCellModel: BaseCellModel {
-    typealias ActionHandler = (ImageSlideshow) -> ()
+    typealias ActionHandler = (ImageSlideshow) -> Void
     var action: ActionHandler?
     
     override var cellIdentifier: String {

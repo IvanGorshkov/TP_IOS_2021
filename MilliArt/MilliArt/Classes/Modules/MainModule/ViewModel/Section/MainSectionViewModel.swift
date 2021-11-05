@@ -18,8 +18,7 @@ final class MainSectionViewModel: SectionRowsRepresentable {
             self.actions?.clickAllCompilation()
         }))
         rows.append(
-            HCollectionViewModel(array: compilations.map(
-                { model in
+            HCollectionViewModel(array: compilations.map({ model in
             return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname)
                 }
             ), action: nil)
@@ -30,8 +29,7 @@ final class MainSectionViewModel: SectionRowsRepresentable {
         }))
         
         rows.append(
-            HCollectionViewModel(array: authors.map(
-                { model in
+            HCollectionViewModel(array: authors.map({ model in
             return HorizontalViewModel(pic: model.authorPicture, name: model.authorName)
                 }
             ), action: nil)
@@ -41,6 +39,3 @@ final class MainSectionViewModel: SectionRowsRepresentable {
         rows.append(VCollectionViewModel(action: nil, newPaints: newPaints))
     }
 }
-
-
-

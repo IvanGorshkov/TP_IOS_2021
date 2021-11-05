@@ -9,13 +9,12 @@ import UIKit
 
 final class AboutDescCell: BaseCell {
     internal var descriptionLabel = UILabel()
+    static let cellIdentifier = "AboutDescCellModel"
     private var stringValue: String? {
         didSet {
             descriptionLabel.attributedText = stringValue?.textWithLineSpace()
         }
     }
-    static let cellIdentifier = "AboutDescCellModel"
-    
     
     override func updateViews() {
         guard let model = model as? AboutDescCellModel else { return }
@@ -24,7 +23,7 @@ final class AboutDescCell: BaseCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [descriptionLabel].forEach( {
+        [descriptionLabel].forEach({
             contentView.addSubview($0)
         })
         addConstraintsDescription()

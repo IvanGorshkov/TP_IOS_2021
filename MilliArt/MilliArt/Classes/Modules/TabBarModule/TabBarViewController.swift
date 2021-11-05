@@ -51,7 +51,11 @@ extension TabBarViewController: TabBarViewInput {
     
     func receiveViews(with views: [UIViewController]) {
         for i in 0..<views.count {
-            let icon = UITabBarItem(title: output.getModel(at: i).title, image: chooseSystemOrCustom(withName: output.getModel(at: i).image), selectedImage: chooseSystemOrCustom(withName: output.getModel(at: i).selectedImage))
+            let icon = UITabBarItem(
+                title: output.getModel(at: i).title,
+                image: chooseSystemOrCustom(withName: output.getModel(at: i).image),
+                selectedImage: chooseSystemOrCustom(withName: output.getModel(at: i).selectedImage)
+            )
             views[i].tabBarItem = icon
             views[i].tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.thin)], for: .normal)
         }

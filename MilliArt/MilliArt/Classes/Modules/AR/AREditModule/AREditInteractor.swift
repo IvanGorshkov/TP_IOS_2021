@@ -14,15 +14,15 @@ final class AREditInteractor {
 
 extension AREditInteractor: AREditInteractorInput {
     func changeSelected(model: [FrameViewModel], index: Int) {
-        for i in (0..<model.count) {
-            model[i].isSelected = index == i
+        for it in (0..<model.count) {
+            model[it].isSelected = index == it
         }
         output?.reciveUpdatedFrames(with: model)
     }
     
     func getFramesModel(with model: ARViewModelDescription) {
         output?.reciveFrames(with: [
-            FrameViewModel(colorFrame: "", isSelected: model.ARmaterial == ""),
+            FrameViewModel(colorFrame: "", isSelected: model.ARmaterial.isEmpty),
             FrameViewModel(colorFrame: "Black", isSelected: model.ARmaterial == "Black"),
             FrameViewModel(colorFrame: "White", isSelected: model.ARmaterial == "White"),
             FrameViewModel(colorFrame: "Silver", isSelected: model.ARmaterial == "Silver"),

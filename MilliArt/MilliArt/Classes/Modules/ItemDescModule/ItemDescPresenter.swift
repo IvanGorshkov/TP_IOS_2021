@@ -55,7 +55,6 @@ extension ItemDescPresenter: ItemDescViewOutput {
         return itemDescSectionModel.rows[index]
     }
     
-    
     func getCellHeight(at index: Int) -> Float {
         guard let itemDescSectionModel = itemDescSectionModel else { return 0 }
         return itemDescSectionModel.rows[index].cellHeight

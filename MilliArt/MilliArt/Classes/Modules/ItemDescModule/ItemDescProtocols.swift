@@ -16,8 +16,6 @@ protocol ItemDescModuleInput {
 protocol ItemDescModuleOutput: AnyObject {
 }
 
-
-
 protocol ItemDescCellViewOutput: AnyObject {
     func openFullScreen(silder: UIView)
     func clickBuy()

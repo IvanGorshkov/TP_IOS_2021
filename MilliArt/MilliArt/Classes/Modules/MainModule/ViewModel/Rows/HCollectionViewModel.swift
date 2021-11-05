@@ -8,7 +8,7 @@
 import Foundation
 
 final class HCollectionViewModel: BaseCellModel {
-    typealias ActionHandler = () -> ()
+    typealias ActionHandler = () -> Void
     var action: ActionHandler?
     
     override var cellIdentifier: String {

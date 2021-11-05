@@ -97,14 +97,16 @@ extension MainViewController: TableViewCellOutput {
     
 }
 
-
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.getCountCells()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath) as! BaseCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath)
+                as? BaseCell else {
+                    return UITableViewCell()
+                }
         cell.model = output.getCell(at: indexPath.row)
         return cell
     }
@@ -115,4 +117,3 @@ extension MainViewController: UITableViewDelegate {
         return CGFloat(output.getCellHeight(at: indexPath.row))
     }
 }
-

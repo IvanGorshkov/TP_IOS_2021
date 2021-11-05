@@ -32,7 +32,6 @@ final class AREditViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
 	override func viewDidLoad() {
 		super.viewDidLoad()
         setUp()
@@ -55,7 +54,11 @@ final class AREditViewController: UIViewController {
         setUpCollectionView()
         setUpImageViews()
         
-        [contentView, done, imageViewFrame, imageView, titleLabel, collectionView, frameWControl, frameRControl, frameWLabel, frameRLabel].forEach ({ [weak self] in self?.view.addSubview($0)
+        [contentView, done, imageViewFrame,
+         imageView, titleLabel, collectionView,
+         frameWControl, frameRControl, frameWLabel,
+         frameRLabel].forEach({ [weak self] in
+            self?.view.addSubview($0)
         })
     }
     
@@ -82,7 +85,7 @@ final class AREditViewController: UIViewController {
         collectionView.register(FrameCollectionCell.self, forCellWithReuseIdentifier: FrameCollectionCell.cellIdentifier)
     }
     
-    private func setUpStepper(stepper :UIStepper, min: Double, max: Double, step: Double = 1) {
+    private func setUpStepper(stepper: UIStepper, min: Double, max: Double, step: Double = 1) {
         stepper.minimumValue = min
         stepper.maximumValue = max
         stepper.stepValue = step
@@ -113,7 +116,7 @@ final class AREditViewController: UIViewController {
     }
     
     private func changeFrame() {
-        var imageContent = self.imageView.contentClippingRect.size;
+        var imageContent = self.imageView.contentClippingRect.size
         imageContent.width += 20 + frameWControl.value
         imageContent.height += 20 + frameWControl.value
         imageViewFrame.frame.size = imageContent
@@ -143,20 +146,20 @@ final class AREditViewController: UIViewController {
         self.collectionView.setContentOffset(contentOffset, animated: false)
     }
     
-    private func setSteperData(with stepper: UIStepper,  value: Double) {
+    private func setSteperData(with stepper: UIStepper, value: Double) {
         stepper.value = value
     }
 }
 
 extension AREditViewController: AREditViewInput {
     func updateFrames() {
-        setImageView(with: imageViewFrame, named:  output.getMaterail())
+        setImageView(with: imageViewFrame, named: output.getMaterail())
         reloadData()
     }
     
     func initFrames() {
         setImageView(with: imageView, named: output.getPicture())
-        setImageView(with: imageViewFrame, named:  output.getMaterail())
+        setImageView(with: imageViewFrame, named: output.getMaterail())
         
         setSteperData(with: frameRControl, value: output.getFrameRouned())
         setSteperData(with: frameWControl, value: output.getFrameWidth())
@@ -165,16 +168,16 @@ extension AREditViewController: AREditViewInput {
     }
 }
 
-
 extension AREditViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  output.countItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FrameCollectionCell.cellIdentifier, for: indexPath) as? FrameCollectionCell else {
-            return UICollectionViewCell()
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FrameCollectionCell.cellIdentifier, for: indexPath)
+                as? FrameCollectionCell else {
+                    return UICollectionViewCell()
+                }
         
         cell.model = output.item(at: indexPath.row)
         return cell

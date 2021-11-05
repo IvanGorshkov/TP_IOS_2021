@@ -13,7 +13,7 @@ final class AREditPresenter {
     weak var moduleOutput: AREditModuleOutput?
 
     var arModel: ARViewModelDescription?
-    var modelArray:  [FrameViewModel] = []
+    var modelArray = [FrameViewModel]()
 	private let router: AREditRouterInput
 	private let interactor: AREditInteractorInput
 
@@ -36,11 +36,13 @@ extension AREditPresenter: AREditViewOutput {
     }
     
     func getFrameWidth() -> Double {
-        return (Double(arModel!.ARborderThickness.w) - Double(arModel!.ARwidth)) * 100
+        guard let arModel = arModel else { return 0 }
+        return (Double(arModel.ARborderThickness.w) - Double(arModel.ARwidth)) * 100
     }
     
     func getFrameRouned() -> Double {
-        return Double(arModel!.ARborderRounded * 100)
+        guard let arModel = arModel else { return 0 }
+        return Double(arModel.ARborderRounded * 100)
     }
     
     func countItems() -> Int {
@@ -62,8 +64,8 @@ extension AREditPresenter: AREditViewOutput {
     
     func frameDidSelect(index: Int) {
         arModel?.ARmaterial = self.modelArray[index].imageName
-        if self.modelArray[index].assertImage == "" {
-            arModel?.ARborderThickness = (0,0)
+        if self.modelArray[index].assertImage.isEmpty {
+            arModel?.ARborderThickness = (0, 0)
         }
         interactor.changeSelected(model: modelArray, index: index)
     }

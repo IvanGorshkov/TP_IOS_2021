@@ -21,7 +21,9 @@ final class ItemNameCell: BaseCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [nameLabel].forEach( {contentView.addSubview($0)} )
+        [nameLabel].forEach({
+            contentView.addSubview($0)
+        })
         addConstraintsName()
         setUp()
     }
@@ -29,7 +31,6 @@ final class ItemNameCell: BaseCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     private func setUp() {
         setUpBase()

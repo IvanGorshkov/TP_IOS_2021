@@ -23,7 +23,7 @@ final class SpecificationsDescCell: BaseCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [titleLabel, specification].forEach( {
+        [titleLabel, specification].forEach({
             contentView.addSubview($0)
         })
         addConstraintsSpecifications()
@@ -36,7 +36,7 @@ final class SpecificationsDescCell: BaseCell {
     
     private func setUp() {
         setUpBase()
-        [titleLabel, specification].forEach( {
+        [titleLabel, specification].forEach({
             $0.numberOfLines = 0
             $0.textColor = ColorConstants.BlackColor
         })

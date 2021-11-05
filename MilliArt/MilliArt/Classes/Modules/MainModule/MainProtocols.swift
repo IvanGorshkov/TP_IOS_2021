@@ -44,7 +44,7 @@ protocol MainInteractorInput: AnyObject {
 }
 
 protocol MainInteractorOutput: AnyObject {
-    func receiveData(newPaints: [VerticalPaintsModel], compilations:[CompilationModel], authors:[AuthorModel])
+    func receiveData(newPaints: [VerticalPaintsModel], compilations: [CompilationModel], authors: [AuthorModel])
 }
 
 protocol MainRouterInput: AnyObject {

@@ -24,8 +24,6 @@ final class HeaderCellView: BaseCell {
         }
     }
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         [titleLabel, allButton].forEach { [weak self] in
@@ -35,7 +33,6 @@ final class HeaderCellView: BaseCell {
         setUp()
     }
 
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -53,7 +50,7 @@ final class HeaderCellView: BaseCell {
     }
     
     private func setUpButton() {
-        allButton.addTarget(self, action:  #selector(clickAll), for: .touchUpInside)
+        allButton.addTarget(self, action: #selector(clickAll), for: .touchUpInside)
         allButton.setTitleColor(ColorConstants.BlackColor, for: .normal)
     }
     

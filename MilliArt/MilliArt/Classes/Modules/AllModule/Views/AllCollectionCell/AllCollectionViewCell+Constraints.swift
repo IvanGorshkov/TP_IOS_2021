@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension AllCollectionViewCell {
     internal func addConstraints() {
         self.imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,4 +29,3 @@ extension AllCollectionViewCell {
         }
     }
 }
-

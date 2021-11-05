@@ -50,7 +50,8 @@ final class ARViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        [scanningLabel, foundLabel].forEach ({ [weak self] in self?.setCornerRadius(view: $0) })
+        [scanningLabel, foundLabel].forEach({ [weak self] in self?.setCornerRadius(view: $0)
+        })
     }
     
     private func setCornerRadius(view: UIView) {
@@ -59,7 +60,8 @@ final class ARViewController: UIViewController {
     }
     
     private func setUp() {
-        [sceneView, scanningLabel, foundLabel, magicButton].forEach ({ [weak self] in self?.view.addSubview($0)
+        [sceneView, scanningLabel, foundLabel, magicButton].forEach({ [weak self] in
+            self?.view.addSubview($0)
         })
         setUpBase()
         setUpLabel(label: scanningLabel, text: TitlesConstants.SearchingWall)
@@ -140,8 +142,8 @@ final class ARViewController: UIViewController {
         let touchLocation = recognizer.location(in: recognizer.view)
         let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
         if var tappedNode = hitTestResults.first?.node {
-            if tappedNode.childNodes.count == 0 {
-                tappedNode = tappedNode.parent!
+            if tappedNode.childNodes.isEmpty, let parant = tappedNode.parent {
+                tappedNode = parant
             }
             
             AudioServicesPlaySystemSound(1520)
@@ -159,8 +161,8 @@ final class ARViewController: UIViewController {
         let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
 
         if var tappedNode = hitTestResults.first?.node {
-            if tappedNode.childNodes.count == 0 {
-                tappedNode = tappedNode.parent!
+            if tappedNode.childNodes.isEmpty, let parant = tappedNode.parent {
+                tappedNode = parant
             }
             
             if recognizer.state == .began {
@@ -180,7 +182,7 @@ final class ARViewController: UIViewController {
     private func hangPicture(atLocation hitResult: ARHitTestResult) {
         guard let hitResultAnchor = hitResult.anchor else {return}
         let pictureNode = createPicture()
-        let frameDepth:CGFloat = 0.03
+        let frameDepth = CGFloat(0.03)
         let frameNode = createFrame(depth: CGFloat(frameDepth))
         
         frameNode.transform = SCNMatrix4(hitResultAnchor.transform)
@@ -206,7 +208,11 @@ final class ARViewController: UIViewController {
     
     private func createFrame(depth frameDepth: CGFloat) -> SCNNode {
         guard let arModel = self.output.getARViewModel() else { return SCNNode() }
-        let frameBox = SCNBox(width: arModel.ARborderThickness.w, height: arModel.ARborderThickness.h, length: frameDepth, chamferRadius: arModel.ARborderRounded)
+        let frameBox = SCNBox(
+            width: arModel.ARborderThickness.w,
+            height: arModel.ARborderThickness.h,
+            length: frameDepth,
+            chamferRadius: arModel.ARborderRounded)
         setFrameMaterial(frameBox: frameBox)
         configureMaterialLight(plane: frameBox, lightingModel: .physicallyBased, contents: UIColor(white: 0.7, alpha: 1.0))
         return SCNNode(geometry: frameBox)
@@ -225,7 +231,6 @@ final class ARViewController: UIViewController {
         frameBox.width = arModel.ARborderThickness.w
         frameBox.height = arModel.ARborderThickness.h
     }
-    
     
     private func createPicture() -> SCNNode {
         guard let arModel = self.output.getARViewModel() else { return SCNNode() }
@@ -288,6 +293,3 @@ extension ARViewController: ARViewInput {
         }
     }
 }
-
-
-

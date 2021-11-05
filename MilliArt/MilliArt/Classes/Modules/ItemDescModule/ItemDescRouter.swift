@@ -18,7 +18,6 @@ extension ItemDescRouter: ItemDescRouterInput {
         silder.presentFullScreenController(from: view)
     }
     
-    
     func goToAR(from vc: ItemDescViewInput?, arModel: PaintingARModel?) {
         guard let view = vc as? UIViewController, let arModel = arModel else { return }
         

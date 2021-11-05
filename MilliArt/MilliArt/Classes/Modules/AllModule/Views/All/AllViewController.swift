@@ -54,7 +54,6 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         self.title = output.getTitle()
     }
     
-    
     private func reloadLayout() {
         let layout = MosaicViewLayout()
         layout.delegate = self
@@ -76,13 +75,15 @@ extension AllViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllCollectionViewCell.cellIdentifier, for: indexPath) as? AllCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllCollectionViewCell.cellIdentifier, for: indexPath)
+                as? AllCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         
         cell.configure(model: output.getCell(at: indexPath.row))
-        return cell;
+        return cell
     }
 }
-
 
 // MARK: MosaicLayoutDelegate
 extension AllViewController: MosaicLayoutDelegate {
@@ -105,7 +106,11 @@ extension AllViewController: MosaicLayoutDelegate {
     
     func heightForText(_ text: String, width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: 16)
-        let rect = NSString(string: text).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        let rect = NSString(string: text).boundingRect(
+            with: CGSize(width: width, height: CGFloat(MAXFLOAT)),
+            options: .usesLineFragmentOrigin,
+            attributes: [NSAttributedString.Key.font: font],
+            context: nil)
         return ceil(rect.height)
     }
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension AllViewController {
     internal func addConstraintsCollectionView() {
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -17,4 +16,3 @@ extension AllViewController {
         self.collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 }
-

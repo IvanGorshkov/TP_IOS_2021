@@ -11,29 +11,24 @@ final class ARViewModel: ARViewModelDescription {
     private var model: PaintingARModel
     
     var ARpic: String {
-        get {
-            return model.pic ?? ""
-        }
+        return model.pic ?? ""
     }
     
     var ARwidth: CGFloat {
-        get {
-            return CGFloat(model.width / 100)
-        }
+        return CGFloat(model.width / 100)
     }
     
     var ARheight: CGFloat {
-        get {
-            return CGFloat(model.height / 100)
-        }
+        return CGFloat(model.height / 100)
     }
     
     var ARborderThickness: (h: CGFloat, w: CGFloat) {
-        set {
-            model.borderThickness = Float(newValue.h)
-        }
         get {
             return (h: ARheight + CGFloat(model.borderThickness / 100), w: ARwidth + CGFloat(model.borderThickness / 100))
+        }
+        
+        set {
+            model.borderThickness = Float(newValue.h)
         }
     }
     
@@ -56,9 +51,7 @@ final class ARViewModel: ARViewModelDescription {
     }
     
     var ARmaterialColor: String {
-        get {
-            return "art.scnassets/\(model.material)Color.jpg"
-        }
+        return "art.scnassets/\(model.material)Color.jpg"
     }
     
     func copy() -> ARViewModelDescription {

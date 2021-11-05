@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension HeaderCellView {
     internal func addConstraintsHeader() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -23,4 +22,3 @@ extension HeaderCellView {
         allButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
 }
-

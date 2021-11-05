@@ -46,7 +46,6 @@ extension AREditViewController {
         frameRLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
         frameRLabel.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor, constant: 10).isActive = true
         
-        
         frameWControl.translatesAutoresizingMaskIntoConstraints = false
         frameWControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
         frameWControl.topAnchor.constraint(equalTo: self.frameWLabel.bottomAnchor, constant: 10).isActive = true

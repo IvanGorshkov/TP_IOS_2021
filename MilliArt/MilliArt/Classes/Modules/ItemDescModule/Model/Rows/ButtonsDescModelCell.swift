@@ -12,7 +12,7 @@ final class ButtonsDescModelCell: BaseCellModel {
         return ButtonsDescCell.cellIdentifier
     }
     
-    typealias ActionHandler = () -> ()
+    typealias ActionHandler = () -> Void
     
     var actionAR: ActionHandler?
     var actionBuy: ActionHandler?
