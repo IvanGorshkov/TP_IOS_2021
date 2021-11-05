@@ -8,55 +8,14 @@
 
 import UIKit
 
-enum SelectAll {
-    case allCompilations
-    case allAuthors
-}
-protocol Creator {
-    func factoryRouter() -> AllRouterInput
-    func factoryInteractor() -> AllInteractorInput
-}
-
-class CompilationsCreator: Creator {
-    func factoryRouter() -> AllRouterInput {
-        return AllCompilationsRouter()
-    }
-    
-    func factoryInteractor() -> AllInteractorInput {
-        return AllCompilationsInteractor()
-    }
-}
-
-class AuthorsCreator: Creator {
-    func factoryRouter() -> AllRouterInput {
-        return AllAuthorsRouter()
-    }
-    
-    func factoryInteractor() -> AllInteractorInput {
-        return AllAuthorsInteractor()
-    }
-}
-
-class AllFactoryClient {
-    static func getCreator(creator: SelectAll) -> Creator {
-        switch creator {
-            case .allAuthors:
-                return AuthorsCreator()
-            case .allCompilations:
-                return CompilationsCreator()
-        }
-    }
-}
-
 final class AllContainer {
     let input: AllModuleInput
 	let viewController: UIViewController
 	private(set) weak var router: AllRouterInput!
     
 	class func assemble(with context: AllContext) -> AllContainer {
-        let creator = AllFactoryClient.getCreator(creator: context.caseAll)
-        let router = creator.factoryRouter()
-        let interactor = creator.factoryInteractor()
+        let router = context.creator.factoryRouter()
+        let interactor = context.creator.factoryInteractor()
         let presenter = AllPresenter(router: router, interactor: interactor)
 		let viewController = AllViewController(output: presenter)
 
@@ -77,5 +36,5 @@ final class AllContainer {
 
 struct AllContext {
 	weak var moduleOutput: AllModuleOutput?
-    var caseAll: SelectAll
+    var creator: Creator
 }

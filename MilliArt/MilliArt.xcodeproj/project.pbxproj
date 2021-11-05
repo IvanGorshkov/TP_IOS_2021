@@ -131,6 +131,7 @@
 		7099CA8527359583001805AC /* AllCollectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8227359583001805AC /* AllCollectionViewCell+Constraints.swift */; };
 		7099CA8A273598C7001805AC /* AllAuthorsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA89273598C6001805AC /* AllAuthorsRouter.swift */; };
 		7099CA8C273598FA001805AC /* AllAuthorsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8B273598FA001805AC /* AllAuthorsInteractor.swift */; };
+		7099CA8F2735C078001805AC /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8E2735C078001805AC /* Factory.swift */; };
 		709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */; };
 		709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E572733E2390018ED10 /* HeaderCellView.swift */; };
 		709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */; };
@@ -261,6 +262,7 @@
 		7099CA8327359583001805AC /* AllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionViewCell.swift; sourceTree = "<group>"; };
 		7099CA89273598C6001805AC /* AllAuthorsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAuthorsRouter.swift; sourceTree = "<group>"; };
 		7099CA8B273598FA001805AC /* AllAuthorsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAuthorsInteractor.swift; sourceTree = "<group>"; };
+		7099CA8E2735C078001805AC /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionViewModel.swift; sourceTree = "<group>"; };
 		709F6E572733E2390018ED10 /* HeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellView.swift; sourceTree = "<group>"; };
 		709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderCell+Constraints.swift"; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7099CA8D2735C03B001805AC /* Factory */,
 				70C419E727248FC1006214FA /* AppDelegate.swift */,
 				70C419E927248FC1006214FA /* SceneDelegate.swift */,
 				7099CA6E2734A3F2001805AC /* Custom */,
@@ -868,6 +871,14 @@
 			path = Interactors;
 			sourceTree = "<group>";
 		};
+		7099CA8D2735C03B001805AC /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				7099CA8E2735C078001805AC /* Factory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		70C419DB27248FC0006214FA = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +997,7 @@
 				7099CA67273495B2001805AC /* HCollectionViewCell+Constraints.swift in Sources */,
 				706E69E0272AB5EE0006BA3B /* TabBarInteractor.swift in Sources */,
 				7099CA5127340CE1001805AC /* MosaicViewLayout.swift in Sources */,
+				7099CA8F2735C078001805AC /* Factory.swift in Sources */,
 				706E6A4F272BF5E10006BA3B /* AboutDescCellModel.swift in Sources */,
 				7099CA5E273488F9001805AC /* AuthorModel.swift in Sources */,
 				706E69EE272AC3130006BA3B /* MainContainer.swift in Sources */,
