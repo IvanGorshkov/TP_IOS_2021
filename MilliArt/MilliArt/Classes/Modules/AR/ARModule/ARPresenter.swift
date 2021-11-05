@@ -50,7 +50,6 @@ extension ARPresenter: ARViewOutput {
     func viewDidLoad() {
         view?.loadModel(arModel: arViewModel)
     }
-
 }
 
 extension ARPresenter: ARInteractorOutput {

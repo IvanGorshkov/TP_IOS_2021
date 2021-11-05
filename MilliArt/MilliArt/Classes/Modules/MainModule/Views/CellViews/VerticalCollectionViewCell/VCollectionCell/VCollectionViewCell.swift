@@ -8,7 +8,6 @@
 import UIKit
 
 final class VCollectionViewCell: UICollectionViewCell {
-
     static let cellIdentifier = "VerticalCollectionCell"
 
     internal var myHeightAnchor: NSLayoutConstraint!

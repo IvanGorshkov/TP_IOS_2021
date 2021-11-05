@@ -19,5 +19,4 @@ extension UIButton {
             self.setBackgroundImage(colorImage, for: forState)
         }
     }
-
 }

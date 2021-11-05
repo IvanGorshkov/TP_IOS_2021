@@ -31,5 +31,4 @@ extension AREditInteractor: AREditInteractorInput {
             FrameViewModel(colorFrame: "Dark Wood", isSelected: model.ARmaterial == "Dark Wood")
         ])
     }
-
 }

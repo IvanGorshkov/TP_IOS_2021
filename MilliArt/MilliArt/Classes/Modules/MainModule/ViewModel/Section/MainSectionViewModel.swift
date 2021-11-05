@@ -12,7 +12,6 @@ final class MainSectionViewModel: SectionRowsRepresentable {
     var actions: TableViewCellOutput?
 
     init(newPaints: [VerticalPaintsModel], compilations: [CompilationModel], authors: [AuthorModel]) {
-
         rows = [CellIdentifiable]()
         rows.append(HeaderCellViewModel(title: TitlesConstants.CompilationTitle, action: {
             self.actions?.clickAllCompilation()

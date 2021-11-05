@@ -11,7 +11,6 @@ import SceneKit
 import ARKit
 
 final class ARViewController: UIViewController {
-
 	private let output: ARViewOutput
     internal var sceneView = ARSCNView()
     internal var scanningLabel = UILabel()
@@ -254,7 +253,6 @@ final class ARViewController: UIViewController {
 }
 
 extension ARViewController: ARSCNViewDelegate {
-
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
             self.scanningLabel.removeFromSuperview()
@@ -279,7 +277,6 @@ extension ARViewController: ARSCNViewDelegate {
 }
 
 extension ARViewController: ARViewInput {
-
     func runSession() {
         sceneView.session.run(configuration)
     }

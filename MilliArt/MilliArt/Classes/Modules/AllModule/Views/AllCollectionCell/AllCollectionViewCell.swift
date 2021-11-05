@@ -8,7 +8,6 @@
 import UIKit
 
 final class AllCollectionViewCell: UICollectionViewCell {
-
     static let cellIdentifier = "AllCollectionViewCell"
 
     internal var myHeightAnchor: NSLayoutConstraint!
@@ -54,7 +53,6 @@ final class AllCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(model: CellIdentifiable?) {
-
         guard let model = model as? HorizontalViewModel else { return }
         imageView.image = UIImage(named: model.pic)
         nameLabel.text = model.name

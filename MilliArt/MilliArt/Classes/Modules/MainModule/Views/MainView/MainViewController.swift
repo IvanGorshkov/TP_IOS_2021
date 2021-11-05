@@ -94,7 +94,6 @@ extension MainViewController: TableViewCellOutput {
     func clickAllAuthor() {
         output.goToAllAuthor()
     }
-
 }
 
 extension MainViewController: UITableViewDataSource {

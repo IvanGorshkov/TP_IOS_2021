@@ -48,7 +48,6 @@ extension AllPresenter: AllViewOutput {
         guard let viewModel = viewModel else { return 0 }
         return viewModel.array.count
     }
-
 }
 
 extension AllPresenter: AllInteractorOutput {

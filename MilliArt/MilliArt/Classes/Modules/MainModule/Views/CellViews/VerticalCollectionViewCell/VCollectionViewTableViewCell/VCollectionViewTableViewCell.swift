@@ -76,12 +76,10 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
         cell.configure(model: array[indexPath.row])
         return cell
     }
-
 }
 
 // MARK: MosaicLayoutDelegate
 extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
-
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = array[indexPath.item]
         guard let image = UIImage(named: item.pic) else { return 0 }
@@ -91,7 +89,6 @@ extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
-
         let character = array[indexPath.item]
         let descriptionHeight = heightForText(character.name, width: width-24)
         let height = 4 + 17 + 4 + descriptionHeight

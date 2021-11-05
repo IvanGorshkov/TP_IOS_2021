@@ -149,7 +149,6 @@ extension ItemDescViewController: ItemDescCellViewOutput {
         UIView.animate(withDuration: 0.1) {
             self.pickerView.alpha = 1
         }
-
     }
 
     func clickBuy() {

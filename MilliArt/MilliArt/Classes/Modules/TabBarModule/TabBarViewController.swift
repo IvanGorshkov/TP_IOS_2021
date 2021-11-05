@@ -41,7 +41,6 @@ final class TabBarViewController: UITabBarController {
 }
 
 extension TabBarViewController: TabBarViewInput {
-
     func chooseSystemOrCustom(withName name: String) -> UIImage? {
         if let img = UIImage(systemName: name) {
             return img

@@ -77,5 +77,4 @@ extension MainPresenter: MainInteractorOutput {
     func receiveData(newPaints: [VerticalPaintsModel], compilations: [CompilationModel], authors: [AuthorModel]) {
         mainSectionViewModel = MainSectionViewModel(newPaints: newPaints, compilations: compilations, authors: authors)
     }
-
 }

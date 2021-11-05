@@ -8,7 +8,6 @@
 import Foundation
 
 final class TitlesConstants {
-
     // MARK: Base
     static let Done = "Готово"
     static let Apply = "Применить"
@@ -47,5 +46,4 @@ final class TitlesConstants {
     static let CompilationTitle = "Подборки"
     static let authorsTitle =  "Авторы"
     static let newTitle = "Новое"
-
 }

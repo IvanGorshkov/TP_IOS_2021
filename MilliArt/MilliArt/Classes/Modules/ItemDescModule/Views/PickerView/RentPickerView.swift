@@ -8,7 +8,6 @@
 import UIKit
 
 class RentPickerView: UIView {
-
     internal let picker = UIPickerView(frame: .zero)
     internal let button = UIButton(frame: .zero)
 
@@ -25,7 +24,6 @@ class RentPickerView: UIView {
     }
 
     private func didLoad() {
-
         self.addSubview(picker)
         self.addSubview(button)
 

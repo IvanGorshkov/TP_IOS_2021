@@ -19,5 +19,4 @@ extension ARRouter: ARRouterInput {
         let aredit = AREditContainer.assemble(with: context)
         view.present(aredit.viewController, animated: true, completion: nil)
     }
-
 }

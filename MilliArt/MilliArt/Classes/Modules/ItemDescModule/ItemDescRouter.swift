@@ -24,5 +24,4 @@ extension ItemDescRouter: ItemDescRouterInput {
         let itemDesc = ARContainer.assemble(with: ARContext(arModel: arModel))
         view.navigationController?.pushViewController(itemDesc.viewController, animated: true)
     }
-
 }

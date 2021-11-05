@@ -20,6 +20,5 @@ extension SpecificationsDescCell {
         specification.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
         specification.heightAnchor.constraint(equalToConstant: 55).isActive = true
         specification.trailingAnchor.constraint(equalTo: super.trailingAnchor, constant: -10).isActive = true
-
     }
 }

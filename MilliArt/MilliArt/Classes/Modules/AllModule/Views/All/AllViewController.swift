@@ -66,7 +66,6 @@ extension AllViewController: AllViewInput {
     func reloadData() {
         collectionView.reloadData()
     }
-
 }
 
 extension AllViewController: UICollectionViewDataSource {
@@ -87,7 +86,6 @@ extension AllViewController: UICollectionViewDataSource {
 
 // MARK: MosaicLayoutDelegate
 extension AllViewController: MosaicLayoutDelegate {
-
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = output.getCell(at: indexPath.row)
         guard let model = item as? HorizontalViewModel, let image = UIImage(named: model.pic) else { return 0 }

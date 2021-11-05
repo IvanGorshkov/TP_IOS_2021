@@ -8,15 +8,12 @@
 import UIKit
 
 protocol MosaicLayoutDelegate: AnyObject {
-
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
 
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
-
 }
 
 final class MosaicLayoutAttributes: UICollectionViewLayoutAttributes {
-
     var imageHeight: CGFloat = 0
 
     override func copy(with zone: NSZone?) -> Any {
@@ -38,7 +35,6 @@ final class MosaicLayoutAttributes: UICollectionViewLayoutAttributes {
 }
 
 final class MosaicViewLayout: UICollectionViewLayout {
-
     weak var delegate: MosaicLayoutDelegate!
     var numberOfColumns = 2
     var cellPadding: CGFloat = 10

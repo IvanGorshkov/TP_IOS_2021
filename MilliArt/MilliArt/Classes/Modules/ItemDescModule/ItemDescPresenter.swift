@@ -71,7 +71,6 @@ extension ItemDescPresenter: ItemDescViewOutput {
     func viewDidLoad() {
         interactor.loadItemById(with: 1)
     }
-
 }
 
 extension ItemDescPresenter: ItemDescInteractorOutput {

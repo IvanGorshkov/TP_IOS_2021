@@ -46,5 +46,4 @@ final class SpecificationsDescCell: BaseCell {
         backgroundColor = .clear
         separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
-
 }

@@ -9,7 +9,6 @@ import UIKit
 
 extension AmountDescCell {
     internal func addConstraints() {
-
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         amountLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
 

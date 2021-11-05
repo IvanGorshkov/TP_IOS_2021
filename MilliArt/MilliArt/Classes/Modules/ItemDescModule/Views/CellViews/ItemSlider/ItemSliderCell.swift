@@ -81,6 +81,5 @@ final class ItemSliderCell: BaseCell {
 
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         slider.addGestureRecognizer(gestureRecognizer)
-
     }
 }
