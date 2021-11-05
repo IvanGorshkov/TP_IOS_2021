@@ -27,6 +27,7 @@ final class MainViewController: UIViewController {
 		super.viewDidLoad()
         setUp()
         output.viewDidLoad()
+        output.sectionDelegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -84,6 +85,18 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: MainViewInput {
 }
+
+extension MainViewController: TableViewCellOutput {
+    func clickAllCompilation() {
+        print("clickAllCompilation")
+    }
+    
+    func clickAllAuthor() {
+        print("clickAllAuthor")
+    }
+    
+}
+
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

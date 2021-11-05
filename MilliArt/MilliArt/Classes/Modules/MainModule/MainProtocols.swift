@@ -18,6 +18,15 @@ protocol MainModuleOutput: AnyObject {
 protocol MainViewInput: AnyObject {
 }
 
+protocol TableViewCellOutput: AnyObject {
+    func clickAllCompilation()
+    func clickAllAuthor()
+}
+
+protocol MainTableViewCellDescription: AnyObject {
+    var delegate: TableViewCellOutput? { get set }
+}
+
 protocol MainViewOutput: AnyObject {
     func itemSelected()
     func viewDidLoad()
@@ -25,7 +34,7 @@ protocol MainViewOutput: AnyObject {
     func getCell(at index: Int) -> CellIdentifiable?
     func getCellIdentifier(at index: Int) -> String
     func getCountCells() -> Int
-    var  sectionDelegate: ItemDescCellViewOutput? { get set }
+    var  sectionDelegate: TableViewCellOutput? { get set }
 }
 
 protocol MainInteractorInput: AnyObject {

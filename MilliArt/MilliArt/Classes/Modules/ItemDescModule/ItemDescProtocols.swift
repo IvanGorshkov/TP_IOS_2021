@@ -68,7 +68,6 @@ protocol CellIdentifiable {
 
 protocol SectionRowsRepresentable {
     var rows: [CellIdentifiable] { get set }
-    var delegate: ItemDescCellViewOutput? { get set }
 }
 
 protocol ModelRepresentable {
