@@ -29,7 +29,7 @@ protocol AllViewOutput: AnyObject {
 protocol AllInteractorInput: AnyObject {
     func loadData()
     func getTitle() -> String
-    var output: AllInteractorOutput? {get set}
+    var output: AllInteractorOutput? { get set }
 }
 
 protocol AllInteractorOutput: AnyObject {

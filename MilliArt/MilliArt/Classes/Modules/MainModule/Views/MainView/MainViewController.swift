@@ -29,24 +29,24 @@ final class MainViewController: UIViewController {
         output.viewDidLoad()
         output.sectionDelegate = self
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraintTableView()
     }
-    
+
     private func setUp() {
         setNavigationPicture()
         addNavigationButton()
         setUpTableView()
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
     }
-    
+
     private func setUpTableView() {
         setUpTableViewBase()
         registerCells()
     }
-    
+
     private func setUpTableViewBase() {
         self.view.addSubview(tableView)
         tableView.backgroundColor = .clear
@@ -56,19 +56,19 @@ final class MainViewController: UIViewController {
         tableView.tableHeaderView = UIView()
         tableView.separatorStyle = .none
     }
-    
+
     private func registerCells() {
         tableView.register(HeaderCellView.self, forCellReuseIdentifier: HeaderCellView.cellIdentifier)
         tableView.register(HCollectionViewTableViewCell.self, forCellReuseIdentifier: HCollectionViewTableViewCell.cellIdentifier)
         tableView.register(VCollectionViewTableViewCell.self, forCellReuseIdentifier: VCollectionViewTableViewCell.cellIdentifier)
     }
-    
+
     private func addNavigationButton() {
         let button = UIBarButtonItem(image: .init(named: "fav"), style: .plain, target: self, action: #selector(favoriteButtonAction))
         button.tintColor = ColorConstants.MainPurpleColor
         navigationItem.rightBarButtonItem = button
     }
-    
+
     private func setNavigationPicture() {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
         imageView.contentMode = .scaleAspectFit
@@ -76,7 +76,7 @@ final class MainViewController: UIViewController {
         imageView.image = image
         navigationItem.titleView = imageView
     }
-    
+
     @objc
     private func favoriteButtonAction() {
         output.itemSelected()
@@ -90,21 +90,22 @@ extension MainViewController: TableViewCellOutput {
     func clickAllCompilation() {
         output.goToAllCompilation()
     }
-    
+
     func clickAllAuthor() {
         output.goToAllAuthor()
     }
-    
 }
-
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.getCountCells()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath) as! BaseCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath)
+                as? BaseCell else {
+                    return UITableViewCell()
+                }
         cell.model = output.getCell(at: indexPath.row)
         return cell
     }
@@ -115,4 +116,3 @@ extension MainViewController: UITableViewDelegate {
         return CGFloat(output.getCellHeight(at: indexPath.row))
     }
 }
-

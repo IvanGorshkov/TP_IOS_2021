@@ -15,7 +15,7 @@ final class AllPresenter {
 	private let router: AllRouterInput
 	private let interactor: AllInteractorInput
     private var viewModel: HCollectionViewModel?
-    
+
     init(router: AllRouterInput, interactor: AllInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -29,26 +29,25 @@ extension AllPresenter: AllViewOutput {
     func getTitle() -> String {
         return interactor.getTitle()
     }
-    
+
     func viewDidLoad() {
         interactor.loadData()
     }
-    
+
     func getCell(at index: Int) -> CellIdentifiable? {
         guard let viewModel = viewModel else { return nil }
         return viewModel.array[index]
     }
-    
+
     func getCellIdentifier(at index: Int) -> String {
         guard let viewModel = viewModel else { return "" }
         return viewModel.array[index].cellIdentifier
     }
-    
+
     func getCountCells() -> Int {
         guard let viewModel = viewModel else { return 0 }
         return viewModel.array.count
     }
-    
 }
 
 extension AllPresenter: AllInteractorOutput {

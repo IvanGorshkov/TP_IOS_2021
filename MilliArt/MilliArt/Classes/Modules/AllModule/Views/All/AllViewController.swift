@@ -15,7 +15,7 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         return collectionView
     }()
-    
+
     init(output: AllViewOutput) {
         self.output = output
 
@@ -32,13 +32,13 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         setUp()
         output.viewDidLoad()
 	}
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraintsCollectionView()
         reloadLayout()
     }
-    
+
     private func setUp() {
         setUpBase()
         view.addSubview(collectionView)
@@ -53,8 +53,7 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
         self.title = output.getTitle()
     }
-    
-    
+
     private func reloadLayout() {
         let layout = MosaicViewLayout()
         layout.delegate = self
@@ -67,26 +66,26 @@ extension AllViewController: AllViewInput {
     func reloadData() {
         collectionView.reloadData()
     }
-    
 }
 
 extension AllViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return output.getCountCells()
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllCollectionViewCell.cellIdentifier, for: indexPath) as? AllCollectionViewCell else { return UICollectionViewCell() }
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllCollectionViewCell.cellIdentifier, for: indexPath)
+                as? AllCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+
         cell.configure(model: output.getCell(at: indexPath.row))
-        return cell;
+        return cell
     }
 }
 
-
 // MARK: MosaicLayoutDelegate
 extension AllViewController: MosaicLayoutDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = output.getCell(at: indexPath.row)
         guard let model = item as? HorizontalViewModel, let image = UIImage(named: model.pic) else { return 0 }
@@ -94,7 +93,7 @@ extension AllViewController: MosaicLayoutDelegate {
         let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
         return rect.height
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = output.getCell(at: indexPath.row)
         guard let model = item as? HorizontalViewModel else { return 0 }
@@ -102,10 +101,14 @@ extension AllViewController: MosaicLayoutDelegate {
         let height = 4 + 17 + 4 + descriptionHeight
         return height
     }
-    
+
     func heightForText(_ text: String, width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: 16)
-        let rect = NSString(string: text).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        let rect = NSString(string: text).boundingRect(
+            with: CGSize(width: width, height: CGFloat(MAXFLOAT)),
+            options: .usesLineFragmentOrigin,
+            attributes: [NSAttributedString.Key.font: font],
+            context: nil)
         return ceil(rect.height)
     }
 }

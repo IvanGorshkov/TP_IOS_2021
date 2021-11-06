@@ -15,7 +15,7 @@ final class ItemDescViewController: UIViewController {
     internal var tableView =  UITableView()
     internal var pickerView =  RentPickerView()
     private var activityIndicatorView: NVActivityIndicatorView!
-    
+
     init(output: ItemDescViewOutput) {
         self.output = output
 
@@ -34,26 +34,25 @@ final class ItemDescViewController: UIViewController {
         activityIndicatorView.startAnimating()
         output.viewDidLoad()
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addConstraintTableView()
         addConstraintPickerView()
     }
-    
-    
+
     private func setUp() {
         setUpBase()
         setUpTableView()
         setUpIndicator()
         setUpPickerView()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpBase()
     }
-    
+
     private func setUpPickerView() {
         self.view.addSubview(pickerView)
         self.pickerView.picker.dataSource = self
@@ -61,7 +60,7 @@ final class ItemDescViewController: UIViewController {
         self.pickerView.button.addTarget(self, action: #selector(doneClick), for: .touchUpInside)
         self.pickerView.alpha = 0
     }
-    
+
     private func setUpIndicator() {
         var frameCenter = view.center
         frameCenter.x -= 25
@@ -71,18 +70,18 @@ final class ItemDescViewController: UIViewController {
             type: .ballScale,
             color: ColorConstants.MainPurpleColor)
     }
-    
+
     private func setUpBase() {
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
         self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
         self.title = TitlesConstants.PaintingNavTitle
     }
-    
+
     private func setUpTableView() {
         setUpTableViewBase()
         registerCells()
     }
-    
+
     private func setUpTableViewBase() {
             self.view.addSubview(tableView)
             tableView.backgroundColor = .clear
@@ -91,15 +90,14 @@ final class ItemDescViewController: UIViewController {
             tableView.allowsSelection = false
             tableView.tableHeaderView = UIView()
     }
-    
+
     @objc
     private func doneClick() {
         UIView.animate(withDuration: 0.1) {
             self.pickerView.alpha = 0
         }
      }
-    
-    
+
     private func registerCells() {
         tableView.register(ItemNameCell.self, forCellReuseIdentifier: ItemNameCell.cellIdentifier)
         tableView.register(ItemSliderCell.self, forCellReuseIdentifier: ItemSliderCell.cellIdentifier)
@@ -115,7 +113,7 @@ extension ItemDescViewController: ItemDescViewInput {
         let indexPosition = IndexPath(row: 2, section: 0)
         tableView.reloadRows(at: [indexPosition], with: .none)
     }
-    
+
     func updateForSections() {
         activityIndicatorView.stopAnimating()
         output.sectionDelegate = self
@@ -127,11 +125,15 @@ extension ItemDescViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.getCountCells()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath) as! BaseCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: output.getCellIdentifier(at: indexPath.row),
+            for: indexPath) as? BaseCell else {
+                return UITableViewCell()
+            }
         cell.model = output.getCell(at: indexPath.row)
-        
+
         return cell
     }
 }
@@ -147,25 +149,24 @@ extension ItemDescViewController: ItemDescCellViewOutput {
         UIView.animate(withDuration: 0.1) {
             self.pickerView.alpha = 1
         }
-
     }
-    
+
     func clickBuy() {
         print("clickBuy")
     }
-    
+
     func clickRent() {
         print("clickRent")
     }
-    
+
     func clickFav() {
         print("clickFav")
     }
-    
+
     func clickAR() {
         self.output.goToAR()
     }
-    
+
     func openFullScreen(silder: UIView) {
         output.openFullScreen(slider: silder)
     }
@@ -183,7 +184,7 @@ extension ItemDescViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(row + 1)"
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         output.changeMonthCount(value: row + 1)
     }

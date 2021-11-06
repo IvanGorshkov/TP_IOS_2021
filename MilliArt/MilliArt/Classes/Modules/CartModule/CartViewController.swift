@@ -26,7 +26,7 @@ final class CartViewController: UIViewController {
 		super.viewDidLoad()
         setUp()
     }
-    
+
     private func setUp() {
         self.navigationController?.navigationBar.topItem?.title = TitlesConstants.CartNavTitle
         self.view.backgroundColor = ColorConstants.MainBackGroundColor

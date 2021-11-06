@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension VCollectionViewTableViewCell {
     internal func addConstraintsCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -17,4 +16,3 @@ extension VCollectionViewTableViewCell {
         collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
 }
-

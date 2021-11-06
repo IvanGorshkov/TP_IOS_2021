@@ -12,7 +12,7 @@ final class AllContainer {
     let input: AllModuleInput
 	let viewController: UIViewController
 	private(set) weak var router: AllRouterInput!
-    
+
 	class func assemble(with context: AllContext) -> AllContainer {
         let router = context.creator.factoryRouter()
         let interactor = context.creator.factoryInteractor()

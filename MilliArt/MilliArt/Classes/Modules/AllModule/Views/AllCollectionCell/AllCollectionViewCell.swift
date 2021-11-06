@@ -8,13 +8,12 @@
 import UIKit
 
 final class AllCollectionViewCell: UICollectionViewCell {
-    
     static let cellIdentifier = "AllCollectionViewCell"
-    
+
     internal var myHeightAnchor: NSLayoutConstraint!
     internal var imageView = UIImageView()
     internal var nameLabel = MUILabel()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         [imageView, nameLabel].forEach { [weak self] view in
@@ -23,27 +22,27 @@ final class AllCollectionViewCell: UICollectionViewCell {
         addConstraints()
         setUp()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setUp() {
         setUpImageView()
         setUpLables()
         contentView.clipsToBounds = true
     }
-    
+
     private func setUpImageView() {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
     }
-    
+
     private func setUpLables() {
         setUplabel(label: nameLabel, alignment: .left, textColor: ColorConstants.TextColor, fontSize: 16, numberOfLines: 3, verticalAlignment: true)
     }
-    
+
     private func setUplabel(label: MUILabel, alignment: NSTextAlignment, textColor: UIColor, fontSize: CGFloat, numberOfLines: Int, verticalAlignment: Bool = false) {
         label.textAlignment = alignment
         label.textColor = textColor
@@ -52,19 +51,18 @@ final class AllCollectionViewCell: UICollectionViewCell {
         label.clipsToBounds = true
         label.top = verticalAlignment
     }
-    
+
     func configure(model: CellIdentifiable?) {
-        
         guard let model = model as? HorizontalViewModel else { return }
         imageView.image = UIImage(named: model.pic)
         nameLabel.text = model.name
     }
-    
+
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         guard let attributes = layoutAttributes as? MosaicLayoutAttributes else {
             return
         }
         updateHeight(with: attributes)
-    }    
+    }
 }

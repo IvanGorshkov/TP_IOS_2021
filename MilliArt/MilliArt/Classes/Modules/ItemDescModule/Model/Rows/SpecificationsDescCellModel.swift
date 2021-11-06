@@ -11,7 +11,7 @@ final class SpecificationsDescCellModel: BaseCellModel {
     override var cellIdentifier: String {
         return SpecificationsDescCell.cellIdentifier
     }
-    
+
     let title: String
     let specification: String
     init(_ model: Specifications) {

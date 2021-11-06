@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension AboutDescCell {
     internal func addConstraintsDescription() {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false

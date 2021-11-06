@@ -11,7 +11,6 @@ import SceneKit
 import ARKit
 
 final class ARViewController: UIViewController {
-    
 	private let output: ARViewOutput
     internal var sceneView = ARSCNView()
     internal var scanningLabel = UILabel()
@@ -19,7 +18,7 @@ final class ARViewController: UIViewController {
     internal var magicButton = UIButton()
     private var touchDifference = SCNVector3()
     private let configuration = ARWorldTrackingConfiguration()
-    
+
     init(output: ARViewOutput) {
         self.output = output
 
@@ -37,7 +36,7 @@ final class ARViewController: UIViewController {
         animateFlash(label: scanningLabel)
         self.output.viewDidLoad()
 	}
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addConstraintsAR()
@@ -47,19 +46,21 @@ final class ARViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         sceneView.session.run(configuration)
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        [scanningLabel, foundLabel].forEach ({ [weak self] in self?.setCornerRadius(view: $0) })
+        [scanningLabel, foundLabel].forEach({ [weak self] in self?.setCornerRadius(view: $0)
+        })
     }
-    
+
     private func setCornerRadius(view: UIView) {
         view.layer.cornerRadius = view.frame.height / 2
         view.layer.cornerRadius = view.frame.height / 2
     }
-    
+
     private func setUp() {
-        [sceneView, scanningLabel, foundLabel, magicButton].forEach ({ [weak self] in self?.view.addSubview($0)
+        [sceneView, scanningLabel, foundLabel, magicButton].forEach({ [weak self] in
+            self?.view.addSubview($0)
         })
         setUpBase()
         setUpLabel(label: scanningLabel, text: TitlesConstants.SearchingWall)
@@ -72,7 +73,7 @@ final class ARViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
         self.title = TitlesConstants.AR
     }
-    
+
     private func setUpLabel(label: UILabel, text: String, isHidden: Bool = true) {
         label.layer.masksToBounds = true
         label.backgroundColor = .gray.withAlphaComponent(0.4)
@@ -80,24 +81,24 @@ final class ARViewController: UIViewController {
         label.alpha = isHidden ? 0 : 1
         label.textAlignment = .center
     }
-    
+
     private func setUpButton() {
         self.magicButton.setImage(UIImage(named: "magic"), for: .normal)
         self.magicButton.addTarget(self, action: #selector(openEditFrame), for: .touchUpInside)
     }
-    
+
     private func setUpSceneView() {
         sceneView.delegate = self
         sceneView.autoenablesDefaultLighting = true
         configuration.planeDetection = .vertical
     }
-    
+
     @objc
     private func openEditFrame() {
         output.openEditFrame()
         sceneView.session.pause()
     }
-        
+
     private func animateFlash(label: UILabel) {
         UIView.animate(withDuration: 0.8,
                        delay: 0,
@@ -106,7 +107,7 @@ final class ARViewController: UIViewController {
             label.alpha = 1
         }, completion: nil)
     }
-    
+
     private func animatefadeOut(label: UILabel) {
         UIView.animate(withDuration: 1,
                        delay: 0.6,
@@ -115,18 +116,18 @@ final class ARViewController: UIViewController {
             label.alpha = 0
         }, completion: nil)
     }
-    
+
     private func registerGestureRecognizers() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
-        
+
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         self.sceneView.addGestureRecognizer(panGestureRecognizer)
-        
+
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture))
         self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
     }
-    
+
     @objc
     private func handleTapGesture(recognizer: UITapGestureRecognizer) {
         let touchPosition = recognizer.location(in: sceneView)
@@ -134,35 +135,35 @@ final class ARViewController: UIViewController {
         guard let hitTest = hitTestResults.first else { return }
         hangPicture(atLocation: hitTest)
     }
-    
+
     @objc
     private func handleLongPressGesture(recognizer: UILongPressGestureRecognizer) {
         let touchLocation = recognizer.location(in: recognizer.view)
         let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
         if var tappedNode = hitTestResults.first?.node {
-            if tappedNode.childNodes.count == 0 {
-                tappedNode = tappedNode.parent!
+            if tappedNode.childNodes.isEmpty, let parant = tappedNode.parent {
+                tappedNode = parant
             }
-            
+
             AudioServicesPlaySystemSound(1520)
             tappedNode.removeFromParentNode()
         }
     }
-    
+
     @objc
     private func handlePanGesture(recognizer: UIPanGestureRecognizer) {
         let touchLocation = recognizer.location(in: recognizer.view)
-        guard let query = sceneView.raycastQuery(from: touchLocation, allowing: .existingPlaneInfinite, alignment: .vertical) else {return}
+        guard let query = sceneView.raycastQuery(from: touchLocation, allowing: .existingPlaneInfinite, alignment: .vertical) else { return }
         let results = sceneView.session.raycast(query)
-        guard let result = results.first else {return}
+        guard let result = results.first else { return }
 
         let hitTestResults = self.sceneView.hitTest(touchLocation, options: nil)
 
         if var tappedNode = hitTestResults.first?.node {
-            if tappedNode.childNodes.count == 0 {
-                tappedNode = tappedNode.parent!
+            if tappedNode.childNodes.isEmpty, let parant = tappedNode.parent {
+                tappedNode = parant
             }
-            
+
             if recognizer.state == .began {
                 touchDifference = SCNVector3Make(
                     result.worldTransform.columns.3.x - tappedNode.position.x,
@@ -176,57 +177,60 @@ final class ARViewController: UIViewController {
             tappedNode.position = newPosition
         }
     }
-    
+
     private func hangPicture(atLocation hitResult: ARHitTestResult) {
-        guard let hitResultAnchor = hitResult.anchor else {return}
+        guard let hitResultAnchor = hitResult.anchor else { return }
         let pictureNode = createPicture()
-        let frameDepth:CGFloat = 0.03
+        let frameDepth = CGFloat(0.03)
         let frameNode = createFrame(depth: CGFloat(frameDepth))
-        
+
         frameNode.transform = SCNMatrix4(hitResultAnchor.transform)
         frameNode.name = "frame"
         frameNode.eulerAngles = SCNVector3(frameNode.eulerAngles.x + (-Float.pi / 2), frameNode.eulerAngles.y, frameNode.eulerAngles.z)
-        
+
         let location = hitResult.worldTransform.columns.3
         frameNode.position = SCNVector3(
             x: location.x,
             y: location.y,
             z: location.z + Float(frameDepth/2)
         )
-        
+
         frameNode.addChildNode(pictureNode)
-        
+
         pictureNode.position = SCNVector3(
             x: 0,
             y: 0,
             z: Float(frameDepth/2)+0.001)
-        
+
         sceneView.scene.rootNode.addChildNode(frameNode)
     }
-    
+
     private func createFrame(depth frameDepth: CGFloat) -> SCNNode {
         guard let arModel = self.output.getARViewModel() else { return SCNNode() }
-        let frameBox = SCNBox(width: arModel.ARborderThickness.w, height: arModel.ARborderThickness.h, length: frameDepth, chamferRadius: arModel.ARborderRounded)
+        let frameBox = SCNBox(
+            width: arModel.ARborderThickness.w,
+            height: arModel.ARborderThickness.h,
+            length: frameDepth,
+            chamferRadius: arModel.ARborderRounded)
         setFrameMaterial(frameBox: frameBox)
         configureMaterialLight(plane: frameBox, lightingModel: .physicallyBased, contents: UIColor(white: 0.7, alpha: 1.0))
         return SCNNode(geometry: frameBox)
     }
-    
+
     private func setFrameMaterial(frameBox: SCNGeometry) {
-            guard let arModel = self.output.getARViewModel() else { return  }
+            guard let arModel = self.output.getARViewModel() else { return }
         frameBox.materials.last?.diffuse.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Color.jpg")
         frameBox.materials.last?.normal.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Normal.jpg")
         frameBox.materials.last?.roughness.contents = UIImage(named: "art.scnassets/\(arModel.ARmaterial)Roughness.jpg")
     }
-    
+
     private func setNewFrameConfig(frameBox: SCNGeometry) {
         guard let frameBox = frameBox as? SCNBox, let arModel = self.output.getARViewModel() else { return }
         frameBox.chamferRadius = arModel.ARborderRounded
         frameBox.width = arModel.ARborderThickness.w
         frameBox.height = arModel.ARborderThickness.h
     }
-    
-    
+
     private func createPicture() -> SCNNode {
         guard let arModel = self.output.getARViewModel() else { return SCNNode() }
         let picture = SCNPlane(width: arModel.ARwidth, height: arModel.ARheight)
@@ -234,13 +238,13 @@ final class ARViewController: UIViewController {
         configureMaterialLight(plane: picture, lightingModel: .blinn, contents: UIColor(white: 0.2, alpha: 1.0))
         return SCNNode(geometry: picture)
     }
-    
+
     private func configureMaterialLight(plane: SCNGeometry, lightingModel: SCNMaterial.LightingModel, contents: Any, shininess: CGFloat = 100) {
         plane.firstMaterial?.lightingModel = lightingModel
         plane.firstMaterial?.specular.contents = contents
         plane.firstMaterial?.shininess = shininess
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
@@ -249,7 +253,6 @@ final class ARViewController: UIViewController {
 }
 
 extension ARViewController: ARSCNViewDelegate {
-
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
             self.scanningLabel.removeFromSuperview()
@@ -257,7 +260,7 @@ extension ARViewController: ARSCNViewDelegate {
             self.foundLabel.alpha = 1
             self.animatefadeOut(label: self.foundLabel)
         }
-        guard let planeAnchor = anchor as? ARPlaneAnchor else {return}
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         let planeNode = createPlane(withPlaneAnchor: planeAnchor)
         node.addChildNode(planeNode)
     }
@@ -274,7 +277,6 @@ extension ARViewController: ARSCNViewDelegate {
 }
 
 extension ARViewController: ARViewInput {
-    
     func runSession() {
         sceneView.session.run(configuration)
     }
@@ -288,6 +290,3 @@ extension ARViewController: ARViewInput {
         }
     }
 }
-
-
-

@@ -9,7 +9,7 @@
 import UIKit
 
 final class TabBarRouter {
-    private var views:[UIViewController] = []
+    private var views = [UIViewController]()
 }
 
 extension TabBarRouter: TabBarRouterInput {

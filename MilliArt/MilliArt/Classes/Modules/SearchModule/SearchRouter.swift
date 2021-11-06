@@ -12,9 +12,9 @@ final class SearchRouter {
 }
 
 extension SearchRouter: SearchRouterInput {
-    func goToFilterVC(from vc: SearchViewInput?)  {
+    func goToFilterVC(from vc: SearchViewInput?) {
         guard let vc = vc as? UIViewController else { return }
-        let fc = FilterContainer.assemble(with: FilterContext())
-        vc.present(fc.viewController, animated: true, completion: nil)
+        let filterContainer = FilterContainer.assemble(with: FilterContext())
+        vc.present(filterContainer.viewController, animated: true, completion: nil)
     }
 }

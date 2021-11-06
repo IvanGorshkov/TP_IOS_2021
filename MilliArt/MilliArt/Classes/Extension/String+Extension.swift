@@ -8,11 +8,10 @@
 import UIKit
 
 extension String {
-
     var underLined: NSAttributedString {
         NSMutableAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
-    
+
     func textWithLineSpace(lineSpacing: CGFloat = 5) -> NSAttributedString? {
         let attrString = NSMutableAttributedString(string: self)
         let style = NSMutableParagraphStyle()

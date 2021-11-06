@@ -11,14 +11,14 @@ final class ButtonsDescModelCell: BaseCellModel {
     override var cellIdentifier: String {
         return ButtonsDescCell.cellIdentifier
     }
-    
-    typealias ActionHandler = () -> ()
-    
+
+    typealias ActionHandler = () -> Void
+
     var actionAR: ActionHandler?
     var actionBuy: ActionHandler?
     var actionRent: ActionHandler?
     var actionFav: ActionHandler?
-    
+
     init(_ model: ItemDescModel, actionAR: ActionHandler?, actionBuy: ActionHandler?, actionRent: ActionHandler?, actionFav: ActionHandler?) {
         super.init()
         self.actionAR = actionAR

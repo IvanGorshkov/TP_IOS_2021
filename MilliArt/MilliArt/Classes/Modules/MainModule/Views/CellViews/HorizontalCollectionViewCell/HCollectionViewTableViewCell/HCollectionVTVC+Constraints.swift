@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension HCollectionViewTableViewCell {
     internal func addConstraintsCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,4 +17,3 @@ extension HCollectionViewTableViewCell {
         collectionView.heightAnchor.constraint(equalToConstant: 220).isActive = true
     }
 }
-

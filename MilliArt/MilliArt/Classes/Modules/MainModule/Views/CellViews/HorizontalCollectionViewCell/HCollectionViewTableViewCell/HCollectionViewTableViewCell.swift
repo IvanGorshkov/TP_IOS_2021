@@ -19,7 +19,7 @@ final class HCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
     }()
 
     static let cellIdentifier = "HCollectionViewModel"
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         [collectionView].forEach { [weak self] in
@@ -37,11 +37,11 @@ final class HCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(HCollectionViewCell.self, forCellWithReuseIdentifier: HCollectionViewCell.cellIdentifier)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func updateViews() {
         guard let model = model as? HCollectionViewModel else { return }
         array = model.array
@@ -53,8 +53,11 @@ final class HCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
      }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HCollectionViewCell.cellIdentifier, for: indexPath) as? HCollectionViewCell else { return UICollectionViewCell() }
-         
+         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HCollectionViewCell.cellIdentifier, for: indexPath)
+                    as? HCollectionViewCell else {
+                        return UICollectionViewCell()
+                    }
+
          cell.configure(model: array[indexPath.row])
        return cell
      }

@@ -8,15 +8,15 @@
 import Foundation
 
 final class HCollectionViewModel: BaseCellModel {
-    typealias ActionHandler = () -> ()
+    typealias ActionHandler = () -> Void
     var action: ActionHandler?
-    
+
     override var cellIdentifier: String {
         return HCollectionViewTableViewCell.cellIdentifier
     }
-    
+
     let array: [HorizontalViewModel]
-    
+
     init(array: [HorizontalViewModel], action: ActionHandler? = nil) {
         self.action = action
         self.array = array

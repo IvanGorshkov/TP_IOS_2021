@@ -9,14 +9,14 @@ import Foundation
 
 final class ItemDescSectionModel: SectionRowsRepresentable {
     var rows: [CellIdentifiable]
-    
+
     weak var delegate: ItemDescCellViewOutput?
-    
+
     init(_ itemDesc: ItemDescModel) {
         rows = [CellIdentifiable]()
         rows.append(ItemDescNameCellModel(itemDesc))
-        rows.append(SliderCellModel(itemDesc, action: { [weak self] imageSlideshow in
-            self?.delegate?.openFullScreen(silder: imageSlideshow)
+        rows.append(SliderCellModel(itemDesc, action: { [weak self] in
+            self?.delegate?.openFullScreen(silder: $0)
         }))
         rows.append(AmountDescCellModel(itemDesc))
         rows.append(ButtonsDescModelCell(itemDesc,

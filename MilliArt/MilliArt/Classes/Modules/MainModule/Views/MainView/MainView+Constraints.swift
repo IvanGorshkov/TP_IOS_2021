@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension MainViewController {
     internal func addConstraintTableView() {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false

@@ -132,6 +132,7 @@
 		7099CA8A273598C7001805AC /* AllAuthorsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA89273598C6001805AC /* AllAuthorsRouter.swift */; };
 		7099CA8C273598FA001805AC /* AllAuthorsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8B273598FA001805AC /* AllAuthorsInteractor.swift */; };
 		7099CA8F2735C078001805AC /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8E2735C078001805AC /* Factory.swift */; };
+		7099CA922735C6A9001805AC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7099CA912735C6A9001805AC /* .swiftlint.yml */; };
 		709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */; };
 		709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E572733E2390018ED10 /* HeaderCellView.swift */; };
 		709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */; };
@@ -263,6 +264,7 @@
 		7099CA89273598C6001805AC /* AllAuthorsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAuthorsRouter.swift; sourceTree = "<group>"; };
 		7099CA8B273598FA001805AC /* AllAuthorsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAuthorsInteractor.swift; sourceTree = "<group>"; };
 		7099CA8E2735C078001805AC /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		7099CA912735C6A9001805AC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionViewModel.swift; sourceTree = "<group>"; };
 		709F6E572733E2390018ED10 /* HeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellView.swift; sourceTree = "<group>"; };
 		709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderCell+Constraints.swift"; sourceTree = "<group>"; };
@@ -905,6 +907,7 @@
 				70C419F027248FC2006214FA /* Assets.xcassets */,
 				70C419F227248FC2006214FA /* LaunchScreen.storyboard */,
 				70C419F527248FC2006214FA /* Info.plist */,
+				7099CA912735C6A9001805AC /* .swiftlint.yml */,
 			);
 			path = MilliArt;
 			sourceTree = "<group>";
@@ -919,6 +922,7 @@
 				70C419E027248FC1006214FA /* Sources */,
 				70C419E127248FC1006214FA /* Frameworks */,
 				70C419E227248FC1006214FA /* Resources */,
+				7099CA902735C5C0001805AC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -979,6 +983,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7099CA922735C6A9001805AC /* .swiftlint.yml in Resources */,
 				70C419F427248FC2006214FA /* LaunchScreen.storyboard in Resources */,
 				703A4AB3272EA962000329F7 /* art.scnassets in Resources */,
 				70C419F127248FC2006214FA /* Assets.xcassets in Resources */,
@@ -987,6 +992,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7099CA902735C5C0001805AC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		70C419E027248FC1006214FA /* Sources */ = {

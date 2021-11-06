@@ -16,7 +16,7 @@ extension AllCompilationsInteractor: AllInteractorInput {
     func getTitle() -> String {
         return TitlesConstants.CompilationTitle
     }
-    
+
     func loadData() {
         let arr1 = [
             CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
@@ -48,5 +48,4 @@ extension AllCompilationsInteractor: AllInteractorInput {
             }
         ))
     }
-    
 }
