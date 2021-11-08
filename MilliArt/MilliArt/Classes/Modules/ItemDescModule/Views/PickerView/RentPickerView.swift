@@ -29,7 +29,7 @@ class RentPickerView: UIView {
 
         picker.backgroundColor = ColorConstants.BlackColor.withAlphaComponent(0.5)
         picker.frame = .zero
-
+        picker.tintColor = .white
         button.setTitle(buttonName, for: .normal)
         button.contentHorizontalAlignment = .right
         button.contentVerticalAlignment = .top

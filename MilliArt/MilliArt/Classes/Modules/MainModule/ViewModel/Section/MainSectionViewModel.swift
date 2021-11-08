@@ -35,6 +35,8 @@ final class MainSectionViewModel: SectionRowsRepresentable {
         )
 
         rows.append(HeaderCellViewModel(title: TitlesConstants.newTitle, action: nil))
-        rows.append(VCollectionViewModel(action: nil, newPaints: newPaints))
+        rows.append(VCollectionViewModel(action: { [weak self] index in
+            self?.actions?.clickOnArt(with: index)
+        }, newPaints: newPaints))
     }
 }

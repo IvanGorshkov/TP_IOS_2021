@@ -21,6 +21,7 @@ final class ItemDescContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
+        presenter.id = context.id
 
 		interactor.output = presenter
 
@@ -36,4 +37,5 @@ final class ItemDescContainer {
 
 struct ItemDescContext {
 	weak var moduleOutput: ItemDescModuleOutput?
+    var id: Int
 }

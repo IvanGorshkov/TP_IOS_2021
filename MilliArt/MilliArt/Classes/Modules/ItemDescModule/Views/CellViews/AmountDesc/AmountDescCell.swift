@@ -21,7 +21,7 @@ final class AmountDescCell: BaseCell {
 
         amountLabel.text = "Цена: \(model.amount) ₽"
         monthCountLabel.setAttributedTitle("Аренда на \(model.countRent) месяц".underLined, for: .normal)
-        rentLabel.text = "Цена: \(model.rentPreMonth * model.countRent) ₽"
+        rentLabel.text = "Цена: \(model.totalRentAmount) ₽"
     }
 
     @objc

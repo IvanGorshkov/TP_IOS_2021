@@ -79,7 +79,6 @@ final class MainViewController: UIViewController {
 
     @objc
     private func favoriteButtonAction() {
-        output.itemSelected()
     }
 }
 
@@ -87,6 +86,10 @@ extension MainViewController: MainViewInput {
 }
 
 extension MainViewController: TableViewCellOutput {
+    func clickOnArt(with id: Int) {
+        output.clickOnArt(with: id)
+    }
+    
     func clickAllCompilation() {
         output.goToAllCompilation()
     }

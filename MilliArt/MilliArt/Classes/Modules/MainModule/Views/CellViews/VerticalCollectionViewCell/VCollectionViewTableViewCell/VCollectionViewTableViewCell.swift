@@ -76,6 +76,11 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
         cell.configure(model: array[indexPath.row])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let model = model as? VCollectionViewModel else { return }
+        model.action?(indexPath.row)
+    }
 }
 
 // MARK: MosaicLayoutDelegate
