@@ -46,4 +46,8 @@ final class TitlesConstants {
     static let CompilationTitle = "Подборки"
     static let authorsTitle =  "Авторы"
     static let newTitle = "Новое"
+    
+    // MARK: Cart
+    static let cartSubTitle = "Заполните её произведениями искусства"
+    static let cartTitle = "Ваша корзина пуста..."
 }

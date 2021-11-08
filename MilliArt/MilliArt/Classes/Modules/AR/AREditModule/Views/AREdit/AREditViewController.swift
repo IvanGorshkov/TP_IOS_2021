@@ -78,7 +78,7 @@ final class AREditViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -140,10 +140,10 @@ final class AREditViewController: UIViewController {
     }
 
     private func reloadData() {
-        let contentOffset = self.collectionView.contentOffset
+    //    let contentOffset = self.collectionView.contentOffset
         collectionView.reloadData()
-        self.collectionView.layoutIfNeeded()
-        self.collectionView.setContentOffset(contentOffset, animated: false)
+    //    self.collectionView.layoutIfNeeded()
+    //    self.collectionView.setContentOffset(contentOffset, animated: false)
     }
 
     private func setSteperData(with stepper: UIStepper, value: Double) {

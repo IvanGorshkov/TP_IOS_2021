@@ -24,6 +24,7 @@ final class ItemNameCell: BaseCell {
         [nameLabel].forEach({
             contentView.addSubview($0)
         })
+        
         addConstraintsName()
         setUp()
     }
