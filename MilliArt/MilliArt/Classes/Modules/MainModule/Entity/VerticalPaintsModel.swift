@@ -8,6 +8,7 @@
 import Foundation
 
 struct VerticalPaintsModel {
+    let id: Int
     let pic: String
     let name: String
     let size: String

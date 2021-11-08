@@ -8,7 +8,7 @@
 import Foundation
 
 final class VCollectionViewModel: BaseCellModel {
-    typealias ActionHandler = () -> Void
+    typealias ActionHandler = (Int) -> Void
     var action: ActionHandler?
 
     override var cellIdentifier: String {

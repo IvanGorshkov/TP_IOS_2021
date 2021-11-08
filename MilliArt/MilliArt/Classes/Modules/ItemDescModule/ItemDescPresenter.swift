@@ -12,7 +12,7 @@ import UIKit
 final class ItemDescPresenter {
 	weak var view: ItemDescViewInput?
     weak var moduleOutput: ItemDescModuleOutput?
-
+    var itemId: Int?
 	private let router: ItemDescRouterInput
 	private let interactor: ItemDescInteractorInput
     private var itemDescSectionModel: ItemDescSectionModel?
@@ -23,6 +23,14 @@ final class ItemDescPresenter {
 }
 
 extension ItemDescPresenter: ItemDescModuleInput {
+    var id: Int? {
+        get {
+            return itemId
+        }
+        set {
+            itemId = newValue
+        }
+    }
 }
 
 extension ItemDescPresenter: ItemDescViewOutput {
@@ -69,7 +77,7 @@ extension ItemDescPresenter: ItemDescViewOutput {
     }
 
     func viewDidLoad() {
-        interactor.loadItemById(with: 1)
+        interactor.loadItemById(with: id ?? 0)
     }
 }
 

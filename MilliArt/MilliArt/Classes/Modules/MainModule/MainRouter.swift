@@ -24,9 +24,9 @@ extension MainRouter: MainRouterInput {
         view.navigationController?.pushViewController(container.viewController, animated: true)
     }
 
-    func itemSelected(with view: MainViewInput?) {
+    func itemSelected(with view: MainViewInput?, and id: Int) {
         guard let view = view as? UIViewController else { return }
-        let itemDesc = ItemDescContainer.assemble(with: ItemDescContext())
+        let itemDesc = ItemDescContainer.assemble(with: ItemDescContext(id: id))
         view.navigationController?.pushViewController(itemDesc.viewController, animated: true)
     }
 }

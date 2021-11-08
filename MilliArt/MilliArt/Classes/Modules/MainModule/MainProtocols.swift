@@ -21,6 +21,7 @@ protocol MainViewInput: AnyObject {
 protocol TableViewCellOutput: AnyObject {
     func clickAllCompilation()
     func clickAllAuthor()
+    func clickOnArt(with id: Int)
 }
 
 protocol MainTableViewCellDescription: AnyObject {
@@ -28,7 +29,7 @@ protocol MainTableViewCellDescription: AnyObject {
 }
 
 protocol MainViewOutput: AnyObject {
-    func itemSelected()
+    func clickOnArt(with id: Int)
     func viewDidLoad()
     func getCellHeight(at index: Int) -> Float
     func getCell(at index: Int) -> CellIdentifiable?
@@ -48,7 +49,7 @@ protocol MainInteractorOutput: AnyObject {
 }
 
 protocol MainRouterInput: AnyObject {
-    func itemSelected(with view: MainViewInput?)
+    func itemSelected(with view: MainViewInput?, and id: Int)
     func goToAllCompilation(with view: MainViewInput?)
     func goToAllAuthor(with view: MainViewInput?)
 }

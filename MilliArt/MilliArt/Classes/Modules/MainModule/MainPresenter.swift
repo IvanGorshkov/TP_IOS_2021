@@ -26,6 +26,10 @@ extension MainPresenter: MainModuleInput {
 }
 
 extension MainPresenter: MainViewOutput {
+    func clickOnArt(with id: Int) {
+        router.itemSelected(with: view, and: id)
+    }
+    
     func goToAllAuthor() {
         router.goToAllAuthor(with: view)
     }
@@ -66,10 +70,6 @@ extension MainPresenter: MainViewOutput {
         set {
             mainSectionViewModel?.actions = newValue
         }
-    }
-
-    func itemSelected() {
-        router.itemSelected(with: view)
     }
 }
 

@@ -11,6 +11,7 @@ import UIKit
 
 protocol ItemDescModuleInput {
 	var moduleOutput: ItemDescModuleOutput? { get }
+    var id: Int? { get set }
 }
 
 protocol ItemDescModuleOutput: AnyObject {
