@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: ls Milliart
+      - run: ls ./Milliart
       - uses: norio-nomura/action-swiftlint@3.2.1
         with:
           args: --path ./Milliart
