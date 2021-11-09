@@ -1,21 +1,13 @@
 name: Swift
 
-on:
-  push:
-    branches: [ main ]
-    paths:
-      - './MilliArt/MilliArt/swiftlint.yml'
-      - './MilliArt/MilliArt/*.swift'
-  pull_request:
-    branches: [ main ]    
-    paths:
-      - './MilliArt/MilliArt/swiftlint.yml'
-      - './MilliArt/MilliArt/*.swift'
+on: [pull_request]
 
 jobs:
   SwiftLint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: GitHub Action for SwiftLint
-        uses: norio-nomura/action-swiftlint@3.2.1
+      - uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --path MilliArt/ --strict
+            
