@@ -11,15 +11,15 @@ import Foundation
 final class CartInteractor {
 	weak var output: CartInteractorOutput?
     let arr1 = [
-        RentPrice(img: "pic1", name: "Ярослав Шейн", auther: "Гончии1", artical: "А-157", amaunt: 3570, countRent: 8),
-        RentPrice(img: "pic2", name: "Ярослав Шейн", auther: "Гончии2", artical: "А-127", amaunt: 350, countRent: 8),
-        RentPrice(img: "pic3", name: "Ярослав Тейн", auther: "Гончии3", artical: "А-123", amaunt: 9220, countRent: 1)
+        RentPrice(img: "pic1", name: "Гончии1", auther: "Ярослав Шейн", artical: "А-157", amaunt: 3570, countRent: 8),
+        RentPrice(img: "pic2", name: "Гончии2", auther: "Ярослав Шейн", artical: "А-127", amaunt: 350, countRent: 8),
+        RentPrice(img: "pic3", name: "Гончии3", auther: "Ярослав Тейн", artical: "А-123", amaunt: 9220, countRent: 1)
     ]
     
     let arr2 = [
-        BuyPrice(img: "pic1", name: "Ярослав Шейн", auther: "Гончии1", artical: "А-157", amaunt: 3570),
-        BuyPrice(img: "pic2", name: "Ярослав Шейн", auther: "Гончии2", artical: "А-127", amaunt: 350),
-        BuyPrice(img: "pic3", name: "Ярослав Тейн", auther: "Гончии3", artical: "А-123", amaunt: 9220)
+        BuyPrice(img: "pic1", name: "Гончии1", auther: "Ярослав Шейн", artical: "А-157", amaunt: 3570),
+        BuyPrice(img: "pic2", name: "Гончии2", auther: "Ярослав Шейн", artical: "А-127", amaunt: 350),
+        BuyPrice(img: "pic3", name: "Гончии3", auther: "Ярослав Тейн", artical: "А-123", amaunt: 9220)
     ]
 }
 

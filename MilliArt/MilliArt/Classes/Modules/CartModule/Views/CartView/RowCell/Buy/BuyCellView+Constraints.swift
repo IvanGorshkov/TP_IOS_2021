@@ -9,7 +9,7 @@
 import UIKit
 
 extension BuyCellView {
-    func addViewConstraints() {
+     func addViewConstraints() {
         HStackIn.translatesAutoresizingMaskIntoConstraints = false
         HStackIn.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         HStackIn.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true

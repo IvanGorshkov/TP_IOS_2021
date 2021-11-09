@@ -30,8 +30,7 @@ extension CartPresenter: CartViewOutput {
         if arr.isEmpty {
             return false
         }
-        print(arr[section].open)
-        return arr[section].open
+        return arr[section].isExpandable
     }
     
     func viewDidLoad() {

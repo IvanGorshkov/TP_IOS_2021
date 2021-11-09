@@ -161,6 +161,7 @@
 		70F72C092739B68E00A8709B /* TotalCellView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C072739B59E00A8709B /* TotalCellView+Constraints.swift */; };
 		70F72C0A2739B68E00A8709B /* TotalCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C082739B59E00A8709B /* TotalCellView.swift */; };
 		70F72C0C2739B7E400A8709B /* TotalCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C0B2739B7E400A8709B /* TotalCartViewModel.swift */; };
+		70F72C0E273A6CFF00A8709B /* BaseCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C0D273A6CFF00A8709B /* BaseCartCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -313,6 +314,7 @@
 		70F72C072739B59E00A8709B /* TotalCellView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TotalCellView+Constraints.swift"; sourceTree = "<group>"; };
 		70F72C082739B59E00A8709B /* TotalCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCellView.swift; sourceTree = "<group>"; };
 		70F72C0B2739B7E400A8709B /* TotalCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCartViewModel.swift; sourceTree = "<group>"; };
+		70F72C0D273A6CFF00A8709B /* BaseCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCartCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1019,6 +1021,7 @@
 		70F72BED27397D3100A8709B /* RowCell */ = {
 			isa = PBXGroup;
 			children = (
+				70F72C0D273A6CFF00A8709B /* BaseCartCell.swift */,
 				70F72C062739B59500A8709B /* Total */,
 				70F72BF327398E2900A8709B /* Buy */,
 				70F72BF227398E1900A8709B /* Rent */,
@@ -1274,6 +1277,7 @@
 				709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */,
 				706E6A3D272B53C40006BA3B /* ItemDescNameCellModel.swift in Sources */,
 				703A4AC9273079EF000329F7 /* FrameCollectionCell.swift in Sources */,
+				70F72C0E273A6CFF00A8709B /* BaseCartCell.swift in Sources */,
 				706E6A18272B09370006BA3B /* FilterPresenter.swift in Sources */,
 				70F72C0C2739B7E400A8709B /* TotalCartViewModel.swift in Sources */,
 				703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */,

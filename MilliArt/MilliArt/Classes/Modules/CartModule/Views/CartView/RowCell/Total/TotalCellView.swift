@@ -15,68 +15,41 @@ final class TotalCellView: BaseCell {
     internal var artsAmountLabel = UILabel()
     internal var shipingAmountLabel = UILabel()
     internal var totalAmountLabel = UILabel()
-    internal var lineView = UIView()
-    internal var lineView2 = UIView()
+    
     static let cellIdentifier = "TotalCellView"
 
     override func updateViews() {
         guard let model = model as? TotalCartViewModel else {
             return
         }
-        totalLabel.text = "Итого"
-        artCountLabel.text = model.artCountLabel
-        artsAmountLabel.text = model.artsAmountLabel
-        shipingAmountLabel.text = model.shipingAmountLabel
-        totalAmountLabel.text = model.totalAmountLabel
-        
-        [totalLabel,
-         artCountLabel,
-         artsAmountLabel,
-         shipingAmountLabel,
-         totalAmountLabel].forEach { label in
-            label.textColor = ColorConstants.BlackColor
-        }
+        totalLabel.text = TitlesConstants.TotalLabel
+        artCountLabel.text = model.artCount
+        artsAmountLabel.text = model.artsAmount
+        shipingAmountLabel.text = model.shipingAmount
+        totalAmountLabel.text = model.totalAmount
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [VStack].forEach({
-            contentView.addSubview($0)
+        [VStack].forEach({ [weak self] in
+            self?.contentView.addSubview($0)
         })
-        VStack.alignment = .trailing
-        VStack.axis  = .vertical
-        VStack.spacing  = 5
-        VStack.distribution  = .equalSpacing
         
-        selectionStyle = .none
         addViewConstraints()
         setUp()
-        
-        lineView.layer.borderWidth = 2.0
-        lineView.layer.borderColor = UIColor.black.cgColor
-        lineView.alpha = 0.5
-        
-        lineView2.layer.borderWidth = 2.0
-        lineView2.layer.borderColor = UIColor.black.cgColor
-        lineView2.alpha = 0.5
-        VStack.addArrangedSubview(totalLabel)
-        VStack.addArrangedSubview(createHStack(text: "Количество картин: ", label: artCountLabel))
-        VStack.addArrangedSubview(createHStack(text: "Общая стоимость: ", label: artsAmountLabel))
-        VStack.addArrangedSubview(lineView)
-        VStack.addArrangedSubview(createHStack(text: "Доставка: ", label: shipingAmountLabel))
-        VStack.addArrangedSubview(lineView2)
-        VStack.addArrangedSubview(createHStack(text: "Итог: ", label: totalAmountLabel))
     }
         
-    func createHStack(text: String, label: UILabel) -> UIStackView {
+    func createHStack(text: String = "", label: UILabel, fontSize: CGFloat = 18) -> UIStackView {
         let hStack = UIStackView()
         hStack.axis  = .horizontal
-        let lbl = UILabel()
-        lbl.text = text
-        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold)
         label.textColor = ColorConstants.BlackColor
-        lbl.textColor = ColorConstants.BlackColor
-        hStack.addArrangedSubview(lbl)
+        if !text.isEmpty {
+            let lbl = UILabel()
+            lbl.text = text
+            lbl.textColor = ColorConstants.BlackColor
+            hStack.addArrangedSubview(lbl)
+        }
         hStack.addArrangedSubview(label)
         return hStack
     }
@@ -87,9 +60,39 @@ final class TotalCellView: BaseCell {
 
     private func setUp() {
         setUpBase()
+        setUpVStack()
     }
-
+    
+    private func setUpLine(view: UIView) {
+        view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor.black.cgColor
+        view.alpha = 0.5
+    }
+    
+    func createLine() -> UIView {
+        let line = UIView()
+        setUpLine(view: line)
+        addLineConstraints(view: line)
+        return line
+    }
     private func setUpBase() {
         backgroundColor = .clear
+        selectionStyle = .none
+        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
+    }
+    
+    private func setUpVStack() {
+        VStack.alignment = .trailing
+        VStack.axis  = .vertical
+        VStack.spacing  = 5
+        VStack.distribution  = .equalSpacing
+        
+        VStack.addArrangedSubview(createHStack(label: totalLabel, fontSize: 22))
+        VStack.addArrangedSubview(createHStack(text: TitlesConstants.TotalCountLabel, label: artCountLabel))
+        VStack.addArrangedSubview(createHStack(text: TitlesConstants.TotalCostLabel, label: artsAmountLabel))
+        VStack.addArrangedSubview(createLine())
+        VStack.addArrangedSubview(createHStack(text: TitlesConstants.TotalShippingLabel, label: shipingAmountLabel))
+        VStack.addArrangedSubview(createLine())
+        VStack.addArrangedSubview(createHStack(text: TitlesConstants.TotalAmountLabel, label: totalAmountLabel))
     }
 }

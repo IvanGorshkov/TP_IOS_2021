@@ -14,16 +14,16 @@ class CartSectionViewModel: BaseCellModel, SectionRowsRepresentable {
     
     var rows: [CellIdentifiable]
     var title: String
-    var open: Bool
+    var isExpandable: Bool
     init(rows: [CellIdentifiable], title: String) {
         self.rows = rows
         self.title = title
-        open = true
+        isExpandable = true
     }
     
     init(rows: [CellIdentifiable]) {
         self.rows = rows
         self.title = "title"
-        open = false
+        isExpandable = false
     }
 }

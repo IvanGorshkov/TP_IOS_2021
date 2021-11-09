@@ -12,24 +12,24 @@ class TotalCartViewModel: BaseCellModel {
         return TotalCellView.cellIdentifier
     }
     
-    let artCountLabel: String
-    let artsAmountLabel: String
-    let shipingAmountLabel: String
-    let totalAmountLabel: String
+    let artCount: String
+    let artsAmount: String
+    let shipingAmount: String
+    let totalAmount: String
     
     init(rentArray: [RentPrice], buyArray: [BuyPrice]) {
-        artCountLabel = "\(rentArray.count + buyArray.count) шт"
+        artCount = "\(rentArray.count + buyArray.count) шт."
         
-        let tot1 = rentArray.reduce(0) { t, o in
+        let totalRentAmount = rentArray.reduce(0) { t, o in
             return t + o.amaunt * o.countRent
         }
         
-        let tot2 = buyArray.reduce(0) { t, o in
+        let totalBuyAmount = buyArray.reduce(0) { t, o in
             return t + o.amaunt
         }
-        artsAmountLabel = "\(tot1 + tot2) ₽"
+        artsAmount = "\(Currency.currency(price: totalRentAmount + totalBuyAmount)) ₽"
         
-        shipingAmountLabel = "0 ₽"
-        totalAmountLabel = "\(tot1 + tot2)  ₽"
+        shipingAmount = "0 ₽"
+        totalAmount = "\(Currency.currency(price: totalRentAmount + totalBuyAmount))  ₽"
     }
 }

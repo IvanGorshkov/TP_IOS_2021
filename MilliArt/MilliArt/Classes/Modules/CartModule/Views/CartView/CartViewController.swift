@@ -110,7 +110,6 @@ extension CartViewController: ExpyTableViewDataSource, ExpyTableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: output.getCellIdentifier(section: indexPath.section, row: indexPath.row)) as? BaseCell else { return UITableViewCell() }
-        print(output.getCellIdentifier(section: indexPath.section, row: indexPath.row))
         cell.model = output.getCell(section: indexPath.section, row: indexPath.row)
         return cell
     }
