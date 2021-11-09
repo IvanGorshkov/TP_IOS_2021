@@ -22,5 +22,5 @@ jobs:
       - run: ls Milliart
       - uses: norio-nomura/action-swiftlint@3.2.1
         with:
-          args: --path Milliart
+          args: --path ./Milliart
             
