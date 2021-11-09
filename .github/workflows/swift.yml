@@ -19,5 +19,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: swiftlint --path Milliart
+      - uses: norio-nomura/action-swiftlint@3.2.1 --path Milliart
             
