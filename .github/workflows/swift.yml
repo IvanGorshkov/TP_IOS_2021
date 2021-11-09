@@ -5,18 +5,10 @@ on:
     branches: [ main ]
     paths:
       - '.github/workflows/swift.yml'
-      - './MilliArt/MilliArt/swiftlint.yml'
-      - './MilliArt/MilliArt/Classes/*.swift'
-    paths-ignore:
-      - '.VIPER.xctemplate/'
   pull_request:
     branches: [ main ]    
     paths:
       - '.github/workflows/swift.yml'
-      - './MilliArt/MilliArt/swiftlint.yml'
-      - './MilliArt/MilliArt/Classes/*.swift'
-    paths-ignore:
-      - '.VIPER.xctemplate/'
 
 jobs:
   SwiftLint:
