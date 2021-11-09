@@ -21,7 +21,7 @@ extension AREditViewController {
          self.imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 300).isActive = true
         self.imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 300).isActive = true
 
-        self.done!.translatesAutoresizingMaskIntoConstraints = false
+        self.done.translatesAutoresizingMaskIntoConstraints = false
         self.done.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20).isActive = true
         self.done.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         self.done.heightAnchor.constraint(equalToConstant: 35).isActive = true
