@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "ExpyTableView",
+        "repositoryURL": "https://github.com/okhanokbay/ExpyTableView",
+        "state": {
+          "branch": null,
+          "revision": "3e7dccb2d9d878ab8441b33f7defc08813da71d6",
+          "version": "1.2.2"
+        }
+      },
+      {
         "package": "ImageSlideshow",
         "repositoryURL": "https://github.com/zvonicek/ImageSlideshow",
         "state": {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */; };
-		703A4A81272C6F37000329F7 /* ItemName+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A80272C6F37000329F7 /* ItemName+Constraints.swift */; };
+		703A4A81272C6F37000329F7 /* SectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A80272C6F37000329F7 /* SectionViewCell+Constraints.swift */; };
 		703A4A84272C6F6A000329F7 /* ItemSlider+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */; };
 		703A4A87272C6F88000329F7 /* AmountDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A86272C6F88000329F7 /* AmountDesc+Constraints.swift */; };
 		703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A89272C6FA5000329F7 /* ButtonsDesc+Constraints.swift */; };
@@ -143,11 +143,30 @@
 		70C419EF27248FC1006214FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70C419ED27248FC1006214FA /* Main.storyboard */; };
 		70C419F127248FC2006214FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C419F027248FC2006214FA /* Assets.xcassets */; };
 		70C419F427248FC2006214FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70C419F227248FC2006214FA /* LaunchScreen.storyboard */; };
+		70F72BDB273953E200A8709B /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BDA273953E200A8709B /* EmptyCartView.swift */; };
+		70F72BDD2739541400A8709B /* EmptyCart+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BDC2739541400A8709B /* EmptyCart+Constraints.swift */; };
+		70F72BE0273954BB00A8709B /* CartView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BDF273954BB00A8709B /* CartView+Constraints.swift */; };
+		70F72BE32739662400A8709B /* ExpyTableView in Frameworks */ = {isa = PBXBuildFile; productRef = 70F72BE22739662400A8709B /* ExpyTableView */; };
+		70F72BE62739718600A8709B /* SectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BE52739718600A8709B /* SectionViewCell.swift */; };
+		70F72BEA2739722200A8709B /* CartSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BE92739722200A8709B /* CartSectionViewModel.swift */; };
+		70F72BEC273973DF00A8709B /* ItemNameCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BEB273973DF00A8709B /* ItemNameCell+Constraints.swift */; };
+		70F72BF12739817000A8709B /* RentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BEF27397D3C00A8709B /* RentCellView.swift */; };
+		70F72BF827398E3A00A8709B /* RentCellView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BF627398E2900A8709B /* RentCellView+Constraints.swift */; };
+		70F72BFA27398EAC00A8709B /* BuyCellView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BF527398E2900A8709B /* BuyCellView+Constraints.swift */; };
+		70F72BFB27398EAC00A8709B /* BuyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BF727398E2900A8709B /* BuyCellView.swift */; };
+		70F72C0027399DB900A8709B /* RentPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BFF27399DB900A8709B /* RentPrice.swift */; };
+		70F72C0227399FCE00A8709B /* BuyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C0127399F7E00A8709B /* BuyViewModel.swift */; };
+		70F72C0327399FCE00A8709B /* RentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BFD27399CA800A8709B /* RentViewModel.swift */; };
+		70F72C052739A06200A8709B /* BuyPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C042739A06200A8709B /* BuyPrice.swift */; };
+		70F72C092739B68E00A8709B /* TotalCellView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C072739B59E00A8709B /* TotalCellView+Constraints.swift */; };
+		70F72C0A2739B68E00A8709B /* TotalCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C082739B59E00A8709B /* TotalCellView.swift */; };
+		70F72C0C2739B7E400A8709B /* TotalCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C0B2739B7E400A8709B /* TotalCartViewModel.swift */; };
+		70F72C0E273A6CFF00A8709B /* BaseCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C0D273A6CFF00A8709B /* BaseCartCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemDescView+Constraints.swift"; sourceTree = "<group>"; };
-		703A4A80272C6F37000329F7 /* ItemName+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemName+Constraints.swift"; sourceTree = "<group>"; };
+		703A4A80272C6F37000329F7 /* SectionViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionViewCell+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemSlider+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A86272C6F88000329F7 /* AmountDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AmountDesc+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A89272C6FA5000329F7 /* ButtonsDesc+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ButtonsDesc+Constraints.swift"; sourceTree = "<group>"; };
@@ -278,6 +297,24 @@
 		70C419F027248FC2006214FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70C419F327248FC2006214FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70C419F527248FC2006214FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70F72BDA273953E200A8709B /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
+		70F72BDC2739541400A8709B /* EmptyCart+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyCart+Constraints.swift"; sourceTree = "<group>"; };
+		70F72BDF273954BB00A8709B /* CartView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartView+Constraints.swift"; sourceTree = "<group>"; };
+		70F72BE52739718600A8709B /* SectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewCell.swift; sourceTree = "<group>"; };
+		70F72BE92739722200A8709B /* CartSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSectionViewModel.swift; sourceTree = "<group>"; };
+		70F72BEB273973DF00A8709B /* ItemNameCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemNameCell+Constraints.swift"; sourceTree = "<group>"; };
+		70F72BEF27397D3C00A8709B /* RentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentCellView.swift; sourceTree = "<group>"; };
+		70F72BF527398E2900A8709B /* BuyCellView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuyCellView+Constraints.swift"; sourceTree = "<group>"; };
+		70F72BF627398E2900A8709B /* RentCellView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RentCellView+Constraints.swift"; sourceTree = "<group>"; };
+		70F72BF727398E2900A8709B /* BuyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCellView.swift; sourceTree = "<group>"; };
+		70F72BFD27399CA800A8709B /* RentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewModel.swift; sourceTree = "<group>"; };
+		70F72BFF27399DB900A8709B /* RentPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentPrice.swift; sourceTree = "<group>"; };
+		70F72C0127399F7E00A8709B /* BuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewModel.swift; sourceTree = "<group>"; };
+		70F72C042739A06200A8709B /* BuyPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPrice.swift; sourceTree = "<group>"; };
+		70F72C072739B59E00A8709B /* TotalCellView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TotalCellView+Constraints.swift"; sourceTree = "<group>"; };
+		70F72C082739B59E00A8709B /* TotalCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCellView.swift; sourceTree = "<group>"; };
+		70F72C0B2739B7E400A8709B /* TotalCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCartViewModel.swift; sourceTree = "<group>"; };
+		70F72C0D273A6CFF00A8709B /* BaseCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCartCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +325,7 @@
 				706E6A5A272C1AA70006BA3B /* ImageSlideshow/Alamofire in Frameworks */,
 				703A4A9A272C973E000329F7 /* NVActivityIndicatorView in Frameworks */,
 				706E6A5E272C1AA70006BA3B /* ImageSlideshow/SDWebImage in Frameworks */,
+				70F72BE32739662400A8709B /* ExpyTableView in Frameworks */,
 				703A4A9C272C973E000329F7 /* NVActivityIndicatorViewExtended in Frameworks */,
 				706E6A5C272C1AA70006BA3B /* ImageSlideshow/Kingfisher in Frameworks */,
 				706E6A58272C1AA70006BA3B /* ImageSlideshow in Frameworks */,
@@ -310,7 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				706E6A3A272B522D0006BA3B /* ItemNameCell.swift */,
-				703A4A80272C6F37000329F7 /* ItemName+Constraints.swift */,
+				70F72BEB273973DF00A8709B /* ItemNameCell+Constraints.swift */,
 			);
 			path = ItemName;
 			sourceTree = "<group>";
@@ -525,10 +563,10 @@
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				709BBBAC273944A800F91E0D /* Utilities */,
-				7099CA8D2735C03B001805AC /* Factory */,
 				70C419E727248FC1006214FA /* AppDelegate.swift */,
 				70C419E927248FC1006214FA /* SceneDelegate.swift */,
+				709BBBAC273944A800F91E0D /* Utilities */,
+				7099CA8D2735C03B001805AC /* Factory */,
 				7099CA6E2734A3F2001805AC /* Custom */,
 				706E6A60272C3B630006BA3B /* Extension */,
 				706E69F2272AD3390006BA3B /* Сonstants */,
@@ -599,12 +637,14 @@
 		706E6A04272AED270006BA3B /* CartModule */ = {
 			isa = PBXGroup;
 			children = (
-				706E6A05272AED5D0006BA3B /* CartPresenter.swift */,
-				706E6A06272AED5D0006BA3B /* CartRouter.swift */,
-				706E6A07272AED5D0006BA3B /* CartViewController.swift */,
+				70F72BFE27399DA400A8709B /* Entity */,
+				70F72BE7273971E100A8709B /* ViewModel */,
+				709BBBAF2739524000F91E0D /* Views */,
 				706E6A08272AED5D0006BA3B /* CartProtocols.swift */,
 				706E6A09272AED5D0006BA3B /* CartInteractor.swift */,
 				706E6A0A272AED5D0006BA3B /* CartContainer.swift */,
+				706E6A05272AED5D0006BA3B /* CartPresenter.swift */,
+				706E6A06272AED5D0006BA3B /* CartRouter.swift */,
 			);
 			path = CartModule;
 			sourceTree = "<group>";
@@ -892,6 +932,24 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		709BBBAF2739524000F91E0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				709BBBB02739524800F91E0D /* EmptyCartView */,
+				70F72BDE273954B200A8709B /* CartView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		709BBBB02739524800F91E0D /* EmptyCartView */ = {
+			isa = PBXGroup;
+			children = (
+				70F72BDA273953E200A8709B /* EmptyCartView.swift */,
+				70F72BDC2739541400A8709B /* EmptyCart+Constraints.swift */,
+			);
+			path = EmptyCartView;
+			sourceTree = "<group>";
+		};
 		70C419DB27248FC0006214FA = {
 			isa = PBXGroup;
 			children = (
@@ -923,6 +981,100 @@
 			path = MilliArt;
 			sourceTree = "<group>";
 		};
+		70F72BDE273954B200A8709B /* CartView */ = {
+			isa = PBXGroup;
+			children = (
+				70F72BED27397D3100A8709B /* RowCell */,
+				70F72BE42739715F00A8709B /* SectionViewCell */,
+				70F72BDF273954BB00A8709B /* CartView+Constraints.swift */,
+				706E6A07272AED5D0006BA3B /* CartViewController.swift */,
+			);
+			path = CartView;
+			sourceTree = "<group>";
+		};
+		70F72BE42739715F00A8709B /* SectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				703A4A80272C6F37000329F7 /* SectionViewCell+Constraints.swift */,
+				70F72BE52739718600A8709B /* SectionViewCell.swift */,
+			);
+			path = SectionViewCell;
+			sourceTree = "<group>";
+		};
+		70F72BE7273971E100A8709B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70F72BFC27399C8F00A8709B /* Rows */,
+				70F72BE8273971E900A8709B /* Section */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		70F72BE8273971E900A8709B /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				70F72BE92739722200A8709B /* CartSectionViewModel.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		70F72BED27397D3100A8709B /* RowCell */ = {
+			isa = PBXGroup;
+			children = (
+				70F72C0D273A6CFF00A8709B /* BaseCartCell.swift */,
+				70F72C062739B59500A8709B /* Total */,
+				70F72BF327398E2900A8709B /* Buy */,
+				70F72BF227398E1900A8709B /* Rent */,
+			);
+			path = RowCell;
+			sourceTree = "<group>";
+		};
+		70F72BF227398E1900A8709B /* Rent */ = {
+			isa = PBXGroup;
+			children = (
+				70F72BF627398E2900A8709B /* RentCellView+Constraints.swift */,
+				70F72BEF27397D3C00A8709B /* RentCellView.swift */,
+			);
+			path = Rent;
+			sourceTree = "<group>";
+		};
+		70F72BF327398E2900A8709B /* Buy */ = {
+			isa = PBXGroup;
+			children = (
+				70F72BF527398E2900A8709B /* BuyCellView+Constraints.swift */,
+				70F72BF727398E2900A8709B /* BuyCellView.swift */,
+			);
+			path = Buy;
+			sourceTree = "<group>";
+		};
+		70F72BFC27399C8F00A8709B /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				70F72C0127399F7E00A8709B /* BuyViewModel.swift */,
+				70F72BFD27399CA800A8709B /* RentViewModel.swift */,
+				70F72C0B2739B7E400A8709B /* TotalCartViewModel.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		70F72BFE27399DA400A8709B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				70F72BFF27399DB900A8709B /* RentPrice.swift */,
+				70F72C042739A06200A8709B /* BuyPrice.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		70F72C062739B59500A8709B /* Total */ = {
+			isa = PBXGroup;
+			children = (
+				70F72C072739B59E00A8709B /* TotalCellView+Constraints.swift */,
+				70F72C082739B59E00A8709B /* TotalCellView.swift */,
+			);
+			path = Total;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -947,6 +1099,7 @@
 				706E6A5D272C1AA70006BA3B /* ImageSlideshow/SDWebImage */,
 				703A4A99272C973E000329F7 /* NVActivityIndicatorView */,
 				703A4A9B272C973E000329F7 /* NVActivityIndicatorViewExtended */,
+				70F72BE22739662400A8709B /* ExpyTableView */,
 			);
 			productName = MilliArt;
 			productReference = 70C419E427248FC1006214FA /* MilliArt.app */;
@@ -979,6 +1132,7 @@
 			packageReferences = (
 				706E6A56272C1AA70006BA3B /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 				703A4A98272C973E000329F7 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				70F72BE12739662400A8709B /* XCRemoteSwiftPackageReference "ExpyTableView" */,
 			);
 			productRefGroup = 70C419E527248FC1006214FA /* Products */;
 			projectDirPath = "";
@@ -1029,6 +1183,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F72C092739B68E00A8709B /* TotalCellView+Constraints.swift in Sources */,
+				70F72C0A2739B68E00A8709B /* TotalCellView.swift in Sources */,
+				70F72C0227399FCE00A8709B /* BuyViewModel.swift in Sources */,
+				70F72C0327399FCE00A8709B /* RentViewModel.swift in Sources */,
+				70F72BFA27398EAC00A8709B /* BuyCellView+Constraints.swift in Sources */,
+				70F72BFB27398EAC00A8709B /* BuyCellView.swift in Sources */,
+				70F72BF12739817000A8709B /* RentCellView.swift in Sources */,
 				706E6A28272B25AF0006BA3B /* ItemDescViewController.swift in Sources */,
 				7099CA67273495B2001805AC /* HCollectionViewCell+Constraints.swift in Sources */,
 				706E69E0272AB5EE0006BA3B /* TabBarInteractor.swift in Sources */,
@@ -1042,6 +1203,7 @@
 				703A4ACE27307C59000329F7 /* FrameViewModel.swift in Sources */,
 				7099CA6D27349F31001805AC /* VCollectionViewCell+Constraints.swift in Sources */,
 				7099CA6A27349AC2001805AC /* VCollectionVTVC+Constraints.swift in Sources */,
+				70F72C052739A06200A8709B /* BuyPrice.swift in Sources */,
 				703A4AAF272DF61A000329F7 /* ARContainer.swift in Sources */,
 				703A4AAE272DF61A000329F7 /* ARInteractor.swift in Sources */,
 				706E6A33272B50540006BA3B /* ItemDescSectionModel.swift in Sources */,
@@ -1057,6 +1219,7 @@
 				706E6A0D272AED5D0006BA3B /* CartViewController.swift in Sources */,
 				706E69EC272AC3130006BA3B /* MainProtocols.swift in Sources */,
 				703A4ABE2730156C000329F7 /* AREditProtocols.swift in Sources */,
+				70F72BE0273954BB00A8709B /* CartView+Constraints.swift in Sources */,
 				706E6A37272B513B0006BA3B /* BaseCell.swift in Sources */,
 				703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */,
 				7099CA4E2733FCF7001805AC /* VCollectionViewModel.swift in Sources */,
@@ -1070,6 +1233,7 @@
 				706E6A45272B5C580006BA3B /* ItemSliderCell.swift in Sources */,
 				706E6A55272BFA9D0006BA3B /* SpecificationsDescCell.swift in Sources */,
 				706E6A2B272B25AF0006BA3B /* ItemDescContainer.swift in Sources */,
+				70F72BEA2739722200A8709B /* CartSectionViewModel.swift in Sources */,
 				703A4ABC2730156C000329F7 /* AREditRouter.swift in Sources */,
 				706E6A0E272AED5D0006BA3B /* CartProtocols.swift in Sources */,
 				703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */,
@@ -1081,6 +1245,7 @@
 				703A4A8D272C7024000329F7 /* AboutDesc+Constraints.swift in Sources */,
 				706E6A26272B25AF0006BA3B /* ItemDescPresenter.swift in Sources */,
 				706E69ED272AC3130006BA3B /* MainInteractor.swift in Sources */,
+				70F72BEC273973DF00A8709B /* ItemNameCell+Constraints.swift in Sources */,
 				7099CA6127348FA9001805AC /* MainView+Constraints.swift in Sources */,
 				7099CA64273492B9001805AC /* HCollectionVTVC+Constraints.swift in Sources */,
 				703A4ABB2730156C000329F7 /* AREditPresenter.swift in Sources */,
@@ -1093,12 +1258,15 @@
 				706E6A00272AEB380006BA3B /* SearchProtocols.swift in Sources */,
 				7099CA8A273598C7001805AC /* AllAuthorsRouter.swift in Sources */,
 				706E6A19272B09370006BA3B /* FilterRouter.swift in Sources */,
+				70F72BDB273953E200A8709B /* EmptyCartView.swift in Sources */,
 				7099CA7A273585CC001805AC /* AllViewController.swift in Sources */,
 				703A4A9F272CA587000329F7 /* RentPickerView.swift in Sources */,
 				70C419E827248FC1006214FA /* AppDelegate.swift in Sources */,
 				7099CA7C273585CC001805AC /* AllCompilationsInteractor.swift in Sources */,
 				703A4A84272C6F6A000329F7 /* ItemSlider+Constraints.swift in Sources */,
 				706E6A2A272B25AF0006BA3B /* ItemDescInteractor.swift in Sources */,
+				70F72BE62739718600A8709B /* SectionViewCell.swift in Sources */,
+				70F72BDD2739541400A8709B /* EmptyCart+Constraints.swift in Sources */,
 				703A4AAB272DF61A000329F7 /* ARRouter.swift in Sources */,
 				703A4AC02730156C000329F7 /* AREditContainer.swift in Sources */,
 				706E69FF272AEB380006BA3B /* SearchViewController.swift in Sources */,
@@ -1109,11 +1277,14 @@
 				709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */,
 				706E6A3D272B53C40006BA3B /* ItemDescNameCellModel.swift in Sources */,
 				703A4AC9273079EF000329F7 /* FrameCollectionCell.swift in Sources */,
+				70F72C0E273A6CFF00A8709B /* BaseCartCell.swift in Sources */,
 				706E6A18272B09370006BA3B /* FilterPresenter.swift in Sources */,
+				70F72C0C2739B7E400A8709B /* TotalCartViewModel.swift in Sources */,
 				703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */,
 				7099CA78273585CC001805AC /* AllPresenter.swift in Sources */,
 				706E6A4D272BEC7E0006BA3B /* ButtonsDescCell.swift in Sources */,
 				7099CA7D273585CC001805AC /* AllContainer.swift in Sources */,
+				70F72C0027399DB900A8709B /* RentPrice.swift in Sources */,
 				703A4AD02730A1A5000329F7 /* UIImageView+Extension.swift in Sources */,
 				703A4AAC272DF61A000329F7 /* ARViewController.swift in Sources */,
 				703A4AAA272DF61A000329F7 /* ARPresenter.swift in Sources */,
@@ -1137,7 +1308,7 @@
 				706E6A49272BE7800006BA3B /* AmountDescCell.swift in Sources */,
 				706E6A1A272B09370006BA3B /* FilterViewController.swift in Sources */,
 				7099CA8C273598FA001805AC /* AllAuthorsInteractor.swift in Sources */,
-				703A4A81272C6F37000329F7 /* ItemName+Constraints.swift in Sources */,
+				703A4A81272C6F37000329F7 /* SectionViewCell+Constraints.swift in Sources */,
 				706E6A4B272BEC030006BA3B /* ButtonsDescModelCell.swift in Sources */,
 				706E69EA272AC3130006BA3B /* MainRouter.swift in Sources */,
 				706E6A3F272B53FF0006BA3B /* BaseCellModel.swift in Sources */,
@@ -1145,6 +1316,7 @@
 				7099CA5A27348846001805AC /* VerticalPaintsModel.swift in Sources */,
 				7099CA8527359583001805AC /* AllCollectionViewCell+Constraints.swift in Sources */,
 				703A4AA1272DB96E000329F7 /* RentPickerView+Constraints.swift in Sources */,
+				70F72BF827398E3A00A8709B /* RentCellView+Constraints.swift in Sources */,
 				706E69FE272AEB380006BA3B /* SearchRouter.swift in Sources */,
 				706E6A29272B25AF0006BA3B /* ItemDescProtocols.swift in Sources */,
 				7099CA802735863D001805AC /* AllView+Constraints.swift in Sources */,
@@ -1399,6 +1571,14 @@
 				version = 1.9.1;
 			};
 		};
+		70F72BE12739662400A8709B /* XCRemoteSwiftPackageReference "ExpyTableView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/okhanokbay/ExpyTableView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1431,6 +1611,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 706E6A56272C1AA70006BA3B /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
 			productName = ImageSlideshow/SDWebImage;
+		};
+		70F72BE22739662400A8709B /* ExpyTableView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70F72BE12739662400A8709B /* XCRemoteSwiftPackageReference "ExpyTableView" */;
+			productName = ExpyTableView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -46,4 +46,21 @@ final class TitlesConstants {
     static let CompilationTitle = "Подборки"
     static let authorsTitle =  "Авторы"
     static let newTitle = "Новое"
+    
+    // MARK: Cart
+    static let cartSubTitle = "Заполните её произведениями искусства"
+    static let cartTitle = "Ваша корзина пуста..."
+    static let VendorCodeTitle = "Артикул: "
+    static let SumTitle = "Сумма"
+    
+    static let RentCost = "Стоимость"
+    static let RentCount = "Срок"
+    static let Continue = "Перейти к оформлению"
+    
+    // MARK: Total
+    static let TotalLabel = "Итого"
+    static let TotalCountLabel = "Количество картин: "
+    static let TotalCostLabel = "Общая стоимость: "
+    static let TotalShippingLabel = "Доставка: "
+    static let TotalAmountLabel = "Итог: "
 }
