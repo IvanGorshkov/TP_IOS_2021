@@ -26,7 +26,7 @@ final class FilterViewController: UIViewController {
 		super.viewDidLoad()
         setUp()
     }
-    
+
     private func setUp() {
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
     }
