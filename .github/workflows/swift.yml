@@ -1,15 +1,5 @@
 name: Swift
 
-on:
-  push:
-    branches: [ main dev ]
-    paths:
-      - '.github/workflows/swift.yml'
-  pull_request:
-    branches: [ main dev ]    
-    paths:
-      - '.github/workflows/swift.yml'
-
 jobs:
   SwiftLint:
     runs-on: ubuntu-latest
