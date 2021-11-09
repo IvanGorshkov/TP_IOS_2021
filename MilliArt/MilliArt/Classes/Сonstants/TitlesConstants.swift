@@ -57,7 +57,7 @@ final class TitlesConstants {
     static let RentCount = "Срок"
     static let Continue = "Перейти к оформлению"
     
-    // MARK: Total
+    // MARK: Total 
     static let TotalLabel = "Итого"
     static let TotalCountLabel = "Количество картин: "
     static let TotalCostLabel = "Общая стоимость: "
