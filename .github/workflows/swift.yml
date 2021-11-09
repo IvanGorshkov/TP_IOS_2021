@@ -2,11 +2,11 @@ name: Swift
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main dev ]
     paths:
       - '.github/workflows/swift.yml'
   pull_request:
-    branches: [ main ]    
+    branches: [ main dev ]    
     paths:
       - '.github/workflows/swift.yml'
 
@@ -17,5 +17,5 @@ jobs:
       - uses: actions/checkout@v1
       - uses: norio-nomura/action-swiftlint@3.2.1
         with:
-          args: --path MilliArt/
+          args: --path MilliArt/ --strict
             
