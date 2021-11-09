@@ -5,12 +5,12 @@ on:
     branches: [ main ]
     paths:
       - './MilliArt/MilliArt/swiftlint.yml'
-      - '**/*.swift'
+      - './MilliArt/MilliArt/*.swift'
   pull_request:
     branches: [ main ]    
     paths:
       - './MilliArt/MilliArt/swiftlint.yml'
-      - '**/*.swift'
+      - './MilliArt/MilliArt/*.swift'
 
 jobs:
   SwiftLint:
