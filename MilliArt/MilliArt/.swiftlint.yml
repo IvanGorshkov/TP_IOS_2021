@@ -18,6 +18,7 @@ excluded:
     - Carthage
     - Pods
     - SwiftLint/Common/3rdPartyLib
+    - VIPER.xctemplate
 
 identifier_name:
   min_length:
