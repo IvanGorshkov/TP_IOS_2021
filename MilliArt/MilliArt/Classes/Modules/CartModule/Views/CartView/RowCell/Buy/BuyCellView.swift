@@ -9,11 +9,11 @@
 import UIKit
 
 class BuyCellView: BaseCartCell {
-    internal var nameLabel = UILabel()
-    internal var autherLabel = UILabel()
-    internal var articalLabel = UILabel()
-    internal var totalLabel = UILabel()
-    internal var totalAmauntLabel = UILabel()
+    private var nameLabel = UILabel()
+    private var autherLabel = UILabel()
+    private var articalLabel = UILabel()
+    private var totalLabel = UILabel()
+    private var totalAmauntLabel = UILabel()
     internal var imagePainting = UIImageView()
     internal var HStackIn = UIStackView()
     internal var trash = UIButton()

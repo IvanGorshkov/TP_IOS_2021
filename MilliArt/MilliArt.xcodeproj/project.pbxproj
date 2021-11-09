@@ -563,10 +563,10 @@
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				709BBBAC273944A800F91E0D /* Utilities */,
-				7099CA8D2735C03B001805AC /* Factory */,
 				70C419E727248FC1006214FA /* AppDelegate.swift */,
 				70C419E927248FC1006214FA /* SceneDelegate.swift */,
+				709BBBAC273944A800F91E0D /* Utilities */,
+				7099CA8D2735C03B001805AC /* Factory */,
 				7099CA6E2734A3F2001805AC /* Custom */,
 				706E6A60272C3B630006BA3B /* Extension */,
 				706E69F2272AD3390006BA3B /* Сonstants */,

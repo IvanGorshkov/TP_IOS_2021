@@ -16,35 +16,25 @@ class RentViewModel: BaseCellModel {
     let name: String
     let auther: String
     let artical: String
-    let cost: String
     var amaunt: String {
         return "\( Currency.currency(price: amauntI)) ₽"
     }
-    let rent: String
     var countRent: String {
         return "\( countRentI )"
     }
-    
-    let total: String
     var totalAmaunt: String {
         return "\( Currency.currency(price: countRentI * amauntI)) ₽"
     }
     
-    let countRentI: Int
-    let amauntI: Int
-    var articalTitle: String {
-        return "Артикул: \(artical)"
-    }
+    private let countRentI: Int
+    private let amauntI: Int
     
     init(model: RentPrice) {
         img = model.img
         name = model.name
         auther = model.auther
         artical = model.artical
-        cost = "Стоимость"
         amauntI = model.amaunt
-        rent = "Срок"
         countRentI = model.countRent
-        total = "Сумма"
     }
 }

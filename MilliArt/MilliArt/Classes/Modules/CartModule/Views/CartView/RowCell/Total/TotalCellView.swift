@@ -10,11 +10,11 @@ import UIKit
 
 final class TotalCellView: BaseCell {
     internal var VStack = UIStackView()
-    internal var totalLabel = UILabel()
-    internal var artCountLabel = UILabel()
-    internal var artsAmountLabel = UILabel()
-    internal var shipingAmountLabel = UILabel()
-    internal var totalAmountLabel = UILabel()
+    private var totalLabel = UILabel()
+    private var artCountLabel = UILabel()
+    private var artsAmountLabel = UILabel()
+    private var shipingAmountLabel = UILabel()
+    private var totalAmountLabel = UILabel()
     
     static let cellIdentifier = "TotalCellView"
 

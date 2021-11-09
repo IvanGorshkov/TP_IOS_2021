@@ -53,6 +53,10 @@ final class TitlesConstants {
     static let VendorCodeTitle = "Артикул: "
     static let SumTitle = "Сумма"
     
+    static let RentCost = "Стоимость"
+    static let RentCount = "Срок"
+    static let Continue = "Перейти к оформлению"
+    
     // MARK: Total
     static let TotalLabel = "Итого"
     static let TotalCountLabel = "Количество картин: "

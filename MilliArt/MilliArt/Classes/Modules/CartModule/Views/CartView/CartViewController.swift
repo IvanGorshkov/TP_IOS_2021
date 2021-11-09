@@ -14,6 +14,7 @@ final class CartViewController: UIViewController {
     internal var emptyCartView =  EmptyCartView()
     internal var tableView =  ExpyTableView()
     private var arr = [CartSectionViewModel]()
+    internal var continueBtn = UIButton()
     
     init(output: CartViewOutput) {
         self.output = output
@@ -29,7 +30,7 @@ final class CartViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [emptyCartView, tableView].forEach { [weak self] view in
+        [emptyCartView, tableView, continueBtn].forEach { [weak self] view in
             self?.view.addSubview(view)
         }
         setUp()
@@ -38,10 +39,22 @@ final class CartViewController: UIViewController {
 
     private func setUp() {
         setUpTableView()
+        setUpButton()
         self.navigationController?.navigationBar.topItem?.title = TitlesConstants.CartNavTitle
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
     }
     
+    private func setUpButton() {
+        continueBtn.backgroundColor = ColorConstants.MainPurpleColor
+        continueBtn.setTitle(TitlesConstants.Continue, for: .normal)
+        continueBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.thin)
+        continueBtn.addTarget(self, action: #selector(continueAction), for: .touchUpInside)
+    }
+    
+    @objc
+    private func continueAction() {
+    }
+
     private func setUpTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -54,9 +67,14 @@ final class CartViewController: UIViewController {
         self.tableView.tableFooterView?.frame.size.height = 100
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        addViewConstraints()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        addViewConstraints()
+        continueBtn.layer.cornerRadius = continueBtn.frame.height / 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,9 +82,11 @@ final class CartViewController: UIViewController {
         if output.isBasketEmpty() {
             self.emptyCartView.isHidden = false
             self.tableView.isHidden = true
+            self.continueBtn.isHidden = true
         } else {
             self.emptyCartView.isHidden = true
             self.tableView.isHidden = false
+            self.continueBtn.isHidden = false
         }
     }
 }
