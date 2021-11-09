@@ -11,6 +11,9 @@ opt_in_rules:
     - vertical_whitespace_closing_braces
     - vertical_parameter_alignment_on_call
 
+included:
+  - MilliArt
+  
 excluded:
     - Carthage
     - Pods
