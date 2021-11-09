@@ -22,4 +22,4 @@ jobs:
       - name: GitHub Action for SwiftLint
         uses: norio-nomura/action-swiftlint@3.2.1
         env:
-            working-directory: MilliArt/MilliArt
+            working-directory: ./MilliArt/MilliArt
