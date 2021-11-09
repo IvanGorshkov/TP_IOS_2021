@@ -17,8 +17,9 @@ on:
 jobs:
   SwiftLint:
     runs-on: ubuntu-latest
-    working-directory: MilliArt/MilliArt
     steps:
       - uses: actions/checkout@v1
       - name: GitHub Action for SwiftLint
         uses: norio-nomura/action-swiftlint@3.2.1
+        env:
+            working-directory: MilliArt/MilliArt
