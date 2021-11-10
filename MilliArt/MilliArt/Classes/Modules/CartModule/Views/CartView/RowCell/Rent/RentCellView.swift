@@ -86,5 +86,12 @@ final class RentCellView: BaseCartCell {
         setUpImage(imageview: imagePainting)
         setUpStack()
         trash.setImage(UIImage(named: "trash"), for: .normal)
+        trash.addTarget(self, action: #selector(actionDelete), for: .touchUpInside)
+    }
+    
+    @objc
+    private func actionDelete() {
+        guard let model = model as? RentViewModel else { return }
+        model.delete?(model.id)
     }
 }

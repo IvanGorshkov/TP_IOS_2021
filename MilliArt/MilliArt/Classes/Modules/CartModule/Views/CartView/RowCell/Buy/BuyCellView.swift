@@ -53,12 +53,18 @@ class BuyCellView: BaseCartCell {
         setUpLabel(label: totalAmauntLabel, numberOfLines: 0)
         setUpImage(imageview: imagePainting)
         trash.setImage(UIImage(named: "trash"), for: .normal)
+        trash.addTarget(self, action: #selector(actionDelete), for: .touchUpInside)
         setUpStack()
+    }
+    @objc
+    private func actionDelete() {
+        guard let model = model as? BuyViewModel else { return }
+        model.delete?(model.id)
     }
     
     private func setUpStack() {
         HStackIn.axis  = .horizontal
-        HStackIn.distribution  = .equalSpacing
+        HStackIn.distribution  = .fillProportionally
         HStackIn.alignment = .center
         HStackIn.addArrangedSubview(
             createStack(axis: .horizontal,

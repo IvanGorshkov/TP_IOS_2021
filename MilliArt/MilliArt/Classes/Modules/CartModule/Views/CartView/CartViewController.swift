@@ -34,7 +34,6 @@ final class CartViewController: UIViewController {
             self?.view.addSubview(view)
         }
         setUp()
-        output.viewDidLoad()
     }
 
     private func setUp() {
@@ -79,6 +78,7 @@ final class CartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        output.viewDidLoad()
         if output.isBasketEmpty() {
             self.emptyCartView.isHidden = false
             self.tableView.isHidden = true

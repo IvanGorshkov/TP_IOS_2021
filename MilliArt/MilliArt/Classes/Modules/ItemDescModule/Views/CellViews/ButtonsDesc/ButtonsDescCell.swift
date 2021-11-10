@@ -22,6 +22,15 @@ final class ButtonsDescCell: BaseCell {
         rentButton.setTitle(TitlesConstants.RentTitle, for: .normal)
         buyButton.setTitle(TitlesConstants.InCartTitle, for: .selected)
         rentButton.setTitle(TitlesConstants.InCartTitle, for: .selected)
+        
+        guard let model = model as? ButtonsDescModelCell else { return }
+        if model.selected {
+            if model.isRent {
+                rentButton.isSelected = true
+            } else {
+                buyButton.isSelected = true
+            }
+        }
     }
 
     @objc

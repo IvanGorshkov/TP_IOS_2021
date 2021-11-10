@@ -11,24 +11,39 @@ import Foundation
 final class ItemDescInteractor {
 	weak var output: ItemDescInteractorOutput?
     private var isSelected: Bool = false
-    
     private var serviceManagerDescModel: ServiceManagerDescModelInput?
+    private var serviceAddCart: ServiceAddCartInput?
     private var itemDescModel: ItemDescModel?
     init() {
+        serviceAddCart = ServiceAddCart.shared
         self.serviceManagerDescModel = ServiceManagerDescModel(interactor: self)
     }
 }
 
 extension ItemDescInteractor: ItemDescInteractorInput {
+    func inCart() -> (isSelected: Bool, isRent: Bool) {
+        guard let itemDescModel = itemDescModel,
+                  let serviceAddCart = serviceAddCart else { return (false, false) }
+        let res = serviceAddCart.isContain(with: itemDescModel.id)
+        isSelected = res.isSelected
+        return res
+    }
+    
     func addToCart(selected: Bool, isRent: Bool, countMonth: Int?) {
         var count = UserDefaults.standard.integer(forKey: "cart_count")
-        
-        print(selected, isSelected)
-        if !isSelected && selected {
-            count += 1
-        }
+        guard let itemDescModel = itemDescModel else { return }
         if isSelected && !selected {
             count -= 1
+            serviceAddCart?.delete(with: itemDescModel.id)
+        }
+        if isSelected && selected {
+            serviceAddCart?.delete(with: itemDescModel.id)
+            serviceAddCart?.insert(with: itemDescModel, isRent: isRent)
+        }
+        
+        if !isSelected && selected {
+            count += 1
+            serviceAddCart?.insert(with: itemDescModel, isRent: isRent)
         }
         
         isSelected = selected

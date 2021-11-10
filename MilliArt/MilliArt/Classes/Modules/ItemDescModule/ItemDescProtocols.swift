@@ -49,6 +49,7 @@ protocol ItemDescInteractorInput: AnyObject {
     func changeMonthCount(value: Int)
     func loadFirstPhoto()
     func addToCart(selected: Bool, isRent: Bool, countMonth: Int?)
+    func inCart() -> (isSelected: Bool, isRent: Bool)
 }
 
 protocol ItemDescInteractorOutput: AnyObject {
@@ -81,4 +82,11 @@ protocol ServiceManagerDescModelInput: AnyObject {
 
 protocol ServiceManagerDescModelOutput: AnyObject {
     func itemDidLoad(itemDesc: ItemDescModel)
+}
+
+protocol ServiceAddCartInput: AnyObject {
+    func isContain(with id: Int) -> (isSelected: Bool, isRent: Bool)
+    func delete(with id: Int)
+    func insert(with model: ItemDescModel, isRent: Bool)
+    func fetchAll() -> [Cart]
 }

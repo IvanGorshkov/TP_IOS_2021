@@ -19,6 +19,11 @@ protocol CartViewInput: AnyObject {
     func loadData()
 }
 
+protocol CartViewCellOutput: AnyObject {
+    func deleteRent(with id: Int)
+    func deleteBuy(with id: Int)
+}
+
 protocol CartViewOutput: AnyObject {
     func viewDidLoad()
     func isBasketEmpty() -> Bool
@@ -33,6 +38,9 @@ protocol CartViewOutput: AnyObject {
 
 protocol CartInteractorInput: AnyObject {
     func getCartItems()
+    
+    func deleteRent(with id: Int)
+    func deleteBuy(with id: Int)
 }
 
 protocol CartInteractorOutput: AnyObject {

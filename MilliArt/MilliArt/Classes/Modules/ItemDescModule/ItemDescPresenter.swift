@@ -98,7 +98,7 @@ extension ItemDescPresenter: ItemDescInteractorOutput {
     }
 
     func itemDidLoad(itemDesc: ItemDescModel) {
-        self.itemDescSectionModel = ItemDescSectionModel(itemDesc)
+        self.itemDescSectionModel = ItemDescSectionModel(itemDesc, inCart: interactor.inCart())
         view?.updateForSections()
     }
 }

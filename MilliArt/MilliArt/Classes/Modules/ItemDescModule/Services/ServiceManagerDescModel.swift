@@ -14,7 +14,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
     }
     
     var array  = [ItemDescModel(
-        name: "На гребне волны", pictures: ["korzev", "pic1", "pic1"],
+        id: 1, name: "На гребне волны", pictures: ["korzev", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -30,7 +30,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["pic1", "pic1", "pic1"],
+        id: 2, name: "На гребне волны", pictures: ["pic1", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -46,7 +46,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["pic2", "pic1", "pic1"],
+        id: 3, name: "На гребне волны", pictures: ["pic2", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -62,7 +62,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["pic3", "pic1", "pic1"],
+        id: 4, name: "На гребне волны", pictures: ["pic3", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -78,7 +78,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["sidorov", "pic1", "pic1"],
+        id: 5, name: "На гребне волны", pictures: ["sidorov", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -94,7 +94,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["Pushkin", "pic1", "pic1"],
+        id: 6, name: "На гребне волны", pictures: ["Pushkin", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -110,7 +110,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["Pushkin", "pic1", "pic1"],
+        id: 7, name: "На гребне волны", pictures: ["Pushkin", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -126,7 +126,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["sidorov", "pic1", "pic1"],
+        id: 8, name: "На гребне волны", pictures: ["sidorov", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -142,7 +142,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["pic3", "pic1", "pic1"],
+        id: 9, name: "На гребне волны", pictures: ["pic3", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -158,7 +158,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["pic2", "pic1", "pic1"],
+        id: 10, name: "На гребне волны", pictures: ["pic2", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -174,7 +174,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["pic1", "pic1", "pic1"],
+        id: 11, name: "На гребне волны", pictures: ["pic1", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
@@ -190,7 +190,7 @@ final class ServiceManagerDescModel: ServiceManagerDescModelInput {
             Specifications(title: "Формат", specification: "Вертикальный")
         ], countRent: 1
     ), ItemDescModel(
-        name: "На гребне волны", pictures: ["korzev", "pic1", "pic1"],
+        id: 12, name: "На гребне волны", pictures: ["korzev", "pic1", "pic1"],
         amount: 34000, rent: 1200, description:
             """
         На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
