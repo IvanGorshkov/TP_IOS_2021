@@ -19,8 +19,8 @@ protocol ItemDescModuleOutput: AnyObject {
 
 protocol ItemDescCellViewOutput: AnyObject {
     func openFullScreen(silder: UIView)
-    func clickBuy()
-    func clickRent()
+    func clickBuy(selected: Bool)
+    func clickRent(selected: Bool)
     func clickFav()
     func clickAR()
     func openPicker()
@@ -41,12 +41,14 @@ protocol ItemDescViewOutput: AnyObject {
     func getCountCells() -> Int
     var  sectionDelegate: ItemDescCellViewOutput? { get set }
     func openFullScreen(slider: UIView?)
+    func addToCart(selected: Bool, isRent: Bool)
 }
 
 protocol ItemDescInteractorInput: AnyObject {
     func loadItemById(with id: Int)
     func changeMonthCount(value: Int)
     func loadFirstPhoto()
+    func addToCart(selected: Bool, isRent: Bool, countMonth: Int?)
 }
 
 protocol ItemDescInteractorOutput: AnyObject {

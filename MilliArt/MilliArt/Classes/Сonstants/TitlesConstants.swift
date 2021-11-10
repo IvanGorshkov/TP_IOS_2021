@@ -29,6 +29,7 @@ final class TitlesConstants {
     // MARK: ItemDescCelll
     static let BuyTitle = "Купить"
     static let RentTitle = "Арендовать"
+    static let InCartTitle = "В корзине"
 
     // MARK: AboutDescCelll
     static let AboutTitle = "Описание"

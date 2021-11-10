@@ -22,8 +22,8 @@ final class ItemDescSectionModel: SectionRowsRepresentable {
         rows.append(ButtonsDescModelCell(
             itemDesc,
             actionAR: { [weak self] in self?.delegate?.clickAR() },
-            actionBuy: { [weak self] in self?.delegate?.clickBuy() },
-            actionRent: { [weak self] in self?.delegate?.clickRent() },
+            actionBuy: { [weak self] selected in self?.delegate?.clickBuy(selected: selected) },
+            actionRent: { [weak self] selected in self?.delegate?.clickRent(selected: selected) },
             actionFav: { [weak self] in  self?.delegate?.clickFav() }
             )
         )
