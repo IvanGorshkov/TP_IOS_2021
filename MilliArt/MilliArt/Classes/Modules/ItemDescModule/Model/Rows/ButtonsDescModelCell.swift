@@ -19,12 +19,15 @@ final class ButtonsDescModelCell: BaseCellModel {
     var actionBuy: ActionSelectedHandler?
     var actionRent: ActionSelectedHandler?
     var actionFav: ActionHandler?
-
-    init(_ model: ItemDescModel, actionAR: ActionHandler?, actionBuy: ActionSelectedHandler?, actionRent: ActionSelectedHandler?, actionFav: ActionHandler?) {
-        super.init()
+    var selected: Bool
+    var isRent: Bool
+    
+    init(_ model: ItemDescModel, actionAR: ActionHandler?, actionBuy: ActionSelectedHandler?, actionRent: ActionSelectedHandler?, actionFav: ActionHandler?, inCart: (isSelected: Bool, isRent: Bool)) {
         self.actionAR = actionAR
         self.actionRent = actionRent
         self.actionFav = actionFav
         self.actionBuy = actionBuy
+        self.selected = inCart.isSelected
+        self.isRent = inCart.isRent
     }
 }

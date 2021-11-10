@@ -38,7 +38,7 @@ extension CartPresenter: CartViewOutput {
     }
     
     func getCell(section: Int, row: Int) -> CellIdentifiable? {
-        if section != 2 {
+        if arr[section].isExpandable == true {
             return arr[section].rows[row - 1]
         }
         return arr[section].rows[row]
@@ -49,7 +49,7 @@ extension CartPresenter: CartViewOutput {
     }
     
     func getCellIdentifier(section: Int, row: Int) -> String {
-        if section != 2 {
+        if arr[section].isExpandable == true {
             return arr[section].rows[row - 1].cellIdentifier
         }
         return arr[section].rows[row].cellIdentifier
@@ -63,7 +63,7 @@ extension CartPresenter: CartViewOutput {
         if arr.isEmpty {
             return 0
         }
-        if section != 2 {
+        if arr[section].isExpandable == true {
             return arr[section].rows.count + 1
         }
         return arr[section].rows.count
@@ -80,19 +80,27 @@ extension CartPresenter: CartViewOutput {
 
 extension CartPresenter: CartInteractorOutput {
     func getCartItems(rentArray: [RentPrice], buyArray: [BuyPrice]) {
+        print(rentArray, buyArray)
+        
+        var arr = [CartSectionViewModel]()
         if !rentArray.isEmpty {
             arr.append(CartSectionViewModel(rows: rentArray.map({ rent in
-                return RentViewModel(model: rent)
+                return RentViewModel(model: rent) { id in
+                    self.interactor.deleteRent(with: id)
+                }
             }), title: "Аренда"))
         }
         if !buyArray.isEmpty {
             arr.append(CartSectionViewModel(rows: buyArray.map({ buy in
-                return BuyViewModel(model: buy)
+                return BuyViewModel(model: buy) { id in
+                    self.interactor.deleteBuy(with: id)
+                }
             }), title: "Покупка"))
         }
         if !buyArray.isEmpty || !rentArray.isEmpty {
-        arr.append(CartSectionViewModel(rows: [TotalCartViewModel(rentArray: rentArray, buyArray: buyArray)]))
+            arr.append(CartSectionViewModel(rows: [TotalCartViewModel(rentArray: rentArray, buyArray: buyArray)]))
         }
+        self.arr = arr
         view?.loadData()
     }
 }

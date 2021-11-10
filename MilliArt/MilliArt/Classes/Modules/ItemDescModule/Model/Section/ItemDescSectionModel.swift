@@ -12,7 +12,7 @@ final class ItemDescSectionModel: SectionRowsRepresentable {
 
     weak var delegate: ItemDescCellViewOutput?
 
-    init(_ itemDesc: ItemDescModel) {
+    init(_ itemDesc: ItemDescModel, inCart: (isSelected: Bool, isRent: Bool)) {
         rows = [CellIdentifiable]()
         rows.append(ItemDescNameCellModel(itemDesc))
         rows.append(SliderCellModel(itemDesc, action: { [weak self] imageSlideshow in
@@ -24,7 +24,7 @@ final class ItemDescSectionModel: SectionRowsRepresentable {
             actionAR: { [weak self] in self?.delegate?.clickAR() },
             actionBuy: { [weak self] selected in self?.delegate?.clickBuy(selected: selected) },
             actionRent: { [weak self] selected in self?.delegate?.clickRent(selected: selected) },
-            actionFav: { [weak self] in  self?.delegate?.clickFav() }
+            actionFav: { [weak self] in  self?.delegate?.clickFav() }, inCart: inCart
             )
         )
         rows.append(AboutDescCellModel(itemDesc))

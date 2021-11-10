@@ -39,6 +39,8 @@ final class MainInteractor {
 
 extension MainInteractor: MainInteractorInput {
     func loadData() {
+        NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
+        
         output?.receiveData(newPaints: arr3, compilations: arr1, authors: arr2)
     }
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70096BD0273C56E300810EC0 /* MilliArtModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70096BCE273C56E300810EC0 /* MilliArtModel.xcdatamodeld */; };
+		70096BD7273C58D900810EC0 /* DataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096BD6273C58D900810EC0 /* DataManger.swift */; };
+		70096BDF273C5DD700810EC0 /* Cart+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096BDD273C5DD700810EC0 /* Cart+CoreDataClass.swift */; };
+		70096BE0273C5DD700810EC0 /* Cart+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096BDE273C5DD700810EC0 /* Cart+CoreDataProperties.swift */; };
+		70096BE2273C670E00810EC0 /* ServiceAddCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096BE1273C670E00810EC0 /* ServiceAddCart.swift */; };
 		703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */; };
 		703A4A81272C6F37000329F7 /* SectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A80272C6F37000329F7 /* SectionViewCell+Constraints.swift */; };
 		703A4A84272C6F6A000329F7 /* ItemSlider+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */; };
@@ -165,6 +170,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70096BCF273C56E300810EC0 /* MilliArtModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MilliArtModel.xcdatamodel; sourceTree = "<group>"; };
+		70096BD6273C58D900810EC0 /* DataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManger.swift; sourceTree = "<group>"; };
+		70096BDD273C5DD700810EC0 /* Cart+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cart+CoreDataClass.swift"; sourceTree = "<group>"; };
+		70096BDE273C5DD700810EC0 /* Cart+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cart+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		70096BE1273C670E00810EC0 /* ServiceAddCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAddCart.swift; sourceTree = "<group>"; };
 		703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemDescView+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A80272C6F37000329F7 /* SectionViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionViewCell+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemSlider+Constraints.swift"; sourceTree = "<group>"; };
@@ -335,6 +345,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70096BCD273C566800810EC0 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				70096BD8273C5D7F00810EC0 /* Entitis */,
+				70096BD5273C58B400810EC0 /* Manager */,
+				70096BCE273C56E300810EC0 /* MilliArtModel.xcdatamodeld */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		70096BD5273C58B400810EC0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				70096BD6273C58D900810EC0 /* DataManger.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		70096BD8273C5D7F00810EC0 /* Entitis */ = {
+			isa = PBXGroup;
+			children = (
+				70096BDD273C5DD700810EC0 /* Cart+CoreDataClass.swift */,
+				70096BDE273C5DD700810EC0 /* Cart+CoreDataProperties.swift */,
+			);
+			path = Entitis;
+			sourceTree = "<group>";
+		};
 		703A4A7C272C6C99000329F7 /* ItemDescView */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				703A4A92272C8947000329F7 /* ServiceManagerDescModel.swift */,
+				70096BE1273C670E00810EC0 /* ServiceAddCart.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -563,6 +601,7 @@
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				70096BCD273C566800810EC0 /* DataBase */,
 				70C419E727248FC1006214FA /* AppDelegate.swift */,
 				70C419E927248FC1006214FA /* SceneDelegate.swift */,
 				709BBBAC273944A800F91E0D /* Utilities */,
@@ -1206,6 +1245,7 @@
 				70F72C052739A06200A8709B /* BuyPrice.swift in Sources */,
 				703A4AAF272DF61A000329F7 /* ARContainer.swift in Sources */,
 				703A4AAE272DF61A000329F7 /* ARInteractor.swift in Sources */,
+				70096BE0273C5DD700810EC0 /* Cart+CoreDataProperties.swift in Sources */,
 				706E6A33272B50540006BA3B /* ItemDescSectionModel.swift in Sources */,
 				706E6A2D272B2F260006BA3B /* TitlesConstants.swift in Sources */,
 				703A4AB1272DFE8C000329F7 /* PaintingARModel.swift in Sources */,
@@ -1249,6 +1289,7 @@
 				7099CA6127348FA9001805AC /* MainView+Constraints.swift in Sources */,
 				7099CA64273492B9001805AC /* HCollectionVTVC+Constraints.swift in Sources */,
 				703A4ABB2730156C000329F7 /* AREditPresenter.swift in Sources */,
+				70096BD7273C58D900810EC0 /* DataManger.swift in Sources */,
 				706E6A0C272AED5D0006BA3B /* CartRouter.swift in Sources */,
 				709BBBAE273944D600F91E0D /* Currency.swift in Sources */,
 				706E6A62272C3B8F0006BA3B /* UIButton+Extension.swift in Sources */,
@@ -1280,6 +1321,7 @@
 				70F72C0E273A6CFF00A8709B /* BaseCartCell.swift in Sources */,
 				706E6A18272B09370006BA3B /* FilterPresenter.swift in Sources */,
 				70F72C0C2739B7E400A8709B /* TotalCartViewModel.swift in Sources */,
+				70096BD0273C56E300810EC0 /* MilliArtModel.xcdatamodeld in Sources */,
 				703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */,
 				7099CA78273585CC001805AC /* AllPresenter.swift in Sources */,
 				706E6A4D272BEC7E0006BA3B /* ButtonsDescCell.swift in Sources */,
@@ -1307,11 +1349,13 @@
 				703A4A90272C7049000329F7 /* SpecificationsDesc+Constraints.swift in Sources */,
 				706E6A49272BE7800006BA3B /* AmountDescCell.swift in Sources */,
 				706E6A1A272B09370006BA3B /* FilterViewController.swift in Sources */,
+				70096BE2273C670E00810EC0 /* ServiceAddCart.swift in Sources */,
 				7099CA8C273598FA001805AC /* AllAuthorsInteractor.swift in Sources */,
 				703A4A81272C6F37000329F7 /* SectionViewCell+Constraints.swift in Sources */,
 				706E6A4B272BEC030006BA3B /* ButtonsDescModelCell.swift in Sources */,
 				706E69EA272AC3130006BA3B /* MainRouter.swift in Sources */,
 				706E6A3F272B53FF0006BA3B /* BaseCellModel.swift in Sources */,
+				70096BDF273C5DD700810EC0 /* Cart+CoreDataClass.swift in Sources */,
 				706E6A02272AEB380006BA3B /* SearchContainer.swift in Sources */,
 				7099CA5A27348846001805AC /* VerticalPaintsModel.swift in Sources */,
 				7099CA8527359583001805AC /* AllCollectionViewCell+Constraints.swift in Sources */,
@@ -1618,6 +1662,19 @@
 			productName = ExpyTableView;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		70096BCE273C56E300810EC0 /* MilliArtModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				70096BCF273C56E300810EC0 /* MilliArtModel.xcdatamodel */,
+			);
+			currentVersion = 70096BCF273C56E300810EC0 /* MilliArtModel.xcdatamodel */;
+			path = MilliArtModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 70C419DC27248FC0006214FA /* Project object */;
 }
