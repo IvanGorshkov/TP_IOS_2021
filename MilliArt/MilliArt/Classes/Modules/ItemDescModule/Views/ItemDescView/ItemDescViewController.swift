@@ -151,12 +151,14 @@ extension ItemDescViewController: ItemDescCellViewOutput {
         }
     }
 
-    func clickBuy() {
+    func clickBuy(selected: Bool) {
         print("clickBuy")
+        output.addToCart(selected: selected, isRent: false)
     }
 
-    func clickRent() {
+    func clickRent(selected: Bool) {
         print("clickRent")
+        output.addToCart(selected: selected, isRent: true)
     }
 
     func clickFav() {

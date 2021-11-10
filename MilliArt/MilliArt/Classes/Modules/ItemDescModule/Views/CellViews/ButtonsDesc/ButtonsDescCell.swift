@@ -20,6 +20,8 @@ final class ButtonsDescCell: BaseCell {
         favButton.setImage(UIImage(named: "fav"), for: .normal)
         buyButton.setTitle(TitlesConstants.BuyTitle, for: .normal)
         rentButton.setTitle(TitlesConstants.RentTitle, for: .normal)
+        buyButton.setTitle(TitlesConstants.InCartTitle, for: .selected)
+        rentButton.setTitle(TitlesConstants.InCartTitle, for: .selected)
     }
 
     @objc
@@ -37,13 +39,21 @@ final class ButtonsDescCell: BaseCell {
     @objc
     private func clickBuy() {
         guard let model = model as? ButtonsDescModelCell else { return }
-        model.actionBuy?()
+        
+        buyButton.isSelected = !buyButton.isSelected
+        rentButton.isSelected = false
+        
+        model.actionBuy?(buyButton.isSelected)
     }
 
     @objc
     private func clickRent() {
         guard let model = model as? ButtonsDescModelCell else { return }
-        model.actionRent?()
+        
+        rentButton.isSelected = !rentButton.isSelected
+        buyButton.isSelected = false
+        
+        model.actionRent?(rentButton.isSelected)
     }
 
     private func setUpButton(btn: UIButton) {
@@ -53,7 +63,9 @@ final class ButtonsDescCell: BaseCell {
         btn.clipsToBounds = true
         btn.setTitleColor(ColorConstants.BlackColor, for: .normal)
         btn.setTitleColor( .white, for: .highlighted)
+        btn.setTitleColor( .white, for: .selected)
         btn.setBackgroundColor(color: ColorConstants.MainPurpleColor, forState: .highlighted)
+        btn.setBackgroundColor(color: ColorConstants.MainPurpleColor, forState: .selected)
         btn.setBackgroundColor(color: .clear, forState: .normal)
     }
 

@@ -34,6 +34,10 @@ extension ItemDescPresenter: ItemDescModuleInput {
 }
 
 extension ItemDescPresenter: ItemDescViewOutput {
+    func addToCart(selected: Bool, isRent: Bool) {
+        interactor.addToCart(selected: selected, isRent: isRent, countMonth: isRent ? id : nil)
+    }
+
     func openFullScreen(slider: UIView?) {
         router.openFullScreen(from: view, silder: slider)
     }
