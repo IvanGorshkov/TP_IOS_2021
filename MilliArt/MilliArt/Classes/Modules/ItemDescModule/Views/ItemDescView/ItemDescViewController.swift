@@ -51,6 +51,7 @@ final class ItemDescViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpBase()
+        output.checkCart()
     }
 
     private func setUpPickerView() {
@@ -111,6 +112,11 @@ final class ItemDescViewController: UIViewController {
 extension ItemDescViewController: ItemDescViewInput {
     func updateRentPrice() {
         let indexPosition = IndexPath(row: 2, section: 0)
+        tableView.reloadRows(at: [indexPosition], with: .none)
+    }
+    
+    func updateButtons() {
+        let indexPosition = IndexPath(row: 3, section: 0)
         tableView.reloadRows(at: [indexPosition], with: .none)
     }
 

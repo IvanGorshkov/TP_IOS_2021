@@ -33,7 +33,6 @@ extension ItemDescInteractor: ItemDescInteractorInput {
         var count = UserDefaults.standard.integer(forKey: "cart_count")
         guard let itemDescModel = itemDescModel else { return }
         if isSelected && !selected {
-            count -= 1
             serviceAddCart?.delete(with: itemDescModel.id)
         }
         if isSelected && selected {
@@ -42,11 +41,11 @@ extension ItemDescInteractor: ItemDescInteractorInput {
         }
         
         if !isSelected && selected {
-            count += 1
             serviceAddCart?.insert(with: itemDescModel, isRent: isRent)
         }
         
         isSelected = selected
+        count = serviceAddCart?.fetchAll().count ?? 0
         UserDefaults.standard.set(count, forKey: "cart_count")
         NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
     }
