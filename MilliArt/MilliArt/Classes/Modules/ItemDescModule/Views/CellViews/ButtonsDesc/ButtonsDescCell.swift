@@ -30,6 +30,9 @@ final class ButtonsDescCell: BaseCell {
             } else {
                 buyButton.isSelected = true
             }
+        } else {
+            rentButton.isSelected = false
+            buyButton.isSelected = false
         }
     }
 

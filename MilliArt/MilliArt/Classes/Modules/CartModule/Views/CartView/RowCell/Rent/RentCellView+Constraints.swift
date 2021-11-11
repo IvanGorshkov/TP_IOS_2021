@@ -23,5 +23,14 @@ extension RentCellView {
         trash.translatesAutoresizingMaskIntoConstraints = false
         trash.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         trash.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
+        
+        articalLabel.translatesAutoresizingMaskIntoConstraints = false
+        articalLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
+        
+        autherLabel.translatesAutoresizingMaskIntoConstraints = false
+        autherLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
     }
 }

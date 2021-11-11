@@ -29,10 +29,12 @@ protocol ItemDescCellViewOutput: AnyObject {
 protocol ItemDescViewInput: AnyObject {
     func updateForSections()
     func updateRentPrice()
+    func updateButtons()
 }
 
 protocol ItemDescViewOutput: AnyObject {
     func viewDidLoad()
+    func checkCart()
     func changeMonthCount(value: Int)
     func goToAR()
     func getCellHeight(at index: Int) -> Float
