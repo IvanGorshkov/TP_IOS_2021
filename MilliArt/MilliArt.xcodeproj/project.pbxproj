@@ -480,7 +480,7 @@
 		70096BFB273D5F9C00810EC0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				70096C07273DDACD00810EC0 /*  RadioButton */,
+				70096C07273DDACD00810EC0 /* RadioButton */,
 				70096C11273E795100810EC0 /* TextView */,
 				70096BFC273D5FAF00810EC0 /* TextField */,
 			);
@@ -496,13 +496,13 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
-		70096C07273DDACD00810EC0 /*  RadioButton */ = {
+		70096C07273DDACD00810EC0 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
 				70096C08273DDAD600810EC0 /* RadioButtonCell.swift */,
 				70096C09273DDAD700810EC0 /* RadioButtonCell+Constraints.swift */,
 			);
-			path = " RadioButton";
+			path = RadioButton;
 			sourceTree = "<group>";
 		};
 		70096C11273E795100810EC0 /* TextView */ = {
