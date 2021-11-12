@@ -28,7 +28,6 @@ final class RentCellView: BaseCartCell {
         guard let model = model as? RentViewModel else {
             return
         }
-        
         nameLabel.text = model.name
         autherLabel.text = model.auther
         articalLabel.text = "\(TitlesConstants.VendorCodeTitle) \(model.artical)"
@@ -39,6 +38,10 @@ final class RentCellView: BaseCartCell {
         totalLabel.text = TitlesConstants.SumTitle
         totalAmauntLabel.text = model.totalAmaunt
         imagePainting.image = UIImage(named: model.img)
+        
+        if model.delete == nil {
+            trash.isHidden = true
+        }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

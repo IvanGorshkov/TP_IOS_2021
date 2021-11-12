@@ -15,21 +15,27 @@ final class CartInteractor {
 }
 
 extension CartInteractor: CartInteractorInput {
+    func getArrays() -> (rentArray: [RentPrice], buyArray: [BuyPrice]) {
+        return (arr1, arr2)
+    }
+    
     func deleteRent(with id: Int) {
         ServiceAddCart.shared.delete(with: id)
         var count = UserDefaults.standard.integer(forKey: "cart_count")
-        count -= 1
+        count = ServiceAddCart.shared.fetchAll().count
         UserDefaults.standard.set(count, forKey: "cart_count")
         NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("delete_cart"), object: nil)
         getCartItems()
     }
     
     func deleteBuy(with id: Int) {
         ServiceAddCart.shared.delete(with: id)
         var count = UserDefaults.standard.integer(forKey: "cart_count")
-        count -= 1
+        count = ServiceAddCart.shared.fetchAll().count
         UserDefaults.standard.set(count, forKey: "cart_count")
         NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("delete_cart"), object: nil)
         getCartItems()
     }
     
