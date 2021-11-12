@@ -18,8 +18,17 @@ final class ItemDescViewController: UIViewController {
 
     init(output: ItemDescViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
+        setUpNotification()
+    }
+    
+    private func setUpNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationAction), name: NSNotification.Name("delete_cart"), object: nil)
+    }
+        
+    @objc
+    private func notificationAction() {
+        output.checkCart()
     }
 
     @available(*, unavailable)
@@ -51,7 +60,6 @@ final class ItemDescViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpBase()
-        output.checkCart()
     }
 
     private func setUpPickerView() {

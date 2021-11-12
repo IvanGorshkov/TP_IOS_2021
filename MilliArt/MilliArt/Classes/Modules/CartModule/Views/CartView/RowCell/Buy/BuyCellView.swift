@@ -28,6 +28,9 @@ class BuyCellView: BaseCartCell {
         totalLabel.text = TitlesConstants.SumTitle
         totalAmauntLabel.text = model.totalAmaunt
         imagePainting.image = UIImage(named: model.img)
+        if model.delete == nil {
+            trash.isHidden = true
+        }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

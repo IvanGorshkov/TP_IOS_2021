@@ -91,4 +91,5 @@ protocol ServiceAddCartInput: AnyObject {
     func delete(with id: Int)
     func insert(with model: ItemDescModel, isRent: Bool)
     func fetchAll() -> [Cart]
+    func deleteAll()
 }

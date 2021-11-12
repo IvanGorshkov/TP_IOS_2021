@@ -53,10 +53,11 @@ final class TitlesConstants {
     static let cartTitle = "Ваша корзина пуста..."
     static let VendorCodeTitle = "Артикул: "
     static let SumTitle = "Сумма"
-    
+    static let CheckOutTitle = "Контактные данные"
     static let RentCost = "Стоимость"
     static let RentCount = "Срок"
     static let Continue = "Перейти к оформлению"
+    static let Pay = "Оформить заказ"
     
     // MARK: Total 
     static let TotalLabel = "Итого"

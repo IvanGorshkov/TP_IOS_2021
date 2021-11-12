@@ -1,22 +1,23 @@
 //
-//  CartViewController.swift
+//  OrderViewController.swift
 //  MilliArt
 //
-//  Created by Ivan Gorshkov on 28.10.2021.
+//  Created by Ivan Gorshkov on 12.11.2021.
 //  
 //
 
 import UIKit
 import ExpyTableView
 
-final class CartViewController: UIViewController {
-	private let output: CartViewOutput
-    internal var emptyCartView =  EmptyCartView()
-    internal var tableView =  ExpyTableView()
-    internal var continueBtn = UIButton()
+final class OrderViewController: UIViewController {
+	private let output: OrderViewOutput
+    internal var tableView = ExpyTableView()
+    internal var thanksLabel = UILabel()
+    internal var numberOrderLabel = UILabel()
     
-    init(output: CartViewOutput) {
+    init(output: OrderViewOutput) {
         self.output = output
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -27,31 +28,27 @@ final class CartViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [emptyCartView, tableView, continueBtn].forEach { [weak self] view in
+        [tableView, thanksLabel, numberOrderLabel].forEach { [weak self] view in
             self?.view.addSubview(view)
         }
         setUp()
-    }
-
+        output.viewDidLoad()
+	}
+    
     private func setUp() {
         setUpTableView()
-        setUpButton()
-        self.title = TitlesConstants.CartNavTitle
+        setUpLabel(label: thanksLabel,
+                   color: ColorConstants.BlackColor.withAlphaComponent(0.5),
+                   fontSize: 36,
+                   fontWeight: .bold,
+                   text: "Спасибо за заказ")
+        setUpLabel(label: numberOrderLabel,
+                   color: ColorConstants.BlackColor.withAlphaComponent(0.6),
+                   fontSize: 24,
+                   fontWeight: .bold,
+                   text: "№1234")
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
     }
-    
-    private func setUpButton() {
-        continueBtn.backgroundColor = ColorConstants.MainPurpleColor
-        continueBtn.setTitle(TitlesConstants.Continue, for: .normal)
-        continueBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.thin)
-        continueBtn.addTarget(self, action: #selector(continueAction), for: .touchUpInside)
-    }
-    
-    @objc
-    private func continueAction() {
-        output.goToCheckout()
-    }
-
     private func setUpTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -64,51 +61,35 @@ final class CartViewController: UIViewController {
         self.tableView.tableFooterView?.frame.size.height = 100
     }
     
+    private func setUpLabel(label: UILabel, color: UIColor, fontSize: CGFloat, fontWeight: UIFont.Weight, text: String) {
+        label.numberOfLines = 0
+        label.textColor = color
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        label.text = text
+        label.textAlignment = .center
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addViewConstraints()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        continueBtn.layer.cornerRadius = continueBtn.frame.height / 2
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        output.viewDidLoad()
-        self.title = TitlesConstants.CartNavTitle
-        if output.isBasketEmpty() {
-            self.emptyCartView.isHidden = false
-            self.tableView.isHidden = true
-            self.continueBtn.isHidden = true
-        } else {
-            self.emptyCartView.isHidden = true
-            self.tableView.isHidden = false
-            self.continueBtn.isHidden = false
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 }
 
-extension CartViewController: CartViewInput {
+extension OrderViewController: OrderViewInput {
     func loadData() {
-        if output.isBasketEmpty() {
-            self.emptyCartView.isHidden = false
-            self.tableView.isHidden = true
-            self.continueBtn.isHidden = true
-        } else {
-            self.emptyCartView.isHidden = true
-            self.tableView.isHidden = false
-            self.continueBtn.isHidden = false
-        }
-        
         tableView.reloadData()
         self.tableView.expand(0)
-        self.tableView.expand(1)
+        if output.getCountSection() == 2 {
+            self.tableView.expand(1)
+        }
     }
 }
 
-extension CartViewController: ExpyTableViewDataSource, ExpyTableViewDelegate {
+extension OrderViewController: ExpyTableViewDataSource, ExpyTableViewDelegate {
     func tableView(_ tableView: ExpyTableView, expandableCellForSection section: Int) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: output.getSectionIdentifier(section: section)) as? BaseCell else { return UITableViewCell() }

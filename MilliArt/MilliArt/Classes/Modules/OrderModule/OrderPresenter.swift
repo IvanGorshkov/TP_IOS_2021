@@ -1,40 +1,33 @@
 //
-//  CartPresenter.swift
+//  OrderPresenter.swift
 //  MilliArt
 //
-//  Created by Ivan Gorshkov on 28.10.2021.
+//  Created by Ivan Gorshkov on 12.11.2021.
 //  
 //
 
 import Foundation
 
-final class CartPresenter {
-	weak var view: CartViewInput?
-    weak var moduleOutput: CartModuleOutput?
+final class OrderPresenter {
+	weak var view: OrderViewInput?
+    weak var moduleOutput: OrderModuleOutput?
     private var arr = [CartSectionViewModel]()
 
-	private let router: CartRouterInput
-	private let interactor: CartInteractorInput
+	private let router: OrderRouterInput
+	private let interactor: OrderInteractorInput
 
-    init(router: CartRouterInput, interactor: CartInteractorInput) {
+    init(router: OrderRouterInput, interactor: OrderInteractorInput) {
         self.router = router
         self.interactor = interactor
     }
 }
 
-extension CartPresenter: CartModuleInput {
+extension OrderPresenter: OrderModuleInput {
 }
 
-extension CartPresenter: CartViewOutput {
-    func goToCheckout() {
-        router.goToCheckout(from: view, data: interactor.getArrays())
-    }
-    
+extension OrderPresenter: OrderViewOutput {
     func isExpandable(section: Int) -> Bool {
-        if arr.isEmpty {
-            return false
-        }
-        return arr[section].isExpandable
+        return true
     }
     
     func viewDidLoad() {
@@ -76,31 +69,20 @@ extension CartPresenter: CartViewOutput {
     func getCountSection() -> Int {
         return arr.count
     }
-
-    func isBasketEmpty() -> Bool {
-        return arr.isEmpty
-    }
 }
 
-extension CartPresenter: CartInteractorOutput {
+extension OrderPresenter: OrderInteractorOutput {
     func getCartItems(rentArray: [RentPrice], buyArray: [BuyPrice]) {
         var arr = [CartSectionViewModel]()
         if !rentArray.isEmpty {
             arr.append(CartSectionViewModel(rows: rentArray.map({ rent in
-                return RentViewModel(model: rent) { id in
-                    self.interactor.deleteRent(with: id)
-                }
+                return RentViewModel(model: rent, delete: nil)
             }), title: "Аренда"))
         }
         if !buyArray.isEmpty {
             arr.append(CartSectionViewModel(rows: buyArray.map({ buy in
-                return BuyViewModel(model: buy) { id in
-                    self.interactor.deleteBuy(with: id)
-                }
+                return BuyViewModel(model: buy, delete: nil)
             }), title: "Покупка"))
-        }
-        if !buyArray.isEmpty || !rentArray.isEmpty {
-            arr.append(CartSectionViewModel(rows: [TotalCartViewModel(rentArray: rentArray, buyArray: buyArray)]))
         }
         self.arr = arr
         view?.loadData()

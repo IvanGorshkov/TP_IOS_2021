@@ -32,4 +32,12 @@ class TotalCartViewModel: BaseCellModel {
         shipingAmount = "0 ₽"
         totalAmount = "\(Currency.currency(price: totalRentAmount + totalBuyAmount))  ₽"
     }
+    
+    override init() {
+        artCount = "4 шт."
+        artsAmount = "10000 ₽"
+        
+        shipingAmount = "0 ₽"
+        totalAmount = "10000  ₽"
+    }
 }

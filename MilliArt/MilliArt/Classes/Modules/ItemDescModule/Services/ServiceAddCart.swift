@@ -41,6 +41,14 @@ final class ServiceAddCart: ServiceAddCartInput {
             return fetchRequest
         }
     }
+
+    func deleteAll() {
+        self.dataManager.delete(with: "Cart") {
+            let fetchRequest = Cart.fetchRequest()
+            guard let fetchRequest = fetchRequest as? NSFetchRequest<NSManagedObject> else { return NSFetchRequest<NSManagedObject>() }
+            return fetchRequest
+        }
+    }
     
     func insert(with model: ItemDescModel, isRent: Bool) {
         self.dataManager.create(with: "Cart") { item in

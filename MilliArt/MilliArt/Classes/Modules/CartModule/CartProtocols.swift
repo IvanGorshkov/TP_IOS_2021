@@ -26,6 +26,7 @@ protocol CartViewCellOutput: AnyObject {
 
 protocol CartViewOutput: AnyObject {
     func viewDidLoad()
+    func goToCheckout()
     func isBasketEmpty() -> Bool
     func getCell(section: Int, row: Int) -> CellIdentifiable?
     func getSection(section: Int) -> CellIdentifiable?
@@ -38,9 +39,9 @@ protocol CartViewOutput: AnyObject {
 
 protocol CartInteractorInput: AnyObject {
     func getCartItems()
-    
     func deleteRent(with id: Int)
     func deleteBuy(with id: Int)
+    func getArrays() -> (rentArray: [RentPrice], buyArray: [BuyPrice])
 }
 
 protocol CartInteractorOutput: AnyObject {
@@ -48,4 +49,5 @@ protocol CartInteractorOutput: AnyObject {
 }
 
 protocol CartRouterInput: AnyObject {
+    func goToCheckout(from vc: CartViewInput?, data: (rentArray: [RentPrice], buyArray: [BuyPrice]))
 }

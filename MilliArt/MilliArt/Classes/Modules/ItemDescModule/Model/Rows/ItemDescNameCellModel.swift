@@ -17,4 +17,8 @@ final class ItemDescNameCellModel: BaseCellModel {
     init(_ model: ItemDescModel) {
         self.name = model.name
     }
+    
+    init(_ title: String) {
+        self.name = title
+    }
 }
