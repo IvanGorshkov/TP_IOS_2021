@@ -7,25 +7,6 @@
 
 import Foundation
 
-enum InputType {
-    case name
-    case tel
-    case email
-    case address
-    case comment
-    case payMethod
-}
-
-struct InputCheckoutModel {
-    let inputType: InputType
-    let placeholder: String
-}
-
-struct CheckoutDataModel {
-    let inputType: InputType
-    let text: String
-}
-
 final class InputTextFieldModelView: BaseCellModel {
     let placeholder: String
     let inputType: InputType

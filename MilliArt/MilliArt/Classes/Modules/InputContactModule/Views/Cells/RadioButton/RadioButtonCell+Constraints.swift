@@ -8,7 +8,7 @@
 import UIKit
 
 extension RadioButtonCell {
-    internal func addConstraintsName() {
+    internal func addConstraintsStack() {
         verticalStack.translatesAutoresizingMaskIntoConstraints = false
         verticalStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         verticalStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true

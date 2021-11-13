@@ -21,13 +21,7 @@ protocol OrderViewInput: AnyObject {
 
 protocol OrderViewOutput: AnyObject {
     func viewDidLoad()
-    func getCell(section: Int, row: Int) -> CellIdentifiable?
-    func getSection(section: Int) -> CellIdentifiable?
-    func getCellIdentifier(section: Int, row: Int) -> String
-    func getSectionIdentifier(section: Int) -> String
-    func getCountCells(section: Int) -> Int
-    func getCountSection() -> Int
-    func isExpandable(section: Int) -> Bool
+    var expand: ExpandeDescription { get }
 }
 
 protocol OrderInteractorInput: AnyObject {

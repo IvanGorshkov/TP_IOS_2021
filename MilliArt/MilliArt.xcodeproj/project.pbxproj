@@ -39,6 +39,11 @@
 		70096C23273EE0EF00810EC0 /* OrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096C1D273EE0EF00810EC0 /* OrderInteractor.swift */; };
 		70096C24273EE0EF00810EC0 /* OrderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096C1E273EE0EF00810EC0 /* OrderContainer.swift */; };
 		70096C27273F1A5D00810EC0 /* OrderView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096C26273F1A5D00810EC0 /* OrderView+Constraints.swift */; };
+		70096C2A273FE75300810EC0 /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096C29273FE75300810EC0 /* ShakeAnimation.swift */; };
+		70096C2C273FEB7F00810EC0 /* CreateStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096C2B273FEB7F00810EC0 /* CreateStack.swift */; };
+		70096C2E273FEFF200810EC0 /* FactoryForInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096C2D273FEFF200810EC0 /* FactoryForInput.swift */; };
+		70096C31273FF91D00810EC0 /* InputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096C30273FF91D00810EC0 /* InputModel.swift */; };
+		70096C352740000A00810EC0 /* Expend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70096C342740000A00810EC0 /* Expend.swift */; };
 		703A4A7E272C6CC2000329F7 /* ItemDescView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */; };
 		703A4A81272C6F37000329F7 /* SectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A80272C6F37000329F7 /* SectionViewCell+Constraints.swift */; };
 		703A4A84272C6F6A000329F7 /* ItemSlider+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */; };
@@ -163,7 +168,7 @@
 		7099CA8527359583001805AC /* AllCollectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8227359583001805AC /* AllCollectionViewCell+Constraints.swift */; };
 		7099CA8A273598C7001805AC /* AllAuthorsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA89273598C6001805AC /* AllAuthorsRouter.swift */; };
 		7099CA8C273598FA001805AC /* AllAuthorsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8B273598FA001805AC /* AllAuthorsInteractor.swift */; };
-		7099CA8F2735C078001805AC /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8E2735C078001805AC /* Factory.swift */; };
+		7099CA8F2735C078001805AC /* FactoryForAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA8E2735C078001805AC /* FactoryForAll.swift */; };
 		7099CA922735C6A9001805AC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7099CA912735C6A9001805AC /* .swiftlint.yml */; };
 		709BBBAE273944D600F91E0D /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709BBBAD273944D600F91E0D /* Currency.swift */; };
 		709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */; };
@@ -229,6 +234,13 @@
 		70096C1D273EE0EF00810EC0 /* OrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInteractor.swift; sourceTree = "<group>"; };
 		70096C1E273EE0EF00810EC0 /* OrderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderContainer.swift; sourceTree = "<group>"; };
 		70096C26273F1A5D00810EC0 /* OrderView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderView+Constraints.swift"; sourceTree = "<group>"; };
+		70096C29273FE75300810EC0 /* ShakeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeAnimation.swift; sourceTree = "<group>"; };
+		70096C2B273FEB7F00810EC0 /* CreateStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStack.swift; sourceTree = "<group>"; };
+		70096C2D273FEFF200810EC0 /* FactoryForInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryForInput.swift; sourceTree = "<group>"; };
+		70096C30273FF91D00810EC0 /* InputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModel.swift; sourceTree = "<group>"; };
+		70096C32273FF95F00810EC0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		70096C33273FF96000810EC0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		70096C342740000A00810EC0 /* Expend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expend.swift; sourceTree = "<group>"; };
 		703A4A7D272C6CC2000329F7 /* ItemDescView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemDescView+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A80272C6F37000329F7 /* SectionViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionViewCell+Constraints.swift"; sourceTree = "<group>"; };
 		703A4A83272C6F6A000329F7 /* ItemSlider+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemSlider+Constraints.swift"; sourceTree = "<group>"; };
@@ -347,7 +359,7 @@
 		7099CA8327359583001805AC /* AllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionViewCell.swift; sourceTree = "<group>"; };
 		7099CA89273598C6001805AC /* AllAuthorsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAuthorsRouter.swift; sourceTree = "<group>"; };
 		7099CA8B273598FA001805AC /* AllAuthorsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAuthorsInteractor.swift; sourceTree = "<group>"; };
-		7099CA8E2735C078001805AC /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		7099CA8E2735C078001805AC /* FactoryForAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryForAll.swift; sourceTree = "<group>"; };
 		7099CA912735C6A9001805AC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		709BBBAD273944D600F91E0D /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionViewModel.swift; sourceTree = "<group>"; };
@@ -429,6 +441,7 @@
 		70096BE3273D449C00810EC0 /* InputContactModule */ = {
 			isa = PBXGroup;
 			children = (
+				70096C2F273FF90F00810EC0 /* Entity */,
 				70096BF4273D5BB100810EC0 /* viewModel */,
 				70096BE5273D44C900810EC0 /* InputContactPresenter.swift */,
 				70096BE6273D44C900810EC0 /* InputContactRouter.swift */,
@@ -534,6 +547,22 @@
 				70096C1B273EE0EF00810EC0 /* OrderViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		70096C28273FE74000810EC0 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				70096C29273FE75300810EC0 /* ShakeAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		70096C2F273FF90F00810EC0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				70096C30273FF91D00810EC0 /* InputModel.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		703A4A7C272C6C99000329F7 /* ItemDescView */ = {
@@ -765,6 +794,7 @@
 		706E69D4272AB5CC0006BA3B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				70096C28273FE74000810EC0 /* Animation */,
 				706E69F2272AD3390006BA3B /* Сonstants */,
 				70096BCD273C566800810EC0 /* DataBase */,
 				70C419E727248FC1006214FA /* AppDelegate.swift */,
@@ -1125,7 +1155,8 @@
 		7099CA8D2735C03B001805AC /* Factory */ = {
 			isa = PBXGroup;
 			children = (
-				7099CA8E2735C078001805AC /* Factory.swift */,
+				7099CA8E2735C078001805AC /* FactoryForAll.swift */,
+				70096C2D273FEFF200810EC0 /* FactoryForInput.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -1136,6 +1167,8 @@
 				709BBBAD273944D600F91E0D /* Currency.swift */,
 				70096C03273D9B4B00810EC0 /* PhoneFormatter.swift */,
 				70096C05273D9BD800810EC0 /* Verification.swift */,
+				70096C2B273FEB7F00810EC0 /* CreateStack.swift */,
+				70096C342740000A00810EC0 /* Expend.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1335,6 +1368,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 70C419DB27248FC0006214FA;
 			packageReferences = (
@@ -1402,6 +1436,8 @@
 				70096BFA273D5F1000810EC0 /* InputSectionModel.swift in Sources */,
 				70F72C092739B68E00A8709B /* TotalCellView+Constraints.swift in Sources */,
 				70F72C0A2739B68E00A8709B /* TotalCellView.swift in Sources */,
+				70096C2E273FEFF200810EC0 /* FactoryForInput.swift in Sources */,
+				70096C2A273FE75300810EC0 /* ShakeAnimation.swift in Sources */,
 				70F72C0227399FCE00A8709B /* BuyViewModel.swift in Sources */,
 				70F72C0327399FCE00A8709B /* RentViewModel.swift in Sources */,
 				70096C1F273EE0EF00810EC0 /* OrderPresenter.swift in Sources */,
@@ -1412,7 +1448,7 @@
 				7099CA67273495B2001805AC /* HCollectionViewCell+Constraints.swift in Sources */,
 				706E69E0272AB5EE0006BA3B /* TabBarInteractor.swift in Sources */,
 				7099CA5127340CE1001805AC /* MosaicViewLayout.swift in Sources */,
-				7099CA8F2735C078001805AC /* Factory.swift in Sources */,
+				7099CA8F2735C078001805AC /* FactoryForAll.swift in Sources */,
 				706E6A4F272BF5E10006BA3B /* AboutDescCellModel.swift in Sources */,
 				7099CA5E273488F9001805AC /* AuthorModel.swift in Sources */,
 				706E69EE272AC3130006BA3B /* MainContainer.swift in Sources */,
@@ -1420,6 +1456,7 @@
 				706E6A27272B25AF0006BA3B /* ItemDescRouter.swift in Sources */,
 				703A4ACE27307C59000329F7 /* FrameViewModel.swift in Sources */,
 				7099CA6D27349F31001805AC /* VCollectionViewCell+Constraints.swift in Sources */,
+				70096C352740000A00810EC0 /* Expend.swift in Sources */,
 				7099CA6A27349AC2001805AC /* VCollectionVTVC+Constraints.swift in Sources */,
 				70F72C052739A06200A8709B /* BuyPrice.swift in Sources */,
 				70096C20273EE0EF00810EC0 /* OrderRouter.swift in Sources */,
@@ -1465,6 +1502,7 @@
 				70096BEC273D44C900810EC0 /* InputContactRouter.swift in Sources */,
 				703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */,
 				7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */,
+				70096C2C273FEB7F00810EC0 /* CreateStack.swift in Sources */,
 				7099CA79273585CC001805AC /* AllCompilationsRouter.swift in Sources */,
 				7099CA442733E609001805AC /* HeaderCellViewModel.swift in Sources */,
 				706E6A0B272AED5D0006BA3B /* CartPresenter.swift in Sources */,
@@ -1504,6 +1542,7 @@
 				703A4AC5273049B4000329F7 /* ARViewModel.swift in Sources */,
 				70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */,
 				706E69E9272AC3130006BA3B /* MainPresenter.swift in Sources */,
+				70096C31273FF91D00810EC0 /* InputModel.swift in Sources */,
 				706E6A3B272B522D0006BA3B /* ItemNameCell.swift in Sources */,
 				709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */,
 				706E6A3D272B53C40006BA3B /* ItemDescNameCellModel.swift in Sources */,
@@ -1576,6 +1615,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				70C419EE27248FC1006214FA /* Base */,
+				70096C32273FF95F00810EC0 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1584,6 +1624,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				70C419F327248FC2006214FA /* Base */,
+				70096C33273FF96000810EC0 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1595,6 +1636,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1656,6 +1698,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

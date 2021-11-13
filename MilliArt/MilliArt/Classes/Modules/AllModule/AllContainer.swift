@@ -36,5 +36,5 @@ final class AllContainer {
 
 struct AllContext {
 	weak var moduleOutput: AllModuleOutput?
-    var creator: Creator
+    var creator: CreatorForAll
 }

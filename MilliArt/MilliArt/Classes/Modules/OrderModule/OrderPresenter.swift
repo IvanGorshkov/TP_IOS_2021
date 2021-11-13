@@ -11,14 +11,15 @@ import Foundation
 final class OrderPresenter {
 	weak var view: OrderViewInput?
     weak var moduleOutput: OrderModuleOutput?
-    private var arr = [CartSectionViewModel]()
-
+    
 	private let router: OrderRouterInput
 	private let interactor: OrderInteractorInput
+    internal var expandP: ExpandeDescription
 
     init(router: OrderRouterInput, interactor: OrderInteractorInput) {
         self.router = router
         self.interactor = interactor
+        expandP = ExpandePresenter()
     }
 }
 
@@ -26,48 +27,12 @@ extension OrderPresenter: OrderModuleInput {
 }
 
 extension OrderPresenter: OrderViewOutput {
-    func isExpandable(section: Int) -> Bool {
-        return true
+    var expand: ExpandeDescription {
+        return expandP
     }
     
     func viewDidLoad() {
         interactor.getCartItems()
-    }
-    
-    func getCell(section: Int, row: Int) -> CellIdentifiable? {
-        if arr[section].isExpandable == true {
-            return arr[section].rows[row - 1]
-        }
-        return arr[section].rows[row]
-    }
-    
-    func getSection(section: Int) -> CellIdentifiable? {
-        return arr[section]
-    }
-    
-    func getCellIdentifier(section: Int, row: Int) -> String {
-        if arr[section].isExpandable == true {
-            return arr[section].rows[row - 1].cellIdentifier
-        }
-        return arr[section].rows[row].cellIdentifier
-    }
-    
-    func getSectionIdentifier(section: Int) -> String {
-        return arr[section].cellIdentifier
-    }
-    
-    func getCountCells(section: Int) -> Int {
-        if arr.isEmpty {
-            return 0
-        }
-        if arr[section].isExpandable == true {
-            return arr[section].rows.count + 1
-        }
-        return arr[section].rows.count
-    }
-    
-    func getCountSection() -> Int {
-        return arr.count
     }
 }
 
@@ -84,7 +49,7 @@ extension OrderPresenter: OrderInteractorOutput {
                 return BuyViewModel(model: buy, delete: nil)
             }), title: "Покупка"))
         }
-        self.arr = arr
+        expandP.model = arr
         view?.loadData()
     }
 }
