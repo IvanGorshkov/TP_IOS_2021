@@ -38,18 +38,8 @@ extension OrderPresenter: OrderViewOutput {
 
 extension OrderPresenter: OrderInteractorOutput {
     func getCartItems(rentArray: [RentPrice], buyArray: [BuyPrice]) {
-        var arr = [CartSectionViewModel]()
-        if !rentArray.isEmpty {
-            arr.append(CartSectionViewModel(rows: rentArray.map({ rent in
-                return RentViewModel(model: rent, delete: nil)
-            }), title: "Аренда"))
-        }
-        if !buyArray.isEmpty {
-            arr.append(CartSectionViewModel(rows: buyArray.map({ buy in
-                return BuyViewModel(model: buy, delete: nil)
-            }), title: "Покупка"))
-        }
-        expandP.model = arr
+        let constructor = ConstructorCartSectionViewModel.init(rentArray: rentArray, buyArray: buyArray, actionRent: nil, actionBuy: nil)
+        expandP.model = constructor.modelArray
         view?.loadData()
     }
 }

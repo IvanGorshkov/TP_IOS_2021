@@ -40,26 +40,13 @@ extension CartPresenter: CartViewOutput {
 
 extension CartPresenter: CartInteractorOutput {
     func getCartItems(rentArray: [RentPrice], buyArray: [BuyPrice]) {
-        var arr = [CartSectionViewModel]()
-        if !rentArray.isEmpty {
-            arr.append(CartSectionViewModel(rows: rentArray.map({ rent in
-                return RentViewModel(model: rent) { id in
-                    self.interactor.deleteRent(with: id)
-                }
-            }), title: "Аренда"))
+        let constructor = ConstructorCartSectionViewModel(rentArray: rentArray, buyArray: buyArray) { [weak self] id in
+            self?.interactor.deleteRent(with: id)
+        } actionBuy: { [weak self] id in
+            self?.interactor.deleteBuy(with: id)
         }
-        if !buyArray.isEmpty {
-            arr.append(CartSectionViewModel(rows: buyArray.map({ buy in
-                return BuyViewModel(model: buy) { id in
-                    self.interactor.deleteBuy(with: id)
-                }
-            }), title: "Покупка"))
-        }
-        if !buyArray.isEmpty || !rentArray.isEmpty {
-            arr.append(CartSectionViewModel(rows: [TotalCartViewModel(rentArray: rentArray, buyArray: buyArray)]))
-        }
-        
-        expandP.model = arr
+
+        expandP.model = constructor.modelArray
         view?.loadData()
     }
 }
