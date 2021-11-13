@@ -8,7 +8,7 @@
 import UIKit
 
 extension TextViewCell {
-    internal func addConstraintsName() {
+    internal func addConstraintsTextView() {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true

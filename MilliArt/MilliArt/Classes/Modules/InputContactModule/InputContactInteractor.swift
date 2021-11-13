@@ -25,10 +25,10 @@ extension InputContactInteractor: InputContactInteractorInput {
     
     func getInputs() -> [InputCheckoutModel] {
         return [
-            InputCheckoutModel(inputType: .name, placeholder: "Фамилия Имя"),
-            InputCheckoutModel(inputType: .tel, placeholder: "Номер телефона"),
-            InputCheckoutModel(inputType: .email, placeholder: "Электронная почта"),
-            InputCheckoutModel(inputType: .address, placeholder: "Адрес доставки")
+            InputCheckoutModel(inputType: .name, placeholder: TitlesConstants.FullNamePlaceholder),
+            InputCheckoutModel(inputType: .tel, placeholder: TitlesConstants.PhonePlaceholder),
+            InputCheckoutModel(inputType: .email, placeholder: TitlesConstants.MailPlaceholder),
+            InputCheckoutModel(inputType: .address, placeholder: TitlesConstants.AddressPlaceholder)
         ]
     }
 }

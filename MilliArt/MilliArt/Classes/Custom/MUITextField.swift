@@ -116,4 +116,9 @@ extension MUITextField: UITextFieldDelegate {
         }
         return shouldClear
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let shouldReturn = delegate?.textFieldShouldReturn?(textField) else { return false }
+        return shouldReturn
+    }
 }

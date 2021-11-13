@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol Creator {
+protocol CreatorForAll {
     func factoryRouter() -> AllRouterInput
     func factoryInteractor() -> AllInteractorInput
 }
 
-class CompilationsCreator: Creator {
+class CompilationsCreatorForAll: CreatorForAll {
     func factoryRouter() -> AllRouterInput {
         return AllCompilationsRouter()
     }
@@ -22,7 +22,7 @@ class CompilationsCreator: Creator {
     }
 }
 
-class AuthorsCreator: Creator {
+class AuthorsCreatorForAll: CreatorForAll {
     func factoryRouter() -> AllRouterInput {
         return AllAuthorsRouter()
     }

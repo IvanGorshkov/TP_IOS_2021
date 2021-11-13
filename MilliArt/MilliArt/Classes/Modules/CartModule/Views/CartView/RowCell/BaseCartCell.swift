@@ -33,20 +33,4 @@ class BaseCartCell: BaseCell {
         label.textColor = ColorConstants.BlackColor
         label.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
     }
-    
-    func createStack(axis: NSLayoutConstraint.Axis = .vertical,
-                     distribution: UIStackView.Distribution = .fillEqually,
-                     alignmentStack: UIStackView.Alignment,
-                     spacing: CGFloat = 5,
-                     views: UIView...) -> UIStackView {
-        let stack = UIStackView()
-        stack.axis = axis
-        stack.distribution = distribution
-        stack.alignment = alignmentStack
-        stack.spacing = spacing
-        views.forEach { view in
-            stack.addArrangedSubview(view)
-        }
-        return stack
-    }
 }

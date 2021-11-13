@@ -70,14 +70,16 @@ class BuyCellView: BaseCartCell {
         HStackIn.distribution  = .fillProportionally
         HStackIn.alignment = .center
         HStackIn.addArrangedSubview(
-            createStack(axis: .horizontal,
-                        distribution: .fill,
-                        alignmentStack: .center,
-                        spacing: 10,
-                        views: imagePainting, createStack(alignmentStack: .leading,
-                                                          views: autherLabel, nameLabel, articalLabel)
-                        )
+            CreateStack.createStack(
+                axis: .horizontal,
+                distribution: .fill,
+                alignmentStack: .center,
+                spacing: 10,
+                views: imagePainting, CreateStack.createStack(
+                            alignmentStack: .leading,
+                            views: autherLabel, nameLabel, articalLabel)
+            )
         )
-        HStackIn.addArrangedSubview(createStack(alignmentStack: .center, views: totalLabel, totalAmauntLabel))
+        HStackIn.addArrangedSubview(CreateStack.createStack(alignmentStack: .center, views: totalLabel, totalAmauntLabel))
     }
 }

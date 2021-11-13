@@ -58,7 +58,14 @@ final class TitlesConstants {
     static let RentCount = "Срок"
     static let Continue = "Перейти к оформлению"
     static let Pay = "Оформить заказ"
-    
+    static let CommentPlaceholder = "Комментарий"
+    static let PayMethodTitle = "Способ оплаты"
+    static let DeliveryPayTitle = "Оплата курьеру при получении"
+    static let FullNamePlaceholder = "Фамилия Имя"
+    static let PhonePlaceholder = "Номер телефона"
+    static let MailPlaceholder = "Электронная почта"
+    static let AddressPlaceholder = "Адрес доставки"
+    static let ErrorInputTitle = "Данные указаны неверно"
     // MARK: Total 
     static let TotalLabel = "Итого"
     static let TotalCountLabel = "Количество картин: "

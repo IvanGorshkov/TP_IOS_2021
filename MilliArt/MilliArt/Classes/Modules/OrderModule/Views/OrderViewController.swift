@@ -82,9 +82,8 @@ final class OrderViewController: UIViewController {
 extension OrderViewController: OrderViewInput {
     func loadData() {
         tableView.reloadData()
-        self.tableView.expand(0)
-        if output.getCountSection() == 2 {
-            self.tableView.expand(1)
+        output.expand.expandifNeeded { section in
+            self.tableView.expand(section)
         }
     }
 }
@@ -92,27 +91,28 @@ extension OrderViewController: OrderViewInput {
 extension OrderViewController: ExpyTableViewDataSource, ExpyTableViewDelegate {
     func tableView(_ tableView: ExpyTableView, expandableCellForSection section: Int) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: output.getSectionIdentifier(section: section)) as? BaseCell else { return UITableViewCell() }
-        cell.model = output.getSection(section: section)
+            withIdentifier: output.expand.getSectionIdentifier(section: section)) as? BaseCell else { return UITableViewCell() }
+        cell.model = output.expand.getSection(section: section)
         return cell
     }
     
     func tableView(_ tableView: ExpyTableView, canExpandSection section: Int) -> Bool {
-        return output.isExpandable(section: section)
+        return output.expand.isExpandable(section: section)
     }
    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return output.getCountSection()
+        return output.expand.getCountSection()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return output.getCountCells(section: section)
+        return output.expand.getCountCells(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: output.getCellIdentifier(section: indexPath.section, row: indexPath.row)) as? BaseCell else { return UITableViewCell() }
-        cell.model = output.getCell(section: indexPath.section, row: indexPath.row)
+            withIdentifier: output.expand.getCellIdentifier(
+                section: indexPath.section, row: indexPath.row)) as? BaseCell else { return UITableViewCell() }
+        cell.model = output.expand.getCell(section: indexPath.section, row: indexPath.row)
         return cell
     }
     

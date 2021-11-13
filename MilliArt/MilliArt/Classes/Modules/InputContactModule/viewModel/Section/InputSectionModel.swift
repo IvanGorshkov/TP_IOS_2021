@@ -16,9 +16,9 @@ final class InputSectionModel: SectionRowsRepresentable {
             self?.rows.append(InputTextFieldModelView(model: element))
         }
         
-        rows.append(InputTextViewModelView(placeholder: "Комментарий"))
-        rows.append(ItemDescNameCellModel("Способ оплаты"))
-        rows.append(RadioButtonViewModel(radioNames: ["Оплата курьеру при получении"]))
+        rows.append(InputTextViewModelView(placeholder: TitlesConstants.CommentPlaceholder))
+        rows.append(ItemDescNameCellModel(TitlesConstants.PayMethodTitle))
+        rows.append(RadioButtonViewModel(radioNames: [TitlesConstants.DeliveryPayTitle]))
         rows.append(TotalCartViewModel(rentArray: data.rentArray, buyArray: data.buyArray))
     }
 }

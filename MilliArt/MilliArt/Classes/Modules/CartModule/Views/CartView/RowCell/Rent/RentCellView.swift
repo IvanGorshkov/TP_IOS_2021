@@ -58,19 +58,21 @@ final class RentCellView: BaseCartCell {
         HStackIn.distribution  = .equalSpacing
         HStackIn.alignment = .center
         HStackIn.addArrangedSubview(
-            createStack(axis: .horizontal,
-                        distribution: .fill,
-                        alignmentStack: .center,
-                        spacing: 10,
-                        views: imagePainting, createStack(distribution: .equalSpacing,
-                                                          alignmentStack: .leading,
-                                                          spacing: 5,
-                                                          views: autherLabel, nameLabel, articalLabel)
-                        )
+            CreateStack.createStack(
+                axis: .horizontal,
+                distribution: .fill,
+                alignmentStack: .center,
+                spacing: 10,
+                views: imagePainting, CreateStack.createStack(
+                    distribution: .equalSpacing,
+                    alignmentStack: .leading,
+                    spacing: 5,
+                    views: autherLabel, nameLabel, articalLabel)
+            )
         )
-        HStackIn.addArrangedSubview(createStack(alignmentStack: .center, views: costLabel, amauntLabel))
-        HStackIn.addArrangedSubview(createStack(alignmentStack: .center, views: rentLabel, countRentLabel))
-        HStackIn.addArrangedSubview(createStack(alignmentStack: .center, views: totalLabel, totalAmauntLabel))
+        HStackIn.addArrangedSubview(CreateStack.createStack(alignmentStack: .center, views: costLabel, amauntLabel))
+        HStackIn.addArrangedSubview(CreateStack.createStack(alignmentStack: .center, views: rentLabel, countRentLabel))
+        HStackIn.addArrangedSubview(CreateStack.createStack(alignmentStack: .center, views: totalLabel, totalAmauntLabel))
     }
     
     required init?(coder: NSCoder) {

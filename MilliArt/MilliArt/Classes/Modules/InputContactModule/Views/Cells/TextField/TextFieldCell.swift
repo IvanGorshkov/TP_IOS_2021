@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TextFieldCell: BaseCell, ValidationCell, InputCellOutput {
+final class TextFieldCell: BaseCell {
     internal var textField = MUITextField()
     internal let line = UIView()
     internal let labelError = UILabel()
@@ -15,42 +15,16 @@ final class TextFieldCell: BaseCell, ValidationCell, InputCellOutput {
     private var formatter: InputMaskProtocol?
     internal var verification: VerificationProtocol?
     static let cellIdentifier = "TextFieldCell"
-
     internal var myHeightAnchor: NSLayoutConstraint!
-    
-    func getDataInput() -> CheckoutDataModel? {
-        guard let model = model as? InputTextFieldModelView else {
-            return nil
-        }
-        return  CheckoutDataModel(inputType: model.inputType, text: textField.text ?? "")
-    }
     
     override func updateViews() {
         guard let model = model as? InputTextFieldModelView else {
             return
         }
         textField.placeholder = model.placeholder
-        textField.delegate = self
-        textField.clearButtonMode = .whileEditing
-        textField.textColor = ColorConstants.BlackColor
-        labelError.text = "Данные указаны неверно"
-        labelError.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.thin)
-        labelError.textColor = .red
-        if model.inputType == .tel {
-            formatter = PhoneFormatter()
-            verification = PhoneVerification()
-            textField.keyboardType = .phonePad
-        }
-        if model.inputType == .name {
-            verification = NameVerification()
-        }
-        if model.inputType == .email {
-            verification = EmailVerification()
-            textField.keyboardType = .emailAddress
-        }
-        if model.inputType == .address {
-            verification = AdressVerification()
-        }
+        let creater = CreatorForInput(textField: textField)
+        verification = creater.factoryVerification(with: model.inputType)
+        formatter = creater.factoryFormater(with: model.inputType)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -70,6 +44,8 @@ final class TextFieldCell: BaseCell, ValidationCell, InputCellOutput {
     private func setUp() {
         setUpBase()
         setUpLine()
+        setUpTextField()
+        setUpErrorLabel()
     }
     
     private func setUpLine() {
@@ -84,15 +60,31 @@ final class TextFieldCell: BaseCell, ValidationCell, InputCellOutput {
         selectionStyle = .none
     }
     
+    private func setUpTextField() {
+        textField.delegate = self
+        textField.clearButtonMode = .whileEditing
+        textField.textColor = ColorConstants.BlackColor
+        textField.returnKeyType = .done
+    }
+    
+    private func setUpErrorLabel() {
+        labelError.text = TitlesConstants.ErrorInputTitle
+        labelError.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.thin)
+        labelError.textColor = .red
+    }
+    
     private func updateHeight(with error: Bool) {
         UIView.animate(withDuration: 0.2) {
-            if error {
-                self.myHeightAnchor.constant = 15
-            } else {
-                self.myHeightAnchor.constant = 0
-            }
+            self.myHeightAnchor.constant = error ? 15 : 0
             self.contentView.layoutIfNeeded()
         }
+    }
+    
+    private func isInputCorrect(_ verify: Bool) {
+        line.backgroundColor = verify == true ? ColorConstants.BlackColor : .red
+        line.layer.borderColor = verify == true ? ColorConstants.BlackColor.cgColor : UIColor.red.cgColor
+        line.alpha = verify == true ? 0.2 : 1
+        updateHeight(with: !verify)
     }
 }
 
@@ -106,16 +98,10 @@ extension TextFieldCell: UITextFieldDelegate {
         if errorFounded {
             guard let verification = verification else { return }
             if verification.verify(from: textField.text ?? "") {
-                line.backgroundColor = .black
-                line.layer.borderColor = UIColor.black.cgColor
-                line.alpha = 0.2
-                updateHeight(with: false)
+                isInputCorrect(true)
                 errorFounded = false
             } else {
-                line.backgroundColor = .red
-                line.layer.borderColor = UIColor.red.cgColor
-                line.alpha = 1
-                updateHeight(with: true)
+                isInputCorrect(false)
                 errorFounded = true
             }
         }
@@ -124,41 +110,39 @@ extension TextFieldCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let verification = verification else { return }
         if verification.verify(from: textField.text ?? "") {
-            line.backgroundColor = .black
-            line.layer.borderColor = UIColor.black.cgColor
-            line.alpha = 0.2
-            updateHeight(with: false)
+            isInputCorrect(true)
         } else {
-            line.backgroundColor = .red
-            line.layer.borderColor = UIColor.red.cgColor
-            line.alpha = 1
-            updateHeight(with: true)
+            isInputCorrect(false)
             errorFounded = true
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       textField.resignFirstResponder()
+       return true
+    }
+}
+
+extension TextFieldCell: ValidationCell {
     func validateCell() -> Bool {
         guard let verification = verification else { return false }
         if verification.verify(from: textField.text ?? "") {
-            line.backgroundColor = .black
-            line.layer.borderColor = UIColor.black.cgColor
-            line.alpha = 0.2
-            updateHeight(with: false)
+            isInputCorrect(true)
             return true
         } else {
-            line.backgroundColor = .red
-            line.layer.borderColor = UIColor.red.cgColor
-            line.alpha = 1
-            updateHeight(with: true)
+            isInputCorrect(false)
             errorFounded = true
-            
-            let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-            animation.duration = 0.6
-            animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-            contentView.layer.add(animation, forKey: "shake")
-            
+            ShakeAnimation.shakeAnimation(view: contentView)
             return false
         }
+    }
+}
+
+extension TextFieldCell: InputCellOutput {
+    func getDataInput() -> CheckoutDataModel? {
+        guard let model = model as? InputTextFieldModelView else {
+            return nil
+        }
+        return  CheckoutDataModel(inputType: model.inputType, text: textField.text ?? "")
     }
 }
