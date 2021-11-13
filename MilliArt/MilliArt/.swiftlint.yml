@@ -2,7 +2,6 @@ disabled_rules:
     - trailing_whitespace
 
 opt_in_rules:
-    - empty_count
     - empty_string
     - force_unwrapping
     - unused_import

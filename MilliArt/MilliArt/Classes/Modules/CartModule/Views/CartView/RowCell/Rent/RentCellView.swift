@@ -9,9 +9,9 @@
 import UIKit
 
 final class RentCellView: BaseCartCell {
-    private var nameLabel = UILabel()
-    private var autherLabel = UILabel()
-    private var articalLabel = UILabel()
+    internal var nameLabel = UILabel()
+    internal var autherLabel = UILabel()
+    internal var articalLabel = UILabel()
     private var costLabel = UILabel()
     private var amauntLabel = UILabel()
     private var rentLabel = UILabel()
@@ -28,7 +28,6 @@ final class RentCellView: BaseCartCell {
         guard let model = model as? RentViewModel else {
             return
         }
-        
         nameLabel.text = model.name
         autherLabel.text = model.auther
         articalLabel.text = "\(TitlesConstants.VendorCodeTitle) \(model.artical)"
@@ -39,6 +38,10 @@ final class RentCellView: BaseCartCell {
         totalLabel.text = TitlesConstants.SumTitle
         totalAmauntLabel.text = model.totalAmaunt
         imagePainting.image = UIImage(named: model.img)
+        
+        if model.delete == nil {
+            trash.isHidden = true
+        }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -55,17 +58,21 @@ final class RentCellView: BaseCartCell {
         HStackIn.distribution  = .equalSpacing
         HStackIn.alignment = .center
         HStackIn.addArrangedSubview(
-            createStack(axis: .horizontal,
-                        distribution: .fill,
-                        alignmentStack: .center,
-                        spacing: 10,
-                        views: imagePainting, createStack(alignmentStack: .leading,
-                                                          views: autherLabel, nameLabel, articalLabel)
-                        )
+            CreateStack.createStack(
+                axis: .horizontal,
+                distribution: .fill,
+                alignmentStack: .center,
+                spacing: 10,
+                views: imagePainting, CreateStack.createStack(
+                    distribution: .equalSpacing,
+                    alignmentStack: .leading,
+                    spacing: 5,
+                    views: autherLabel, nameLabel, articalLabel)
+            )
         )
-        HStackIn.addArrangedSubview(createStack(alignmentStack: .center, views: costLabel, amauntLabel))
-        HStackIn.addArrangedSubview(createStack(alignmentStack: .center, views: rentLabel, countRentLabel))
-        HStackIn.addArrangedSubview(createStack(alignmentStack: .center, views: totalLabel, totalAmauntLabel))
+        HStackIn.addArrangedSubview(CreateStack.createStack(alignmentStack: .center, views: costLabel, amauntLabel))
+        HStackIn.addArrangedSubview(CreateStack.createStack(alignmentStack: .center, views: rentLabel, countRentLabel))
+        HStackIn.addArrangedSubview(CreateStack.createStack(alignmentStack: .center, views: totalLabel, totalAmauntLabel))
     }
     
     required init?(coder: NSCoder) {
@@ -74,9 +81,9 @@ final class RentCellView: BaseCartCell {
 
     private func setUp() {
         setUpBase()
-        setUpLabel(label: nameLabel, weight: .heavy)
-        setUpLabel(label: autherLabel)
-        setUpLabel(label: articalLabel)
+        setUpLabel(label: nameLabel, weight: .heavy, numberOfLines: 0)
+        setUpLabel(label: autherLabel, numberOfLines: 0)
+        setUpLabel(label: articalLabel, numberOfLines: 0)
         setUpLabel(label: costLabel)
         setUpLabel(label: amauntLabel)
         setUpLabel(label: rentLabel)
@@ -86,5 +93,12 @@ final class RentCellView: BaseCartCell {
         setUpImage(imageview: imagePainting)
         setUpStack()
         trash.setImage(UIImage(named: "trash"), for: .normal)
+        trash.addTarget(self, action: #selector(actionDelete), for: .touchUpInside)
+    }
+    
+    @objc
+    private func actionDelete() {
+        guard let model = model as? RentViewModel else { return }
+        model.delete?(model.id)
     }
 }

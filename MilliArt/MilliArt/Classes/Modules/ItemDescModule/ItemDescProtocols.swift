@@ -19,8 +19,8 @@ protocol ItemDescModuleOutput: AnyObject {
 
 protocol ItemDescCellViewOutput: AnyObject {
     func openFullScreen(silder: UIView)
-    func clickBuy()
-    func clickRent()
+    func clickBuy(selected: Bool)
+    func clickRent(selected: Bool)
     func clickFav()
     func clickAR()
     func openPicker()
@@ -29,10 +29,12 @@ protocol ItemDescCellViewOutput: AnyObject {
 protocol ItemDescViewInput: AnyObject {
     func updateForSections()
     func updateRentPrice()
+    func updateButtons()
 }
 
 protocol ItemDescViewOutput: AnyObject {
     func viewDidLoad()
+    func checkCart()
     func changeMonthCount(value: Int)
     func goToAR()
     func getCellHeight(at index: Int) -> Float
@@ -41,12 +43,15 @@ protocol ItemDescViewOutput: AnyObject {
     func getCountCells() -> Int
     var  sectionDelegate: ItemDescCellViewOutput? { get set }
     func openFullScreen(slider: UIView?)
+    func addToCart(selected: Bool, isRent: Bool)
 }
 
 protocol ItemDescInteractorInput: AnyObject {
     func loadItemById(with id: Int)
     func changeMonthCount(value: Int)
     func loadFirstPhoto()
+    func addToCart(selected: Bool, isRent: Bool, countMonth: Int?)
+    func inCart() -> (isSelected: Bool, isRent: Bool)
 }
 
 protocol ItemDescInteractorOutput: AnyObject {
@@ -79,4 +84,12 @@ protocol ServiceManagerDescModelInput: AnyObject {
 
 protocol ServiceManagerDescModelOutput: AnyObject {
     func itemDidLoad(itemDesc: ItemDescModel)
+}
+
+protocol ServiceAddCartInput: AnyObject {
+    func isContain(with id: Int) -> (isSelected: Bool, isRent: Bool)
+    func delete(with id: Int)
+    func insert(with model: ItemDescModel, isRent: Bool)
+    func fetchAll() -> [Cart]
+    func deleteAll()
 }

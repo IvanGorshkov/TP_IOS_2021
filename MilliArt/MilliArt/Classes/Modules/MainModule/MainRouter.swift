@@ -14,13 +14,13 @@ final class MainRouter {
 extension MainRouter: MainRouterInput {
     func goToAllAuthor(with view: MainViewInput?) {
         guard let view = view as? UIViewController else { return }
-        let container = AllContainer.assemble(with: AllContext(creator: AuthorsCreator()))
+        let container = AllContainer.assemble(with: AllContext(creator: AuthorsCreatorForAll()))
         view.navigationController?.pushViewController(container.viewController, animated: true)
     }
 
     func goToAllCompilation(with view: MainViewInput?) {
         guard let view = view as? UIViewController else { return }
-        let container = AllContainer.assemble(with: AllContext(creator: CompilationsCreator()))
+        let container = AllContainer.assemble(with: AllContext(creator: CompilationsCreatorForAll()))
         view.navigationController?.pushViewController(container.viewController, animated: true)
     }
 

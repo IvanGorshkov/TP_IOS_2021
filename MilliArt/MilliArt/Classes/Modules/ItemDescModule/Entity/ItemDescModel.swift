@@ -8,7 +8,10 @@
 import Foundation
 
 struct ItemDescModel {
+    var id: Int
     let name: String
+    let author: String
+    let vendorСode: String
     let pictures: [String]
     let amount: Int
     let rent: Int

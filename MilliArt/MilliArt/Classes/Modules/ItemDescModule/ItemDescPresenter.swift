@@ -34,6 +34,19 @@ extension ItemDescPresenter: ItemDescModuleInput {
 }
 
 extension ItemDescPresenter: ItemDescViewOutput {
+    func checkCart() {
+        let status = interactor.inCart()
+        guard let itemDescSectionModel = itemDescSectionModel else { return }
+        guard let buttons = itemDescSectionModel.rows[3] as? ButtonsDescModelCell else { return }
+        buttons.selected = status.isSelected
+        buttons.isRent = status.isRent
+        view?.updateButtons()
+    }
+    
+    func addToCart(selected: Bool, isRent: Bool) {
+        interactor.addToCart(selected: selected, isRent: isRent, countMonth: isRent ? id : nil)
+    }
+
     func openFullScreen(slider: UIView?) {
         router.openFullScreen(from: view, silder: slider)
     }
@@ -94,7 +107,7 @@ extension ItemDescPresenter: ItemDescInteractorOutput {
     }
 
     func itemDidLoad(itemDesc: ItemDescModel) {
-        self.itemDescSectionModel = ItemDescSectionModel(itemDesc)
+        self.itemDescSectionModel = ItemDescSectionModel(itemDesc, inCart: interactor.inCart())
         view?.updateForSections()
     }
 }

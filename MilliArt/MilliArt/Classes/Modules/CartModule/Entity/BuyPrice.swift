@@ -8,6 +8,7 @@
 import Foundation
 
 struct BuyPrice {
+    let id: Int
     let img: String
     let name: String
     let auther: String

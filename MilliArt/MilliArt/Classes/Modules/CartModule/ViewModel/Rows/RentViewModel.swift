@@ -12,6 +12,7 @@ class RentViewModel: BaseCellModel {
         return RentCellView.cellIdentifier
     }
     
+    let id: Int
     let img: String
     let name: String
     let auther: String
@@ -29,12 +30,17 @@ class RentViewModel: BaseCellModel {
     private let countRentI: Int
     private let amauntI: Int
     
-    init(model: RentPrice) {
+    typealias ActionHandler = (Int) -> Void
+    var delete: ActionHandler?
+    
+    init(model: RentPrice, delete: ActionHandler?) {
+        id = model.id
         img = model.img
         name = model.name
         auther = model.auther
         artical = model.artical
         amauntI = model.amaunt
         countRentI = model.countRent
+        self.delete = delete
     }
 }
