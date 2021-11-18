@@ -2,7 +2,7 @@
 //  HorizontalCollectionViewCell.swift
 //  MilliArt
 //
-//  Created by Ivan Gorshkov on 04.11.2021.
+//  Created by Alekhin Sergey on 04.11.2021.
 //
 
 import UIKit
