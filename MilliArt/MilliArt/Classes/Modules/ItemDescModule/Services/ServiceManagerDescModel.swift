@@ -6,212 +6,95 @@
 //
 
 import Foundation
+import Firebase
 
 final class ServiceManagerDescModel: ServiceManagerDescModelInput {
+    weak var output: ServiceManagerDescModelOutput?
+    
+    init(interactor: ServiceManagerDescModelOutput?) {
+        output = interactor
+    }
+
+    func loadItemById(with id: Int) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.output?.itemDidLoad(itemDesc: array[id])
+        }
+    }
+}
+
+enum NetworkError: Error {
+    case unexpected
+    case faildToParse
+}
+
+final class FireBaseServiceManagerDescModel: ServiceManagerDescModelInput {
+    private let database = Firestore.firestore()
+    private let productConverter = ProductConverter()
+    
+    func loadItemById(with id: Int) {
+        database.collection("paintings").whereField("id", isEqualTo: id).addSnapshotListener { [weak self] querySnapshot, error in
+            if let error = error {
+                self?.output?.didFail(with: error)
+                return
+            }
+            
+            guard let document = querySnapshot?.documents.first else {
+                self?.output?.didFail(with: NetworkError.unexpected)
+                return
+            }
+            
+            guard let item = self?.productConverter.product(from: document) else {
+                self?.output?.didFail(with: NetworkError.faildToParse)
+                return
+            }
+            
+            self?.output?.itemDidLoad(itemDesc: item)
+        }
+    }
+    
     weak var output: ServiceManagerDescModelOutput?
     init(interactor: ServiceManagerDescModelOutput?) {
         output = interactor
     }
+}
+
+private final class ProductConverter {
+    enum Key: String {
+        case description
+        case name
+        case rentPrice
+        case id
+        case price
+        case pics
+        case specification
+    }
     
-    var array  = [ItemDescModel(
-        id: 1, name: "Следы войны", author: "Гелий Коржев", vendorСode: "vse-isk-34", pictures: ["korzev", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Гелий Коржев"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 2, name: "На гребне волны", author: "Анастасия Колесниченко", vendorСode: "vse-isk-35", pictures: ["pic1", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Анастасия Колесниченко"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 3, name: "На гребне волны", author: "Анастасия Колесниченко", vendorСode: "vse-isk-36", pictures: ["pic2", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Анастасия Колесниченко"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 4, name: "На гребне волны", author: "Анастасия Колесниченко", vendorСode: "vse-isk-38", pictures: ["pic3", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Анастасия Колесниченко"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 5, name: "Зимняя дорога. Версты", author: "Валентин Сидоров", vendorСode: "vse-isk-30", pictures: ["sidorov", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Валентин Сидоров"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 6, name: "Портрет А. С. Пушкина", author: "Кипренский", vendorСode: "vse-isk-342", pictures: ["Pushkin", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Кипренский"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 7, name: "Портрет А. С. Пушкина", author: "Кипренский", vendorСode: "vse-isk-3433", pictures: ["Pushkin", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Кипренский"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 8, name: "Зимняя дорога. Версты", author: "Валентин Сидоров", vendorСode: "vse-isk-31", pictures: ["sidorov", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Валентин Сидоров"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 9, name: "На гребне волны", author: "Анастасия Колесниченко", vendorСode: "vse-isk-341", pictures: ["pic3", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Анастасия Колесниченко"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 10, name: "На гребне волны", author: "Анастасия Колесниченко", vendorСode: "vse-isk-343", pictures: ["pic2", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Анастасия Колесниченко"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 11, name: "На гребне волны", author: "Анастасия Колесниченко", vendorСode: "vse-isk-341", pictures: ["pic1", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Анастасия Колесниченко"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    ), ItemDescModel(
-        id: 12, name: "Следы войны", author: "Гелий Коржев", vendorСode: "vse-isk-3433", pictures: ["korzev", "pic1", "pic1"],
-        amount: 34000, rent: 1200, description:
-            """
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны.\n
-        На гребне волны, На гребне волны, На гребне волны, На гребне волны\n
-        На гребне волны, На гребне волны
-        """,
-        specifications: [
-            Specifications(title: "Автор", specification: "Гелий Коржев"),
-            Specifications(title: "Размер", specification: "80 x 155 см"),
-            Specifications(title: "Категория", specification: "Фотография"),
-            Specifications(title: "Гамма", specification: "Оранжевый"),
-            Specifications(title: "Тематика", specification: "Натюрморт"),
-            Specifications(title: "Формат", specification: "Вертикальный")
-        ], countRent: 1
-    )
-    ]
-    
-    func loadItemById(with id: Int) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            guard let array = self?.array else { return }
-            self?.output?.itemDidLoad(itemDesc: array[id])
+    func product(from document: DocumentSnapshot) -> ItemDescModel? {
+        guard let dict = document.data() else { return nil }
+        let title = dict[Key.name.rawValue]
+        let price = dict[Key.price.rawValue]
+        let rent = dict[Key.rentPrice.rawValue]
+        let about = dict[Key.description.rawValue]
+        let id = dict[Key.id.rawValue]
+        guard let arr = dict[Key.pics.rawValue] as?  [String]  else { return nil }
+        var specifications = [Specifications]()
+        guard  let specificationsDict = dict[Key.specification.rawValue] as? NSMutableDictionary  else { return nil }
+       
+        for d in specificationsDict {
+            specifications.append(Specifications(title: d.key as? String ?? "0", specification: d.value as? String ?? "0"))
         }
+        
+        return ItemDescModel(
+            id: id as? Int ?? 0,
+            name: title as? String ?? "0",
+            author: "Хардкод",
+            vendorСode: "Хардкод",
+            pictures: arr,
+            amount: price as? Int ?? 0,
+            rent: rent as? Int ?? 0,
+            description: about as? String ?? "",
+            specifications: specifications,
+            countRent: 1
+        )
     }
 }

@@ -16,7 +16,7 @@ final class ItemDescInteractor {
     private var itemDescModel: ItemDescModel?
     init() {
         serviceAddCart = ServiceAddCart.shared
-        self.serviceManagerDescModel = ServiceManagerDescModel(interactor: self)
+        self.serviceManagerDescModel = FireBaseServiceManagerDescModel(interactor: self)
     }
 }
 
@@ -76,6 +76,10 @@ extension ItemDescInteractor: ItemDescInteractorInput {
 }
 
 extension ItemDescInteractor: ServiceManagerDescModelOutput {
+    func didFail(with error: Error) {
+        print(error.localizedDescription)
+    }
+    
     func itemDidLoad(itemDesc: ItemDescModel) {
         self.itemDescModel = itemDesc
         output?.itemDidLoad(itemDesc: itemDesc)

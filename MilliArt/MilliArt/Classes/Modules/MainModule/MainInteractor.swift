@@ -9,6 +9,11 @@
 import Foundation
 
 final class MainInteractor {
+    private var serviceManagerNewPaintings: NewPaintingsServiceInput?
+    init() {
+        self.serviceManagerNewPaintings = NewPaintingsService(interactor: self)
+    }
+    
 	weak var output: MainInteractorOutput?
     let arr1 = [
         CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
@@ -40,7 +45,16 @@ final class MainInteractor {
 extension MainInteractor: MainInteractorInput {
     func loadData() {
         NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
-        
-        output?.receiveData(newPaints: arr3, compilations: arr1, authors: arr2)
+        serviceManagerNewPaintings?.getNewPaining()
+    }
+}
+
+extension MainInteractor: NewPaintingsServiceOutput {
+    func receivenewPaints(newPaints: [VerticalPaintsModel]) {
+        output?.receiveData(newPaints: newPaints, compilations: arr1, authors: arr2)
+    }
+
+    func didFail(with error: Error) {
+        print(error.localizedDescription)
     }
 }

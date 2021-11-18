@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct ItemDescModel {
     var id: Int

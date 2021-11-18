@@ -234,7 +234,9 @@ final class ARViewController: UIViewController {
     private func createPicture() -> SCNNode {
         guard let arModel = self.output.getARViewModel() else { return SCNNode() }
         let picture = SCNPlane(width: arModel.ARwidth, height: arModel.ARheight)
-        picture.firstMaterial?.diffuse.contents = UIImage(named: arModel.ARpic)
+        ImageLoader.shared.image(with: arModel.ARpic) { image in
+            picture.firstMaterial?.diffuse.contents = image
+        }
         configureMaterialLight(plane: picture, lightingModel: .blinn, contents: UIColor(white: 0.2, alpha: 1.0))
         return SCNNode(geometry: picture)
     }

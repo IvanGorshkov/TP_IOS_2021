@@ -84,6 +84,7 @@ protocol ServiceManagerDescModelInput: AnyObject {
 
 protocol ServiceManagerDescModelOutput: AnyObject {
     func itemDidLoad(itemDesc: ItemDescModel)
+    func didFail(with error: Error)
 }
 
 protocol ServiceAddCartInput: AnyObject {
