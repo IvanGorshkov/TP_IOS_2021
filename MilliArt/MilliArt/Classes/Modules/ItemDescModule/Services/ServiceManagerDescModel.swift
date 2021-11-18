@@ -8,20 +8,6 @@
 import Foundation
 import Firebase
 
-final class ServiceManagerDescModel: ServiceManagerDescModelInput {
-    weak var output: ServiceManagerDescModelOutput?
-    
-    init(interactor: ServiceManagerDescModelOutput?) {
-        output = interactor
-    }
-
-    func loadItemById(with id: Int) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.output?.itemDidLoad(itemDesc: array[id])
-        }
-    }
-}
-
 enum NetworkError: Error {
     case unexpected
     case faildToParse
