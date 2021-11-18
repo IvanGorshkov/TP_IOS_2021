@@ -22,6 +22,7 @@ final class ImageLoader {
     func image(with name: String, completion: @escaping (UIImage?) -> Void) {
         if let image = self.cache[name] {
             completion(image)
+            return
         }
         
         storage.child(name).getData(maxSize: 15 * 1024 * 1024) { data, error in
@@ -29,9 +30,12 @@ final class ImageLoader {
                 guard let image = UIImage(data: data) else { return }
                 self.cache[name] = image
                 completion(image)
+                return
             } else {
                 print(error?.localizedDescription ?? "")
             }
         }
+        
+        completion(nil)
     }
 }

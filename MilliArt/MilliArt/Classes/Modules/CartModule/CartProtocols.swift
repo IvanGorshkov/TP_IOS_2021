@@ -44,3 +44,12 @@ protocol CartInteractorOutput: AnyObject {
 protocol CartRouterInput: AnyObject {
     func goToCheckout(from vc: CartViewInput?, data: (rentArray: [RentPrice], buyArray: [BuyPrice]))
 }
+
+protocol ServiceCartModelInput: AnyObject {
+    func loadItemsByIds(with ids: [Int])
+}
+
+protocol ServiceCartModelOutput: AnyObject {
+    func itemDidLoad(baseCarts: [BaseCart])
+    func didFail(with error: Error)
+}

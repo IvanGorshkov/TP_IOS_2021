@@ -13,37 +13,62 @@ final class OrderInteractor {
     private var orderId = Int()
     var arr1 = [RentPrice]()
     var arr2 = [BuyPrice]()
+    private var cartServiceManager: ServiceCartModelInput?
+    init() {
+        self.cartServiceManager = FBCartServiceManager(interactor: self)
+    }
 }
 
 extension OrderInteractor: OrderInteractorInput {
     func getCartItems() {
         let coreDataCart = ServiceAddCart.shared.fetchAll()
+        self.cartServiceManager?.loadItemsByIds(with: coreDataCart.map({ cart in
+            return Int(cart.id)
+        }))
+    }
+    
+    var numberOrder: Int {
+        get {
+            return orderId
+        }
+        set {
+            orderId = newValue
+        }
+    }
+}
+
+
+extension OrderInteractor: ServiceCartModelOutput {
+    func itemDidLoad(baseCarts: [BaseCart]) {
         var tmp1 = [RentPrice]()
         var tmp2 = [BuyPrice]()
-        array.forEach { item in
+        let coreDataCart = ServiceAddCart.shared.fetchAll()
+        
+        baseCarts.forEach { item in
             coreDataCart.forEach { cart in
                 if cart.id == item.id {
                     if cart.isRent {
                         tmp1.append(RentPrice(
                             id: item.id,
-                            img: item.pictures.first ?? "",
+                            img: item.img ,
                             name: item.name,
-                            auther: item.author,
-                            artical: item.vendorСode,
+                            auther: item.auther,
+                            artical: item.artical,
                             amaunt: Int(cart.amount),
                             countRent: Int(cart.rentCount)))
                     } else {
                         tmp2.append(BuyPrice(
                             id: item.id,
-                            img: item.pictures.first ?? "",
+                            img: item.img,
                             name: item.name,
-                            auther: item.author,
-                            artical: item.vendorСode,
+                            auther: item.auther,
+                            artical: item.artical,
                             amaunt: Int(cart.amount)))
                     }
                 }
             }
         }
+ 
         arr1 = tmp1
         arr2 = tmp2
         output?.getCartItems(rentArray: arr1, buyArray: arr2)
@@ -55,12 +80,7 @@ extension OrderInteractor: OrderInteractorInput {
         NotificationCenter.default.post(name: NSNotification.Name("delete_cart"), object: nil)
     }
     
-    var numberOrder: Int {
-        get {
-            return orderId
-        }
-        set {
-            orderId = newValue
-        }
+    func didFail(with error: Error) {
+        print(error.localizedDescription)
     }
 }

@@ -88,7 +88,7 @@ extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat, complition: @escaping (CGFloat) -> Void) {
         let item = array[indexPath.item]
         ImageLoader.shared.image(with: item.pic) { image in
-            guard let image = image else { return }
+            guard let image = UIImage(named: "pic1") else { return }
             let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
             let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
             complition(rect.height)

@@ -27,7 +27,9 @@ class BuyCellView: BaseCartCell {
         articalLabel.text = "\(TitlesConstants.VendorCodeTitle) \(model.artical)"
         totalLabel.text = TitlesConstants.SumTitle
         totalAmauntLabel.text = model.totalAmaunt
-        imagePainting.image = UIImage(named: model.img)
+        ImageLoader.shared.image(with: model.img, completion: { img in
+            self.imagePainting.image = img
+        })
         if model.delete == nil {
             trash.isHidden = true
         }

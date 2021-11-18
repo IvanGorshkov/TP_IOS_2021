@@ -141,6 +141,8 @@
 		706E6A64272C3D960006BA3B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A63272C3D960006BA3B /* String+Extension.swift */; };
 		707CF8D027466152005036F3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8CF27466152005036F3 /* ImageLoader.swift */; };
 		707CF8D4274668C5005036F3 /* NewPaintingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8D3274668C5005036F3 /* NewPaintingsService.swift */; };
+		707CF8D72746A200005036F3 /* FBCartServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8D62746A200005036F3 /* FBCartServiceManager.swift */; };
+		707CF8D92746C1E3005036F3 /* BaseCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8D82746C1E3005036F3 /* BaseCart.swift */; };
 		7099CA442733E609001805AC /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA432733E609001805AC /* HeaderCellViewModel.swift */; };
 		7099CA472733F325001805AC /* HCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */; };
 		7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA482733F44F001805AC /* HCollectionViewModel.swift */; };
@@ -341,6 +343,8 @@
 		706E6A63272C3D960006BA3B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		707CF8CF27466152005036F3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		707CF8D3274668C5005036F3 /* NewPaintingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPaintingsService.swift; sourceTree = "<group>"; };
+		707CF8D62746A200005036F3 /* FBCartServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBCartServiceManager.swift; sourceTree = "<group>"; };
+		707CF8D82746C1E3005036F3 /* BaseCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCart.swift; sourceTree = "<group>"; };
 		7099CA432733E609001805AC /* HeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellViewModel.swift; sourceTree = "<group>"; };
 		7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		7099CA482733F44F001805AC /* HCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -890,6 +894,7 @@
 		706E6A04272AED270006BA3B /* CartModule */ = {
 			isa = PBXGroup;
 			children = (
+				707CF8D52746A1D0005036F3 /* Service */,
 				70F72BFE27399DA400A8709B /* Entity */,
 				70F72BE7273971E100A8709B /* ViewModel */,
 				709BBBAF2739524000F91E0D /* Views */,
@@ -1028,6 +1033,14 @@
 				707CF8D3274668C5005036F3 /* NewPaintingsService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		707CF8D52746A1D0005036F3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				707CF8D62746A200005036F3 /* FBCartServiceManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		7099CA452733F30B001805AC /* HorizontalCollectionViewCell */ = {
@@ -1332,6 +1345,7 @@
 			children = (
 				70F72BFF27399DB900A8709B /* RentPrice.swift */,
 				70F72C042739A06200A8709B /* BuyPrice.swift */,
+				707CF8D82746C1E3005036F3 /* BaseCart.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1517,6 +1531,7 @@
 				706E69EC272AC3130006BA3B /* MainProtocols.swift in Sources */,
 				70096C0B273DDB5D00810EC0 /* InputTextViewModelView.swift in Sources */,
 				70096BF0273D44C900810EC0 /* InputContactContainer.swift in Sources */,
+				707CF8D72746A200005036F3 /* FBCartServiceManager.swift in Sources */,
 				703A4ABE2730156C000329F7 /* AREditProtocols.swift in Sources */,
 				70F72BE0273954BB00A8709B /* CartView+Constraints.swift in Sources */,
 				706E6A37272B513B0006BA3B /* BaseCell.swift in Sources */,
@@ -1636,6 +1651,7 @@
 				70096C22273EE0EF00810EC0 /* OrderProtocols.swift in Sources */,
 				70F72BF827398E3A00A8709B /* RentCellView+Constraints.swift in Sources */,
 				70096BEB273D44C900810EC0 /* InputContactPresenter.swift in Sources */,
+				707CF8D92746C1E3005036F3 /* BaseCart.swift in Sources */,
 				706E69FE272AEB380006BA3B /* SearchRouter.swift in Sources */,
 				706E6A29272B25AF0006BA3B /* ItemDescProtocols.swift in Sources */,
 				7099CA802735863D001805AC /* AllView+Constraints.swift in Sources */,

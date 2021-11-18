@@ -27,7 +27,11 @@ final class ItemDescSectionModel: SectionRowsRepresentable {
             actionFav: { [weak self] in  self?.delegate?.clickFav() }, inCart: inCart
             )
         )
-        rows.append(AboutDescCellModel(itemDesc))
+      
+        if !itemDesc.description.isEmpty {
+            rows.append(AboutDescCellModel(itemDesc))
+        }
+        
         itemDesc.specifications.forEach { [weak self] in
             self?.rows.append(SpecificationsDescCellModel($0))
         }
