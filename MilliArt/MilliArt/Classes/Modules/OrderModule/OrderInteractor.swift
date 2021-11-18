@@ -37,7 +37,6 @@ extension OrderInteractor: OrderInteractorInput {
     }
 }
 
-
 extension OrderInteractor: ServiceCartModelOutput {
     func itemDidLoad(baseCarts: [BaseCart]) {
         var tmp1 = [RentPrice]()
