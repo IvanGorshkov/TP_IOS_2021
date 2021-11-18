@@ -16,6 +16,7 @@ protocol MainModuleOutput: AnyObject {
 }
 
 protocol MainViewInput: AnyObject {
+    func reloadData()
 }
 
 protocol TableViewCellOutput: AnyObject {
@@ -52,4 +53,13 @@ protocol MainRouterInput: AnyObject {
     func itemSelected(with view: MainViewInput?, and id: Int)
     func goToAllCompilation(with view: MainViewInput?)
     func goToAllAuthor(with view: MainViewInput?)
+}
+
+protocol NewPaintingsServiceInput: AnyObject {
+    func getNewPaining()
+}
+
+protocol NewPaintingsServiceOutput: AnyObject {
+    func receivenewPaints(newPaints: [VerticalPaintsModel])
+    func  didFail(with error: Error)
 }

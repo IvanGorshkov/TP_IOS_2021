@@ -61,7 +61,10 @@ final class VCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(model: VerticalPaintsModel) {
-        imageView.image = UIImage(named: model.pic)
+        ImageLoader.shared.image(with: model.pic) { image in
+            self.imageView.image = image
+        }
+        
         priceLabel.text = model.price
         nameLabel.text = model.name
         sizeLabel.text = model.size
@@ -72,6 +75,11 @@ final class VCollectionViewCell: UICollectionViewCell {
         guard let attributes = layoutAttributes as? MosaicLayoutAttributes else {
             return
         }
+        print(count)
+        print(attributes.imageHeight)
+        count += 1
         updateHeight(with: attributes)
     }
 }
+
+var count: Int = 0

@@ -86,14 +86,14 @@ extension AllViewController: UICollectionViewDataSource {
 
 // MARK: MosaicLayoutDelegate
 extension AllViewController: MosaicLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat, complition: (CGFloat) -> Void) {
         let item = output.getCell(at: indexPath.row)
-        guard let model = item as? HorizontalViewModel, let image = UIImage(named: model.pic) else { return 0 }
+        guard let model = item as? HorizontalViewModel, let image = UIImage(named: model.pic) else { return }
        let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
         let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
-        return rect.height
+        complition(rect.height)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = output.getCell(at: indexPath.row)
         guard let model = item as? HorizontalViewModel else { return 0 }
