@@ -2,7 +2,7 @@
 //  MainRouter.swift
 //  MilliArt
 //
-//  Created by Ivan Gorshkov on 28.10.2021.
+//  Created by Alekhin Sergey on 28.10.2021.
 //  
 //
 
