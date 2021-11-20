@@ -47,9 +47,13 @@ final class HCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(model: CellIdentifiable?) {
-        guard let model = model as? HorizontalViewModel, let image = UIImage(named: model.pic) else { return }
-        imageView.image = image
+        self.imageView.image = nil
+        guard let model = model as? HorizontalViewModel else { return }
         nameLabel.text = model.name
-        updateWidth(with: image)
+        ImageLoader.shared.image(with: model.pic) { image in
+            self.imageView.image = image
+            guard let image = image else { return }
+            self.updateWidth(with: image)
+        }
     }
 }

@@ -142,7 +142,6 @@
 		707CF8D027466152005036F3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8CF27466152005036F3 /* ImageLoader.swift */; };
 		707CF8D4274668C5005036F3 /* NewPaintingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8D3274668C5005036F3 /* NewPaintingsService.swift */; };
 		707CF8D92746C1E3005036F3 /* BaseCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8D82746C1E3005036F3 /* BaseCart.swift */; };
-		707CF8DB2746E6B6005036F3 /* FBCartServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8DA2746E6B6005036F3 /* FBCartServiceManager.swift */; };
 		7099CA442733E609001805AC /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA432733E609001805AC /* HeaderCellViewModel.swift */; };
 		7099CA472733F325001805AC /* HCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */; };
 		7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA482733F44F001805AC /* HCollectionViewModel.swift */; };
@@ -192,6 +191,9 @@
 		70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C419E927248FC1006214FA /* SceneDelegate.swift */; };
 		70C419F127248FC2006214FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C419F027248FC2006214FA /* Assets.xcassets */; };
 		70C419F427248FC2006214FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70C419F227248FC2006214FA /* LaunchScreen.storyboard */; };
+		70DD27A12746FEE2002AED00 /* FBCartServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DD27A02746FEE2002AED00 /* FBCartServiceManager.swift */; };
+		70DD27A327479F20002AED00 /* ActualCollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DD27A227479F20002AED00 /* ActualCollectionService.swift */; };
+		70DD27A52747B267002AED00 /* ActualAuthorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DD27A42747B267002AED00 /* ActualAuthorService.swift */; };
 		70F72BDB273953E200A8709B /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BDA273953E200A8709B /* EmptyCartView.swift */; };
 		70F72BDD2739541400A8709B /* EmptyCart+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BDC2739541400A8709B /* EmptyCart+Constraints.swift */; };
 		70F72BE0273954BB00A8709B /* CartView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72BDF273954BB00A8709B /* CartView+Constraints.swift */; };
@@ -344,7 +346,6 @@
 		707CF8CF27466152005036F3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		707CF8D3274668C5005036F3 /* NewPaintingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPaintingsService.swift; sourceTree = "<group>"; };
 		707CF8D82746C1E3005036F3 /* BaseCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCart.swift; sourceTree = "<group>"; };
-		707CF8DA2746E6B6005036F3 /* FBCartServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FBCartServiceManager.swift; path = MilliArt/Classes/Modules/CartModule/Entity/FBCartServiceManager.swift; sourceTree = SOURCE_ROOT; };
 		7099CA432733E609001805AC /* HeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellViewModel.swift; sourceTree = "<group>"; };
 		7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		7099CA482733F44F001805AC /* HCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -388,6 +389,9 @@
 		70C419F027248FC2006214FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70C419F327248FC2006214FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70C419F527248FC2006214FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70DD27A02746FEE2002AED00 /* FBCartServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBCartServiceManager.swift; sourceTree = "<group>"; };
+		70DD27A227479F20002AED00 /* ActualCollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualCollectionService.swift; sourceTree = "<group>"; };
+		70DD27A42747B267002AED00 /* ActualAuthorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualAuthorService.swift; sourceTree = "<group>"; };
 		70F72BDA273953E200A8709B /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		70F72BDC2739541400A8709B /* EmptyCart+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyCart+Constraints.swift"; sourceTree = "<group>"; };
 		70F72BDF273954BB00A8709B /* CartView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartView+Constraints.swift"; sourceTree = "<group>"; };
@@ -894,7 +898,7 @@
 		706E6A04272AED270006BA3B /* CartModule */ = {
 			isa = PBXGroup;
 			children = (
-				707CF8D52746A1D0005036F3 /* Service */,
+				70DD279F2746FEE2002AED00 /* Service */,
 				70F72BFE27399DA400A8709B /* Entity */,
 				70F72BE7273971E100A8709B /* ViewModel */,
 				709BBBAF2739524000F91E0D /* Views */,
@@ -1030,17 +1034,11 @@
 		707CF8D127466891005036F3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				70DD27A227479F20002AED00 /* ActualCollectionService.swift */,
+				70DD27A42747B267002AED00 /* ActualAuthorService.swift */,
 				707CF8D3274668C5005036F3 /* NewPaintingsService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		707CF8D52746A1D0005036F3 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				707CF8DA2746E6B6005036F3 /* FBCartServiceManager.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		7099CA452733F30B001805AC /* HorizontalCollectionViewCell */ = {
@@ -1262,6 +1260,14 @@
 				7099CA912735C6A9001805AC /* .swiftlint.yml */,
 			);
 			path = MilliArt;
+			sourceTree = "<group>";
+		};
+		70DD279F2746FEE2002AED00 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				70DD27A02746FEE2002AED00 /* FBCartServiceManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		70F72BDE273954B200A8709B /* CartView */ = {
@@ -1494,7 +1500,6 @@
 				70F72C0327399FCE00A8709B /* RentViewModel.swift in Sources */,
 				70096C1F273EE0EF00810EC0 /* OrderPresenter.swift in Sources */,
 				70F72BFA27398EAC00A8709B /* BuyCellView+Constraints.swift in Sources */,
-				707CF8DB2746E6B6005036F3 /* FBCartServiceManager.swift in Sources */,
 				70F72BFB27398EAC00A8709B /* BuyCellView.swift in Sources */,
 				70F72BF12739817000A8709B /* RentCellView.swift in Sources */,
 				706E6A28272B25AF0006BA3B /* ItemDescViewController.swift in Sources */,
@@ -1557,6 +1562,7 @@
 				703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */,
 				7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */,
 				70096C2C273FEB7F00810EC0 /* CreateStack.swift in Sources */,
+				70DD27A52747B267002AED00 /* ActualAuthorService.swift in Sources */,
 				7099CA79273585CC001805AC /* AllCompilationsRouter.swift in Sources */,
 				7099CA442733E609001805AC /* HeaderCellViewModel.swift in Sources */,
 				706E6A0B272AED5D0006BA3B /* CartPresenter.swift in Sources */,
@@ -1633,6 +1639,7 @@
 				70096C21273EE0EF00810EC0 /* OrderViewController.swift in Sources */,
 				703A4A90272C7049000329F7 /* SpecificationsDesc+Constraints.swift in Sources */,
 				706E6A49272BE7800006BA3B /* AmountDescCell.swift in Sources */,
+				70DD27A12746FEE2002AED00 /* FBCartServiceManager.swift in Sources */,
 				706E6A1A272B09370006BA3B /* FilterViewController.swift in Sources */,
 				70096BE2273C670E00810EC0 /* ServiceAddCart.swift in Sources */,
 				7099CA8C273598FA001805AC /* AllAuthorsInteractor.swift in Sources */,
@@ -1640,6 +1647,7 @@
 				703A4A81272C6F37000329F7 /* SectionViewCell+Constraints.swift in Sources */,
 				706E6A4B272BEC030006BA3B /* ButtonsDescModelCell.swift in Sources */,
 				70096C10273E78C200810EC0 /* RadioButtonViewModel.swift in Sources */,
+				70DD27A327479F20002AED00 /* ActualCollectionService.swift in Sources */,
 				706E69EA272AC3130006BA3B /* MainRouter.swift in Sources */,
 				706E6A3F272B53FF0006BA3B /* BaseCellModel.swift in Sources */,
 				70096BDF273C5DD700810EC0 /* Cart+CoreDataClass.swift in Sources */,

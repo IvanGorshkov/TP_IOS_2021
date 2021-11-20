@@ -19,6 +19,10 @@ final class FBCartServiceManager {
 }
 extension FBCartServiceManager: ServiceCartModelInput {
     func loadItemsByIds(with ids: [Int]) {
+        if ids.isEmpty {
+            self.output?.itemDidLoad(baseCarts: [])
+            return
+        }
         database.collection("paintings").whereField("id", in: ids).addSnapshotListener { [weak self] querySnapshot, error in
             if let error = error {
                 self?.output?.didFail(with: error)
