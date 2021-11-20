@@ -27,7 +27,7 @@ extension MainPresenter: MainModuleInput {
 
 extension MainPresenter: MainViewOutput {
     func clickOnArt(with id: Int) {
-        router.itemSelected(with: view, and: id)
+        router.itemSelected(with: view, and: interactor.receiveId(with: id))
     }
     
     func goToAllAuthor() {

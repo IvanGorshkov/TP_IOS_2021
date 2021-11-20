@@ -43,6 +43,7 @@ protocol MainViewOutput: AnyObject {
 
 protocol MainInteractorInput: AnyObject {
     func loadData()
+    func receiveId(with index: Int) -> Int
 }
 
 protocol MainInteractorOutput: AnyObject {
@@ -61,5 +62,15 @@ protocol NewPaintingsServiceInput: AnyObject {
 
 protocol NewPaintingsServiceOutput: AnyObject {
     func receivenewPaints(newPaints: [VerticalPaintsModel])
-    func  didFail(with error: Error)
+    func didFail(with error: Error)
+}
+
+protocol ActualCollectionServiceOutput: AnyObject {
+    func receivenewPaints(newCompilations: [CompilationModel])
+    func didFail(with error: Error)
+}
+
+protocol ActualAuthorServiceOutput: AnyObject {
+    func receivenewPaints(authors: [AuthorModel])
+    func didFail(with error: Error)
 }
