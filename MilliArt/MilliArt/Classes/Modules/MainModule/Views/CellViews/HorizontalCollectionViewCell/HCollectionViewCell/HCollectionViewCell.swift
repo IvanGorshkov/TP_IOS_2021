@@ -52,9 +52,13 @@ final class HCollectionViewCell: UICollectionViewCell {
         nameLabel.text = model.name
         self.updateWidth(with: model.widthConstrint)
         
-        ImageLoader.shared.image(with: model.pic) { image in
-            if !complition() { return }
-            self.imageView.image = image
+        DispatchQueue.global().async {
+            ImageLoader.shared.image(with: model.pic) { image in
+                DispatchQueue.main.async {
+                    if !complition() { return }
+                    self.imageView.image = image
+                }
+            }
         }
     }
 }

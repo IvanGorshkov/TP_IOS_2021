@@ -21,6 +21,7 @@ final class HeaderCellView: BaseCell {
             allButton.isHidden = true
         } else {
             allButton.setTitle(TitlesConstants.all, for: .normal)
+            allButton.isHidden = false
         }
     }
 

@@ -10,13 +10,17 @@ import Foundation
 
 final class InputContactInteractor {
 	weak var output: InputContactInteractorOutput?
+    var checkoutService: CheckOutServiceInput?
     var arr1 = [RentPrice]()
     var arr2 = [BuyPrice]()
+    init() {
+        checkoutService = CheckOutService(interactor: self)
+    }
 }
 
 extension InputContactInteractor: InputContactInteractorInput {
     func checkout(with data: [CheckoutDataModel]) {
-        output?.resualtCheckout(error: nil, orderNumber: 2448)
+        checkoutService?.checkout(with: arr1, and: arr2, with: data)
     }
     
     func getArrays() -> (rentArray: [RentPrice], buyArray: [BuyPrice]) {
@@ -30,5 +34,14 @@ extension InputContactInteractor: InputContactInteractorInput {
             InputCheckoutModel(inputType: .email, placeholder: TitlesConstants.MailPlaceholder),
             InputCheckoutModel(inputType: .address, placeholder: TitlesConstants.AddressPlaceholder)
         ]
+    }
+}
+
+extension InputContactInteractor: CheckOutServiceOutput {
+    func faildCheckout() {
+    }
+    
+    func successCheckout(with orederId: Int) {
+         output?.resualtCheckout(error: nil, orderNumber: orederId)
     }
 }

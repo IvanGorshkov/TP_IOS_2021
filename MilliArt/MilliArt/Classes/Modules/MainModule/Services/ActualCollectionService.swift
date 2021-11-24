@@ -8,9 +8,11 @@
 import Foundation
 import Firebase
 
-final class ActualCollectionService: NewPaintingsServiceInput {
-    func getNewPaining() {
-        database.collection("collection").addSnapshotListener { [weak self] querySnapshot, error in
+final class BaseNetService: NetServiceInput {
+    var itemLimit: Int
+    
+    func requestToNetService() {
+        database.collection(collection).limit(to: itemLimit).getDocuments { [weak self] querySnapshot, error in
             if let error = error {
                 self?.output?.didFail(with: error)
                 return
@@ -21,40 +23,22 @@ final class ActualCollectionService: NewPaintingsServiceInput {
                 return
             }
             
-            let products = documents.compactMap { self?.productConverter.product(from: $0) }
+            let products = documents.compactMap { [weak self] snapshot in
+                return self?.productConverter?.product(from: snapshot) as Any
+            }
             
-            self?.output?.receivenewPaints(newCompilations: products)
+            self?.output?.receiveFromService(data: products)
         }
     }
     
     private let database = Firestore.firestore()
-    private let productConverter = ProductConverter()
-    weak var output: ActualCollectionServiceOutput?
-    init(interactor: ActualCollectionServiceOutput?) {
-        output = interactor
-    }
-}
-
-private final class ProductConverter {
-    enum Key: String {
-        case id
-        case collectionPic
-        case collectionName
-        case height
-        case width
-    }
+    var productConverter: ConverterDescription?
+    private let collection: String
     
-    func product(from document: DocumentSnapshot) -> CompilationModel? {
-        guard let dict = document.data() else { return nil }
-        let title = dict[Key.collectionName.rawValue]
-        let height = dict[Key.height.rawValue]
-        let width = dict[Key.width.rawValue]
-        let pic = dict[Key.collectionPic.rawValue]
-        
-        return CompilationModel(
-            compilationPicture: pic as? String ?? "",
-            compilationname: title as? String ?? "",
-            height: height as? Int ?? 0,
-            width: width as? Int ?? 0)
+    weak var output: NetServiceOutput?
+    init(interactor: NetServiceOutput?, collection: String) {
+        output = interactor
+        itemLimit = Int.max
+        self.collection = collection
     }
 }

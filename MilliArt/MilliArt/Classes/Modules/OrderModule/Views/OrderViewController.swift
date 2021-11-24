@@ -46,7 +46,7 @@ final class OrderViewController: UIViewController {
                    color: ColorConstants.BlackColor.withAlphaComponent(0.6),
                    fontSize: 24,
                    fontWeight: .bold,
-                   text: "№1234")
+                   text: "№\(output.getOrderId())")
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
     }
     private func setUpTableView() {

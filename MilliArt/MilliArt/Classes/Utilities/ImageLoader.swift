@@ -20,20 +20,22 @@ final class ImageLoader {
     private let storage = Storage.storage().reference()
     
     func image(with name: String, completion: @escaping (UIImage?) -> Void) {
-        if let image = self.cache[name] {
-            completion(image)
-            return
-        }
-        
-        self.storage.child(name).getData(maxSize: 15 * 1024 * 1024) { data, error in
-            if let data = data {
-                guard let image = UIImage(data: data) else { return }
-                self.cache[name] = image
+     //   DispatchQueue.main.asyncAfter(deadline: .now() + 20.1) {
+            if let image = self.cache[name] {
                 completion(image)
                 return
-            } else {
-                print(error?.localizedDescription ?? "")
             }
-        }
+            
+            self.storage.child(name).getData(maxSize: 15 * 1024 * 1024) { data, error in
+                if let data = data {
+                    guard let image = UIImage(data: data) else { return }
+                    self.cache[name] = image
+                    completion(image)
+                    return
+                } else {
+                    print(error?.localizedDescription ?? "")
+                }
+            }
+      //  }
     }
 }

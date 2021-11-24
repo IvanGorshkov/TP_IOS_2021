@@ -52,14 +52,21 @@ final class AllCollectionViewCell: UICollectionViewCell {
         label.top = verticalAlignment
     }
 
-    func configure(model: CellIdentifiable?) {
+    func configure(model: CellIdentifiable?, complition: @escaping () -> (Bool)) {
+        self.imageView.image = nil
         guard let model = model as? HorizontalViewModel else { return }
-        ImageLoader.shared.image(with: model.pic) { image in
-            self.imageView.image = image
-        }
         nameLabel.text = model.name
+        
+        DispatchQueue.global().async {
+            ImageLoader.shared.image(with: model.pic) { image in
+                DispatchQueue.main.async {
+                    if !complition() { return }
+                    self.imageView.image = image
+                }
+            }
+        }
     }
-
+    
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         guard let attributes = layoutAttributes as? MosaicLayoutAttributes else {
