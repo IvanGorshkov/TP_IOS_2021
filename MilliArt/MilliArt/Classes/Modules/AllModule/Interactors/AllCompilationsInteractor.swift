@@ -11,10 +11,11 @@ import Foundation
 final class AllCompilationsInteractor {
 	weak var output: AllInteractorOutput?
     private var newCompilations = [CompilationModel]()
-    private var actualCollectionServiceInput: NewPaintingsServiceInput?
+    private var actualCollectionServiceInput: NetServiceInput?
     
     init() {
-        self.actualCollectionServiceInput = ActualCollectionService(interactor: self)
+        self.actualCollectionServiceInput = BaseNetService(interactor: self, collection: "collection")
+        self.actualCollectionServiceInput?.productConverter = CompilationConverter()
     }
 }
 
@@ -24,13 +25,14 @@ extension AllCompilationsInteractor: AllInteractorInput {
     }
 
     func loadData() {
-        actualCollectionServiceInput?.getNewPaining()
+        actualCollectionServiceInput?.requestToNetService()
     }
 }
 
-extension AllCompilationsInteractor: ActualCollectionServiceOutput {
-    func receivenewPaints(newCompilations: [CompilationModel]) {
-        self.newCompilations = newCompilations
+extension AllCompilationsInteractor: NetServiceOutput {
+    func receiveFromService<T>(data: [T]) {
+        guard let data = data as? [CompilationModel] else { return }
+        self.newCompilations = data
         output?.receiveData(data: newCompilations.map({ model in
             return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname, height: model.height, width: model.width)
             }

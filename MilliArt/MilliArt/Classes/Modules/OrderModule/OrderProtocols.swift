@@ -21,6 +21,7 @@ protocol OrderViewInput: AnyObject {
 
 protocol OrderViewOutput: AnyObject {
     func viewDidLoad()
+    func getOrderId() -> Int
     var expand: ExpandeDescription { get }
 }
 

@@ -98,8 +98,10 @@ extension AllViewController: UICollectionViewDataSource {
                 as? AllCollectionViewCell else {
             return UICollectionViewCell()
         }
-
-        cell.configure(model: output.getCell(at: indexPath.row))
+        cell.configure(model: output.getCell(at: indexPath.row)) {
+            let myCell = collectionView.cellForItem(at: indexPath)
+            return cell == myCell
+        }
         return cell
     }
 }

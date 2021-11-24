@@ -6,7 +6,7 @@
 //  
 //
 
-import Foundation
+import Firebase
 
 protocol MainModuleInput {
 	var moduleOutput: MainModuleOutput? { get }
@@ -56,21 +56,17 @@ protocol MainRouterInput: AnyObject {
     func goToAllAuthor(with view: MainViewInput?)
 }
 
-protocol NewPaintingsServiceInput: AnyObject {
-    func getNewPaining()
+protocol NetServiceInput: AnyObject {
+    func requestToNetService()
+    var itemLimit: Int { get set }
+    var productConverter: ConverterDescription? { get set }
 }
 
-protocol NewPaintingsServiceOutput: AnyObject {
-    func receivenewPaints(newPaints: [VerticalPaintsModel])
+protocol NetServiceOutput: AnyObject {
+    func receiveFromService<T>(data: [T])
     func didFail(with error: Error)
 }
 
-protocol ActualCollectionServiceOutput: AnyObject {
-    func receivenewPaints(newCompilations: [CompilationModel])
-    func didFail(with error: Error)
-}
-
-protocol ActualAuthorServiceOutput: AnyObject {
-    func receivenewPaints(authors: [AuthorModel])
-    func didFail(with error: Error)
+protocol ConverterDescription: AnyObject {
+    func product<T: Any>(from document: DocumentSnapshot) -> T?
 }
