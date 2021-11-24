@@ -40,6 +40,7 @@ extension MainPresenter: MainViewOutput {
 
     func viewDidLoad() {
         interactor.loadData()
+        mainSectionViewModel = MainSectionViewModel()
     }
 
     func getCellHeight(at index: Int) -> Float {
@@ -75,7 +76,7 @@ extension MainPresenter: MainViewOutput {
 
 extension MainPresenter: MainInteractorOutput {
     func receiveData(newPaints: [VerticalPaintsModel], compilations: [CompilationModel], authors: [AuthorModel]) {
-        mainSectionViewModel = MainSectionViewModel(newPaints: newPaints, compilations: compilations, authors: authors)
+        mainSectionViewModel?.fillData(newPaints: newPaints, compilations: compilations, authors: authors)
         view?.reloadData()
     }
 }

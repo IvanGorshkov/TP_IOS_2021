@@ -30,6 +30,7 @@ final class ItemSliderCell: BaseCell {
     override func updateViews() {
         guard let model = model as? SliderCellModel else { return }
         
+        images = []
         model.pics.forEach {
             ImageLoader.shared.image(with: $0) { image in
                 self.images.append(ImageSource(image: image ??  UIImage.remove))
