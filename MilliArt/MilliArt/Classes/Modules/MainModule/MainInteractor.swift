@@ -9,12 +9,16 @@
 import Foundation
 
 final class MainInteractor {
+    weak var output: MainInteractorOutput?
+    
     private var serviceManagerNewPaintings: NetServiceInput?
     private var serviceManagerActualCollection: NetServiceInput?
     private var serviceManagerActualAuthor: NetServiceInput?
+    
     private var verticalPaintsModel = [VerticalPaintsModel]()
     private var newCompilations = [CompilationModel]()
     private var authorModelArr = [AuthorModel]()
+    
     private let group = DispatchGroup()
 
     init() {
@@ -29,8 +33,6 @@ final class MainInteractor {
         self.serviceManagerActualAuthor?.productConverter = AuthorConverter()
         self.serviceManagerActualAuthor?.itemLimit = 10
     }
-    
-	weak var output: MainInteractorOutput?
 }
 
 extension MainInteractor: MainInteractorInput {

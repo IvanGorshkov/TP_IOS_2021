@@ -24,7 +24,7 @@ final class ItemDescSectionModel: SectionRowsRepresentable {
             actionAR: { [weak self] in self?.delegate?.clickAR() },
             actionBuy: { [weak self] selected in self?.delegate?.clickBuy(selected: selected) },
             actionRent: { [weak self] selected in self?.delegate?.clickRent(selected: selected) },
-            actionFav: { [weak self] in  self?.delegate?.clickFav() }, inCart: inCart
+            actionFav: { [weak self] in  self?.delegate?.clickFav() }, inCart: inCart, isAvalible: itemDesc.isAvalible
             )
         )
       

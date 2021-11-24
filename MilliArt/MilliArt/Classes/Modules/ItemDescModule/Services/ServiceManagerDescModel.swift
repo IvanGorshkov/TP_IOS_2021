@@ -53,6 +53,7 @@ private final class ProductConverter {
         case price
         case pics
         case specification
+        case available
     }
     
     func product(from document: DocumentSnapshot) -> ItemDescModel? {
@@ -62,6 +63,7 @@ private final class ProductConverter {
         let rent = dict[Key.rentPrice.rawValue]
         let about = dict[Key.description.rawValue]
         let id = dict[Key.id.rawValue]
+        let isAvalible = dict[Key.available.rawValue]
         guard let arr = dict[Key.pics.rawValue] as?  [String]  else { return nil }
         var specifications = [Specifications]()
         guard  let specificationsDict = dict[Key.specification.rawValue] as? NSMutableDictionary  else { return nil }
@@ -80,7 +82,8 @@ private final class ProductConverter {
             rent: rent as? Int ?? 0,
             description: about as? String ?? "",
             specifications: specifications,
-            countRent: 1
+            countRent: 1,
+            isAvalible: isAvalible as? Bool ?? true
         )
     }
 }
