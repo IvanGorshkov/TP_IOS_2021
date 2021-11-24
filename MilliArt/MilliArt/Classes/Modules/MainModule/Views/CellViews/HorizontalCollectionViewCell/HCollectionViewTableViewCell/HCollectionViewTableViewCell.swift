@@ -58,7 +58,14 @@ final class HCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
                         return UICollectionViewCell()
                     }
 
-         cell.configure(model: array[indexPath.row])
+         cell.configure(model: array[indexPath.row]) {
+             let myCell = collectionView.cellForItem(at: indexPath)
+             if myCell == nil {
+                 return true
+             }
+             return cell == myCell
+         }
+         
        return cell
      }
 }

@@ -71,7 +71,7 @@ final class ItemSliderCell: BaseCell {
         slider.slideshowInterval = 0.0
         slider.circular = true
         slider.pageIndicatorPosition = .init(horizontal: .center, vertical: .customBottom(padding: -5))
-        slider.contentScaleMode = UIViewContentMode.scaleAspectFit
+        slider.contentScaleMode = UIViewContentMode.scaleAspectFill
 
         let recognizerR = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
         recognizerR.direction = UISwipeGestureRecognizer.Direction.right

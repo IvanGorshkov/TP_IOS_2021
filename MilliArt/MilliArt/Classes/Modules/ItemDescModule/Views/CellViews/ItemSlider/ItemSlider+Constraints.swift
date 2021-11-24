@@ -14,6 +14,6 @@ extension ItemSliderCell {
         slider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
         slider.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         slider.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -40).isActive = true
-        slider.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        slider.heightAnchor.constraint(equalToConstant: 350).isActive = true
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Ivan Gorshkov on 05.11.2021.
 //
 
-import Foundation
+import UIKit
 
 class HorizontalViewModel: CellIdentifiable {
     var cellIdentifier: String {
@@ -19,8 +19,19 @@ class HorizontalViewModel: CellIdentifiable {
     let pic: String
     let name: String
 
-    init(pic: String, name: String) {
+    let height: CGFloat
+    let width: CGFloat
+    
+    var widthConstrint: CGFloat {
+        let nHeight = CGFloat(170)
+        let nWidth = (width / height) * nHeight
+        return nWidth
+    }
+    
+    init(pic: String, name: String, height: Int, width: Int) {
         self.pic = pic
         self.name = name
+        self.height = CGFloat(height)
+        self.width = CGFloat(width)
     }
 }

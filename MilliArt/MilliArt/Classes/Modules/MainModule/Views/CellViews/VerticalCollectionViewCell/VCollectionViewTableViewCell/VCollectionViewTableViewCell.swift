@@ -87,12 +87,10 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
 extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat, complition: @escaping (CGFloat) -> Void) {
         let item = array[indexPath.item]
-        ImageLoader.shared.image(with: item.pic) { image in
-            guard let image = image else { return }
-            let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-            let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
+        
+        let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+        let rect = AVMakeRect(aspectRatio: CGSize(width: CGFloat(item.width), height: CGFloat(item.height)), insideRect: boundingRect)
             complition(rect.height)
-        }
     }
 
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {

@@ -54,7 +54,9 @@ final class AllCollectionViewCell: UICollectionViewCell {
 
     func configure(model: CellIdentifiable?) {
         guard let model = model as? HorizontalViewModel else { return }
-        imageView.image = UIImage(named: model.pic)
+        ImageLoader.shared.image(with: model.pic) { image in
+            self.imageView.image = image
+        }
         nameLabel.text = model.name
     }
 

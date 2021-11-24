@@ -40,14 +40,21 @@ private final class ProductConverter {
         case id
         case pic
         case fullname
+        case height
+        case width
     }
     
     func product(from document: DocumentSnapshot) -> AuthorModel? {
         guard let dict = document.data() else { return nil }
         let title = dict[Key.fullname.rawValue]
-       //  let _ = dict[Key.id.rawValue]
+        let height = dict[Key.height.rawValue]
+        let width = dict[Key.width.rawValue]
         let pic = dict[Key.pic.rawValue]
         
-        return AuthorModel(authorPicture: pic as? String ?? "", authorName: title as? String ?? "")
+        return AuthorModel(
+            authorPicture: pic as? String ?? "",
+            authorName: title as? String ?? "",
+            height: height as? Int ?? 0,
+            width: width as? Int ?? 0)
     }
 }

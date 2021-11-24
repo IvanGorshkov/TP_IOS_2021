@@ -40,14 +40,21 @@ private final class ProductConverter {
         case id
         case collectionPic
         case collectionName
+        case height
+        case width
     }
     
     func product(from document: DocumentSnapshot) -> CompilationModel? {
         guard let dict = document.data() else { return nil }
         let title = dict[Key.collectionName.rawValue]
-        // let _ = dict[Key.id.rawValue]
+        let height = dict[Key.height.rawValue]
+        let width = dict[Key.width.rawValue]
         let pic = dict[Key.collectionPic.rawValue]
         
-        return CompilationModel(compilationPicture: pic as? String ?? "", compilationname: title as? String ?? "")
+        return CompilationModel(
+            compilationPicture: pic as? String ?? "",
+            compilationname: title as? String ?? "",
+            height: height as? Int ?? 0,
+            width: width as? Int ?? 0)
     }
 }
