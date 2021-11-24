@@ -10,4 +10,6 @@ import Foundation
 struct AuthorModel {
     let authorPicture: String
     let authorName: String
+    let height: Int
+    let width: Int
 }

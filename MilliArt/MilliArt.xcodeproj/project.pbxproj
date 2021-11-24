@@ -786,6 +786,7 @@
 				7099CA432733E609001805AC /* HeaderCellViewModel.swift */,
 				7099CA4D2733FCF7001805AC /* VCollectionViewModel.swift */,
 				7099CA482733F44F001805AC /* HCollectionViewModel.swift */,
+				7099CA57273487ED001805AC /* HorizontalViewModel.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -1071,7 +1072,6 @@
 		7099CA56273487D2001805AC /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				7099CA57273487ED001805AC /* HorizontalViewModel.swift */,
 				7099CA5927348846001805AC /* VerticalPaintsModel.swift */,
 				7099CA5B273488E3001805AC /* CompilationModel.swift */,
 				7099CA5D273488F9001805AC /* AuthorModel.swift */,

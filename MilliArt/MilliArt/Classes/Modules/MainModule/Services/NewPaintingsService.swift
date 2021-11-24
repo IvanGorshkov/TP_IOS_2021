@@ -61,7 +61,9 @@ private final class ProductConverter {
             pic: arr.first ?? "",
             name: title as? String ?? "",
             size: "\(height as? Int ?? 0) x \(weight as? Int ?? 0)",
-            price: "\(Currency.currency(price: price as? Int ?? 0)) ₽"
+            price: "\(Currency.currency(price: price as? Int ?? 0)) ₽",
+            height: height as? Int ?? 0,
+            width: weight as? Int ?? 0
         )
     }
 }

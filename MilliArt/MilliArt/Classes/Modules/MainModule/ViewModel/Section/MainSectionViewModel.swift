@@ -18,7 +18,7 @@ final class MainSectionViewModel: SectionRowsRepresentable {
         }))
         rows.append(
             HCollectionViewModel(array: compilations.map({ model in
-            return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname)
+                return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname, height: model.height, width: model.width)
                 }
             ), action: nil)
         )
@@ -29,7 +29,7 @@ final class MainSectionViewModel: SectionRowsRepresentable {
 
         rows.append(
             HCollectionViewModel(array: authors.map({ model in
-            return HorizontalViewModel(pic: model.authorPicture, name: model.authorName)
+                return HorizontalViewModel(pic: model.authorPicture, name: model.authorName, height: model.height, width: model.width)
                 }
             ), action: nil)
         )

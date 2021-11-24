@@ -1,5 +1,5 @@
 //
-//  HeaderCell+Constraints.swift
+//  HCollectionViewCell+Constraints.swift
 //  MilliArt
 //
 //  Created by Alekhin Sergey on 04.11.2021.
@@ -9,13 +9,6 @@ import UIKit
 
 extension HCollectionViewCell {
     internal func addConstraints() {
-        translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundView?.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        self.contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         self.imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
         self.imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
@@ -30,25 +23,12 @@ extension HCollectionViewCell {
         self.nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 
-    internal func updateWidth(with image: UIImage) {
-        let nHeight = CGFloat(170)
-        let oWidth = image.size.width
-        let oHeight = image.size.height
-
-        let nWidth = (oWidth / oHeight) * nHeight
-
+    internal func updateWidth(with width: CGFloat) {
         if myWidthAnchor == nil {
-            myWidthAnchor = self.imageView.widthAnchor.constraint(equalToConstant: nWidth)
+            myWidthAnchor = self.imageView.widthAnchor.constraint(equalToConstant: width)
             myWidthAnchor.isActive = true
-         //   widthAnchor.constraint(equalTo: self.imageView.widthAnchor).isActive = true
-         //   widthAnchor.constraint(equalToConstant: nWidth).isActive = true
-        //    self.addConstraint(myWidthAnchor)
         } else {
-            myWidthAnchor.constant = nWidth
-        //    widthAnchor.constraint(equalTo: self.imageView.widthAnchor).isActive = true
-        //    widthAnchor.constraint(equalToConstant: nWidth).isActive = true
+            myWidthAnchor.constant = width
         }
-        
-       // layoutSubviews()
     }
 }

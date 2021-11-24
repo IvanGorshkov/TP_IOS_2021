@@ -10,6 +10,12 @@ import Foundation
 
 final class AllCompilationsInteractor {
 	weak var output: AllInteractorOutput?
+    private var newCompilations = [CompilationModel]()
+    private var actualCollectionServiceInput: NewPaintingsServiceInput?
+    
+    init() {
+        self.actualCollectionServiceInput = ActualCollectionService(interactor: self)
+    }
 }
 
 extension AllCompilationsInteractor: AllInteractorInput {
@@ -18,34 +24,20 @@ extension AllCompilationsInteractor: AllInteractorInput {
     }
 
     func loadData() {
-        let arr1 = [
-            CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
-            CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-            CompilationModel(compilationPicture: "pic3", compilationname: "Гончии"),
-            CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-            CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
-            CompilationModel(compilationPicture: "pic3", compilationname: "Гончии"),
-            CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-            CompilationModel(compilationPicture: "pic3", compilationname: "Гончии"),
-            CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
-            CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-            CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
-            CompilationModel(compilationPicture: "pic3", compilationname: "Гончии"),
-            CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-            CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
-            CompilationModel(compilationPicture: "pic3", compilationname: "Гончии"),
-            CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-            CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
-            CompilationModel(compilationPicture: "pic3", compilationname: "Гончии"),
-            CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-            CompilationModel(compilationPicture: "pic3", compilationname: "Гончии"),
-            CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-            CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
-            CompilationModel(compilationPicture: "pic3", compilationname: "Гончии")
-        ]
-        output?.receiveData(data: arr1.map({ model in
-            return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname)
+        actualCollectionServiceInput?.getNewPaining()
+    }
+}
+
+extension AllCompilationsInteractor: ActualCollectionServiceOutput {
+    func receivenewPaints(newCompilations: [CompilationModel]) {
+        self.newCompilations = newCompilations
+        output?.receiveData(data: newCompilations.map({ model in
+            return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname, height: model.height, width: model.width)
             }
         ))
+    }
+    
+    func didFail(with error: Error) {
+        print(error.localizedDescription)
     }
 }

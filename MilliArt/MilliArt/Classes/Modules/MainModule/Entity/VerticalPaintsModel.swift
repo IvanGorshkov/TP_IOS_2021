@@ -13,4 +13,6 @@ struct VerticalPaintsModel {
     let name: String
     let size: String
     let price: String
+    let height: Int
+    let width: Int
 }
