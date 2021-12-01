@@ -11,6 +11,7 @@ final class AmountDescCell: BaseCell {
     internal var amountLabel = UILabel()
     internal var monthCountLabel = UIButton()
     internal var rentLabel = UILabel()
+    internal var HStackIn = UIStackView()
 
     static let cellIdentifier = "AmountDescCellModel"
 
@@ -32,7 +33,7 @@ final class AmountDescCell: BaseCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [amountLabel, monthCountLabel, rentLabel].forEach({
+        [HStackIn, rentLabel].forEach({
             contentView.addSubview($0)
         })
 
@@ -47,8 +48,17 @@ final class AmountDescCell: BaseCell {
     private func setUp() {
         setUpBase()
         setUpUIElements()
+        setUpStack()
     }
 
+    private func setUpStack() {
+        HStackIn.axis  = .horizontal
+        HStackIn.distribution  = .equalSpacing
+        HStackIn.alignment = .center
+        HStackIn.addArrangedSubview(amountLabel)
+        HStackIn.addArrangedSubview(monthCountLabel)
+    }
+    
     private func setUpBase() {
         backgroundColor = .clear
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
@@ -65,6 +75,10 @@ final class AmountDescCell: BaseCell {
         amountLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.heavy)
         monthCountLabel.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.heavy)
         rentLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.heavy)
+        amountLabel.adjustsFontSizeToFitWidth = true
+        amountLabel.minimumScaleFactor = 0.5
+        rentLabel.adjustsFontSizeToFitWidth = true
+        rentLabel.minimumScaleFactor = 0.5
     }
 
     private func setUpColor() {
