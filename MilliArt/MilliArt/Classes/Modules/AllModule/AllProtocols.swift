@@ -24,11 +24,14 @@ protocol AllViewOutput: AnyObject {
     func getCell(at index: Int) -> CellIdentifiable?
     func getCountCells() -> Int
     func getTitle() -> String
+    func itemSelected(id: Int)
 }
 
 protocol AllInteractorInput: AnyObject {
     func loadData()
     func getTitle() -> String
+    func receiveId(with index: Int) -> Int
+    func receiveTitle(with index: Int) -> String
     var output: AllInteractorOutput? { get set }
 }
 
@@ -37,4 +40,5 @@ protocol AllInteractorOutput: AnyObject {
 }
 
 protocol AllRouterInput: AnyObject {
+    func itemSelected(with view: AllViewInput?, title: String, and id: Int)
 }

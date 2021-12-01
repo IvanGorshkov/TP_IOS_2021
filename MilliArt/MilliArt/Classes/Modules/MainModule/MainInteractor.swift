@@ -24,18 +24,29 @@ final class MainInteractor {
     init() {
         self.serviceManagerNewPaintings = BaseNetService(interactor: self, collection: "paintings")
         self.serviceManagerNewPaintings?.productConverter = ArtConverter()
+        self.serviceManagerNewPaintings?.itemLimit = 15
+        self.serviceManagerNewPaintings?.addLimit()
+        self.serviceManagerNewPaintings?.addSort(param: "id", desc: true)
         
         self.serviceManagerActualCollection = BaseNetService(interactor: self, collection: "collection")
         self.serviceManagerActualCollection?.productConverter = CompilationConverter()
         self.serviceManagerActualCollection?.itemLimit = 10
+        self.serviceManagerActualCollection?.addLimit()
+        self.serviceManagerActualCollection?.addSort(param: "id", desc: true)
         
         self.serviceManagerActualAuthor = BaseNetService(interactor: self, collection: "author")
         self.serviceManagerActualAuthor?.productConverter = AuthorConverter()
         self.serviceManagerActualAuthor?.itemLimit = 10
+        self.serviceManagerActualAuthor?.addLimit()
+        self.serviceManagerActualAuthor?.addSort(param: "id", desc: true)
     }
 }
 
 extension MainInteractor: MainInteractorInput {
+    func receiveCompilationTitle(with index: Int) -> String {
+        return newCompilations[index].compilationname
+    }
+    
     func receiveId(with index: Int) -> Int {
         return verticalPaintsModel[index].id
     }

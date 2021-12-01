@@ -12,6 +12,7 @@ struct AuthorModel {
     let authorName: String
     let height: Int
     let width: Int
+    let id: Int
 }
 
 final class AuthorConverter: ConverterDescription {
@@ -29,11 +30,13 @@ final class AuthorConverter: ConverterDescription {
         let height = dict[Key.height.rawValue]
         let width = dict[Key.width.rawValue]
         let pic = dict[Key.pic.rawValue]
+        let id = dict[Key.id.rawValue]
         
         return AuthorModel(
             authorPicture: pic as? String ?? "",
             authorName: title as? String ?? "",
             height: height as? Int ?? 0,
-            width: width as? Int ?? 0) as? T
+            width: width as? Int ?? 0,
+            id: id as? Int ?? 0) as? T
     }
 }

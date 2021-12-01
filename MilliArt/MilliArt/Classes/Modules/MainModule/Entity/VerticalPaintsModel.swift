@@ -7,14 +7,34 @@
 
 import Firebase
 
-struct VerticalPaintsModel {
+final class VerticalPaintsModel: BaseCellModel {
     let id: Int
     let pic: String
     let name: String
     let size: String
     let price: String
-    let height: Int
+    let heightArt: Int
     let width: Int
+    
+    override var cellIdentifier: String {
+        return VCollectionViewCell.cellIdentifier
+    }
+    
+    init(id: Int,
+         pic: String,
+         name: String,
+         size: String,
+         price: String,
+         height: Int,
+         width: Int) {
+        self.id =  id
+        self.pic = pic
+        self.name = name
+        self.size = size
+        self.price = price
+        self.heightArt = height
+        self.width = width
+    }
 }
 
 final class ArtConverter: ConverterDescription {

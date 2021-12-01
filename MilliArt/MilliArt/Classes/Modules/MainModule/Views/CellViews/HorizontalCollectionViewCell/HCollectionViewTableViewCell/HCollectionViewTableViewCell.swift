@@ -64,4 +64,9 @@ final class HCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let model = model as? HCollectionViewModel else { return }
+        model.action?(indexPath.row)
+    }
 }

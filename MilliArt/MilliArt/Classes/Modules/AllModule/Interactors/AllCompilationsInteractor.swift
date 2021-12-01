@@ -20,6 +20,14 @@ final class AllCompilationsInteractor {
 }
 
 extension AllCompilationsInteractor: AllInteractorInput {
+    func receiveId(with index: Int) -> Int {
+        return newCompilations[index].id
+    }
+    
+    func receiveTitle(with index: Int) -> String {
+        return newCompilations[index].compilationname
+    }
+    
     func getTitle() -> String {
         return TitlesConstants.CompilationTitle
     }
@@ -34,7 +42,7 @@ extension AllCompilationsInteractor: NetServiceOutput {
         guard let data = data as? [CompilationModel] else { return }
         self.newCompilations = data
         output?.receiveData(data: newCompilations.map({ model in
-            return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname, height: model.height, width: model.width)
+            return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname, height: model.height, width: model.width, id: model.id)
             }
         ))
     }
