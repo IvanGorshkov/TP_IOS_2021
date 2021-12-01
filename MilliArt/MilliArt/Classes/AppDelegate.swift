@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MilliArt
 //
-//  Created by Ivan Gorshkov on 23.10.2021. 
+//  Created by Ivan Gorshkov on 23.10.2021.
 //
 
 import UIKit
