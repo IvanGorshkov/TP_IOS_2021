@@ -11,36 +11,36 @@ import AVFoundation
 import NVActivityIndicatorView
 
 final class CompilationViewController: UIViewController, UICollectionViewDelegateFlowLayout {
-	private let output: CompilationViewOutput
+    private let output: CompilationViewOutput
     internal lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         return collectionView
     }()
     private var activityIndicatorView: NVActivityIndicatorView!
-
+    
     init(output: CompilationViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
         output.viewDidLoad()
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraintsCollectionView()
         reloadLayout()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpBase()
@@ -68,7 +68,7 @@ final class CompilationViewController: UIViewController, UICollectionViewDelegat
         self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
         self.navigationItem.title = output.getTitle()
     }
-
+    
     private func setUpIndicator() {
         var frameCenter = view.center
         frameCenter.x -= 25
@@ -98,12 +98,12 @@ extension CompilationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return output.getCountCells()
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath)
                 as? VCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+                    return UICollectionViewCell()
+                }
         cell.configure(model: output.getCell(at: indexPath.row), complition: {
             let myCell = collectionView.cellForItem(at: indexPath)
             return cell == myCell
@@ -123,25 +123,28 @@ extension CompilationViewController: MosaicLayoutDelegate {
         heightForImageAtIndexPath indexPath: IndexPath,
         withWidth width: CGFloat,
         complition: (CGFloat) -> Void) {
-        let item = output.getCell(at: indexPath.row)
-        guard let model = item as? VerticalPaintsModel else { return }
-        let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio:
-                                CGSize(
-                                    width: CGFloat(model.width),
-                                    height: CGFloat(model.heightArt)
-                                ), insideRect: boundingRect)
-        complition(rect.height)
-    }
+            let item = output.getCell(at: indexPath.row)
+            guard let model = item as? VerticalPaintsModel else { return }
+            let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+            let rect = AVMakeRect(aspectRatio:
+                                    CGSize(
+                                        width: CGFloat(model.width),
+                                        height: CGFloat(model.heightArt)
+                                    ), insideRect: boundingRect)
+            complition(rect.height)
+        }
     
-    func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForDescriptionAtIndexPath indexPath: IndexPath,
+        withWidth width: CGFloat) -> CGFloat {
         let item = output.getCell(at: indexPath.row)
         guard let model = item as? VerticalPaintsModel else { return 0 }
         let descriptionHeight = heightForText(model.name, width: width-24)
         let height = 4 + 17 + 4 + descriptionHeight
         return height
     }
-
+    
     func heightForText(_ text: String, width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: 16)
         let rect = NSString(string: text).boundingRect(
