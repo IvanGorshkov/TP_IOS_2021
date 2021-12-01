@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct ItemDescModel {
     var id: Int
@@ -18,6 +19,7 @@ struct ItemDescModel {
     let description: String
     let specifications: [Specifications]
     var countRent: Int
+    var isAvalible: Bool
 }
 
 struct Specifications {

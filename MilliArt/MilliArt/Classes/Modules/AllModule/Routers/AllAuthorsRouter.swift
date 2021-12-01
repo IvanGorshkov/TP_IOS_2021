@@ -12,4 +12,5 @@ final class AllAuthorsRouter {
 }
 
 extension AllAuthorsRouter: AllRouterInput {
+    func itemSelected(with view: AllViewInput?, title: String, and id: Int) {}
 }

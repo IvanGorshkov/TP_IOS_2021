@@ -27,6 +27,10 @@ extension OrderPresenter: OrderModuleInput {
 }
 
 extension OrderPresenter: OrderViewOutput {
+    func getOrderId() -> Int {
+        return interactor.numberOrder
+    }
+    
     var expand: ExpandeDescription {
         return expandP
     }

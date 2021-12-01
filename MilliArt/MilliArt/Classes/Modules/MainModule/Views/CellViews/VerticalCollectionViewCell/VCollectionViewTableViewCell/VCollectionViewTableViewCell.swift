@@ -73,7 +73,10 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
                     return UICollectionViewCell()
                 }
 
-        cell.configure(model: array[indexPath.row])
+        cell.configure(model: array[indexPath.row], complition: {
+            let myCell = collectionView.cellForItem(at: indexPath)
+            return cell == myCell
+        })
         return cell
     }
     
@@ -85,12 +88,20 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
 
 // MARK: MosaicLayoutDelegate
 extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForImageAtIndexPath indexPath: IndexPath,
+        withWidth width: CGFloat,
+        complition: @escaping (CGFloat) -> Void) {
         let item = array[indexPath.item]
-        guard let image = UIImage(named: item.pic) else { return 0 }
+        
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
-        return rect.height
+        let rect = AVMakeRect(aspectRatio:
+                                CGSize(
+                                    width: CGFloat(item.width),
+                                    height: CGFloat(item.heightArt)
+                                ), insideRect: boundingRect)
+            complition(rect.height)
     }
 
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {

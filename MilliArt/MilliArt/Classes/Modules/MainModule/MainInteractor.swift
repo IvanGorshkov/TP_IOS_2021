@@ -9,38 +9,87 @@
 import Foundation
 
 final class MainInteractor {
-	weak var output: MainInteractorOutput?
-    let arr1 = [
-        CompilationModel(compilationPicture: "pic1", compilationname: "На гребне волны"),
-        CompilationModel(compilationPicture: "pic2", compilationname: "Белые утесы"),
-        CompilationModel(compilationPicture: "pic3", compilationname: "Гончии")
-    ]
+    weak var output: MainInteractorOutput?
+    
+    private var serviceManagerNewPaintings: NetServiceInput?
+    private var serviceManagerActualCollection: NetServiceInput?
+    private var serviceManagerActualAuthor: NetServiceInput?
+    
+    private var verticalPaintsModel = [VerticalPaintsModel]()
+    private var newCompilations = [CompilationModel]()
+    private var authorModelArr = [AuthorModel]()
+    
+    private let group = DispatchGroup()
 
-    let arr2 = [
-        AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
-        AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-        AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов")
-    ]
-    let arr3 = [
-        VerticalPaintsModel(id: 0, pic: "korzev", name: "Следы войны", size: "20 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 1, pic: "pic1", name: "На гребне волны", size: "200 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 2, pic: "pic2", name: "Белые утесы", size: "200 x 10", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 3, pic: "pic3", name: "Гончии", size: "200 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 4, pic: "Pushkin", name: "Портрет Пушкина", size: "20 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 5, pic: "sidorov", name: "Зимня дорога Версты", size: "20 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 6, pic: "sidorov", name: "дорога. Версты  дорога", size: "200 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 7, pic: "Pushkin", name: "Портрет Пушкина", size: "200 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 8, pic: "pic3", name: "Гончии", size: "200 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 9, pic: "pic2", name: "Белые утесы", size: "200 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 10, pic: "pic1", name: "На гребне волны", size: "200 x 100", price: "\(Currency.currency(price: 120394)) ₽"),
-        VerticalPaintsModel(id: 11, pic: "korzev", name: "Следы войны", size: "200 x 100", price: "\(Currency.currency(price: 120394)) ₽")
-    ]
+    init() {
+        self.serviceManagerNewPaintings = BaseNetService(interactor: self, collection: "paintings")
+        self.serviceManagerNewPaintings?.productConverter = ArtConverter()
+        self.serviceManagerNewPaintings?.itemLimit = 15
+        self.serviceManagerNewPaintings?.addLimit()
+        self.serviceManagerNewPaintings?.addSort(param: "id", desc: true)
+        
+        self.serviceManagerActualCollection = BaseNetService(interactor: self, collection: "collection")
+        self.serviceManagerActualCollection?.productConverter = CompilationConverter()
+        self.serviceManagerActualCollection?.itemLimit = 10
+        self.serviceManagerActualCollection?.addLimit()
+        self.serviceManagerActualCollection?.addSort(param: "id", desc: true)
+        
+        self.serviceManagerActualAuthor = BaseNetService(interactor: self, collection: "author")
+        self.serviceManagerActualAuthor?.productConverter = AuthorConverter()
+        self.serviceManagerActualAuthor?.itemLimit = 10
+        self.serviceManagerActualAuthor?.addLimit()
+        self.serviceManagerActualAuthor?.addSort(param: "id", desc: true)
+    }
 }
 
 extension MainInteractor: MainInteractorInput {
+    func receiveCompilationTitle(with index: Int) -> String {
+        return newCompilations[index].compilationname
+    }
+    
+    func receiveId(with index: Int) -> Int {
+        return verticalPaintsModel[index].id
+    }
+    
     func loadData() {
         NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
+        group.enter()
+        DispatchQueue.global(qos: .userInitiated).async { [self] in
+            serviceManagerNewPaintings?.requestToNetService()
+        }
+        group.enter()
+        DispatchQueue.global(qos: .userInitiated).async { [self] in
+            serviceManagerActualAuthor?.requestToNetService()
+        }
+        group.enter()
+        DispatchQueue.global(qos: .userInitiated).async { [self] in
+            serviceManagerActualCollection?.requestToNetService()
+        }
         
-        output?.receiveData(newPaints: arr3, compilations: arr1, authors: arr2)
+        group.notify(queue: .main, execute: { [self] in
+            output?.receiveData(newPaints: verticalPaintsModel, compilations: newCompilations, authors: authorModelArr)
+        })
+    }
+}
+
+extension MainInteractor: NetServiceOutput {
+    func receiveFromService<T>(data: [T]) {
+        self.group.leave()
+        if let data = data as? [VerticalPaintsModel] {
+            self.verticalPaintsModel = data
+        }
+        
+        if let data = data as? [CompilationModel] {
+            self.newCompilations = data
+        }
+        
+        if let data = data as? [AuthorModel] {
+            self.authorModelArr = data
+        }
+    }
+    
+    func didFail(with error: Error) {
+        self.group.leave()
+        print(error.localizedDescription)
     }
 }

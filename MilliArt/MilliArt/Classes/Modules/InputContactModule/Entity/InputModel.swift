@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum InputType {
+enum InputType: String {
     case name
     case tel
     case email

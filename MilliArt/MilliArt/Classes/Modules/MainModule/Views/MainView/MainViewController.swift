@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 final class MainViewController: UIViewController {
 	private let output: MainViewOutput
     internal var tableView =  UITableView()
-
+    private var activityIndicatorView: NVActivityIndicatorView!
+    
     init(output: MainViewOutput) {
         self.output = output
 
@@ -27,7 +29,6 @@ final class MainViewController: UIViewController {
 		super.viewDidLoad()
         setUp()
         output.viewDidLoad()
-        output.sectionDelegate = self
     }
 
     override func viewDidLayoutSubviews() {
@@ -39,7 +40,11 @@ final class MainViewController: UIViewController {
         setNavigationPicture()
         addNavigationButton()
         setUpTableView()
+        setUpIndicator()
+        
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
+        self.view.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
     }
 
     private func setUpTableView() {
@@ -47,6 +52,16 @@ final class MainViewController: UIViewController {
         registerCells()
     }
 
+    private func setUpIndicator() {
+        var frameCenter = view.center
+        frameCenter.x -= 25
+        frameCenter.y -= 25
+        activityIndicatorView = NVActivityIndicatorView(
+            frame: CGRect(origin: frameCenter, size: CGSize(width: 50, height: 50)),
+            type: .ballScale,
+            color: ColorConstants.MainPurpleColor)
+    }
+    
     private func setUpTableViewBase() {
         self.view.addSubview(tableView)
         tableView.backgroundColor = .clear
@@ -83,9 +98,22 @@ final class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewInput {
+    func reloadData() {
+        tableView.reloadData()
+        output.sectionDelegate = self
+        activityIndicatorView.stopAnimating()
+    }
 }
 
 extension MainViewController: TableViewCellOutput {
+    func clickOnAuthor(with id: Int) {
+        output.clickOnAuthor(with: id)
+    }
+    
+    func clickOnCompilation(with id: Int) {
+        output.clickOnCompilation(with: id)
+    }
+    
     func clickOnArt(with id: Int) {
         output.clickOnArt(with: id)
     }

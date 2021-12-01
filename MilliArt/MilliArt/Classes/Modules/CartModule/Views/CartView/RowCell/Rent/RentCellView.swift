@@ -37,7 +37,9 @@ final class RentCellView: BaseCartCell {
         countRentLabel.text = model.countRent
         totalLabel.text = TitlesConstants.SumTitle
         totalAmauntLabel.text = model.totalAmaunt
-        imagePainting.image = UIImage(named: model.img)
+        ImageLoader.shared.image(with: model.img, completion: { img in
+            self.imagePainting.image = img
+        })
         
         if model.delete == nil {
             trash.isHidden = true
@@ -55,7 +57,7 @@ final class RentCellView: BaseCartCell {
 
     private func setUpStack() {
         HStackIn.axis  = .horizontal
-        HStackIn.distribution  = .equalSpacing
+        HStackIn.distribution  = .fillProportionally
         HStackIn.alignment = .center
         HStackIn.addArrangedSubview(
             CreateStack.createStack(
@@ -63,8 +65,9 @@ final class RentCellView: BaseCartCell {
                 distribution: .fill,
                 alignmentStack: .center,
                 spacing: 10,
-                views: imagePainting, CreateStack.createStack(
-                    distribution: .equalSpacing,
+                views: imagePainting,
+                CreateStack.createStack(
+                    distribution: .equalCentering,
                     alignmentStack: .leading,
                     spacing: 5,
                     views: autherLabel, nameLabel, articalLabel)

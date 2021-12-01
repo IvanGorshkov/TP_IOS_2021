@@ -8,12 +8,14 @@
 
 import UIKit
 import ExpyTableView
+import NVActivityIndicatorView
 
 final class CartViewController: UIViewController {
 	private let output: CartViewOutput
     internal var emptyCartView =  EmptyCartView()
     internal var tableView =  ExpyTableView()
     internal var continueBtn = UIButton()
+    private var activityIndicatorView: NVActivityIndicatorView!
     
     init(output: CartViewOutput) {
         self.output = output
@@ -36,8 +38,21 @@ final class CartViewController: UIViewController {
     private func setUp() {
         setUpTableView()
         setUpButton()
+        setUpIndicator()
         self.title = TitlesConstants.CartNavTitle
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
+        self.view.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+    }
+    
+    private func setUpIndicator() {
+        var frameCenter = view.center
+        frameCenter.x -= 25
+        frameCenter.y -= 25
+        activityIndicatorView = NVActivityIndicatorView(
+            frame: CGRect(origin: frameCenter, size: CGSize(width: 50, height: 50)),
+            type: .ballScale,
+            color: ColorConstants.MainPurpleColor)
     }
     
     private func setUpButton() {
@@ -101,7 +116,7 @@ extension CartViewController: CartViewInput {
             self.tableView.isHidden = false
             self.continueBtn.isHidden = false
         }
-        
+        activityIndicatorView.stopAnimating()
         tableView.reloadData()
         output.expand.expandifNeeded { section in
             self.tableView.expand(section)
