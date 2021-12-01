@@ -10,44 +10,44 @@ import Foundation
 
 final class AllAuthorsInteractor {
 	weak var output: AllInteractorOutput?
+    private var authors = [AuthorModel]()
+    private var serviceManagerActualAuthor: NetServiceInput?
+    
+    init() {
+        self.serviceManagerActualAuthor = BaseNetService(interactor: self, collection: "author")
+        self.serviceManagerActualAuthor?.productConverter = AuthorConverter()
+    }
 }
 
 extension AllAuthorsInteractor: AllInteractorInput {
+    func receiveId(with index: Int) -> Int {
+        return 0 
+    }
+    
+    func receiveTitle(with index: Int) -> String {
+        return authors[index].authorName
+    }
+        
     func getTitle() -> String {
         return TitlesConstants.authorsTitle
     }
 
     func loadData() {
-        let arr2 = [
-            AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов"),
-            AuthorModel(authorPicture: "pic4", authorName: "Любовь Харламова"),
-            AuthorModel(authorPicture: "pic5", authorName: "Наталья Вильвовская"),
-            AuthorModel(authorPicture: "pic6", authorName: "Антон Кетов")
-        ]
+        serviceManagerActualAuthor?.requestToNetService()
+    }
+}
 
-        output?.receiveData(data: arr2.map({ model in
-            return HorizontalViewModel(pic: model.authorPicture, name: model.authorName)
+extension AllAuthorsInteractor: NetServiceOutput {
+    func receiveFromService<T>(data: [T]) {
+        guard let data = data as? [AuthorModel] else { return }
+        self.authors = data
+        output?.receiveData(data: authors.map({ model in
+            return HorizontalViewModel(pic: model.authorPicture, name: model.authorName, height: model.height, width: model.width, id: model.id)
             }
         ))
+    }
+    
+    func didFail(with error: Error) {
+        print(error.localizedDescription)
     }
 }

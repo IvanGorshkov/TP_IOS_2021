@@ -19,20 +19,22 @@ protocol CartViewInput: AnyObject {
     func loadData()
 }
 
+protocol CartViewCellOutput: AnyObject {
+    func deleteRent(with id: Int)
+    func deleteBuy(with id: Int)
+}
+
 protocol CartViewOutput: AnyObject {
     func viewDidLoad()
-    func isBasketEmpty() -> Bool
-    func getCell(section: Int, row: Int) -> CellIdentifiable?
-    func getSection(section: Int) -> CellIdentifiable?
-    func getCellIdentifier(section: Int, row: Int) -> String
-    func getSectionIdentifier(section: Int) -> String
-    func getCountCells(section: Int) -> Int
-    func getCountSection() -> Int
-    func isExpandable(section: Int) -> Bool
+    func goToCheckout()
+    var expand: ExpandeDescription { get }
 }
 
 protocol CartInteractorInput: AnyObject {
     func getCartItems()
+    func deleteRent(with id: Int)
+    func deleteBuy(with id: Int)
+    func getArrays() -> (rentArray: [RentPrice], buyArray: [BuyPrice])
 }
 
 protocol CartInteractorOutput: AnyObject {
@@ -40,4 +42,14 @@ protocol CartInteractorOutput: AnyObject {
 }
 
 protocol CartRouterInput: AnyObject {
+    func goToCheckout(from vc: CartViewInput?, data: (rentArray: [RentPrice], buyArray: [BuyPrice]))
+}
+
+protocol ServiceCartModelInput: AnyObject {
+    func loadItemsByIds(with ids: [Int])
+}
+
+protocol ServiceCartModelOutput: AnyObject {
+    func itemDidLoad(baseCarts: [BaseCart])
+    func didFail(with error: Error)
 }

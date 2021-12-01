@@ -6,7 +6,7 @@
 //  
 //
 
-import Foundation
+import Firebase
 
 protocol MainModuleInput {
 	var moduleOutput: MainModuleOutput? { get }
@@ -16,11 +16,14 @@ protocol MainModuleOutput: AnyObject {
 }
 
 protocol MainViewInput: AnyObject {
+    func reloadData()
 }
 
 protocol TableViewCellOutput: AnyObject {
     func clickAllCompilation()
     func clickAllAuthor()
+    func clickOnAuthor(with id: Int)
+    func clickOnCompilation(with id: Int)
     func clickOnArt(with id: Int)
 }
 
@@ -30,6 +33,8 @@ protocol MainTableViewCellDescription: AnyObject {
 
 protocol MainViewOutput: AnyObject {
     func clickOnArt(with id: Int)
+    func clickOnCompilation(with id: Int)
+    func clickOnAuthor(with id: Int)
     func viewDidLoad()
     func getCellHeight(at index: Int) -> Float
     func getCell(at index: Int) -> CellIdentifiable?
@@ -42,6 +47,8 @@ protocol MainViewOutput: AnyObject {
 
 protocol MainInteractorInput: AnyObject {
     func loadData()
+    func receiveId(with index: Int) -> Int
+    func receiveCompilationTitle(with index: Int) -> String
 }
 
 protocol MainInteractorOutput: AnyObject {
@@ -50,6 +57,31 @@ protocol MainInteractorOutput: AnyObject {
 
 protocol MainRouterInput: AnyObject {
     func itemSelected(with view: MainViewInput?, and id: Int)
+    func compilationSelected(with view: MainViewInput?, title: String, and id: Int)
     func goToAllCompilation(with view: MainViewInput?)
     func goToAllAuthor(with view: MainViewInput?)
+}
+
+protocol NetServiceInput: AnyObject {
+    func requestToNetService()
+    func addSort(param: String, desc: Bool)
+    func addLimit()
+    func reset()
+    var itemLimit: Int { get set }
+    var productConverter: ConverterDescription? { get set }
+}
+
+protocol NetServiceWithIdInput: AnyObject {
+    func requestToNetService(with id: Int?)
+    var itemLimit: Int { get set }
+    var productConverter: ConverterDescription? { get set }
+}
+
+protocol NetServiceOutput: AnyObject {
+    func receiveFromService<T>(data: [T])
+    func didFail(with error: Error)
+}
+
+protocol ConverterDescription: AnyObject {
+    func product<T: Any>(from document: DocumentSnapshot) -> T?
 }

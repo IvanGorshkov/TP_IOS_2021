@@ -8,7 +8,9 @@
 import UIKit
 
 protocol MosaicLayoutDelegate: AnyObject {
-    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
+ //   func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
+    
+    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat, complition:  @escaping (CGFloat) -> Void)
 
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
 }
@@ -73,24 +75,26 @@ final class MosaicViewLayout: UICollectionViewLayout {
                 let indexPath = IndexPath(item: item, section: 0)
 
                 let width = columnWidth - (cellPadding * 2)
-                let imageHeight = delegate.collectionView(collectionView, heightForImageAtIndexPath: indexPath, withWidth: width)
-                let descriptionHeight = delegate.collectionView(collectionView, heightForDescriptionAtIndexPath: indexPath, withWidth: width)
-                let height = cellPadding + imageHeight + descriptionHeight + cellPadding
+                delegate.collectionView(collectionView, heightForImageAtIndexPath: indexPath, withWidth: width) { float in
+                    let descriptionHeight = self.delegate.collectionView(
+                        collectionView,
+                        heightForDescriptionAtIndexPath: indexPath,
+                        withWidth: width
+                    )
+                    let height = self.cellPadding + float + descriptionHeight + self.cellPadding
 
-                let frame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height)
-                let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
-                let attributes = MosaicLayoutAttributes(forCellWith: indexPath)
-                attributes.frame = insetFrame
-                attributes.imageHeight = imageHeight
-                cache.append(attributes)
-                contentHeight = max(contentHeight, frame.maxY)
-                yOffsets[column] = yOffsets[column] + height
-                column = column >= (numberOfColumns - 1) ? 0 : column + 1
+                    let frame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height)
+                    let insetFrame = frame.insetBy(dx: self.cellPadding, dy: self.cellPadding)
+                    let attributes = MosaicLayoutAttributes(forCellWith: indexPath)
+                    attributes.frame = insetFrame
+                    attributes.imageHeight = float
+                    self.cache.append(attributes)
+                    self.contentHeight = max(self.contentHeight, frame.maxY)
+                    yOffsets[column] = yOffsets[column] + height
+                    column = column >= (self.numberOfColumns - 1) ? 0 : column + 1
+                }
             }
         }
-        // collectionView?.frame.size.height = contentHeight
-        // collectionView?.contentSize.height = contentHeight
-        // collectionView?.reloadData()
     }
 
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -104,6 +108,7 @@ final class MosaicViewLayout: UICollectionViewLayout {
     }
 
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return cache[indexPath.item]
+        print(indexPath.item)
+        return cache.contains(cache[indexPath.item]) ? cache[indexPath.item]: nil
     }
 }

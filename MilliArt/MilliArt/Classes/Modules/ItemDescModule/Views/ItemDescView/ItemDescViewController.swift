@@ -18,8 +18,17 @@ final class ItemDescViewController: UIViewController {
 
     init(output: ItemDescViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
+        setUpNotification()
+    }
+    
+    private func setUpNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationAction), name: NSNotification.Name("delete_cart"), object: nil)
+    }
+        
+    @objc
+    private func notificationAction() {
+        output.checkCart()
     }
 
     @available(*, unavailable)
@@ -113,6 +122,11 @@ extension ItemDescViewController: ItemDescViewInput {
         let indexPosition = IndexPath(row: 2, section: 0)
         tableView.reloadRows(at: [indexPosition], with: .none)
     }
+    
+    func updateButtons() {
+        let indexPosition = IndexPath(row: 3, section: 0)
+        tableView.reloadRows(at: [indexPosition], with: .none)
+    }
 
     func updateForSections() {
         activityIndicatorView.stopAnimating()
@@ -151,12 +165,14 @@ extension ItemDescViewController: ItemDescCellViewOutput {
         }
     }
 
-    func clickBuy() {
+    func clickBuy(selected: Bool) {
         print("clickBuy")
+        output.addToCart(selected: selected, isRent: false)
     }
 
-    func clickRent() {
+    func clickRent(selected: Bool) {
         print("clickRent")
+        output.addToCart(selected: selected, isRent: true)
     }
 
     func clickFav() {

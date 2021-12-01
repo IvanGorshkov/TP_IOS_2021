@@ -11,6 +11,7 @@ final class ButtonsDescCell: BaseCell {
     internal var arButton = UIButton()
     internal var buyButton = UIButton()
     internal var rentButton = UIButton()
+    internal var soldButton = UIButton()
     internal var favButton = UIButton()
 
     static let cellIdentifier = "ButtonsDescCellModel"
@@ -20,6 +21,27 @@ final class ButtonsDescCell: BaseCell {
         favButton.setImage(UIImage(named: "fav"), for: .normal)
         buyButton.setTitle(TitlesConstants.BuyTitle, for: .normal)
         rentButton.setTitle(TitlesConstants.RentTitle, for: .normal)
+        buyButton.setTitle(TitlesConstants.InCartTitle, for: .selected)
+        rentButton.setTitle(TitlesConstants.InCartTitle, for: .selected)
+        soldButton.setTitle("Продано", for: .normal)
+        
+        guard let model = model as? ButtonsDescModelCell else { return }
+        soldButton.isHidden = true
+        if model.selected {
+            if model.isRent {
+                rentButton.isSelected = true
+            } else {
+                buyButton.isSelected = true
+            }
+        } else {
+            rentButton.isSelected = false
+            buyButton.isSelected = false
+        }
+        
+        rentButton.isHidden = !model.isAvalible ? true : false
+        buyButton.isHidden = !model.isAvalible ? true : false
+        soldButton.isHidden = !model.isAvalible ? false : true
+        soldButton.isEnabled = !model.isAvalible ? false : true
     }
 
     @objc
@@ -37,13 +59,21 @@ final class ButtonsDescCell: BaseCell {
     @objc
     private func clickBuy() {
         guard let model = model as? ButtonsDescModelCell else { return }
-        model.actionBuy?()
+        
+        buyButton.isSelected = !buyButton.isSelected
+        rentButton.isSelected = false
+        
+        model.actionBuy?(buyButton.isSelected)
     }
 
     @objc
     private func clickRent() {
         guard let model = model as? ButtonsDescModelCell else { return }
-        model.actionRent?()
+        
+        rentButton.isSelected = !rentButton.isSelected
+        buyButton.isSelected = false
+        
+        model.actionRent?(rentButton.isSelected)
     }
 
     private func setUpButton(btn: UIButton) {
@@ -53,7 +83,9 @@ final class ButtonsDescCell: BaseCell {
         btn.clipsToBounds = true
         btn.setTitleColor(ColorConstants.BlackColor, for: .normal)
         btn.setTitleColor( .white, for: .highlighted)
+        btn.setTitleColor( .white, for: .selected)
         btn.setBackgroundColor(color: ColorConstants.MainPurpleColor, forState: .highlighted)
+        btn.setBackgroundColor(color: ColorConstants.MainPurpleColor, forState: .selected)
         btn.setBackgroundColor(color: .clear, forState: .normal)
     }
 
@@ -61,11 +93,12 @@ final class ButtonsDescCell: BaseCell {
         super.layoutSubviews()
         setUpCornerRadius(btn: buyButton)
         setUpCornerRadius(btn: rentButton)
+        setUpCornerRadius(btn: soldButton)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [arButton, buyButton, rentButton, favButton].forEach({ contentView.addSubview($0)
+        [arButton, buyButton, rentButton, favButton, soldButton].forEach({ contentView.addSubview($0)
         })
 
         addConstraints()
@@ -94,6 +127,7 @@ final class ButtonsDescCell: BaseCell {
         ].forEach { $0.0.addTarget(self, action: $0.1, for: .touchUpInside) }
         setUpButton(btn: buyButton)
         setUpButton(btn: rentButton)
+        setUpButton(btn: soldButton)
     }
 
     private func setUpCornerRadius(btn: UIButton) {

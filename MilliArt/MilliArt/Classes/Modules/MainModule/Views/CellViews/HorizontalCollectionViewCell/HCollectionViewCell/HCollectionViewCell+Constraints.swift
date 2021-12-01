@@ -1,5 +1,5 @@
 //
-//  HeaderCell+Constraints.swift
+//  HCollectionViewCell+Constraints.swift
 //  MilliArt
 //
 //  Created by Alekhin Sergey on 04.11.2021.
@@ -23,18 +23,12 @@ extension HCollectionViewCell {
         self.nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 
-    internal func updateWidth(with image: UIImage) {
-        let nHeight = CGFloat(170)
-        let oWidth = image.size.width
-        let oHeight = image.size.height
-
-        let nWidth = (oWidth / oHeight) * nHeight
-
+    internal func updateWidth(with width: CGFloat) {
         if myWidthAnchor == nil {
-            myWidthAnchor = self.imageView.widthAnchor.constraint(equalToConstant: nWidth)
+            myWidthAnchor = self.imageView.widthAnchor.constraint(equalToConstant: width)
             myWidthAnchor.isActive = true
         } else {
-            myWidthAnchor.constant = nWidth
+            myWidthAnchor.constant = width
         }
     }
 }

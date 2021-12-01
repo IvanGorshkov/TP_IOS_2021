@@ -33,5 +33,11 @@ extension ButtonsDescCell {
 
         buyButton.widthAnchor.constraint(equalTo: rentButton.widthAnchor).isActive = true
         rentButton.leadingAnchor.constraint(equalTo: buyButton.trailingAnchor, constant: 10).isActive = true
+        
+        soldButton.translatesAutoresizingMaskIntoConstraints = false
+        soldButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        soldButton.trailingAnchor.constraint(equalTo: favButton.leadingAnchor, constant: -10).isActive = true
+        soldButton.leadingAnchor.constraint(equalTo: arButton.trailingAnchor, constant: 10).isActive = true
+        soldButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
 }

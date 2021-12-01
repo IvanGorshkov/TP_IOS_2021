@@ -12,7 +12,8 @@ import ImageSlideshowKingfisher
 final class ItemSliderCell: BaseCell {
     internal var slider = ImageSlideshow()
     static let cellIdentifier = "ItemDescSliderCellModel"
-
+    public fileprivate(set) var images = [InputSource]()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         [slider].forEach({
@@ -28,12 +29,14 @@ final class ItemSliderCell: BaseCell {
 
     override func updateViews() {
         guard let model = model as? SliderCellModel else { return }
-        slider.setImageInputs(model.pics.map {
-            guard let image = UIImage(named: $0) else {
-                return ImageSource(image: UIImage.remove)
+        
+        images = []
+        model.pics.forEach {
+            ImageLoader.shared.image(with: $0) { image in
+                self.images.append(ImageSource(image: image ??  UIImage.remove))
+                self.slider.setImageInputs(self.images)
             }
-            return ImageSource(image: image)
-        })
+        }
     }
 
     @objc

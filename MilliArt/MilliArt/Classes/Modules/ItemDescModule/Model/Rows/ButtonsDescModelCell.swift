@@ -13,17 +13,30 @@ final class ButtonsDescModelCell: BaseCellModel {
     }
 
     typealias ActionHandler = () -> Void
+    typealias ActionSelectedHandler = (Bool) -> Void
 
     var actionAR: ActionHandler?
-    var actionBuy: ActionHandler?
-    var actionRent: ActionHandler?
+    var actionBuy: ActionSelectedHandler?
+    var actionRent: ActionSelectedHandler?
     var actionFav: ActionHandler?
-
-    init(_ model: ItemDescModel, actionAR: ActionHandler?, actionBuy: ActionHandler?, actionRent: ActionHandler?, actionFav: ActionHandler?) {
-        super.init()
+    var selected: Bool
+    var isRent: Bool
+    var isAvalible: Bool
+    
+    init(
+        _ model: ItemDescModel,
+        actionAR: ActionHandler?,
+        actionBuy: ActionSelectedHandler?,
+        actionRent: ActionSelectedHandler?,
+        actionFav: ActionHandler?,
+        inCart: (isSelected: Bool, isRent: Bool),
+        isAvalible: Bool) {
         self.actionAR = actionAR
         self.actionRent = actionRent
         self.actionFav = actionFav
         self.actionBuy = actionBuy
+        self.selected = inCart.isSelected
+        self.isRent = inCart.isRent
+        self.isAvalible = isAvalible
     }
 }

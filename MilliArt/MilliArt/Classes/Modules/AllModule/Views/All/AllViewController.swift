@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import NVActivityIndicatorView
 
 final class AllViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 	private let output: AllViewOutput
@@ -15,10 +16,10 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         return collectionView
     }()
+    private var activityIndicatorView: NVActivityIndicatorView!
 
     init(output: AllViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -33,6 +34,11 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         output.viewDidLoad()
 	}
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = output.getTitle()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraintsCollectionView()
@@ -41,6 +47,13 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
 
     private func setUp() {
         setUpBase()
+        setUpcollectionViewBase()
+        setUpIndicator()
+        self.view.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+    }
+    
+    private func setUpcollectionViewBase() {
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -48,12 +61,23 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 10, right: 5)
         collectionView.register(AllCollectionViewCell.self, forCellWithReuseIdentifier: AllCollectionViewCell.cellIdentifier)
     }
+    
     private func setUpBase() {
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
         self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
         self.title = output.getTitle()
     }
 
+    private func setUpIndicator() {
+        var frameCenter = view.center
+        frameCenter.x -= 25
+        frameCenter.y -= 25
+        activityIndicatorView = NVActivityIndicatorView(
+            frame: CGRect(origin: frameCenter, size: CGSize(width: 50, height: 50)),
+            type: .ballScale,
+            color: ColorConstants.MainPurpleColor)
+    }
+    
     private func reloadLayout() {
         let layout = MosaicViewLayout()
         layout.delegate = self
@@ -64,6 +88,7 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
 
 extension AllViewController: AllViewInput {
     func reloadData() {
+        activityIndicatorView.stopAnimating()
         collectionView.reloadData()
     }
 }
@@ -78,22 +103,36 @@ extension AllViewController: UICollectionViewDataSource {
                 as? AllCollectionViewCell else {
             return UICollectionViewCell()
         }
-
-        cell.configure(model: output.getCell(at: indexPath.row))
+        cell.configure(model: output.getCell(at: indexPath.row)) {
+            let myCell = collectionView.cellForItem(at: indexPath)
+            return cell == myCell
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        output.itemSelected(id: indexPath.row)
     }
 }
 
 // MARK: MosaicLayoutDelegate
 extension AllViewController: MosaicLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForImageAtIndexPath indexPath: IndexPath,
+        withWidth width: CGFloat,
+        complition: (CGFloat) -> Void) {
         let item = output.getCell(at: indexPath.row)
-        guard let model = item as? HorizontalViewModel, let image = UIImage(named: model.pic) else { return 0 }
-       let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
-        return rect.height
+        guard let model = item as? HorizontalViewModel else { return }
+        let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+        let rect = AVMakeRect(aspectRatio:
+                                CGSize(
+                                    width: CGFloat(model.width),
+                                    height: CGFloat(model.height)
+                                ), insideRect: boundingRect)
+        complition(rect.height)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = output.getCell(at: indexPath.row)
         guard let model = item as? HorizontalViewModel else { return 0 }

@@ -43,7 +43,14 @@ final class VCollectionViewCell: UICollectionViewCell {
 
     private func setUpLables() {
         setUplabel(label: nameLabel, alignment: .left, textColor: ColorConstants.TextColor, fontSize: 16, numberOfLines: 3, verticalAlignment: true)
-        setUplabel(label: sizeLabel, alignment: .right, textColor: ColorConstants.TextColor, fontSize: 14, numberOfLines: 1, verticalAlignment: true)
+        setUplabel(
+            label: sizeLabel,
+            alignment: .right,
+            textColor: ColorConstants.TextColor,
+            fontSize: 14,
+            numberOfLines: 1,
+            verticalAlignment: true
+        )
         setUplabel(label: priceLabel, alignment: .right, textColor: .white, fontSize: 16, numberOfLines: 1)
         priceLabel.layer.cornerRadius = 10
         priceLabel.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner]
@@ -60,8 +67,18 @@ final class VCollectionViewCell: UICollectionViewCell {
         label.top = verticalAlignment
     }
 
-    func configure(model: VerticalPaintsModel) {
-        imageView.image = UIImage(named: model.pic)
+    func configure(model: CellIdentifiable?, complition: @escaping () -> (Bool)) {
+        self.imageView.image = nil
+        guard let model = model as? VerticalPaintsModel else { return }
+        DispatchQueue.global().async {
+            ImageLoader.shared.image(with: model.pic) { image in
+                DispatchQueue.main.async {
+                    if !complition() { return }
+                    self.imageView.image = image
+                }
+            }
+        }
+        
         priceLabel.text = model.price
         nameLabel.text = model.name
         sizeLabel.text = model.size

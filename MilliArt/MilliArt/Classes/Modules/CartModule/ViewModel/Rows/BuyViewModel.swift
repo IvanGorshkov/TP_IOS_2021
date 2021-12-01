@@ -12,20 +12,26 @@ class BuyViewModel: BaseCellModel {
         return BuyCellView.cellIdentifier
     }
     
+    let id: Int
     let img: String
     let name: String
     let auther: String
     let artical: String
     private let totalAmauntI: Int
+    typealias ActionHandler = (Int) -> Void
+    var delete: ActionHandler?
+    
     var totalAmaunt: String {
         return "\( Currency.currency(price: totalAmauntI)) ₽"
     }
     
-    init(model: BuyPrice) {
+    init(model: BuyPrice, delete: ActionHandler?) {
+        id = model.id
         img = model.img
         name = model.name
         auther = model.auther
         artical = model.artical
         totalAmauntI = model.amaunt
+        self.delete = delete
     }
 }

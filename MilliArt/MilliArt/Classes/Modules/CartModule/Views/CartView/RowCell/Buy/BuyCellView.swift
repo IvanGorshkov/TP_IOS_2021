@@ -27,7 +27,12 @@ class BuyCellView: BaseCartCell {
         articalLabel.text = "\(TitlesConstants.VendorCodeTitle) \(model.artical)"
         totalLabel.text = TitlesConstants.SumTitle
         totalAmauntLabel.text = model.totalAmaunt
-        imagePainting.image = UIImage(named: model.img)
+        ImageLoader.shared.image(with: model.img, completion: { img in
+            self.imagePainting.image = img
+        })
+        if model.delete == nil {
+            trash.isHidden = true
+        }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -46,29 +51,42 @@ class BuyCellView: BaseCartCell {
     
     private func setUp() {
         setUpBase()
-        setUpLabel(label: nameLabel, weight: .heavy)
+        setUpLabel(label: nameLabel, weight: .heavy, numberOfLines: 0)
         setUpLabel(label: autherLabel, numberOfLines: 0)
         setUpLabel(label: articalLabel, numberOfLines: 0)
         setUpLabel(label: totalLabel, numberOfLines: 0)
         setUpLabel(label: totalAmauntLabel, numberOfLines: 0)
         setUpImage(imageview: imagePainting)
         trash.setImage(UIImage(named: "trash"), for: .normal)
+        trash.addTarget(self, action: #selector(actionDelete), for: .touchUpInside)
         setUpStack()
+    }
+    @objc
+    private func actionDelete() {
+        guard let model = model as? BuyViewModel else { return }
+        model.delete?(model.id)
     }
     
     private func setUpStack() {
         HStackIn.axis  = .horizontal
-        HStackIn.distribution  = .equalSpacing
+        HStackIn.distribution  = .fillProportionally
         HStackIn.alignment = .center
         HStackIn.addArrangedSubview(
-            createStack(axis: .horizontal,
-                        distribution: .fill,
-                        alignmentStack: .center,
-                        spacing: 10,
-                        views: imagePainting, createStack(alignmentStack: .leading,
-                                                          views: autherLabel, nameLabel, articalLabel)
-                        )
+            CreateStack.createStack(
+                axis: .horizontal,
+                distribution: .fill,
+                alignmentStack: .center,
+                spacing: 10,
+                views: imagePainting, CreateStack.createStack(
+                            distribution: .equalCentering,
+                            alignmentStack: .leading,
+                            views: autherLabel, nameLabel, articalLabel)
+            )
         )
-        HStackIn.addArrangedSubview(createStack(alignmentStack: .center, views: totalLabel, totalAmauntLabel))
+        HStackIn.addArrangedSubview(
+            CreateStack.createStack(
+                distribution: .fillEqually,
+                alignmentStack: .center,
+                views: totalLabel, totalAmauntLabel))
     }
 }

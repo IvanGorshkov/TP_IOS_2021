@@ -10,14 +10,46 @@ import Foundation
 
 final class ItemDescInteractor {
 	weak var output: ItemDescInteractorOutput?
+    private var isSelected: Bool = false
     private var serviceManagerDescModel: ServiceManagerDescModelInput?
+    private var serviceAddCart: ServiceAddCartInput?
     private var itemDescModel: ItemDescModel?
     init() {
-        self.serviceManagerDescModel = ServiceManagerDescModel(interactor: self)
+        serviceAddCart = ServiceAddCart.shared
+        self.serviceManagerDescModel = FireBaseServiceManagerDescModel(interactor: self)
     }
 }
 
 extension ItemDescInteractor: ItemDescInteractorInput {
+    func inCart() -> (isSelected: Bool, isRent: Bool) {
+        guard let itemDescModel = itemDescModel,
+                  let serviceAddCart = serviceAddCart else { return (false, false) }
+        let res = serviceAddCart.isContain(with: itemDescModel.id)
+        isSelected = res.isSelected
+        return res
+    }
+    
+    func addToCart(selected: Bool, isRent: Bool, countMonth: Int?) {
+        var count = UserDefaults.standard.integer(forKey: "cart_count")
+        guard let itemDescModel = itemDescModel else { return }
+        if isSelected && !selected {
+            serviceAddCart?.delete(with: itemDescModel.id)
+        }
+        if isSelected && selected {
+            serviceAddCart?.delete(with: itemDescModel.id)
+            serviceAddCart?.insert(with: itemDescModel, isRent: isRent)
+        }
+        
+        if !isSelected && selected {
+            serviceAddCart?.insert(with: itemDescModel, isRent: isRent)
+        }
+        
+        isSelected = selected
+        count = serviceAddCart?.fetchAll().count ?? 0
+        UserDefaults.standard.set(count, forKey: "cart_count")
+        NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
+    }
+    
     func loadFirstPhoto() {
         let sizes = itemDescModel?.specifications.filter({
             return $0.title == "Размер"
@@ -44,6 +76,10 @@ extension ItemDescInteractor: ItemDescInteractorInput {
 }
 
 extension ItemDescInteractor: ServiceManagerDescModelOutput {
+    func didFail(with error: Error) {
+        print(error.localizedDescription)
+    }
+    
     func itemDidLoad(itemDesc: ItemDescModel) {
         self.itemDescModel = itemDesc
         output?.itemDidLoad(itemDesc: itemDesc)

@@ -25,6 +25,7 @@ final class TabBarViewController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         setUp()
+        setUpNotification()
 	}
 
     private func setUp() {
@@ -34,6 +35,20 @@ final class TabBarViewController: UITabBarController {
         self.tabBar.backgroundColor = ColorConstants.TabBarColor
     }
 
+    private func setUpNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationAction), name: NSNotification.Name("cart"), object: nil)
+    }
+    
+    @objc
+    private func notificationAction() {
+        let count = UserDefaults.standard.integer(forKey: "cart_count")
+        if count != 0 {
+            self.viewControllers?.last?.tabBarItem.badgeValue = "\(count)"
+        } else {
+            self.viewControllers?.last?.tabBarItem.badgeValue = nil
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.output.getViews()
@@ -63,7 +78,6 @@ extension TabBarViewController: TabBarViewInput {
             let appearance = UINavigationBarAppearance()
             appearance.backgroundColor = ColorConstants.TabBarColor
             appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-
             nv.navigationBar.tintColor = ColorConstants.MainPurpleColor
             nv.navigationBar.standardAppearance = appearance
             nv.navigationBar.compactAppearance = appearance

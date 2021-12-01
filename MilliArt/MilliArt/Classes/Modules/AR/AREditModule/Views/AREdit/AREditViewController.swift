@@ -136,6 +136,13 @@ final class AREditViewController: UIViewController {
     }
 
     private func setImageView(with imageview: UIImageView, named name: String) {
+        ImageLoader.shared.image(with: name, completion: { image in
+            imageview.image = image
+            self.changeFrame()
+        })
+    }
+    
+    private func setImageFrame(with imageview: UIImageView, named name: String) {
         imageview.image = UIImage(named: name)
     }
 
@@ -153,13 +160,13 @@ final class AREditViewController: UIViewController {
 
 extension AREditViewController: AREditViewInput {
     func updateFrames() {
-        setImageView(with: imageViewFrame, named: output.getMaterail())
+        setImageFrame(with: imageViewFrame, named: output.getMaterail())
         reloadData()
     }
 
     func initFrames() {
         setImageView(with: imageView, named: output.getPicture())
-        setImageView(with: imageViewFrame, named: output.getMaterail())
+        setImageFrame(with: imageViewFrame, named: output.getMaterail())
 
         setSteperData(with: frameRControl, value: output.getFrameRouned())
         setSteperData(with: frameWControl, value: output.getFrameWidth())

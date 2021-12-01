@@ -8,6 +8,8 @@
 
 import Foundation
 
+import Firebase
+
 final class TabBarInteractor {
 	weak var output: TabBarInteractorOutput?
 }
