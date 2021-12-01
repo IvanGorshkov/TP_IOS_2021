@@ -118,11 +118,19 @@ extension CompilationViewController: UICollectionViewDataSource {
 
 // MARK: MosaicLayoutDelegate
 extension CompilationViewController: MosaicLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat, complition: (CGFloat) -> Void) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForImageAtIndexPath indexPath: IndexPath,
+        withWidth width: CGFloat,
+        complition: (CGFloat) -> Void) {
         let item = output.getCell(at: indexPath.row)
         guard let model = item as? VerticalPaintsModel else { return }
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: CGSize(width: CGFloat(model.width), height: CGFloat(model.heightArt)), insideRect: boundingRect)
+        let rect = AVMakeRect(aspectRatio:
+                                CGSize(
+                                    width: CGFloat(model.width),
+                                    height: CGFloat(model.heightArt)
+                                ), insideRect: boundingRect)
         complition(rect.height)
     }
     
