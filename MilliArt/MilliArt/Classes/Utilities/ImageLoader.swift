@@ -20,7 +20,7 @@ final class ImageLoader {
     private let storage = Storage.storage().reference()
     
     func image(with name: String, completion: @escaping (UIImage?) -> Void) {
-     //   DispatchQueue.main.asyncAfter(deadline: .now() + 20.1) {
+     //   DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
             if let image = self.cache[name] {
                 completion(image)
                 return

@@ -18,6 +18,7 @@ class HorizontalViewModel: CellIdentifiable {
 
     let pic: String
     let name: String
+    let id: Int
 
     let height: CGFloat
     let width: CGFloat
@@ -28,10 +29,11 @@ class HorizontalViewModel: CellIdentifiable {
         return nWidth
     }
     
-    init(pic: String, name: String, height: Int, width: Int) {
+    init(pic: String, name: String, height: Int, width: Int, id: Int) {
         self.pic = pic
         self.name = name
         self.height = CGFloat(height)
         self.width = CGFloat(width)
+        self.id = id
     }
 }

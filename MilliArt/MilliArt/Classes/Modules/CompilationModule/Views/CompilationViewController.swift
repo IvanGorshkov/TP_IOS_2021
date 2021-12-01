@@ -1,8 +1,8 @@
 //
-//  AllViewController.swift
+//  CompilationViewController.swift
 //  MilliArt
 //
-//  Created by Ivan Gorshkov on 05.11.2021.
+//  Created by Ivan Gorshkov on 01.12.2021.
 //  
 //
 
@@ -10,16 +10,17 @@ import UIKit
 import AVFoundation
 import NVActivityIndicatorView
 
-final class AllViewController: UIViewController, UICollectionViewDelegateFlowLayout {
-	private let output: AllViewOutput
+final class CompilationViewController: UIViewController, UICollectionViewDelegateFlowLayout {
+	private let output: CompilationViewOutput
     internal lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         return collectionView
     }()
     private var activityIndicatorView: NVActivityIndicatorView!
 
-    init(output: AllViewOutput) {
+    init(output: CompilationViewOutput) {
         self.output = output
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -28,23 +29,23 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         fatalError("init(coder:) has not been implemented")
     }
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setUp()
         output.viewDidLoad()
-	}
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.title = output.getTitle()
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraintsCollectionView()
         reloadLayout()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpBase()
+    }
+    
     private func setUp() {
         setUpBase()
         setUpcollectionViewBase()
@@ -59,13 +60,13 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 10, right: 5)
-        collectionView.register(AllCollectionViewCell.self, forCellWithReuseIdentifier: AllCollectionViewCell.cellIdentifier)
+        collectionView.register(VCollectionViewCell.self, forCellWithReuseIdentifier: VCollectionViewCell.cellIdentifier)
     }
     
     private func setUpBase() {
         self.view.backgroundColor = ColorConstants.MainBackGroundColor
         self.navigationController?.navigationBar.topItem?.title = TitlesConstants.BackNavTitle
-        self.title = output.getTitle()
+        self.navigationItem.title = output.getTitle()
     }
 
     private func setUpIndicator() {
@@ -86,27 +87,27 @@ final class AllViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
 }
 
-extension AllViewController: AllViewInput {
+extension CompilationViewController: CompilationViewInput {
     func reloadData() {
         activityIndicatorView.stopAnimating()
         collectionView.reloadData()
     }
 }
 
-extension AllViewController: UICollectionViewDataSource {
+extension CompilationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return output.getCountCells()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllCollectionViewCell.cellIdentifier, for: indexPath)
-                as? AllCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath)
+                as? VCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.configure(model: output.getCell(at: indexPath.row)) {
+        cell.configure(model: output.getCell(at: indexPath.row), complition: {
             let myCell = collectionView.cellForItem(at: indexPath)
             return cell == myCell
-        }
+        })
         return cell
     }
     
@@ -116,18 +117,18 @@ extension AllViewController: UICollectionViewDataSource {
 }
 
 // MARK: MosaicLayoutDelegate
-extension AllViewController: MosaicLayoutDelegate {
+extension CompilationViewController: MosaicLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat, complition: (CGFloat) -> Void) {
         let item = output.getCell(at: indexPath.row)
-        guard let model = item as? HorizontalViewModel else { return }
+        guard let model = item as? VerticalPaintsModel else { return }
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: CGSize(width: CGFloat(model.width), height: CGFloat(model.height)), insideRect: boundingRect)
+        let rect = AVMakeRect(aspectRatio: CGSize(width: CGFloat(model.width), height: CGFloat(model.heightArt)), insideRect: boundingRect)
         complition(rect.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let item = output.getCell(at: indexPath.row)
-        guard let model = item as? HorizontalViewModel else { return 0 }
+        guard let model = item as? VerticalPaintsModel else { return 0 }
         let descriptionHeight = heightForText(model.name, width: width-24)
         let height = 4 + 17 + 4 + descriptionHeight
         return height

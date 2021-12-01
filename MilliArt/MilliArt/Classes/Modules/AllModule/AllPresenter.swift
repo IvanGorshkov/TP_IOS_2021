@@ -26,6 +26,10 @@ extension AllPresenter: AllModuleInput {
 }
 
 extension AllPresenter: AllViewOutput {
+    func itemSelected(id: Int) {
+        router.itemSelected(with: view, title: interactor.receiveTitle(with: id), and: interactor.receiveId(with: id))
+    }
+    
     func getTitle() -> String {
         return interactor.getTitle()
     }

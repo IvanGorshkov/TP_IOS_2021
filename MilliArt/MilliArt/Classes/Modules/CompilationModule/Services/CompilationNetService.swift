@@ -8,24 +8,12 @@
 import Foundation
 import Firebase
 
-final class BaseNetService: NetServiceInput {
-    func reset() {
-        query = database.collection(collection)
-    }
-    
-    func addSort(param: String, desc: Bool) {
-        query = query?.order(by: param, descending: desc)
-    }
-    
-    func addLimit() {
-        query = query?.limit(to: itemLimit)
-    }
-    
-    var itemLimit: Int
-    private var query: Query?
-    
-    func requestToNetService() {
-        query?.getDocuments { [weak self] querySnapshot, error in
+final class CompilationNetService: NetServiceWithIdInput {
+    func requestToNetService(with id: Int?) {
+        database.collection(collection)
+            .whereField(idParam, isEqualTo: id ?? 0)
+            .limit(to: itemLimit)
+            .getDocuments { [weak self] querySnapshot, error in
             if let error = error {
                 self?.output?.didFail(with: error)
                 return
@@ -44,15 +32,18 @@ final class BaseNetService: NetServiceInput {
         }
     }
     
+    var itemLimit: Int
+    
     private let database = Firestore.firestore()
     var productConverter: ConverterDescription?
     private let collection: String
+    private let idParam: String
     
     weak var output: NetServiceOutput?
-    init(interactor: NetServiceOutput?, collection: String) {
+    init(interactor: NetServiceOutput?, collection: String, id: String) {
         output = interactor
         itemLimit = Int.max
         self.collection = collection
-        query = database.collection(collection)
+        self.idParam = id
     }
 }

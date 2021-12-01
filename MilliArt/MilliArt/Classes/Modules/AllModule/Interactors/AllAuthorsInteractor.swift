@@ -20,6 +20,14 @@ final class AllAuthorsInteractor {
 }
 
 extension AllAuthorsInteractor: AllInteractorInput {
+    func receiveId(with index: Int) -> Int {
+        return 0 
+    }
+    
+    func receiveTitle(with index: Int) -> String {
+        return authors[index].authorName
+    }
+        
     func getTitle() -> String {
         return TitlesConstants.authorsTitle
     }
@@ -34,20 +42,12 @@ extension AllAuthorsInteractor: NetServiceOutput {
         guard let data = data as? [AuthorModel] else { return }
         self.authors = data
         output?.receiveData(data: authors.map({ model in
-            return HorizontalViewModel(pic: model.authorPicture, name: model.authorName, height: model.height, width: model.width)
+            return HorizontalViewModel(pic: model.authorPicture, name: model.authorName, height: model.height, width: model.width, id: model.id)
             }
         ))
     }
     
     func didFail(with error: Error) {
         print(error.localizedDescription)
-    }
-    
-    func receivenewPaints(authors: [AuthorModel]) {
-        self.authors = authors
-        output?.receiveData(data: authors.map({ model in
-            return HorizontalViewModel(pic: model.authorPicture, name: model.authorName, height: model.height, width: model.width)
-            }
-        ))
     }
 }

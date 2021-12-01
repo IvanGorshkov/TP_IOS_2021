@@ -60,9 +60,16 @@ final class VCollectionViewCell: UICollectionViewCell {
         label.top = verticalAlignment
     }
 
-    func configure(model: VerticalPaintsModel) {
-        ImageLoader.shared.image(with: model.pic) { image in
-            self.imageView.image = image
+    func configure(model: CellIdentifiable?, complition: @escaping () -> (Bool)) {
+        self.imageView.image = nil
+        guard let model = model as? VerticalPaintsModel else { return }
+        DispatchQueue.global().async {
+            ImageLoader.shared.image(with: model.pic) { image in
+                DispatchQueue.main.async {
+                    if !complition() { return }
+                    self.imageView.image = image
+                }
+            }
         }
         
         priceLabel.text = model.price

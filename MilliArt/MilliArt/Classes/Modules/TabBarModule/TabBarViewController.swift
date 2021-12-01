@@ -78,7 +78,6 @@ extension TabBarViewController: TabBarViewInput {
             let appearance = UINavigationBarAppearance()
             appearance.backgroundColor = ColorConstants.TabBarColor
             appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-
             nv.navigationBar.tintColor = ColorConstants.MainPurpleColor
             nv.navigationBar.standardAppearance = appearance
             nv.navigationBar.compactAppearance = appearance

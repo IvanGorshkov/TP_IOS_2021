@@ -73,7 +73,10 @@ final class VCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlow
                     return UICollectionViewCell()
                 }
 
-        cell.configure(model: array[indexPath.row])
+        cell.configure(model: array[indexPath.row], complition: {
+            let myCell = collectionView.cellForItem(at: indexPath)
+            return cell == myCell
+        })
         return cell
     }
     
@@ -89,7 +92,7 @@ extension VCollectionViewTableViewCell: MosaicLayoutDelegate {
         let item = array[indexPath.item]
         
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: CGSize(width: CGFloat(item.width), height: CGFloat(item.height)), insideRect: boundingRect)
+        let rect = AVMakeRect(aspectRatio: CGSize(width: CGFloat(item.width), height: CGFloat(item.heightArt)), insideRect: boundingRect)
             complition(rect.height)
     }
 

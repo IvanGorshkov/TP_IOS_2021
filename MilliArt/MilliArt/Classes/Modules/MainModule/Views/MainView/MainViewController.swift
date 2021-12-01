@@ -13,7 +13,7 @@ final class MainViewController: UIViewController {
 	private let output: MainViewOutput
     internal var tableView =  UITableView()
     private var activityIndicatorView: NVActivityIndicatorView!
-
+    
     init(output: MainViewOutput) {
         self.output = output
 
@@ -106,6 +106,14 @@ extension MainViewController: MainViewInput {
 }
 
 extension MainViewController: TableViewCellOutput {
+    func clickOnAuthor(with id: Int) {
+        output.clickOnAuthor(with: id)
+    }
+    
+    func clickOnCompilation(with id: Int) {
+        output.clickOnCompilation(with: id)
+    }
+    
     func clickOnArt(with id: Int) {
         output.clickOnArt(with: id)
     }

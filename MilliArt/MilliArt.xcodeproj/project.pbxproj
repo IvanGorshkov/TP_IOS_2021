@@ -177,6 +177,14 @@
 		709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */; };
 		709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E572733E2390018ED10 /* HeaderCellView.swift */; };
 		709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */; };
+		70A293682757817400725860 /* CompilationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A293622757817400725860 /* CompilationPresenter.swift */; };
+		70A293692757817400725860 /* CompilationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A293632757817400725860 /* CompilationRouter.swift */; };
+		70A2936A2757817400725860 /* CompilationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A293642757817400725860 /* CompilationViewController.swift */; };
+		70A2936B2757817400725860 /* CompilationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A293652757817400725860 /* CompilationProtocols.swift */; };
+		70A2936C2757817400725860 /* CompilationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A293662757817400725860 /* CompilationInteractor.swift */; };
+		70A2936D2757817400725860 /* CompilationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A293672757817400725860 /* CompilationContainer.swift */; };
+		70A29370275782AE00725860 /* CompilationView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A2936F275782AE00725860 /* CompilationView+Constraints.swift */; };
+		70A29373275790FA00725860 /* CompilationNetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A29372275790FA00725860 /* CompilationNetService.swift */; };
 		70A3C807274448D40000C268 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70A3C806274448D30000C268 /* GoogleService-Info.plist */; };
 		70A3C80A27444C200000C268 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 70A3C80927444C200000C268 /* FirebaseAnalytics */; };
 		70A3C80C27444C200000C268 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 70A3C80B27444C200000C268 /* FirebaseCrashlytics */; };
@@ -380,6 +388,14 @@
 		709F6E552733E0CD0018ED10 /* MainSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionViewModel.swift; sourceTree = "<group>"; };
 		709F6E572733E2390018ED10 /* HeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellView.swift; sourceTree = "<group>"; };
 		709F6E592733E2A40018ED10 /* HeaderCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderCell+Constraints.swift"; sourceTree = "<group>"; };
+		70A293622757817400725860 /* CompilationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationPresenter.swift; sourceTree = "<group>"; };
+		70A293632757817400725860 /* CompilationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationRouter.swift; sourceTree = "<group>"; };
+		70A293642757817400725860 /* CompilationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationViewController.swift; sourceTree = "<group>"; };
+		70A293652757817400725860 /* CompilationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationProtocols.swift; sourceTree = "<group>"; };
+		70A293662757817400725860 /* CompilationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationInteractor.swift; sourceTree = "<group>"; };
+		70A293672757817400725860 /* CompilationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationContainer.swift; sourceTree = "<group>"; };
+		70A2936F275782AE00725860 /* CompilationView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompilationView+Constraints.swift"; sourceTree = "<group>"; };
+		70A29372275790FA00725860 /* CompilationNetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationNetService.swift; sourceTree = "<group>"; };
 		70A3C806274448D30000C268 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70A3C8192745A6D50000C268 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		70C419E427248FC1006214FA /* MilliArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilliArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -935,6 +951,7 @@
 		706E6A1E272B180B0006BA3B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				70A293612757815300725860 /* CompilationModule */,
 				70096C18273EE0D500810EC0 /* OrderModule */,
 				70096BE3273D449C00810EC0 /* InputContactModule */,
 				7099CA71273585AE001805AC /* AllModule */,
@@ -1237,6 +1254,37 @@
 			path = EmptyCartView;
 			sourceTree = "<group>";
 		};
+		70A293612757815300725860 /* CompilationModule */ = {
+			isa = PBXGroup;
+			children = (
+				70A29371275790FA00725860 /* Services */,
+				70A293622757817400725860 /* CompilationPresenter.swift */,
+				70A293632757817400725860 /* CompilationRouter.swift */,
+				70A2936E2757829400725860 /* Views */,
+				70A293652757817400725860 /* CompilationProtocols.swift */,
+				70A293662757817400725860 /* CompilationInteractor.swift */,
+				70A293672757817400725860 /* CompilationContainer.swift */,
+			);
+			path = CompilationModule;
+			sourceTree = "<group>";
+		};
+		70A2936E2757829400725860 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				70A293642757817400725860 /* CompilationViewController.swift */,
+				70A2936F275782AE00725860 /* CompilationView+Constraints.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		70A29371275790FA00725860 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				70A29372275790FA00725860 /* CompilationNetService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		70C419DB27248FC0006214FA = {
 			isa = PBXGroup;
 			children = (
@@ -1502,6 +1550,7 @@
 				70096C2E273FEFF200810EC0 /* FactoryForInput.swift in Sources */,
 				70096C2A273FE75300810EC0 /* ShakeAnimation.swift in Sources */,
 				70F72C0227399FCE00A8709B /* BuyViewModel.swift in Sources */,
+				70A2936B2757817400725860 /* CompilationProtocols.swift in Sources */,
 				70F72C0327399FCE00A8709B /* RentViewModel.swift in Sources */,
 				70096C1F273EE0EF00810EC0 /* OrderPresenter.swift in Sources */,
 				70F72BFA27398EAC00A8709B /* BuyCellView+Constraints.swift in Sources */,
@@ -1542,6 +1591,7 @@
 				706E6A0D272AED5D0006BA3B /* CartViewController.swift in Sources */,
 				706E69EC272AC3130006BA3B /* MainProtocols.swift in Sources */,
 				70096C0B273DDB5D00810EC0 /* InputTextViewModelView.swift in Sources */,
+				70A293692757817400725860 /* CompilationRouter.swift in Sources */,
 				70096BF0273D44C900810EC0 /* InputContactContainer.swift in Sources */,
 				703A4ABE2730156C000329F7 /* AREditProtocols.swift in Sources */,
 				70F72BE0273954BB00A8709B /* CartView+Constraints.swift in Sources */,
@@ -1561,6 +1611,7 @@
 				706E6A2B272B25AF0006BA3B /* ItemDescContainer.swift in Sources */,
 				70F72BEA2739722200A8709B /* CartSectionViewModel.swift in Sources */,
 				70096C06273D9BD900810EC0 /* Verification.swift in Sources */,
+				70A29370275782AE00725860 /* CompilationView+Constraints.swift in Sources */,
 				70096C27273F1A5D00810EC0 /* OrderView+Constraints.swift in Sources */,
 				703A4ABC2730156C000329F7 /* AREditRouter.swift in Sources */,
 				706E6A0E272AED5D0006BA3B /* CartProtocols.swift in Sources */,
@@ -1598,6 +1649,7 @@
 				7099CA7C273585CC001805AC /* AllCompilationsInteractor.swift in Sources */,
 				703A4A84272C6F6A000329F7 /* ItemSlider+Constraints.swift in Sources */,
 				706E6A2A272B25AF0006BA3B /* ItemDescInteractor.swift in Sources */,
+				70A293682757817400725860 /* CompilationPresenter.swift in Sources */,
 				70F72BE62739718600A8709B /* SectionViewCell.swift in Sources */,
 				70F72BDD2739541400A8709B /* EmptyCart+Constraints.swift in Sources */,
 				703A4AAB272DF61A000329F7 /* ARRouter.swift in Sources */,
@@ -1622,6 +1674,7 @@
 				7099CA7D273585CC001805AC /* AllContainer.swift in Sources */,
 				70F72C0027399DB900A8709B /* RentPrice.swift in Sources */,
 				703A4AD02730A1A5000329F7 /* UIImageView+Extension.swift in Sources */,
+				70A2936A2757817400725860 /* CompilationViewController.swift in Sources */,
 				703A4AAC272DF61A000329F7 /* ARViewController.swift in Sources */,
 				703A4AAA272DF61A000329F7 /* ARPresenter.swift in Sources */,
 				7099CA5C273488E3001805AC /* CompilationModel.swift in Sources */,
@@ -1642,6 +1695,7 @@
 				706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */,
 				706E6A01272AEB380006BA3B /* SearchInteractor.swift in Sources */,
 				70096C21273EE0EF00810EC0 /* OrderViewController.swift in Sources */,
+				70A29373275790FA00725860 /* CompilationNetService.swift in Sources */,
 				703A4A90272C7049000329F7 /* SpecificationsDesc+Constraints.swift in Sources */,
 				706E6A49272BE7800006BA3B /* AmountDescCell.swift in Sources */,
 				70DD27A12746FEE2002AED00 /* FBCartServiceManager.swift in Sources */,
@@ -1658,6 +1712,7 @@
 				70096BDF273C5DD700810EC0 /* Cart+CoreDataClass.swift in Sources */,
 				706E6A02272AEB380006BA3B /* SearchContainer.swift in Sources */,
 				7099CA5A27348846001805AC /* VerticalPaintsModel.swift in Sources */,
+				70A2936D2757817400725860 /* CompilationContainer.swift in Sources */,
 				7099CA8527359583001805AC /* AllCollectionViewCell+Constraints.swift in Sources */,
 				703A4AA1272DB96E000329F7 /* RentPickerView+Constraints.swift in Sources */,
 				70096C22273EE0EF00810EC0 /* OrderProtocols.swift in Sources */,
@@ -1672,6 +1727,7 @@
 				703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */,
 				706E69DF272AB5EE0006BA3B /* TabBarProtocols.swift in Sources */,
 				706E6A10272AED5D0006BA3B /* CartContainer.swift in Sources */,
+				70A2936C2757817400725860 /* CompilationInteractor.swift in Sources */,
 				709F6E562733E0CD0018ED10 /* MainSectionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

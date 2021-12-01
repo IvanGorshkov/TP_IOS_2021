@@ -14,14 +14,18 @@ final class MainSectionViewModel: SectionRowsRepresentable {
     func fillData(newPaints: [VerticalPaintsModel], compilations: [CompilationModel], authors: [AuthorModel]) {
         rows.insert(
             HCollectionViewModel(array: compilations.map({ model in
-            return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname, height: model.height, width: model.width)
-            }), action: nil), at: 1)
+                return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname, height: model.height, width: model.width, id: model.id)
+            }), action: { [weak self] index in
+                self?.actions?.clickOnCompilation(with: index)
+            }), at: 1)
         
         rows.insert(
             HCollectionViewModel(array: authors.map({ model in
-                return HorizontalViewModel(pic: model.authorPicture, name: model.authorName, height: model.height, width: model.width)
+                return HorizontalViewModel(pic: model.authorPicture, name: model.authorName, height: model.height, width: model.width, id: model.id)
                 }
-            ), action: nil), at: 3)
+            ), action: { [weak self] index in
+                self?.actions?.clickOnAuthor(with: index)
+            }), at: 3)
     
         rows.append(VCollectionViewModel(action: { [weak self] index in
             self?.actions?.clickOnArt(with: index)

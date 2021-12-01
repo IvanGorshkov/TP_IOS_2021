@@ -26,6 +26,15 @@ extension MainPresenter: MainModuleInput {
 }
 
 extension MainPresenter: MainViewOutput {
+    func clickOnCompilation(with id: Int) {
+        guard let compilation = mainSectionViewModel?.rows[1] as?  HCollectionViewModel else { return }
+        router.compilationSelected(with: view, title: interactor.receiveCompilationTitle(with: id), and: compilation.array[id].id)
+    }
+    
+    func clickOnAuthor(with id: Int) {
+        print(id)
+    }
+    
     func clickOnArt(with id: Int) {
         router.itemSelected(with: view, and: interactor.receiveId(with: id))
     }
