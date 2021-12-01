@@ -117,11 +117,19 @@ extension AllViewController: UICollectionViewDataSource {
 
 // MARK: MosaicLayoutDelegate
 extension AllViewController: MosaicLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat, complition: (CGFloat) -> Void) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForImageAtIndexPath indexPath: IndexPath,
+        withWidth width: CGFloat,
+        complition: (CGFloat) -> Void) {
         let item = output.getCell(at: indexPath.row)
         guard let model = item as? HorizontalViewModel else { return }
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: CGSize(width: CGFloat(model.width), height: CGFloat(model.height)), insideRect: boundingRect)
+        let rect = AVMakeRect(aspectRatio:
+                                CGSize(
+                                    width: CGFloat(model.width),
+                                    height: CGFloat(model.height)
+                                ), insideRect: boundingRect)
         complition(rect.height)
     }
     
