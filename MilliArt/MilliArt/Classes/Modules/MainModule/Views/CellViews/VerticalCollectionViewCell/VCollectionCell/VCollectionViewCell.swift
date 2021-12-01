@@ -43,7 +43,14 @@ final class VCollectionViewCell: UICollectionViewCell {
 
     private func setUpLables() {
         setUplabel(label: nameLabel, alignment: .left, textColor: ColorConstants.TextColor, fontSize: 16, numberOfLines: 3, verticalAlignment: true)
-        setUplabel(label: sizeLabel, alignment: .right, textColor: ColorConstants.TextColor, fontSize: 14, numberOfLines: 1, verticalAlignment: true)
+        setUplabel(
+            label: sizeLabel,
+            alignment: .right,
+            textColor: ColorConstants.TextColor,
+            fontSize: 14,
+            numberOfLines: 1,
+            verticalAlignment: true
+        )
         setUplabel(label: priceLabel, alignment: .right, textColor: .white, fontSize: 16, numberOfLines: 1)
         priceLabel.layer.cornerRadius = 10
         priceLabel.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner]
