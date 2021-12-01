@@ -76,7 +76,11 @@ final class MosaicViewLayout: UICollectionViewLayout {
 
                 let width = columnWidth - (cellPadding * 2)
                 delegate.collectionView(collectionView, heightForImageAtIndexPath: indexPath, withWidth: width) { float in
-                    let descriptionHeight = self.delegate.collectionView(collectionView, heightForDescriptionAtIndexPath: indexPath, withWidth: width)
+                    let descriptionHeight = self.delegate.collectionView(
+                        collectionView,
+                        heightForDescriptionAtIndexPath: indexPath,
+                        withWidth: width
+                    )
                     let height = self.cellPadding + float + descriptionHeight + self.cellPadding
 
                     let frame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height)

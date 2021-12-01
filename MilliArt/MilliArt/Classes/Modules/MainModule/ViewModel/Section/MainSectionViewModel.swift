@@ -14,7 +14,12 @@ final class MainSectionViewModel: SectionRowsRepresentable {
     func fillData(newPaints: [VerticalPaintsModel], compilations: [CompilationModel], authors: [AuthorModel]) {
         rows.insert(
             HCollectionViewModel(array: compilations.map({ model in
-                return HorizontalViewModel(pic: model.compilationPicture, name: model.compilationname, height: model.height, width: model.width, id: model.id)
+                return HorizontalViewModel(
+                    pic: model.compilationPicture,
+                    name: model.compilationname,
+                    height: model.height,
+                    width: model.width,
+                    id: model.id)
             }), action: { [weak self] index in
                 self?.actions?.clickOnCompilation(with: index)
             }), at: 1)
