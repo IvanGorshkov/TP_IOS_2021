@@ -51,7 +51,7 @@ class BuyCellView: BaseCartCell {
     
     private func setUp() {
         setUpBase()
-        setUpLabel(label: nameLabel, weight: .heavy)
+        setUpLabel(label: nameLabel, weight: .heavy, numberOfLines: 0)
         setUpLabel(label: autherLabel, numberOfLines: 0)
         setUpLabel(label: articalLabel, numberOfLines: 0)
         setUpLabel(label: totalLabel, numberOfLines: 0)
@@ -78,10 +78,15 @@ class BuyCellView: BaseCartCell {
                 alignmentStack: .center,
                 spacing: 10,
                 views: imagePainting, CreateStack.createStack(
+                            distribution: .equalCentering,
                             alignmentStack: .leading,
                             views: autherLabel, nameLabel, articalLabel)
             )
         )
-        HStackIn.addArrangedSubview(CreateStack.createStack(alignmentStack: .center, views: totalLabel, totalAmauntLabel))
+        HStackIn.addArrangedSubview(
+            CreateStack.createStack(
+                distribution: .fillEqually,
+                alignmentStack: .center,
+                views: totalLabel, totalAmauntLabel))
     }
 }
