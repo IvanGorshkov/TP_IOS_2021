@@ -9,9 +9,17 @@ import Foundation
 import Firebase
 
 final class CompilationNetService: NetServiceWithIdInput {
+    func reset() {
+        query = database.collection(collection)
+    }
+    
+    func addWhere(query: (Query) -> Query) {
+        guard let q = self.query else { return }
+        self.query = query(q)
+    }
+    
     func requestToNetService(with id: Int?) {
-        database.collection(collection)
-            .whereField(idParam, isEqualTo: id ?? 0)
+        query?.whereField(idParam, isEqualTo: id ?? 0)
             .limit(to: itemLimit)
             .getDocuments { [weak self] querySnapshot, error in
             if let error = error {
@@ -38,6 +46,7 @@ final class CompilationNetService: NetServiceWithIdInput {
     var productConverter: ConverterDescription?
     private let collection: String
     private let idParam: String
+    private var query: Query?
     
     weak var output: NetServiceOutput?
     init(interactor: NetServiceOutput?, collection: String, id: String) {
@@ -45,5 +54,6 @@ final class CompilationNetService: NetServiceWithIdInput {
         itemLimit = Int.max
         self.collection = collection
         self.idParam = id
+        query = database.collection(collection)
     }
 }

@@ -142,6 +142,16 @@
 		706E6A64272C3D960006BA3B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E6A63272C3D960006BA3B /* String+Extension.swift */; };
 		707CF8D027466152005036F3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8CF27466152005036F3 /* ImageLoader.swift */; };
 		707CF8D92746C1E3005036F3 /* BaseCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CF8D82746C1E3005036F3 /* BaseCart.swift */; };
+		70917A08275D427A00BD0683 /* AuthorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A02275D427A00BD0683 /* AuthorPresenter.swift */; };
+		70917A09275D427A00BD0683 /* AuthorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A03275D427A00BD0683 /* AuthorRouter.swift */; };
+		70917A0A275D427A00BD0683 /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A04275D427A00BD0683 /* AuthorViewController.swift */; };
+		70917A0B275D427A00BD0683 /* AuthorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A05275D427A00BD0683 /* AuthorProtocols.swift */; };
+		70917A0C275D427A00BD0683 /* AuthorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A06275D427A00BD0683 /* AuthorInteractor.swift */; };
+		70917A0D275D427A00BD0683 /* AuthorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A07275D427A00BD0683 /* AuthorContainer.swift */; };
+		70917A10275D450E00BD0683 /* AuthorView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A0F275D450E00BD0683 /* AuthorView+Constraints.swift */; };
+		70917A12275D607F00BD0683 /* MUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A11275D607F00BD0683 /* MUISegmentedControl.swift */; };
+		70917A15275E7E9200BD0683 /* FullAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A14275E7E9200BD0683 /* FullAuthor.swift */; };
+		70917A18275FCE5700BD0683 /* AuthorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70917A17275FCE5700BD0683 /* AuthorState.swift */; };
 		7099CA442733E609001805AC /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA432733E609001805AC /* HeaderCellViewModel.swift */; };
 		7099CA472733F325001805AC /* HCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */; };
 		7099CA492733F44F001805AC /* HCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099CA482733F44F001805AC /* HCollectionViewModel.swift */; };
@@ -220,6 +230,14 @@
 		70F72C0A2739B68E00A8709B /* TotalCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C082739B59E00A8709B /* TotalCellView.swift */; };
 		70F72C0C2739B7E400A8709B /* TotalCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C0B2739B7E400A8709B /* TotalCartViewModel.swift */; };
 		70F72C0E273A6CFF00A8709B /* BaseCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72C0D273A6CFF00A8709B /* BaseCartCell.swift */; };
+		70F8063027655E7000FD5854 /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8062F27655E6F00FD5854 /* Mail.swift */; };
+		70F8063827655F4000FD5854 /* AuthorAboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063227655F4000FD5854 /* AuthorAboutPresenter.swift */; };
+		70F8063927655F4000FD5854 /* AuthorAboutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063327655F4000FD5854 /* AuthorAboutRouter.swift */; };
+		70F8063A27655F4000FD5854 /* AuthorAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063427655F4000FD5854 /* AuthorAboutViewController.swift */; };
+		70F8063B27655F4000FD5854 /* AuthorAboutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063527655F4000FD5854 /* AuthorAboutProtocols.swift */; };
+		70F8063C27655F4000FD5854 /* AuthorAboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063627655F4000FD5854 /* AuthorAboutInteractor.swift */; };
+		70F8063D27655F4000FD5854 /* AuthorAboutContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063727655F4000FD5854 /* AuthorAboutContainer.swift */; };
+		70F806402765620B00FD5854 /* AuthorAboutView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063F2765620B00FD5854 /* AuthorAboutView+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -353,6 +371,16 @@
 		706E6A63272C3D960006BA3B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		707CF8CF27466152005036F3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		707CF8D82746C1E3005036F3 /* BaseCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCart.swift; sourceTree = "<group>"; };
+		70917A02275D427A00BD0683 /* AuthorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorPresenter.swift; sourceTree = "<group>"; };
+		70917A03275D427A00BD0683 /* AuthorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorRouter.swift; sourceTree = "<group>"; };
+		70917A04275D427A00BD0683 /* AuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
+		70917A05275D427A00BD0683 /* AuthorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorProtocols.swift; sourceTree = "<group>"; };
+		70917A06275D427A00BD0683 /* AuthorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorInteractor.swift; sourceTree = "<group>"; };
+		70917A07275D427A00BD0683 /* AuthorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorContainer.swift; sourceTree = "<group>"; };
+		70917A0F275D450E00BD0683 /* AuthorView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorView+Constraints.swift"; sourceTree = "<group>"; };
+		70917A11275D607F00BD0683 /* MUISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUISegmentedControl.swift; sourceTree = "<group>"; };
+		70917A14275E7E9200BD0683 /* FullAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullAuthor.swift; sourceTree = "<group>"; };
+		70917A17275FCE5700BD0683 /* AuthorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorState.swift; sourceTree = "<group>"; };
 		7099CA432733E609001805AC /* HeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellViewModel.swift; sourceTree = "<group>"; };
 		7099CA462733F325001805AC /* HCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		7099CA482733F44F001805AC /* HCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -424,6 +452,14 @@
 		70F72C082739B59E00A8709B /* TotalCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCellView.swift; sourceTree = "<group>"; };
 		70F72C0B2739B7E400A8709B /* TotalCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCartViewModel.swift; sourceTree = "<group>"; };
 		70F72C0D273A6CFF00A8709B /* BaseCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCartCell.swift; sourceTree = "<group>"; };
+		70F8062F27655E6F00FD5854 /* Mail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
+		70F8063227655F4000FD5854 /* AuthorAboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorAboutPresenter.swift; sourceTree = "<group>"; };
+		70F8063327655F4000FD5854 /* AuthorAboutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorAboutRouter.swift; sourceTree = "<group>"; };
+		70F8063427655F4000FD5854 /* AuthorAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorAboutViewController.swift; sourceTree = "<group>"; };
+		70F8063527655F4000FD5854 /* AuthorAboutProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorAboutProtocols.swift; sourceTree = "<group>"; };
+		70F8063627655F4000FD5854 /* AuthorAboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorAboutInteractor.swift; sourceTree = "<group>"; };
+		70F8063727655F4000FD5854 /* AuthorAboutContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorAboutContainer.swift; sourceTree = "<group>"; };
+		70F8063F2765620B00FD5854 /* AuthorAboutView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorAboutView+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -951,6 +987,8 @@
 		706E6A1E272B180B0006BA3B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				70F8063127655F1C00FD5854 /* AuthorAboutModule */,
+				70917A01275D425900BD0683 /* AuthorModule */,
 				70A293612757815300725860 /* CompilationModule */,
 				70096C18273EE0D500810EC0 /* OrderModule */,
 				70096BE3273D449C00810EC0 /* InputContactModule */,
@@ -1064,6 +1102,47 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		70917A01275D425900BD0683 /* AuthorModule */ = {
+			isa = PBXGroup;
+			children = (
+				70917A16275FCE3600BD0683 /* AuthorState */,
+				70917A13275E7E7F00BD0683 /* Entity */,
+				70917A02275D427A00BD0683 /* AuthorPresenter.swift */,
+				70917A03275D427A00BD0683 /* AuthorRouter.swift */,
+				70917A0E275D44EA00BD0683 /* Views */,
+				70917A05275D427A00BD0683 /* AuthorProtocols.swift */,
+				70917A06275D427A00BD0683 /* AuthorInteractor.swift */,
+				70917A07275D427A00BD0683 /* AuthorContainer.swift */,
+			);
+			path = AuthorModule;
+			sourceTree = "<group>";
+		};
+		70917A0E275D44EA00BD0683 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				70917A04275D427A00BD0683 /* AuthorViewController.swift */,
+				70917A0F275D450E00BD0683 /* AuthorView+Constraints.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		70917A13275E7E7F00BD0683 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				70917A14275E7E9200BD0683 /* FullAuthor.swift */,
+				70F8062F27655E6F00FD5854 /* Mail.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		70917A16275FCE3600BD0683 /* AuthorState */ = {
+			isa = PBXGroup;
+			children = (
+				70917A17275FCE5700BD0683 /* AuthorState.swift */,
+			);
+			path = AuthorState;
+			sourceTree = "<group>";
+		};
 		7099CA452733F30B001805AC /* HorizontalCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1151,6 +1230,7 @@
 			children = (
 				7099CA6F2734A404001805AC /* MUILabel.swift */,
 				70096C01273D689300810EC0 /* MUITextField.swift */,
+				70917A11275D607F00BD0683 /* MUISegmentedControl.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1418,6 +1498,28 @@
 			path = Total;
 			sourceTree = "<group>";
 		};
+		70F8063127655F1C00FD5854 /* AuthorAboutModule */ = {
+			isa = PBXGroup;
+			children = (
+				70F8063227655F4000FD5854 /* AuthorAboutPresenter.swift */,
+				70F8063327655F4000FD5854 /* AuthorAboutRouter.swift */,
+				70F8063E276561F400FD5854 /* View */,
+				70F8063527655F4000FD5854 /* AuthorAboutProtocols.swift */,
+				70F8063627655F4000FD5854 /* AuthorAboutInteractor.swift */,
+				70F8063727655F4000FD5854 /* AuthorAboutContainer.swift */,
+			);
+			path = AuthorAboutModule;
+			sourceTree = "<group>";
+		};
+		70F8063E276561F400FD5854 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				70F8063427655F4000FD5854 /* AuthorAboutViewController.swift */,
+				70F8063F2765620B00FD5854 /* AuthorAboutView+Constraints.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1536,6 +1638,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F8063027655E7000FD5854 /* Mail.swift in Sources */,
 				70096C16273E7ABF00810EC0 /* TextViewCell+Constraints.swift in Sources */,
 				70096C17273E7ABF00810EC0 /* TextViewCell.swift in Sources */,
 				70096C0C273DDB9400810EC0 /* RadioButtonCell.swift in Sources */,
@@ -1543,6 +1646,7 @@
 				70096BFF273D5FF800810EC0 /* TextFieldCell.swift in Sources */,
 				70096C02273D689300810EC0 /* MUITextField.swift in Sources */,
 				70096C00273D5FF800810EC0 /* TextFieldCell+Constraints.swift in Sources */,
+				70F8063B27655F4000FD5854 /* AuthorAboutProtocols.swift in Sources */,
 				70096BF9273D5F1000810EC0 /* InputTextFieldModelView.swift in Sources */,
 				70096BFA273D5F1000810EC0 /* InputSectionModel.swift in Sources */,
 				70F72C092739B68E00A8709B /* TotalCellView+Constraints.swift in Sources */,
@@ -1551,6 +1655,7 @@
 				70096C2A273FE75300810EC0 /* ShakeAnimation.swift in Sources */,
 				70F72C0227399FCE00A8709B /* BuyViewModel.swift in Sources */,
 				70A2936B2757817400725860 /* CompilationProtocols.swift in Sources */,
+				70917A08275D427A00BD0683 /* AuthorPresenter.swift in Sources */,
 				70F72C0327399FCE00A8709B /* RentViewModel.swift in Sources */,
 				70096C1F273EE0EF00810EC0 /* OrderPresenter.swift in Sources */,
 				70F72BFA27398EAC00A8709B /* BuyCellView+Constraints.swift in Sources */,
@@ -1567,6 +1672,7 @@
 				706E69EE272AC3130006BA3B /* MainContainer.swift in Sources */,
 				706E6A30272B3F680006BA3B /* ItemDescModel.swift in Sources */,
 				706E6A27272B25AF0006BA3B /* ItemDescRouter.swift in Sources */,
+				70917A12275D607F00BD0683 /* MUISegmentedControl.swift in Sources */,
 				704DAB4F274EA53700DCFE62 /* CheckOutService.swift in Sources */,
 				703A4ACE27307C59000329F7 /* FrameViewModel.swift in Sources */,
 				70A3C81A2745A6D50000C268 /* ImageCache.swift in Sources */,
@@ -1602,6 +1708,7 @@
 				706E6A1D272B09370006BA3B /* FilterContainer.swift in Sources */,
 				709F6E5A2733E2A40018ED10 /* HeaderCell+Constraints.swift in Sources */,
 				7099CA4C2733FC50001805AC /* VCollectionViewTableViewCell.swift in Sources */,
+				70917A0C275D427A00BD0683 /* AuthorInteractor.swift in Sources */,
 				706E69EB272AC3130006BA3B /* MainViewController.swift in Sources */,
 				703A4AC327303A5F000329F7 /* AR+Constraints.swift in Sources */,
 				7099CA702734A404001805AC /* MUILabel.swift in Sources */,
@@ -1629,6 +1736,8 @@
 				70F72BEC273973DF00A8709B /* ItemNameCell+Constraints.swift in Sources */,
 				7099CA6127348FA9001805AC /* MainView+Constraints.swift in Sources */,
 				7099CA64273492B9001805AC /* HCollectionVTVC+Constraints.swift in Sources */,
+				70F8063D27655F4000FD5854 /* AuthorAboutContainer.swift in Sources */,
+				70F8063A27655F4000FD5854 /* AuthorAboutViewController.swift in Sources */,
 				703A4ABB2730156C000329F7 /* AREditPresenter.swift in Sources */,
 				70096BD7273C58D900810EC0 /* DataManger.swift in Sources */,
 				70096C23273EE0EF00810EC0 /* OrderInteractor.swift in Sources */,
@@ -1639,6 +1748,7 @@
 				706E6A64272C3D960006BA3B /* String+Extension.swift in Sources */,
 				70096C04273D9B4B00810EC0 /* PhoneFormatter.swift in Sources */,
 				703A4ABF2730156C000329F7 /* AREditInteractor.swift in Sources */,
+				70F806402765620B00FD5854 /* AuthorAboutView+Constraints.swift in Sources */,
 				706E6A00272AEB380006BA3B /* SearchProtocols.swift in Sources */,
 				7099CA8A273598C7001805AC /* AllAuthorsRouter.swift in Sources */,
 				706E6A19272B09370006BA3B /* FilterRouter.swift in Sources */,
@@ -1660,6 +1770,7 @@
 				70C419EA27248FC1006214FA /* SceneDelegate.swift in Sources */,
 				706E69E9272AC3130006BA3B /* MainPresenter.swift in Sources */,
 				70096C31273FF91D00810EC0 /* InputModel.swift in Sources */,
+				70F8063C27655F4000FD5854 /* AuthorAboutInteractor.swift in Sources */,
 				706E6A3B272B522D0006BA3B /* ItemNameCell.swift in Sources */,
 				709F6E582733E2390018ED10 /* HeaderCellView.swift in Sources */,
 				706E6A3D272B53C40006BA3B /* ItemDescNameCellModel.swift in Sources */,
@@ -1669,6 +1780,7 @@
 				70F72C0C2739B7E400A8709B /* TotalCartViewModel.swift in Sources */,
 				70096BD0273C56E300810EC0 /* MilliArtModel.xcdatamodeld in Sources */,
 				703A4A8A272C6FA5000329F7 /* ButtonsDesc+Constraints.swift in Sources */,
+				70917A18275FCE5700BD0683 /* AuthorState.swift in Sources */,
 				7099CA78273585CC001805AC /* AllPresenter.swift in Sources */,
 				706E6A4D272BEC7E0006BA3B /* ButtonsDescCell.swift in Sources */,
 				7099CA7D273585CC001805AC /* AllContainer.swift in Sources */,
@@ -1679,6 +1791,7 @@
 				703A4AAA272DF61A000329F7 /* ARPresenter.swift in Sources */,
 				7099CA5C273488E3001805AC /* CompilationModel.swift in Sources */,
 				706E6A1C272B09370006BA3B /* FilterInteractor.swift in Sources */,
+				70917A15275E7E9200BD0683 /* FullAuthor.swift in Sources */,
 				7099CA58273487ED001805AC /* HorizontalViewModel.swift in Sources */,
 				706E69E1272AB5EE0006BA3B /* TabBarContainer.swift in Sources */,
 				7099CA472733F325001805AC /* HCollectionViewTableViewCell.swift in Sources */,
@@ -1686,6 +1799,7 @@
 				706E6A53272BFA400006BA3B /* SpecificationsDescCellModel.swift in Sources */,
 				7099CA532734257B001805AC /* VCollectionViewCell.swift in Sources */,
 				706E69DE272AB5EE0006BA3B /* TabBarViewController.swift in Sources */,
+				70917A0A275D427A00BD0683 /* AuthorViewController.swift in Sources */,
 				706E6A1B272B09370006BA3B /* FilterProtocols.swift in Sources */,
 				70096C24273EE0EF00810EC0 /* OrderContainer.swift in Sources */,
 				706E6A0F272AED5D0006BA3B /* CartInteractor.swift in Sources */,
@@ -1693,6 +1807,7 @@
 				7099CA8427359583001805AC /* AllCollectionViewCell.swift in Sources */,
 				7099CA7B273585CC001805AC /* AllProtocols.swift in Sources */,
 				706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */,
+				70917A10275D450E00BD0683 /* AuthorView+Constraints.swift in Sources */,
 				706E6A01272AEB380006BA3B /* SearchInteractor.swift in Sources */,
 				70096C21273EE0EF00810EC0 /* OrderViewController.swift in Sources */,
 				70A29373275790FA00725860 /* CompilationNetService.swift in Sources */,
@@ -1710,20 +1825,25 @@
 				706E69EA272AC3130006BA3B /* MainRouter.swift in Sources */,
 				706E6A3F272B53FF0006BA3B /* BaseCellModel.swift in Sources */,
 				70096BDF273C5DD700810EC0 /* Cart+CoreDataClass.swift in Sources */,
+				70917A09275D427A00BD0683 /* AuthorRouter.swift in Sources */,
 				706E6A02272AEB380006BA3B /* SearchContainer.swift in Sources */,
 				7099CA5A27348846001805AC /* VerticalPaintsModel.swift in Sources */,
+				70F8063927655F4000FD5854 /* AuthorAboutRouter.swift in Sources */,
 				70A2936D2757817400725860 /* CompilationContainer.swift in Sources */,
 				7099CA8527359583001805AC /* AllCollectionViewCell+Constraints.swift in Sources */,
 				703A4AA1272DB96E000329F7 /* RentPickerView+Constraints.swift in Sources */,
 				70096C22273EE0EF00810EC0 /* OrderProtocols.swift in Sources */,
 				70F72BF827398E3A00A8709B /* RentCellView+Constraints.swift in Sources */,
 				70096BEB273D44C900810EC0 /* InputContactPresenter.swift in Sources */,
+				70917A0D275D427A00BD0683 /* AuthorContainer.swift in Sources */,
 				707CF8D92746C1E3005036F3 /* BaseCart.swift in Sources */,
 				706E69FE272AEB380006BA3B /* SearchRouter.swift in Sources */,
 				706E6A29272B25AF0006BA3B /* ItemDescProtocols.swift in Sources */,
 				7099CA802735863D001805AC /* AllView+Constraints.swift in Sources */,
 				703A4A93272C8947000329F7 /* ServiceManagerDescModel.swift in Sources */,
 				706E6A47272BE64C0006BA3B /* AmountDescCellModel.swift in Sources */,
+				70917A0B275D427A00BD0683 /* AuthorProtocols.swift in Sources */,
+				70F8063827655F4000FD5854 /* AuthorAboutPresenter.swift in Sources */,
 				703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */,
 				706E69DF272AB5EE0006BA3B /* TabBarProtocols.swift in Sources */,
 				706E6A10272AED5D0006BA3B /* CartContainer.swift in Sources */,

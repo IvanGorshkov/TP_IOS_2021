@@ -58,6 +58,7 @@ protocol MainInteractorOutput: AnyObject {
 protocol MainRouterInput: AnyObject {
     func itemSelected(with view: MainViewInput?, and id: Int)
     func compilationSelected(with view: MainViewInput?, title: String, and id: Int)
+    func authorSelected(with view: MainViewInput?, and id: Int)
     func goToAllCompilation(with view: MainViewInput?)
     func goToAllAuthor(with view: MainViewInput?)
 }
@@ -74,6 +75,8 @@ protocol NetServiceInput: AnyObject {
 protocol NetServiceWithIdInput: AnyObject {
     func requestToNetService(with id: Int?)
     var itemLimit: Int { get set }
+    func reset()
+    func addWhere(query: (Query) -> Query)
     var productConverter: ConverterDescription? { get set }
 }
 

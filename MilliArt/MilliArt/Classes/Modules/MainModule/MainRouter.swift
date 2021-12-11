@@ -12,6 +12,12 @@ final class MainRouter {
 }
 
 extension MainRouter: MainRouterInput {
+    func authorSelected(with view: MainViewInput?, and id: Int) {
+        guard let view = view as? UIViewController else { return }
+        let author = AuthorContainer.assemble(with: AuthorContext(id: id))
+        view.navigationController?.pushViewController(author.viewController, animated: true)
+    }
+    
     func compilationSelected(with view: MainViewInput?, title: String, and id: Int) {
         guard let view = view as? UIViewController else { return }
         let compilation = CompilationContainer.assemble(with: CompilationContext(id: id, title: title))
