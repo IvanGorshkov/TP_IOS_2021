@@ -238,6 +238,7 @@
 		70F8063C27655F4000FD5854 /* AuthorAboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063627655F4000FD5854 /* AuthorAboutInteractor.swift */; };
 		70F8063D27655F4000FD5854 /* AuthorAboutContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063727655F4000FD5854 /* AuthorAboutContainer.swift */; };
 		70F806402765620B00FD5854 /* AuthorAboutView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8063F2765620B00FD5854 /* AuthorAboutView+Constraints.swift */; };
+		7DDEF8492766973600201C9D /* SearchView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDEF8482766973600201C9D /* SearchView+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -460,6 +461,7 @@
 		70F8063627655F4000FD5854 /* AuthorAboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorAboutInteractor.swift; sourceTree = "<group>"; };
 		70F8063727655F4000FD5854 /* AuthorAboutContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorAboutContainer.swift; sourceTree = "<group>"; };
 		70F8063F2765620B00FD5854 /* AuthorAboutView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorAboutView+Constraints.swift"; sourceTree = "<group>"; };
+		7DDEF8482766973600201C9D /* SearchView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchView+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -945,9 +947,9 @@
 		706E6A03272AEB430006BA3B /* SearchModule */ = {
 			isa = PBXGroup;
 			children = (
+				7DDEF84A2766974200201C9D /* Views */,
 				706E69F7272AEB380006BA3B /* SearchPresenter.swift */,
 				706E69F8272AEB380006BA3B /* SearchRouter.swift */,
-				706E69F9272AEB380006BA3B /* SearchViewController.swift */,
 				706E69FA272AEB380006BA3B /* SearchProtocols.swift */,
 				706E69FB272AEB380006BA3B /* SearchInteractor.swift */,
 				706E69FC272AEB380006BA3B /* SearchContainer.swift */,
@@ -1520,6 +1522,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7DDEF84A2766974200201C9D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7DDEF8482766973600201C9D /* SearchView+Constraints.swift */,
+				706E69F9272AEB380006BA3B /* SearchViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1793,6 +1804,7 @@
 				706E6A1C272B09370006BA3B /* FilterInteractor.swift in Sources */,
 				70917A15275E7E9200BD0683 /* FullAuthor.swift in Sources */,
 				7099CA58273487ED001805AC /* HorizontalViewModel.swift in Sources */,
+				7DDEF8492766973600201C9D /* SearchView+Constraints.swift in Sources */,
 				706E69E1272AB5EE0006BA3B /* TabBarContainer.swift in Sources */,
 				7099CA472733F325001805AC /* HCollectionViewTableViewCell.swift in Sources */,
 				703A4A87272C6F88000329F7 /* AmountDesc+Constraints.swift in Sources */,
@@ -1993,7 +2005,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 58T4L2QKV7;
+				DEVELOPMENT_TEAM = VYDPJANCG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
@@ -2024,7 +2036,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 58T4L2QKV7;
+				DEVELOPMENT_TEAM = VYDPJANCG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
