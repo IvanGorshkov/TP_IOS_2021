@@ -2,7 +2,7 @@
 //  SearchProtocols.swift
 //  MilliArt
 //
-//  Created by Ivan Gorshkov on 28.10.2021.
+//  Created by Alekhin Sergey on 28.10.2021.
 //  
 //
 
@@ -16,18 +16,30 @@ protocol SearchModuleOutput: AnyObject {
 }
 
 protocol SearchViewInput: AnyObject {
+    func reloadData()
 }
 
 protocol SearchViewOutput: AnyObject {
     func goToFilter()
+    func enterText(text: String)
+    func viewDidLoad()
+    func getCell(at index: Int) -> CellIdentifiable?
+    func getCountCells() -> Int
+    func getCellIdentifier(at index: Int) -> String
+    func itemSelected(id: Int)
 }
 
 protocol SearchInteractorInput: AnyObject {
+    func enterText(text: String)
+    func receiveId(with index: Int) -> Int
+    func loadData()
 }
 
 protocol SearchInteractorOutput: AnyObject {
+    func receiveData(data: [VerticalPaintsModel])
 }
 
 protocol SearchRouterInput: AnyObject {
     func goToFilterVC(from vc: SearchViewInput?)
+    func itemSelected(with view: SearchViewInput?, and id: Int)
 }

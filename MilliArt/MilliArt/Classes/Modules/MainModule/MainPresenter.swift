@@ -32,7 +32,8 @@ extension MainPresenter: MainViewOutput {
     }
     
     func clickOnAuthor(with id: Int) {
-        print(id)
+        guard let author = mainSectionViewModel?.rows[3] as?  HCollectionViewModel else { return }
+        router.authorSelected(with: view, and: author.array[id].id)
     }
     
     func clickOnArt(with id: Int) {
