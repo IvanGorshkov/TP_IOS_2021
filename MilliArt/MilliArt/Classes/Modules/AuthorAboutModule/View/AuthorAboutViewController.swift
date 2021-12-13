@@ -68,6 +68,7 @@ final class AuthorAboutViewController: UIViewController {
         ImageLoader.shared.image(with: output.getImage()) { image in
             imageView.image = image
         }
+        imageView.contentMode = .scaleAspectFill
     }
     
     private func setUpDescription() {

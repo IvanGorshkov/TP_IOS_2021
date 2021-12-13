@@ -104,6 +104,7 @@ final class AuthorViewController: UIViewController, UICollectionViewDelegateFlow
     private func setUpPicture(imageView: UIImageView) {
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = ColorConstants.MainPurpleColor.cgColor
+        imageView.contentMode = .scaleAspectFill
     }
     
     private func setUpSegmentedControl() {
