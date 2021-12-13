@@ -108,7 +108,8 @@ final class MosaicViewLayout: UICollectionViewLayout {
     }
 
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        print(indexPath.item)
+        if indexPath.isEmpty { return nil }
+        if indexPath.item >= cache.count { return nil } 
         return cache.contains(cache[indexPath.item]) ? cache[indexPath.item]: nil
     }
 }

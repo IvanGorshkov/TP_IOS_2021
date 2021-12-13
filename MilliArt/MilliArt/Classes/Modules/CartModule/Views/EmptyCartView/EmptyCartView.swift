@@ -12,23 +12,24 @@ final class EmptyCartView: UIView {
     internal var subTitle = UILabel()
     internal var imageView = UIImageView()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect = CGRect.zero, titleText: String = TitlesConstants.cartTitle, subtitleText: String = TitlesConstants.cartSubTitle) {
         super.init(frame: frame)
         [title, subTitle, imageView].forEach { [weak self] view in
             self?.addSubview(view)
         }
-        setUp()
+        setUp(titleText: titleText, subtitleText: subtitleText)
         addViewConstraints()
     }
     
-    func setUp() {
-        setLabel(label: subTitle, text: TitlesConstants.cartSubTitle, alpha: 0.4, fontSize: 18, weight: .regular)
-        setLabel(label: title, text: TitlesConstants.cartTitle, alpha: 0.5, fontSize: 36, weight: .bold)
+    func setUp(titleText: String, subtitleText: String) {
+        setLabel(label: subTitle, text: subtitleText, alpha: 0.4, fontSize: 18, weight: .regular)
+        setLabel(label: title, text: titleText, alpha: 0.5, fontSize: 36, weight: .bold)
         setUpImageView()
     }
     
     func setLabel(label: UILabel, text: String, alpha: CGFloat, fontSize: CGFloat, weight: UIFont.Weight) {
         label.text = text
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
         label.textColor = ColorConstants.BlackColor.withAlphaComponent(alpha)

@@ -25,6 +25,8 @@ final class TitlesConstants {
     static let BackNavTitle = "Назад"
     static let PaintingNavTitle = "Информация о картине"
     static let AR = "Дополненная реальность"
+    static let AuthorTitle = "Автор"
+    static let AboutAuthorTitle = "Автор"
 
     // MARK: ItemDescCelll
     static let BuyTitle = "Купить"
