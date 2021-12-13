@@ -45,8 +45,8 @@ extension SearchInteractor: SearchInteractorInput {
     }
     
     func enterText(text: String) {
-        filterPainingsArray = totalPainingsArray.filter { data in
-           return data.name.starts(with: text)
+        filterPainingsArray = text.isEmpty ? totalPainingsArray : totalPainingsArray.filter { data in
+            return data.name.contains(text)
         }
         self.output?.receiveData(data: filterPainingsArray)
     }

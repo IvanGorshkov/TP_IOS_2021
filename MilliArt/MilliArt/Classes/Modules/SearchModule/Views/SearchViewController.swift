@@ -8,11 +8,12 @@
 
 import UIKit
 import AVFoundation
+import NVActivityIndicatorView
 
 final class SearchViewController: UIViewController, UICollectionViewDelegate {
 	private let output: SearchViewOutput
     let searchBar = UISearchBar()
-    private var firstInput = true
+    private var activityIndicatorView: NVActivityIndicatorView!
     internal var emptySearchView = EmptyCartView(titleText: "По вашему запросу ничего не найдено", subtitleText: "Попробуйте ввести что-то другое")
     internal lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -54,9 +55,22 @@ final class SearchViewController: UIViewController, UICollectionViewDelegate {
         self.emptySearchView.isHidden = true
         self.setUpSearchBar()
         self.setUpcollectionViewBase()
+        self.setUpIndicator()
 //        addNavigationButton()
+        self.view.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
     }
-
+    
+    private func setUpIndicator() {
+        var frameCenter = view.center
+        frameCenter.x -= 25
+        frameCenter.y -= 25
+        activityIndicatorView = NVActivityIndicatorView(
+            frame: CGRect(origin: frameCenter, size: CGSize(width: 50, height: 50)),
+            type: .ballScale,
+            color: ColorConstants.MainPurpleColor)
+    }
+    
     private func addNavigationButton() {
         let button = UIBarButtonItem(image: .init(named: "filter"), style: .plain, target: self, action: #selector(filterButtonAction))
         button.tintColor = ColorConstants.MainPurpleColor
@@ -74,17 +88,18 @@ final class SearchViewController: UIViewController, UICollectionViewDelegate {
     func setUpSearchBar() {
         self.searchBar.delegate = self
         self.searchBar.placeholder = "Введите картину"
+        self.searchBar.setupSearchBar(
+            background: ColorConstants.MainBackGroundColor,
+            inputText: ColorConstants.BlackColor,
+            placeholderText: ColorConstants.LightGrey
+        )
     }
     
     private func reloadLayout() {
-        if firstInput {
-            self.firstInput = false
-            
-            let layout = MosaicViewLayout()
-            layout.delegate = self
-            collectionView.setCollectionViewLayout(layout, animated: true)
-            collectionView.collectionViewLayout.invalidateLayout()
-        }
+        let layout = MosaicViewLayout()
+        layout.delegate = self
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 
     @objc
@@ -95,14 +110,15 @@ final class SearchViewController: UIViewController, UICollectionViewDelegate {
 
 extension SearchViewController: SearchViewInput {
     func reloadData() {
+        activityIndicatorView.stopAnimating()
         if output.getCountCells() == 0 {
             self.emptySearchView.isHidden = false
             self.collectionView.isHidden = true
         } else {
             self.emptySearchView.isHidden = true
             self.collectionView.isHidden = false
-            
             collectionView.reloadData()
+            print(output.getCountCells())
             reloadLayout()
         }
     }
@@ -112,6 +128,27 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.output.enterText(text: searchText)
     }
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        return true
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.output.enterText(text: "")
+        self.searchBar.text = ""
+        self.searchBar.endEditing(true)
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension SearchViewController: UICollectionViewDataSource {
@@ -120,7 +157,8 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath)
+//        do {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath)
                 as? VCollectionViewCell else {
                     return UICollectionViewCell()
                 }
@@ -128,7 +166,10 @@ extension SearchViewController: UICollectionViewDataSource {
             let myCell = collectionView.cellForItem(at: indexPath)
             return cell == myCell
         })
-        return cell
+            return cell
+//        } catch {
+//            return UICollectionViewCell()
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

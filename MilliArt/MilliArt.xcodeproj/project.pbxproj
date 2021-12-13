@@ -78,6 +78,7 @@
 		703A4AD02730A1A5000329F7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4ACF2730A1A5000329F7 /* UIImageView+Extension.swift */; };
 		703A4AD22731DF14000329F7 /* AREdit+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AD12731DF13000329F7 /* AREdit+Constraints.swift */; };
 		703A4AD62731FC8F000329F7 /* FrameCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A4AD52731FC8F000329F7 /* FrameCell+Constraints.swift */; };
+		7046E08D27676E9E00DAC949 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046E08C27676E9E00DAC949 /* UISearchBar+Extension.swift */; };
 		704DAB4F274EA53700DCFE62 /* CheckOutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704DAB4E274EA53700DCFE62 /* CheckOutService.swift */; };
 		706E69DC272AB5EE0006BA3B /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */; };
 		706E69DD272AB5EE0006BA3B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */; };
@@ -312,6 +313,7 @@
 		703A4ACF2730A1A5000329F7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		703A4AD12731DF13000329F7 /* AREdit+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AREdit+Constraints.swift"; sourceTree = "<group>"; };
 		703A4AD52731FC8F000329F7 /* FrameCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FrameCell+Constraints.swift"; sourceTree = "<group>"; };
+		7046E08C27676E9E00DAC949 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		704DAB4E274EA53700DCFE62 /* CheckOutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutService.swift; sourceTree = "<group>"; };
 		706E69D6272AB5EE0006BA3B /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		706E69D7272AB5EE0006BA3B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
@@ -1092,6 +1094,7 @@
 				706E6A61272C3B8E0006BA3B /* UIButton+Extension.swift */,
 				706E6A63272C3D960006BA3B /* String+Extension.swift */,
 				703A4ACF2730A1A5000329F7 /* UIImageView+Extension.swift */,
+				7046E08C27676E9E00DAC949 /* UISearchBar+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1694,6 +1697,7 @@
 				70096C20273EE0EF00810EC0 /* OrderRouter.swift in Sources */,
 				703A4AAF272DF61A000329F7 /* ARContainer.swift in Sources */,
 				703A4AAE272DF61A000329F7 /* ARInteractor.swift in Sources */,
+				7046E08D27676E9E00DAC949 /* UISearchBar+Extension.swift in Sources */,
 				70096BE0273C5DD700810EC0 /* Cart+CoreDataProperties.swift in Sources */,
 				706E6A33272B50540006BA3B /* ItemDescSectionModel.swift in Sources */,
 				706E6A2D272B2F260006BA3B /* TitlesConstants.swift in Sources */,
@@ -2005,7 +2009,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VYDPJANCG8;
+				DEVELOPMENT_TEAM = 58T4L2QKV7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
@@ -2036,7 +2040,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VYDPJANCG8;
+				DEVELOPMENT_TEAM = 58T4L2QKV7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";

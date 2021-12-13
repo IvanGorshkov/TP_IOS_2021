@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreML
 
 final class AuthorPresenter {
 	weak var view: AuthorViewInput?
@@ -48,7 +47,7 @@ extension AuthorPresenter: AuthorViewOutput {
     }
     
     func viewDidLoad() {
-        interactor.loadData(with: 1)
+        interactor.loadData(with: authorId ?? 0)
     }
     
     func getCell(at index: Int) -> CellIdentifiable? {

@@ -14,6 +14,7 @@ final class MainRouter {
 extension MainRouter: MainRouterInput {
     func authorSelected(with view: MainViewInput?, and id: Int) {
         guard let view = view as? UIViewController else { return }
+        print(id)
         let author = AuthorContainer.assemble(with: AuthorContext(id: id))
         view.navigationController?.pushViewController(author.viewController, animated: true)
     }
