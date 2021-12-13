@@ -2009,7 +2009,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 58T4L2QKV7;
+				DEVELOPMENT_TEAM = VYDPJANCG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
@@ -2040,7 +2040,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 58T4L2QKV7;
+				DEVELOPMENT_TEAM = VYDPJANCG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MilliArt/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need to access your camera to AR detection";
