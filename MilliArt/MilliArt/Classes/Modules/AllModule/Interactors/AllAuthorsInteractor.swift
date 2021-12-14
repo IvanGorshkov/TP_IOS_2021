@@ -21,7 +21,7 @@ final class AllAuthorsInteractor {
 
 extension AllAuthorsInteractor: AllInteractorInput {
     func receiveId(with index: Int) -> Int {
-        return 0 
+        return authors[index].id
     }
     
     func receiveTitle(with index: Int) -> String {
