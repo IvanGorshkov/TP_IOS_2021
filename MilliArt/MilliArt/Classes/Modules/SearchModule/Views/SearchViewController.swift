@@ -49,6 +49,7 @@ final class SearchViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addViewConstraints()
+        reloadLayout()
     }
 
     private func setUp() {

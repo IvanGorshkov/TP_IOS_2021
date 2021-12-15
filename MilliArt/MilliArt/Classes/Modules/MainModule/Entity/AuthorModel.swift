@@ -26,6 +26,7 @@ final class AuthorConverter: ConverterDescription {
     
     func product<T>(from document: DocumentSnapshot) -> T? {
         guard let dict = document.data() else { return nil }
+        print(dict)
         let title = dict[Key.fullname.rawValue]
         let height = dict[Key.height.rawValue]
         let width = dict[Key.width.rawValue]

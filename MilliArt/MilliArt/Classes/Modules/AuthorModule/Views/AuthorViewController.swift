@@ -124,7 +124,8 @@ final class AuthorViewController: UIViewController, UICollectionViewDelegateFlow
         super.viewDidLayoutSubviews()
         [picture, moreBtn, privateOrderBtn].forEach { view in
             rounded(view: view)
-        }
+        } 
+        reloadLayout()
     }
     
     private func rounded(view: UIView) {
